@@ -1,3 +1,0 @@
-Application:Application%20Window string WindowBackgroundColor= 0xFFFFFF 0x505050 % % // Application window background color (color)(allow_override)
-Application:Application%20Window string WindowHideCursor= 0 0 0 1 // hide cursor when mouse is over Application window (boolean)
-Application:Hyperscanning string ParameterPath= ../parms/HyperscanningDemo/ServerParameters.prm // path to donwload parameters from the server to
