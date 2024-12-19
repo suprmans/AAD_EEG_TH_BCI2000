@@ -1,6 +1,6 @@
 **/.DS_Store
 
-BCI2000/trunk/.svn/
+BCI2000/trunk/.svn/*
 
 BCI2000/trunk/batch/
 BCI2000/trunk/build/
