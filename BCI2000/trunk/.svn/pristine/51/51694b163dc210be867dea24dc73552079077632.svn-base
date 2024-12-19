@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Glossary - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:grey; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:black; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">Glossary</h1>
+ <p class = "subtitle"></p>
+ <hr class = "sep" />
+ <div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><p>A glossary of general terms
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Glossary.html#Coefficient_of_Determination,_Determination_Coefficient,_RSquared,_&#39;&quot;`UNIQ--postMath-00000001-QINU`&quot;&#39;"><span class="tocnumber">1</span> <span class="toctext">Coefficient of Determination, Determination Coefficient, RSquared, '"`UNIQ--postMath-00000001-QINU`"'</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="Glossary.html#Computation"><span class="tocnumber">1.1</span> <span class="toctext">Computation</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="Glossary.html#Relation_to_Classifier_Training,_and_Linear_Discriminant_Analysis_(LDA)"><span class="tocnumber">1.2</span> <span class="toctext">Relation to Classifier Training, and Linear Discriminant Analysis (LDA)</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="Glossary.html#Significance_Test"><span class="tocnumber">1.3</span> <span class="toctext">Significance Test</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="Glossary.html#Sensorimotor_Rhythm_(SMR)"><span class="tocnumber">2</span> <span class="toctext">Sensorimotor Rhythm (SMR)</span></a></li>
+</ul>
+</div>
+
+<h2><span id="Coefficient_of_Determination.2C_Determination_Coefficient.2C_RSquared.2C_.7F.27.22.60UNIQ--postMath-00000001-QINU.60.22.27.7F"></span><span class="mw-headline" id="Coefficient_of_Determination,_Determination_Coefficient,_RSquared,_'&quot;`UNIQ--postMath-00000001-QINU`&quot;'">Coefficient of Determination, Determination Coefficient, RSquared, <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle r^{2}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>r</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle r^{2}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a363a15442d031416d1eb62254a9c726e3f6c66c" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:2.103ex; height:2.676ex;" alt="{\displaystyle r^{2}}"/></span></span></h2>
+<p>The coefficient of determination, or <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle r^{2}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>r</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle r^{2}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a363a15442d031416d1eb62254a9c726e3f6c66c" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:2.103ex; height:2.676ex;" alt="{\displaystyle r^{2}}"/></span> value, is a statistical measure computed over a pair of sample distributions, giving a measure of how strongly the means of the two distributions differ in relation to variance. In a BCI context, the coefficient of determination is computed over signals that have been measured under two different task conditions, and represents the fraction of the total signal variance that is accounted for ("determined by") by the task condition. It is a measure of how well the original task condition ("user intent") may be inferred from a brain signal.
+</p>
+<h3><span class="mw-headline" id="Computation">Computation</span></h3>
+<p>The coefficient of determination is in fact the squared correlation coefficient for a single bivariate distribution constructed from two sets of univariate data as follows:
+</p>
+<ul><li>There are <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n_{1}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>n</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n_{1}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ee784b70e772f55ede5e6e0bdc929994bff63413" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:2.449ex; height:2.009ex;" alt="{\displaystyle n_{1}}"/></span> values <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x_{i}^{(1)}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msubsup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo stretchy="false">(</mo>
+            <mn>1</mn>
+            <mo stretchy="false">)</mo>
+          </mrow>
+        </msubsup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x_{i}^{(1)}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/cc158b66a17f2498b075b0dfd92b26288cedfe3e" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:3.663ex; height:3.676ex;" alt="{\displaystyle x_{i}^{(1)}}"/></span> measured under condition 1, and <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n_{2}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>n</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n_{2}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/840e456e3058bc0be28e5cf653b170cdbfcc3be4" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:2.449ex; height:2.009ex;" alt="{\displaystyle n_{2}}"/></span> values <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x_{i}^{(2)}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msubsup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo stretchy="false">(</mo>
+            <mn>2</mn>
+            <mo stretchy="false">)</mo>
+          </mrow>
+        </msubsup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x_{i}^{(2)}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/56ca0204f7c2ed2b5b2ba6fccdfd87fb99bfebc8" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:3.663ex; height:3.676ex;" alt="{\displaystyle x_{i}^{(2)}}"/></span> measured under condition 2.</li>
+<li>From these two data sets, a single, two-dimensional data set is constructed, consisting of points <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle (x,y)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo>,</mo>
+        <mi>y</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (x,y)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/41cf50e4a314ca8e2c30964baa8d26e5be7a9386" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:5.328ex; height:2.843ex;" alt="{\displaystyle (x,y)}"/></span> by assigning the measured value to <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>x</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/87f9e315fd7e2ba406057a97300593c4802b53e4" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.33ex; height:1.676ex;" alt="{\displaystyle x}"/></span>, and setting <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle y=+1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>y</mi>
+        <mo>=</mo>
+        <mo>+</mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle y=+1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/af986e45dfb6f20435761b2bd0356865ba0063d2" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:7.225ex; height:2.509ex;" alt="{\displaystyle y=+1}"/></span> if the value has been measured under condition 1, and <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle y=-1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>y</mi>
+        <mo>=</mo>
+        <mo>&#x2212;<!-- − --></mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle y=-1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d408b479252792fd0d5936e9eb0a269702521957" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:7.225ex; height:2.509ex;" alt="{\displaystyle y=-1}"/></span> for condition 2. The actual label values assigned to <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle y}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>y</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle y}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b8a6208ec717213d4317e666f1ae872e00620a0d" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:1.155ex; height:2.009ex;" alt="{\displaystyle y}"/></span> do not matter, as long as they are distinct, but choosing +1 and -1 simplifies further computation.</li>
+<li>For any two-dimensional data set of points <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle (x,y)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo>,</mo>
+        <mi>y</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (x,y)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/41cf50e4a314ca8e2c30964baa8d26e5be7a9386" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:5.328ex; height:2.843ex;" alt="{\displaystyle (x,y)}"/></span>, the squared correlation coefficient is:</li></ul>
+<p><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle r^{2}={\frac {{\textrm {cov}}(x,y)^{2}}{{\textrm {var}}(x){\textrm {var}}(y)}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>r</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext>cov</mtext>
+                </mrow>
+              </mrow>
+              <mo stretchy="false">(</mo>
+              <mi>x</mi>
+              <mo>,</mo>
+              <mi>y</mi>
+              <msup>
+                <mo stretchy="false">)</mo>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msup>
+            </mrow>
+            <mrow>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext>var</mtext>
+                </mrow>
+              </mrow>
+              <mo stretchy="false">(</mo>
+              <mi>x</mi>
+              <mo stretchy="false">)</mo>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext>var</mtext>
+                </mrow>
+              </mrow>
+              <mo stretchy="false">(</mo>
+              <mi>y</mi>
+              <mo stretchy="false">)</mo>
+            </mrow>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle r^{2}={\frac {{\textrm {cov}}(x,y)^{2}}{{\textrm {var}}(x){\textrm {var}}(y)}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7c9194397a87427190f6a653aef1b853abdc1b59" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.671ex; width:18.744ex; height:6.676ex;" alt="{\displaystyle r^{2}={\frac {{\textrm {cov}}(x,y)^{2}}{{\textrm {var}}(x){\textrm {var}}(y)}}}"/></span>.
+</p><p>In the special case of the distribution defined above, defining
+</p><p><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle s_{k}:=\sum _{i}x_{i}^{(k)},\ q_{k}:=\sum _{i}{x_{i}^{(k)}}^{2}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>s</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+          </mrow>
+        </msub>
+        <mo>:=</mo>
+        <munder>
+          <mo>&#x2211;<!-- ∑ --></mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </munder>
+        <msubsup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo stretchy="false">(</mo>
+            <mi>k</mi>
+            <mo stretchy="false">)</mo>
+          </mrow>
+        </msubsup>
+        <mo>,</mo>
+        <mtext>&#xA0;</mtext>
+        <msub>
+          <mi>q</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+          </mrow>
+        </msub>
+        <mo>:=</mo>
+        <munder>
+          <mo>&#x2211;<!-- ∑ --></mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </munder>
+        <msup>
+          <mrow class="MJX-TeXAtom-ORD">
+            <msubsup>
+              <mi>x</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>i</mi>
+              </mrow>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mo stretchy="false">(</mo>
+                <mi>k</mi>
+                <mo stretchy="false">)</mo>
+              </mrow>
+            </msubsup>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle s_{k}:=\sum _{i}x_{i}^{(k)},\ q_{k}:=\sum _{i}{x_{i}^{(k)}}^{2}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c1e20c26a66a79e0fb97a1ee4c0302eb10b9c91d" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -3.005ex; width:29.344ex; height:6.176ex;" alt="{\displaystyle s_{k}:=\sum _{i}x_{i}^{(k)},\ q_{k}:=\sum _{i}{x_{i}^{(k)}}^{2}}"/></span>,
+</p><p>we have
+</p><p><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\textrm {cov}}(x,y)={\frac {s_{1}-s_{2}}{n_{1}+n_{2}}}-{\frac {(s_{1}+s_{2})(n_{1}-n_{2})}{(n_{1}+n_{2})^{2}}}=2{\frac {s_{1}n_{2}-s_{2}n_{1}}{(n_{1}+n_{2})^{2}}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mtext>cov</mtext>
+          </mrow>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo>,</mo>
+        <mi>y</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <msub>
+                <mi>s</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+              <mo>&#x2212;<!-- − --></mo>
+              <msub>
+                <mi>s</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+            </mrow>
+            <mrow>
+              <msub>
+                <mi>n</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+              <mo>+</mo>
+              <msub>
+                <mi>n</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+            </mrow>
+          </mfrac>
+        </mrow>
+        <mo>&#x2212;<!-- − --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <mo stretchy="false">(</mo>
+              <msub>
+                <mi>s</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+              <mo>+</mo>
+              <msub>
+                <mi>s</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+              <mo stretchy="false">)</mo>
+              <mo stretchy="false">(</mo>
+              <msub>
+                <mi>n</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+              <mo>&#x2212;<!-- − --></mo>
+              <msub>
+                <mi>n</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+              <mo stretchy="false">)</mo>
+            </mrow>
+            <mrow>
+              <mo stretchy="false">(</mo>
+              <msub>
+                <mi>n</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+              <mo>+</mo>
+              <msub>
+                <mi>n</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+              <msup>
+                <mo stretchy="false">)</mo>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msup>
+            </mrow>
+          </mfrac>
+        </mrow>
+        <mo>=</mo>
+        <mn>2</mn>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <msub>
+                <mi>s</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+              <msub>
+                <mi>n</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+              <mo>&#x2212;<!-- − --></mo>
+              <msub>
+                <mi>s</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+              <msub>
+                <mi>n</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+            </mrow>
+            <mrow>
+              <mo stretchy="false">(</mo>
+              <msub>
+                <mi>n</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+              <mo>+</mo>
+              <msub>
+                <mi>n</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+              <msup>
+                <mo stretchy="false">)</mo>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msup>
+            </mrow>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\textrm {cov}}(x,y)={\frac {s_{1}-s_{2}}{n_{1}+n_{2}}}-{\frac {(s_{1}+s_{2})(n_{1}-n_{2})}{(n_{1}+n_{2})^{2}}}=2{\frac {s_{1}n_{2}-s_{2}n_{1}}{(n_{1}+n_{2})^{2}}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/734e2a431a37de07a52abad73b344deef1e1d31f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.671ex; width:59.712ex; height:6.509ex;" alt="{\displaystyle {\textrm {cov}}(x,y)={\frac {s_{1}-s_{2}}{n_{1}+n_{2}}}-{\frac {(s_{1}+s_{2})(n_{1}-n_{2})}{(n_{1}+n_{2})^{2}}}=2{\frac {s_{1}n_{2}-s_{2}n_{1}}{(n_{1}+n_{2})^{2}}}}"/></span>,
+</p><p><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\textrm {var}}(x)={\frac {q_{1}+q_{2}}{n_{1}+n_{2}}}-{\frac {(s_{1}+s_{2})^{2}}{(n_{1}+n_{2})^{2}}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mtext>var</mtext>
+          </mrow>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <msub>
+                <mi>q</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+              <mo>+</mo>
+              <msub>
+                <mi>q</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+            </mrow>
+            <mrow>
+              <msub>
+                <mi>n</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+              <mo>+</mo>
+              <msub>
+                <mi>n</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+            </mrow>
+          </mfrac>
+        </mrow>
+        <mo>&#x2212;<!-- − --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <mo stretchy="false">(</mo>
+              <msub>
+                <mi>s</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+              <mo>+</mo>
+              <msub>
+                <mi>s</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+              <msup>
+                <mo stretchy="false">)</mo>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msup>
+            </mrow>
+            <mrow>
+              <mo stretchy="false">(</mo>
+              <msub>
+                <mi>n</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+              <mo>+</mo>
+              <msub>
+                <mi>n</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+              <msup>
+                <mo stretchy="false">)</mo>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msup>
+            </mrow>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\textrm {var}}(x)={\frac {q_{1}+q_{2}}{n_{1}+n_{2}}}-{\frac {(s_{1}+s_{2})^{2}}{(n_{1}+n_{2})^{2}}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/fc345668679ab29f6ee9c2e6788897b4259b9b8b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.671ex; width:32.392ex; height:6.676ex;" alt="{\displaystyle {\textrm {var}}(x)={\frac {q_{1}+q_{2}}{n_{1}+n_{2}}}-{\frac {(s_{1}+s_{2})^{2}}{(n_{1}+n_{2})^{2}}}}"/></span>,
+</p><p><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\textrm {var}}(y)=1-{\frac {\left(n_{1}-n_{2}\right)^{2}}{(n_{1}+n_{2})^{2}}}={\frac {4n_{1}n_{2}}{(n_{1}+n_{2})^{2}}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mtext>var</mtext>
+          </mrow>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>y</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mn>1</mn>
+        <mo>&#x2212;<!-- − --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <msup>
+              <mrow>
+                <mo>(</mo>
+                <mrow>
+                  <msub>
+                    <mi>n</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mn>1</mn>
+                    </mrow>
+                  </msub>
+                  <mo>&#x2212;<!-- − --></mo>
+                  <msub>
+                    <mi>n</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mn>2</mn>
+                    </mrow>
+                  </msub>
+                </mrow>
+                <mo>)</mo>
+              </mrow>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mn>2</mn>
+              </mrow>
+            </msup>
+            <mrow>
+              <mo stretchy="false">(</mo>
+              <msub>
+                <mi>n</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+              <mo>+</mo>
+              <msub>
+                <mi>n</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+              <msup>
+                <mo stretchy="false">)</mo>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msup>
+            </mrow>
+          </mfrac>
+        </mrow>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <mn>4</mn>
+              <msub>
+                <mi>n</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+              <msub>
+                <mi>n</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+            </mrow>
+            <mrow>
+              <mo stretchy="false">(</mo>
+              <msub>
+                <mi>n</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+              <mo>+</mo>
+              <msub>
+                <mi>n</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+              <msup>
+                <mo stretchy="false">)</mo>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msup>
+            </mrow>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\textrm {var}}(y)=1-{\frac {\left(n_{1}-n_{2}\right)^{2}}{(n_{1}+n_{2})^{2}}}={\frac {4n_{1}n_{2}}{(n_{1}+n_{2})^{2}}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/36ccf6854cce7a7f6ff24830afd8d5c6e3db40ca" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.671ex; width:39.342ex; height:6.843ex;" alt="{\displaystyle {\textrm {var}}(y)=1-{\frac {\left(n_{1}-n_{2}\right)^{2}}{(n_{1}+n_{2})^{2}}}={\frac {4n_{1}n_{2}}{(n_{1}+n_{2})^{2}}}}"/></span>,
+</p><p><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle r^{2}={\frac {1}{n_{1}n_{2}}}{\frac {(s_{1}n_{2}-s_{2}n_{1})^{2}}{(n_{1}+n_{2})(q_{1}+q_{2})-(s_{1}+s_{2})^{2}}}={\frac {{s_{1}^{2}}/{n_{1}}+{s_{2}^{2}}/{n_{2}}-G}{q_{1}+q_{2}-G}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>r</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mn>1</mn>
+            <mrow>
+              <msub>
+                <mi>n</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+              <msub>
+                <mi>n</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+            </mrow>
+          </mfrac>
+        </mrow>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <mo stretchy="false">(</mo>
+              <msub>
+                <mi>s</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+              <msub>
+                <mi>n</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+              <mo>&#x2212;<!-- − --></mo>
+              <msub>
+                <mi>s</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+              <msub>
+                <mi>n</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+              <msup>
+                <mo stretchy="false">)</mo>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msup>
+            </mrow>
+            <mrow>
+              <mo stretchy="false">(</mo>
+              <msub>
+                <mi>n</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+              <mo>+</mo>
+              <msub>
+                <mi>n</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+              <mo stretchy="false">)</mo>
+              <mo stretchy="false">(</mo>
+              <msub>
+                <mi>q</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+              <mo>+</mo>
+              <msub>
+                <mi>q</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+              <mo stretchy="false">)</mo>
+              <mo>&#x2212;<!-- − --></mo>
+              <mo stretchy="false">(</mo>
+              <msub>
+                <mi>s</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+              <mo>+</mo>
+              <msub>
+                <mi>s</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+              <msup>
+                <mo stretchy="false">)</mo>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msup>
+            </mrow>
+          </mfrac>
+        </mrow>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <mrow class="MJX-TeXAtom-ORD">
+                <msubsup>
+                  <mi>s</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mn>1</mn>
+                  </mrow>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mn>2</mn>
+                  </mrow>
+                </msubsup>
+              </mrow>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mo>/</mo>
+              </mrow>
+              <mrow class="MJX-TeXAtom-ORD">
+                <msub>
+                  <mi>n</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mn>1</mn>
+                  </mrow>
+                </msub>
+              </mrow>
+              <mo>+</mo>
+              <mrow class="MJX-TeXAtom-ORD">
+                <msubsup>
+                  <mi>s</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mn>2</mn>
+                  </mrow>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mn>2</mn>
+                  </mrow>
+                </msubsup>
+              </mrow>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mo>/</mo>
+              </mrow>
+              <mrow class="MJX-TeXAtom-ORD">
+                <msub>
+                  <mi>n</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mn>2</mn>
+                  </mrow>
+                </msub>
+              </mrow>
+              <mo>&#x2212;<!-- − --></mo>
+              <mi>G</mi>
+            </mrow>
+            <mrow>
+              <msub>
+                <mi>q</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+              <mo>+</mo>
+              <msub>
+                <mi>q</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+              <mo>&#x2212;<!-- − --></mo>
+              <mi>G</mi>
+            </mrow>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle r^{2}={\frac {1}{n_{1}n_{2}}}{\frac {(s_{1}n_{2}-s_{2}n_{1})^{2}}{(n_{1}+n_{2})(q_{1}+q_{2})-(s_{1}+s_{2})^{2}}}={\frac {{s_{1}^{2}}/{n_{1}}+{s_{2}^{2}}/{n_{2}}-G}{q_{1}+q_{2}-G}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/195ec2f88f9b9a3e76c606f4842ee051c2d7e4a0" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.671ex; width:65.939ex; height:6.676ex;" alt="{\displaystyle r^{2}={\frac {1}{n_{1}n_{2}}}{\frac {(s_{1}n_{2}-s_{2}n_{1})^{2}}{(n_{1}+n_{2})(q_{1}+q_{2})-(s_{1}+s_{2})^{2}}}={\frac {{s_{1}^{2}}/{n_{1}}+{s_{2}^{2}}/{n_{2}}-G}{q_{1}+q_{2}-G}}}"/></span>
+</p><p>where we have introduced <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle G:={\frac {(s_{1}+s_{2})^{2}}{n_{1}+n_{2}}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>G</mi>
+        <mo>:=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <mo stretchy="false">(</mo>
+              <msub>
+                <mi>s</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+              <mo>+</mo>
+              <msub>
+                <mi>s</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+              <msup>
+                <mo stretchy="false">)</mo>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msup>
+            </mrow>
+            <mrow>
+              <msub>
+                <mi>n</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+              <mo>+</mo>
+              <msub>
+                <mi>n</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+            </mrow>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle G:={\frac {(s_{1}+s_{2})^{2}}{n_{1}+n_{2}}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/788c9a9063ebf12df97099a6a20886376b5eab34" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.171ex; width:16.401ex; height:6.176ex;" alt="{\displaystyle G:={\frac {(s_{1}+s_{2})^{2}}{n_{1}+n_{2}}}}"/></span> to arrive at the last expression, which is useful for efficient computation of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle r^{2}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>r</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle r^{2}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a363a15442d031416d1eb62254a9c726e3f6c66c" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:2.103ex; height:2.676ex;" alt="{\displaystyle r^{2}}"/></span>.
+</p>
+<h3><span id="Relation_to_Classifier_Training.2C_and_Linear_Discriminant_Analysis_.28LDA.29"></span><span class="mw-headline" id="Relation_to_Classifier_Training,_and_Linear_Discriminant_Analysis_(LDA)">Relation to Classifier Training, and Linear Discriminant Analysis (LDA)</span></h3>
+<p>LDA is a training method for linear classifiers. A linear classifier is a classification algorithm that infers the condition (class, task, label) under which a point of data was recorded, simply by computing a weighted sum of the data point's dimensions, and comparing the result to a threshold. "Training" a classifier means that recorded data is used in order to determine a weighting that is "optimally suited" to do so. In high-dimensional space, weighting dimensions corresponds to the geometrical operation of projecting a data point onto a line. Thus, one also speaks of a "linear projection".
+</p><p>In case of LDA, the criterion of optimality is chosen as the ratio of "inter-class variance" and "within-class variance". The LDA algorithm determines a projection from high-dimensional data space onto a single dimension such that, for the resulting numbers, the ratio of mean difference between classes, and variance within classes, is as large as possible. Comparing this ratio to the above formulae, you may see that the numerator of the <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle r^{2}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>r</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle r^{2}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a363a15442d031416d1eb62254a9c726e3f6c66c" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:2.103ex; height:2.676ex;" alt="{\displaystyle r^{2}}"/></span> value is proportional to the squared mean difference between classes, and the denominator is proportional to the squared mean difference within each class (when assuming equal covariances, as LDA does in its simplest form).
+</p><p>Thus, we may say that LDA classifier training chooses a linear classifier such that the classifier's output has the highest possible <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle r^{2}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>r</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle r^{2}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a363a15442d031416d1eb62254a9c726e3f6c66c" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:2.103ex; height:2.676ex;" alt="{\displaystyle r^{2}}"/></span> value, given the data available.
+</p>
+<h3><span class="mw-headline" id="Significance_Test">Significance Test</span></h3>
+<p>For small numbers of trials (&lt;30 per label), determination coefficients can become rather large even if there is no significant effect. To assess significance under the (robust) assumption of Gaussianity, determination coefficients may be converted into t-values according to
+</p><p><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle t^{2}=(n_{1}+n_{2}-2){\frac {r^{2}}{1-r^{2}}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>t</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+        <mo>=</mo>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>n</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>+</mo>
+        <msub>
+          <mi>n</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <mo>&#x2212;<!-- − --></mo>
+        <mn>2</mn>
+        <mo stretchy="false">)</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <msup>
+              <mi>r</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mn>2</mn>
+              </mrow>
+            </msup>
+            <mrow>
+              <mn>1</mn>
+              <mo>&#x2212;<!-- − --></mo>
+              <msup>
+                <mi>r</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msup>
+            </mrow>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle t^{2}=(n_{1}+n_{2}-2){\frac {r^{2}}{1-r^{2}}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/72c5b633b3e790930392eb14f7d839ca0029bbbd" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.338ex; width:25.485ex; height:6.176ex;" alt="{\displaystyle t^{2}=(n_{1}+n_{2}-2){\frac {r^{2}}{1-r^{2}}}}"/></span>.
+</p><p>Such a t-value may be used in a one-tailed t-test against the "no correlation" null hypothesis.
+</p>
+<h2><span id="Sensorimotor_Rhythm_.28SMR.29"></span><span class="mw-headline" id="Sensorimotor_Rhythm_(SMR)">Sensorimotor Rhythm (SMR)</span></h2>
+<p>A general term referring to idling activity from the sensory and motor cortices.
+The <a href="User_Tutorial%253AIntroduction_to_the_Mu_Rhythm.html" title="User Tutorial:Introduction to the Mu Rhythm">mu rhythm</a> is the most prominent SMR activity.
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20241129160425
+Cache expiry: 86400
+Reduced expiry: false
+Complications: [show‐toc]
+CPU time usage: 1.512 seconds
+Real time usage: 1.531 seconds
+Preprocessor visited node count: 128/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 3/100
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 864/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1692-0!canonical and timestamp 20241129160424 and revision id 7149.
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Glossary&amp;oldid=7149">http://www.bci2000.org/mediawiki/index.php?title=Glossary&amp;oldid=7149</a>"</div>
+ </div>
+</body>
+</html>

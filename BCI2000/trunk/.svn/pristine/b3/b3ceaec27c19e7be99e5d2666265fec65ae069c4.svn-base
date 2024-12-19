@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>User Tutorial:BCI2000Remote - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:grey; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:black; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul><li class="toc1"><a href="User_Tutorial%253ABCI2000_Tour.html">Tour</a></li><li class="toc1"><a href="User_Tutorial%253AMu_Rhythm_BCI_Tutorial.html">Mu Tutorial</a></li><li class="toc1"><a href="User_Tutorial%253AP300_BCI_Tutorial.html">P300 Tutorial</a></li></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">BCI2000Remote</h1>
+ <p class = "subtitle">User Tutorial</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="User_Tutorial%253ABCI2000Remote.html#Description"><span class="tocnumber">1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="User_Tutorial%253ABCI2000Remote.html#Note"><span class="tocnumber">2</span> <span class="toctext">Note</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="User_Tutorial%253ABCI2000Remote.html#Python_Tutorial"><span class="tocnumber">3</span> <span class="toctext">Python Tutorial</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="User_Tutorial%253ABCI2000Remote.html#C++_Tutorial"><span class="tocnumber">4</span> <span class="toctext">C++ Tutorial</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="User_Tutorial%253ABCI2000Remote.html#MatlabTutorial"><span class="tocnumber">5</span> <span class="toctext">MatlabTutorial</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="User_Tutorial%253ABCI2000Remote.html#Video"><span class="tocnumber">6</span> <span class="toctext">Video</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="User_Tutorial%253ABCI2000Remote.html#See_also"><span class="tocnumber">7</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Description">Description</span></h2>
+<p>BCI2000Remote is a proxy interface class to the BCI2000 Operator module, and allows to start up, configure, and control BCI2000 from other applications. Internally, it maintains a telnet connection to the Operator module, and sends Operator Scripting commands to control it. However, no knowledge of these scripting commands is required in order to use the BCI2000Remote class from your own application.
+</p><p>BCI2000Remote is most useful when writing applications in C++, or in another language for which bindings to the BCI2000RemoteLib library exist, such as Python, or MATLAB.
+</p>
+<h2><span class="mw-headline" id="Note">Note</span></h2>
+<p>BCI2000Remote is a means of interfacing with the BCI2000 Operator module meaning that there are potentially hundreds of ways we leverage this tool to have a meaningful interface with BCI2000. Because of this we will illustrate a few different integrations using different languages. This "How-to" will be separated into three separate sections: Python, C++, and Matlab.
+</p>
+<h2><span class="mw-headline" id="Python_Tutorial">Python Tutorial</span></h2>
+<ol>
+<li>Find your Python folder. If you have an existing Python environment with your code find it using the Sys Library like this: 
+<pre>import sys
+
+locate_python = sys.exec_prefix
+print(locate_python)
+</pre>
+</li>
+<li>
+Locate your BCI2000Remote.py file which should have compiled into your prog folder. 
+Find where in your Python code you wish to integrate BCI2000. In this example I will show the minimum requirements for integration with BCI2000:
+<pre># Set BCI2000 path
+import sys, time
+sys.path.append('C:\\BCI2000.x64\\prog')
+
+# BCI2000 setup
+import BCI2000Remote
+bci = BCI2000Remote.BCI2000Remote()
+bci.WindowVisible = True
+bci.WindowTitle   = 'BCI2000 Remote Python'
+bci.Connect()
+bci.Execute('cd ${BCI2000LAUNCHDIR}')
+bci.Execute('ADD EVENT Square 2 0')
+bci.StartupModules(('SignalGenerator', 'DummySignalprocessing', 'DummyApplication'))
+
+bci.Execute('Wait for Connected')
+bci.LoadParametersRemote('..\\parms\\fragments\\amplifiers\\SignalGenerator.prm')
+bci.Execute('Wait for Running')
+bci.Execute('Set event Square 1')
+bci.Execute('Set state Circle 0')
+</pre>
+<p>Here is how you import BCI2000Remote:
+<br />
+</p>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 574.66666666667px"><div style="width: 574.66666666667px">
+			<div class="thumb" style="width: 572.66666666667px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:BCIRemote1.png" class="image"><img alt="BCIRemote1.png" src="../images/a/a2/BCIRemote1.png" decoding="async" width="573" height="300" /></a></div></div>
+			<div class="gallerytext">
+			</div>
+		</div></li>
+</ul>
+<p><br />
+Here is how you instantiate the operator object:
+<br />
+</p>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 716px"><div style="width: 716px">
+			<div class="thumb" style="width: 714px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:BCIRemote_2.png" class="image"><img alt="BCIRemote 2.png" src="../images/9/98/BCIRemote_2.png" decoding="async" width="714" height="300" /></a></div></div>
+			<div class="gallerytext">
+			</div>
+		</div></li>
+</ul>
+<p><br />
+Here is how to customize the operator and connect to it:
+<br />
+</p>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 716px"><div style="width: 716px">
+			<div class="thumb" style="width: 714px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:BCI2000Remote2.png" class="image"><img alt="BCI2000Remote2.png" src="../images/0/0c/BCI2000Remote2.png" decoding="async" width="714" height="300" /></a></div></div>
+			<div class="gallerytext">
+			</div>
+		</div></li>
+</ul>
+<p><br />
+Here is how you add your states:
+<br />
+</p>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 574.66666666667px"><div style="width: 574.66666666667px">
+			<div class="thumb" style="width: 572.66666666667px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:BCIRemote_4.png" class="image"><img alt="BCIRemote 4.png" src="../images/b/b1/BCIRemote_4.png" decoding="async" width="573" height="300" /></a></div></div>
+			<div class="gallerytext">
+			</div>
+		</div></li>
+</ul>
+<p><br />
+How to specify your signal source, signal processing, and application modules:
+<br />
+</p>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 574.66666666667px"><div style="width: 574.66666666667px">
+			<div class="thumb" style="width: 572.66666666667px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:BCIRemote_5.png" class="image"><img alt="BCIRemote 5.png" src="../images/4/48/BCIRemote_5.png" decoding="async" width="573" height="300" /></a></div></div>
+			<div class="gallerytext">
+			</div>
+		</div></li>
+</ul>
+<p><br />
+How to load a parameter file(you can learn more about parameters <a href="Technical_Reference%253AParameter_File.html" title="Technical Reference:Parameter File">here</a>):
+<br />
+</p>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 574.66666666667px"><div style="width: 574.66666666667px">
+			<div class="thumb" style="width: 572.66666666667px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:BCIRemote_6.png" class="image"><img alt="BCIRemote 6.png" src="../images/3/3d/BCIRemote_6.png" decoding="async" width="573" height="300" /></a></div></div>
+			<div class="gallerytext">
+			</div>
+		</div></li>
+</ul>
+<p><br />
+How to connect and issue commands to BCI2000:
+<br />
+</p>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 574.66666666667px"><div style="width: 574.66666666667px">
+			<div class="thumb" style="width: 572.66666666667px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:BCIRemote_666.png" class="image"><img alt="BCIRemote 666.png" src="../images/4/41/BCIRemote_666.png" decoding="async" width="573" height="300" /></a></div></div>
+			<div class="gallerytext">
+			</div>
+		</div></li>
+</ul>
+</li>
+<li>
+And finally, how to tell BCI2000 to set states to a value during runtime:
+<br />
+
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 574.66666666667px"><div style="width: 574.66666666667px">
+			<div class="thumb" style="width: 572.66666666667px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:BCIRemote_8.png" class="image"><img alt="BCIRemote 8.png" src="../images/a/a7/BCIRemote_8.png" decoding="async" width="573" height="300" /></a></div></div>
+			<div class="gallerytext">
+			</div>
+		</div></li>
+</ul>
+<p><br />
+Now that you've added those components to your code all you have to do is run your code. You should see the BCI2000 operator along with the system log, source watcher, and the timing window.
+</p>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 1020.6666666667px"><div style="width: 1020.6666666667px">
+			<div class="thumb" style="width: 1018.6666666667px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:BCIRemote_7.png" class="image"><img alt="BCIRemote 7.png" src="../images/f/f7/BCIRemote_7.png" decoding="async" width="1019" height="500" /></a></div></div>
+			<div class="gallerytext">
+			</div>
+		</div></li>
+</ul>
+<p><br />
+</p>
+</li></ol>
+<h2><span id="C.2B.2B_Tutorial"></span><span class="mw-headline" id="C++_Tutorial">C++ Tutorial</span></h2>
+<ol>
+<li class="mw-empty-elt">
+</li><li>
+Open the C++ file or solution you would like to integrate with BCI2000 in Visual Studio, and find where it is located on your computer.
+</li>
+<li>
+Navigate to the program's properties, and make the following changes:
+<ul>
+<li>
+Under Configuration Properties -&gt; C++ -&gt; General, add the following folders from BCI2000 (64-bit)'s src folder: <i> \core\Operator\BCI2000Remote, \shared\utils\Lib, \shared\config. </i>
+</li>
+<li>
+Navigate to Configuration Properties -&gt; Linker -&gt; Input, and add <i> ws2_32.lib </i> to Additional Dependencies.
+</li>
+<li>
+Under Configuration Properties -&gt; C++ -&gt; Advanced, add <i>4996</i> to the Disable Specific Warnings section.
+</li>
+</ul> 
+</li><li>
+Add your Operator executable and the BCI2000RemoteLib dynamic library to the same directory as the program you intend to integrate. This can be found in the prog folder.
+</li>
+<li> Also, add the following files to the directory with your program and <i>Operator.exe</i>:
+<i>
+<ul>
+<li>
+BCI2000Connection.cpp
+</li>
+<li>
+BCI2000Connection.h
+</li>
+<li>
+BCI2000Remote.cpp
+</li>
+<li>
+BCI2000Remote.h
+</li>
+<li>
+BCI2000RemoteLib.cpp
+</li>
+<li>
+BCI2000RemoteLib.h
+</li>
+<li>
+SelfPipe.cpp
+</li>
+<li>
+SelfPipe.h
+</li>
+<li>
+sockstream.cpp
+</li>
+<li>
+sockstream.h
+</li>
+</ul>
+</i><p><i></i>
+</p>
+</li><li>
+Make sure that you include all of your dependencies including BCI2000Remote.h 
+<pre>#include "BCI2000Remote.h"
+#include &lt;string&gt;
+#include &lt;vector&gt;
+#include &lt;iostream&gt;
+</pre>
+</li>
+<li>
+Next, instantiate the BCI2000Remote object
+<pre>int main( int argc, char* argv[] )
+{
+  // Instantiate a BCI2000Remote object
+  BCI2000Remote bci;
+  // Assume that Operator executable resides in the same directory as this program.
+  std::string path = ( argc &gt; 0 )&#160;? argv[0]&#160;: "";
+  size_t pos = path.find_last_of( "\\/" );
+  path = ( pos&#160;!= std::string::npos )&#160;? path.substr( 0, pos + 1 )&#160;: "";
+  // Start the Operator module, and connect
+  bci.OperatorPath( path + "Operator" );
+  if( !bci.Connect() )
+  {
+    std::cerr &lt;&lt; bci.Result();
+    return -1;
+  }
+</pre>
+</li>
+<li>
+Specify your startup modules and any flags you wish to start them with
+<pre>  // Startup modules
+  const char* modules[] = { "SignalGenerator --LogMouse=1", "ARSignalProcessing", "CursorTask" };
+  std::vector&lt;std::string&gt; vModules( &amp;modules[0], &amp;modules[0] + sizeof( modules ) / sizeof( *modules ) );
+  if( !bci.StartupModules( vModules ) )
+  {
+    std::cerr &lt;&lt; bci.Result();
+    return -1;
+  }
+</pre>
+</li>
+<li>
+Load any parameter files and set subject information
+<pre>bci.LoadParametersRemote( "../parms/examples/CursorTask_SignalGenerator.prm" );
+  bci.SubjectID( "SUB" );
+  // Start a run
+  if( !bci.Start() )
+  {
+    std::cerr &lt;&lt; bci.Result();
+    return -1;
+  }
+</pre>
+</li>
+
+<li>
+And here we just have BCI2000 send us back a feedback signal:
+<pre>  std::string state;
+  while( bci.GetSystemState( state ) &amp;&amp; state == "Running" )
+  {
+    double value = 0;
+    bci.GetControlSignal( 1, 1, value );
+    std::cout &lt;&lt; "Control signal: " &lt;&lt; value &lt;&lt; ", press Enter to proceed" &lt;&lt; std::flush;
+    std::string line;
+    std::getline( std::cin, line );
+  }
+  return 0;
+}
+</pre>
+</li>
+<li>
+Now that you've added those components to your code all you have to do is compile and run it. You should see the BCI2000 operator along with the system log, source watcher, and the timing window.
+<b>Note:</b> Be sure to compile this in your prog folder. This can be done by navigating again to Configuration Properties -&gt; General, and changing the Output Directory to the path of the BCI2000 prog folder.
+</li>
+</ol>
+<pre>#include "BCI2000Remote.h"
+#include &lt;string&gt;
+#include &lt;vector&gt;
+#include &lt;iostream&gt;
+
+int main( int argc, char* argv[] )
+{
+  // Instantiate a BCI2000Remote object
+  BCI2000Remote bci;
+  // Assume that Operator executable resides in the same directory as this program.
+  std::string path = ( argc &gt; 0 )&#160;? argv[0]&#160;: "";
+  size_t pos = path.find_last_of( "\\/" );
+  path = ( pos&#160;!= std::string::npos )&#160;? path.substr( 0, pos + 1 )&#160;: "";
+  // Start the Operator module, and connect
+  bci.OperatorPath( path + "Operator" );
+  if( !bci.Connect() )
+  {
+    std::cerr &lt;&lt; bci.Result();
+    return -1;
+  }
+  // Startup modules
+  const char* modules[] = { "SignalGenerator --LogMouse=1", "ARSignalProcessing", "CursorTask" };
+  std::vector&lt;std::string&gt; vModules( &amp;modules[0], &amp;modules[0] + sizeof( modules ) / sizeof( *modules ) );
+  if( !bci.StartupModules( vModules ) )
+  {
+    std::cerr &lt;&lt; bci.Result();
+    return -1;
+  }
+  // Load a parameter file, and set subject information
+  bci.LoadParametersRemote( "../parms/examples/CursorTask_SignalGenerator.prm" );
+  bci.SubjectID( "SUB" );
+  // Start a run
+  if( !bci.Start() )
+  {
+    std::cerr &lt;&lt; bci.Result();
+    return -1;
+  }
+  // Print feedback signal
+  std::string state;
+  while( bci.GetSystemState( state ) &amp;&amp; state == "Running" )
+  {
+    double value = 0;
+    bci.GetControlSignal( 1, 1, value );
+    std::cout &lt;&lt; "Control signal: " &lt;&lt; value &lt;&lt; ", press Enter to proceed" &lt;&lt; std::flush;
+    std::string line;
+    std::getline( std::cin, line );
+  }
+  return 0;
+}
+</pre>
+<h2><span class="mw-headline" id="MatlabTutorial">MatlabTutorial</span></h2>
+<ol>
+<li>Open the Matlab file you would like to integrate with BCI2000.</li>
+<li>Locate the BCI2000RemoteLib file in the BCI2000 prog folder, and BCI2000RemoteLib.h in src\core\Operator\BCI2000Remote, and load these into the Matlab file. Modify the file paths in <i>loadlibrary(...)</i> as needed. 
+Note that BCI2000RemoteLib's file name has a "64" appended when it was built in 64 bit mode, and a "32" if built iin 32 bit mode.
+In this tutorial, we will be using the 64 bit version.
+<pre>%% c library load, initial part
+BCI2000root = 'C:\bci2000.x64';
+if not(libisloaded('bci'))
+    loadlibrary(fullfile(BCI2000root,'prog','BCI2000RemoteLib64'),...
+        fullfile(BCI2000root,'src','core','Operator','BCI2000Remote','BCI2000RemoteLib.h'), 'alias', 'bci')
+end 
+libfunctions('bci')
+</pre>
+</li>
+<li> Locate Operator.exe in the prog folder. Recover the memory, change the directory, and make the window visible in BCI2000. Again, modify the file path if it differs. 
+<pre>%need to call BCI2000Remote_Delete to recover the memory
+bciHandle = calllib('bci', 'BCI2000Remote_New');
+calllib('bci', 'BCI2000Remote_SetOperatorPath', bciHandle, fullfile(BCI2000root,'prog','Operator'));
+
+% if we fail cto establish a connection to BCI2000Remote
+if calllib('bci', 'BCI2000Remote_Connect', bciHandle) ~= 1
+    fprintf('bci connect fail!')
+    calllib('bci', 'BCI2000Remote_Delete', bciHandle);&#160;% call BCI2000Remote_Delete to recovery the memory
+    return
+end
+
+% Startup BCI2000
+calllib('bci', 'BCI2000Remote_Execute', bciHandle,'Change directory $BCI2000LAUNCHDIR', 0);
+calllib('bci', 'BCI2000Remote_Execute', bciHandle,'Show window; Set title ${Extract file base $0}', 0);
+calllib('bci', 'BCI2000Remote_Execute', bciHandle,'Reset system', 0);
+</pre>
+</li>
+<li> Add new states, events, or parameters before starting up the system. Note that it is greatly preferred to use events instead of states because of timing precision.
+<pre>% Create new parameter (must be done before startup)
+calllib('bci', 'BCI2000Remote_Execute', bciHandle, 'Add Parameter Application:TestParameterField string TestParameter= FirstNewParameter&#160;%&#160;%&#160;%', 0); 
+
+% Define events
+% Define new event with 1 bit of information (2 colors)
+calllib('bci', 'BCI2000Remote_Execute', bciHandle, 'add event Square 1 0', 0);
+</pre>
+</li>
+<li>Add in the proper modules (Signal Generator, Signal Processor, and Application). Refer to the documentation <a href="Technical_Reference%253ABCI2000Remote_Library.html" title="Technical Reference:BCI2000Remote Library">Technical_Reference:BCI2000Remote_Library</a> for more information on BCI2000 remote functions. Also refer to the example Matlab code under <a href="Programming_Reference%253ABCI2000Remote_Class.html#Matlab_Example" title="Programming Reference:BCI2000Remote Class">Programming_Reference:BCI2000Remote_Class#Matlab_Example</a>.</li>
+<pre>% Startup system localhost
+calllib('bci', 'BCI2000Remote_Execute', bciHandle,'Startup system localhost', 0);
+
+% Establish connection to three modules
+SourceModule = 'SignalGenerator';
+modules      = libpointer('stringPtrPtr', {[SourceModule ' --local --LogKeyboard=1'], 'DummySignalProcessing', 'DummyApplication'});
+calllib('bci', 'BCI2000Remote_StartupModules2', bciHandle, modules, 3);
+
+% Wait for connected before loading parameters!
+calllib('bci', 'BCI2000Remote_Execute', bciHandle, 'Wait for Connected', 0);
+</pre>
+<li> Load parameter files, modify parameters directly, and add watches after BCI2000 is connected. It can also be helpful to wait for bci2000 to start running (collecting data) before proceeding.
+<pre>% Load parameter files
+calllib('bci', 'BCI2000Remote_LoadParametersRemote', bciHandle, fullfile(BCI2000root,'parms','fragments','amplifiers','SignalGenerator.prm'));
+
+% Set parameter values
+calllib('bci', 'BCI2000Remote_SetDataDirectory', bciHandle, fullfile(BCI2000root,'data','BJH'));
+
+%Set watches to appear automatically
+calllib('bci', 'BCI2000Remote_Execute', bciHandle, 'visualize watch Square', 0);
+
+% Wait for the user to click SetConfig and Start
+calllib('bci', 'BCI2000Remote_Execute', bciHandle, 'Wait for Running', 0);
+</pre>
+</li>
+<li> While BCI2000 is running you can also get and set event and state values, and also get parameter values. Note that you cannot modify parameter values while BCI2000 is running. 
+<pre>% Get parameter value
+SamplingRate = calllib('bci', 'BCI2000Remote_GetParameter', bciHandle, 'SamplingRate');
+fprintf(['\nSamplingRate: ' num2str(SamplingRate) 'Hz\n'])
+
+% Get event value
+[~,~,~,Square]=calllib('bci', 'BCI2000Remote_GetEventVariable', bciHandle, 'Square', 0.0);
+
+% BCI2000 set white rectangle to 1 (true)
+calllib('bci', 'BCI2000Remote_Execute', bciHandle, 'Set event Square 1', 0);
+
+% Get state value
+% Immediately after data block has been acquired from hardware, the 
+% DataIOFilter writes a 16-bit millisecond-resolution time stamp into the 
+% SourceTime state. Block duration is measured as the difference between
+% two consecutive time stamps.
+[~,~,~,SourceTime]=calllib('bci', 'BCI2000Remote_GetStateVariable', bciHandle, 'SourceTime', 0.0);
+fprintf(['\nSourceTime: ', num2str(SourceTime), '\n'])
+
+% Stop running BCI2000
+calllib('bci', 'BCI2000Remote_SetStateVariable', bciHandle, 'Running', 0);
+</pre>
+</li>
+</ol>
+<h2><span class="mw-headline" id="Video">Video</span></h2>
+<div class="thumb embedvideo  ev_center autoResize" style="width: 648px;"><div class="embedvideo autoResize" style=" width: 646px;"><div class="embedvideowrap" style="width: 640px;"><iframe title="Play video" src="https://www.youtube.com/embed/ZwLcovHZabw?" width="640" height="360" frameborder="0" allowfullscreen="true"></iframe></div></div></div>
+<p>Also see the <a rel="nofollow" class="external text" href="https://bci2000.org/mediawiki/index.php/PsychoPy">PsychoPy</a> page for more details on the installation process, APIs, and hooks.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<ul><li><a href="Programming_Reference%253ABCI2000Remote_Class.html" title="Programming Reference:BCI2000Remote Class">Programming Reference:BCI2000Remote Class</a></li>
+<li><a href="User_Reference%253AOperator_Module_Scripting.html" title="User Reference:Operator Module Scripting">User Reference:Operator Module Scripting</a></li></ul>
+<!-- 
+NewPP limit report
+Cached time: 20241129160909
+Cache expiry: 86400
+Reduced expiry: false
+Complications: [show‐toc]
+CPU time usage: 0.040 seconds
+Real time usage: 0.045 seconds
+Preprocessor visited node count: 143/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/100
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 11895/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2387-0!canonical and timestamp 20241129160909 and revision id 11645.
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=User_Tutorial:BCI2000Remote&amp;oldid=11645">http://www.bci2000.org/mediawiki/index.php?title=User_Tutorial:BCI2000Remote&amp;oldid=11645</a>"</div>
+ </div>
+</body>
+</html>

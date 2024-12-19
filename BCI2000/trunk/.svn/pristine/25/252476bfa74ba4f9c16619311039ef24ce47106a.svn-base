@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Contributions:KeysightGenerator - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:grey; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:black; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul><li class="toc1"><a href="Contributions%253AADCs.html">Data Acquisition</a></li><li class="toc1"><a href="Contributions%253AFileWriters.html">File Formats</a></li><li class="toc1"><a href="Contributions%253ASignalProcessing.html">Signal Processing</a></li><li class="toc1"><a href="Contributions%253AApplications.html">Applications</a></li><li class="toc1"><a href="Contributions%253ATools.html">Tools</a></li></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">KeysightGenerator</h1>
+ <p class = "subtitle">Contributions</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Contributions%253AKeysightGenerator.html#Synopsis"><span class="tocnumber">1</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Contributions%253AKeysightGenerator.html#Location"><span class="tocnumber">2</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Contributions%253AKeysightGenerator.html#Versioning"><span class="tocnumber">3</span> <span class="toctext">Versioning</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="Contributions%253AKeysightGenerator.html#Author"><span class="tocnumber">3.1</span> <span class="toctext">Author</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Contributions%253AKeysightGenerator.html#Version_History"><span class="tocnumber">3.2</span> <span class="toctext">Version History</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="Contributions%253AKeysightGenerator.html#Functional_Description"><span class="tocnumber">4</span> <span class="toctext">Functional Description</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="Contributions%253AKeysightGenerator.html#Integration_into_BCI2000"><span class="tocnumber">5</span> <span class="toctext">Integration into BCI2000</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="Contributions%253AKeysightGenerator.html#Usage"><span class="tocnumber">6</span> <span class="toctext">Usage</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="Contributions%253AKeysightGenerator.html#Parameters"><span class="tocnumber">7</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-10"><a href="Contributions%253AKeysightGenerator.html#Channel"><span class="tocnumber">7.1</span> <span class="toctext">Channel</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="Contributions%253AKeysightGenerator.html#Square"><span class="tocnumber">7.2</span> <span class="toctext">Square</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="Contributions%253AKeysightGenerator.html#Ramp"><span class="tocnumber">7.3</span> <span class="toctext">Ramp</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="Contributions%253AKeysightGenerator.html#Pulse"><span class="tocnumber">7.4</span> <span class="toctext">Pulse</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="Contributions%253AKeysightGenerator.html#UserFunction"><span class="tocnumber">7.5</span> <span class="toctext">UserFunction</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="Contributions%253AKeysightGenerator.html#PRBS"><span class="tocnumber">7.6</span> <span class="toctext">PRBS</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="Contributions%253AKeysightGenerator.html#AM"><span class="tocnumber">7.7</span> <span class="toctext">AM</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="Contributions%253AKeysightGenerator.html#FM"><span class="tocnumber">7.8</span> <span class="toctext">FM</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="Contributions%253AKeysightGenerator.html#PM"><span class="tocnumber">7.9</span> <span class="toctext">PM</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="Contributions%253AKeysightGenerator.html#PWM"><span class="tocnumber">7.10</span> <span class="toctext">PWM</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="Contributions%253AKeysightGenerator.html#Sweep"><span class="tocnumber">7.11</span> <span class="toctext">Sweep</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="Contributions%253AKeysightGenerator.html#Burst"><span class="tocnumber">7.12</span> <span class="toctext">Burst</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="Contributions%253AKeysightGenerator.html#Sync"><span class="tocnumber">7.13</span> <span class="toctext">Sync</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-23"><a href="Contributions%253AKeysightGenerator.html#Notes"><span class="tocnumber">8</span> <span class="toctext">Notes</span></a></li>
+<li class="toclevel-1 tocsection-24"><a href="Contributions%253AKeysightGenerator.html#See_also"><span class="tocnumber">9</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>An extension allowing the user to program a waveform to be triggered through a state change (using a Keysight EDU33212A).
+</p>
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p><a rel="nofollow" class="external free" href="http://www.bci2000.org/svn/trunk/src/contrib/Extensions/KeysightGenerator">http://www.bci2000.org/svn/trunk/src/contrib/Extensions/KeysightGenerator</a>
+</p>
+<h2><span class="mw-headline" id="Versioning">Versioning</span></h2>
+<h3><span class="mw-headline" id="Author">Author</span></h3>
+<p>Robert Ellis (ellis@neurotechcenter.org)
+</p>
+<h3><span class="mw-headline" id="Version_History">Version History</span></h3>
+<ul><li>07/18/2023 Initial release</li></ul>
+<h2><span class="mw-headline" id="Functional_Description">Functional Description</span></h2>
+<p>This extension gives the user near full control over the 2 channels on a Keysight EDU33212A. It allows the user to configure a waveform for each channel and define states to both trigger and halt the waveform for both channels. There are several parameters that can  create and adjust the waveforms for each channel, which will be further explained in the parameter section.
+</p>
+<h2><span class="mw-headline" id="Integration_into_BCI2000">Integration into BCI2000</span></h2>
+<p>In the CMake configuration window, check off "EXTENSIONS_KEYSIGHTGENERATOR", then generate the project. In the Visual Studio window, rebuild the signal source module you wish to use. 
+</p><p>After rebuilding, to enable it, append --LogKeysight=1 to the same command line as the source module.
+</p>
+<h2><span class="mw-headline" id="Usage">Usage</span></h2>
+<p>Prior to working with the Keysight EDU33212A, the drivers and API must be installed onto your local machine. Navigate to this link <a rel="nofollow" class="external free" href="https://www.keysight.com/us/en/lib/software-detail/computer-software/keysight-instrument-control-bundle-download-1184883.html">https://www.keysight.com/us/en/lib/software-detail/computer-software/keysight-instrument-control-bundle-download-1184883.html</a> and download the IO libraries suite and the Command Expert software. Use the default installations of these tools. Note, these tools are only configured for windows platforms, so the Keysight Extension is only available on windows machines as of now.
+</p><p><br />
+On the EDU33212A, press "System". In the right-hand side of the display there will be 5 options, press the button next to the second (I/O Config). Record the VISA address under whichever connection method will be employed.
+</p><p>Connect the EDU33212A to your computer. The extension should work through either a USB or LAN connection. After following the steps mentioned above to integrate the extension into BCI2000, there should be a section in the configuration window labelled "Keysight", with the first parameter labelled "Address". In this field, enter the VISA Address recorded previously. You may then configure the waveform for both channels before use, as will be further explained.
+</p>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<p>For each channel, there are 14 sections in the Keysight configuration window. Each window serves a different function for the waveform. The first 7 serve to initialize the carrier waveform, while the remaining serve to modify it. The rest of this section will be divided by each of the 14 windows, each section applying to both channels. Some parameters will have limits determined by other parameters. However, when the signal is getting initialized the validity of each parameter will be checked, and an error, along with a message, will be thrown if the specifications are invalid.
+</p>
+<h3><span class="mw-headline" id="Channel">Channel</span></h3>
+<p>This section defines the shape of the carrier waveform.
+</p><p><b>UsingCh:</b>
+This parameter lets the system know to execute commands on the specified channel. If this is left unchecked, none of the parameters for the channel will be read and the waveform will not be generated.
+</p><p><b>Load:</b>
+Sets expected output termination. Should equal the load impedance attached to the output.
+</p><p><b>Function:</b>
+Allows the user to select from a sinusoid, square, triangle, ramp, pulse, noise, DC, pseudo-random binary sequence, or a "User" function, which can be defined by the user in a subsequent window.
+</p><p><b>Phase:</b>
+Sets the phase of the waveform (degrees). For User waveforms this applies by shifting the indices of the inserted data to mimic a phase shift, however the user can also manually adjust the order of their data to attain the same results. A phase of 0 will result in a wave that is not offset.
+</p><p><b>Frequency:</b>
+Sets the frequency of the output (Hz). For user functions, it adjusts the sampling rate to attain the specified frequency.
+</p><p><b>Voltage:</b>
+Sets the amplitude of the waveform (V)
+</p><p><b>Voltage Offset:</b>
+Adjusts the offset of the waveform (V)
+</p><p><b>HighVoltage:</b>
+Introduces a limit to the maximum voltage the waveform can generate (V). An error will be thrown if the other parameters specify a waveform with voltage exceeding this parameter. To disable, enter 0 in this field, as well as in the "LowVoltage" field.
+</p><p><b>LowVoltage:</b>
+Introduces a limit to the lowest voltage the waveform can generate (V). An error will be thrown if the other parameters specify a waveform with voltage exceeding this parameter. To disable, enter 0 in this field, as well as in the "HighVoltage" field.
+</p><p><b>TriggerOnState:</b>
+Name of the state that will be read to determine when the waveform is generated.
+</p><p><b>TriggerOnValue:</b>
+Value of the specified state (TriggerOnState) which, when attained, will turn the channel on.
+</p><p><b>TriggerOffState:</b>
+Name of the state that will be read to determine when generation of the waveform is stopped.
+</p><p><b>TriggerOffValue:</b>
+Value of the specified state (TriggerOffState) which, when attained, will turn the channel off.
+</p>
+<h3><span class="mw-headline" id="Square">Square</span></h3>
+<p>This section is only read when "Square" is selected as the function in the Channel window
+</p><p><b>SquareDutyCycle:</b>
+Adjusts the percent of the cycle in which the voltage spike occurs (default is 50%)
+</p>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 612.66666666667px"><div style="width: 612.66666666667px">
+			<div class="thumb" style="width: 610.66666666667px;"><div style="margin:-0.16666666666666px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:Sqdutycycle.PNG" class="image" title="Square wave with duty cycle of 25%"><img alt="Square wave with duty cycle of 25%" src="../images/a/a5/Sqdutycycle.PNG" decoding="async" width="611" height="426" /></a></div></div>
+			<div class="gallerytext">
+<p>Square wave with duty cycle of 25%
+</p>
+			</div>
+		</div></li>
+</ul>
+<h3><span class="mw-headline" id="Ramp">Ramp</span></h3>
+<p>This section is only read when "Square" is selected as the function in the Channel window
+</p><p><b>RampSymmetry:</b>
+Adjusts the shape of the ramp, determines what percent of the period the voltage rise occurs, and fills the remaining with a drop back to the specified voltage offset level. (a ramp waveform that increases in voltage over time is set at 100%, one that decreases over time is set at 0%, and a triangle-like waveform is set at 50%)
+</p>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 616.66666666667px"><div style="width: 616.66666666667px">
+			<div class="thumb" style="width: 614.66666666667px;"><div style="margin:-0.16666666666666px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:RampSym.PNG" class="image" title="Ramp with 33% symmetry (note that the peak occurs 33% of the way through the period)"><img alt="Ramp with 33% symmetry (note that the peak occurs 33% of the way through the period)" src="../images/d/d7/RampSym.PNG" decoding="async" width="615" height="426" /></a></div></div>
+			<div class="gallerytext">
+<p>Ramp with 33% symmetry (note that the peak occurs 33% of the way through the period)
+</p>
+			</div>
+		</div></li>
+</ul>
+<h3><span class="mw-headline" id="Pulse">Pulse</span></h3>
+<p>This section is only read when "Pulse" is selected as the function in the Channel window
+</p><p><b>PulseDutyCycle:</b>
+This sets the percent of the period the pulse will occur. Similar to duty cycle for a square wave. This is equivilent to "PulseWidth". Set to 0 if you'd rather define "PulseWidth".
+</p><p><b>PulsePeriod:</b>
+This is equivalent to the frequency. Set to 0 if you'd rather use the frequency parameter in the channel window.
+</p><p><b>PulseWidth:</b>
+Sets the duration for which the pulse will occur. This is equivilent to "PulseDutyCycle". Set to 0 if you'd rather define "PulseDutyCycle".
+</p><p><b>PulseLead:</b>
+Adjusts the pulse edge time on the leading edge(nanoseconds).
+</p><p><b>PulseTrail:</b>
+Adjusts the pulse edge time on the trailing edge (nanoseconds)
+</p><p>Photos are not very enlightening due to incredibly fast pulse edge times, so will be omitted.
+</p>
+<h3><span class="mw-headline" id="UserFunction">UserFunction</span></h3>
+<p>This section is only read when "User" is selected as the function in the Channel window or any of the Modification windows.
+</p><p><b>UserData:</b>
+A list of data points describing the wave that will be generated. It is necessary for the data to follow the format of number, comma, space for each entry, or else the values will not be read.
+Ex: (0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1) would generate a wave that looks like a ramp. Removing the spaces inbetween values would result in the list not being read.
+</p>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 532px"><div style="width: 532px">
+			<div class="thumb" style="width: 530px;"><div style="margin:-0.16666666666666px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:Arb.PNG" class="image" title="Generation of a bump function using User wave"><img alt="Generation of a bump function using User wave" src="../images/c/c0/Arb.PNG" decoding="async" width="530" height="426" /></a></div></div>
+			<div class="gallerytext">
+<p>Generation of a <a rel="nofollow" class="external text" href="https://en.wikipedia.org/wiki/Bump_function">bump</a> function using User wave
+</p>
+			</div>
+		</div></li>
+</ul>
+<h3><span class="mw-headline" id="PRBS">PRBS</span></h3>
+<p>This section is only read when "PRBS" is selected as the function in the Channel window or any of the Modification windows.
+</p><p><b>PRBSBitRate:</b>
+Sets the bit rate for the pseudo-random binary sequence (PRBS) sequence (akin to adjusting frequency) (bits/sec)
+</p><p><b>PRBSData:</b>
+Sets the PRBS type. The number after PN corresponds to the maximum shift register length in bits. Learn more <a rel="nofollow" class="external text" href="https://en.wikipedia.org/wiki/Pseudorandom_binary_sequence">here</a>.
+</p><p><b>PRBSTransition:</b>
+Sets the leading and trailing edge transition time (ns)
+</p>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 563.33333333333px"><div style="width: 563.33333333333px">
+			<div class="thumb" style="width: 561.33333333333px;"><div style="margin:-0.16666666666666px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:PRBS10bitsecPN7.PNG" class="image" title="PRBS wave using 10 bits/sec and PN7"><img alt="PRBS wave using 10 bits/sec and PN7" src="../images/2/2b/PRBS10bitsecPN7.PNG" decoding="async" width="562" height="426" /></a></div></div>
+			<div class="gallerytext">
+<p>PRBS wave using 10 bits/sec and PN7
+</p>
+			</div>
+		</div></li>
+</ul>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 559.33333333333px"><div style="width: 559.33333333333px">
+			<div class="thumb" style="width: 557.33333333333px;"><div style="margin:-0.16666666666666px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:PRBS50bitsecPN7.PNG" class="image" title="PRBS wave using 50 bits/sec and PN7"><img alt="PRBS wave using 50 bits/sec and PN7" src="../images/9/94/PRBS50bitsecPN7.PNG" decoding="async" width="558" height="426" /></a></div></div>
+			<div class="gallerytext">
+<p>PRBS wave using 50 bits/sec and PN7
+</p>
+			</div>
+		</div></li>
+</ul>
+<h3><span class="mw-headline" id="AM">AM</span></h3>
+<p>Enables/adjusts amplitude modification of the carrier signal. If F(t) is our carrier wave and g(t) is the AM wave, the resulting wave resembles something like g(t)F(t)
+</p><p><b>ModulateAmplitude:</b>
+This parameter enables amplitude modification of the signal. If this is unchecked, the rest of the parameters will not be read.
+</p><p><b>AMFunction:</b>
+Selects the shape of the amplitude modification of the signal (similar to defining the shape of the "envelope"). 
+</p><p><b>AMDepth:</b>
+Sets the intensity at which the amplitude is modified. A higher percent gives the resulting signal a more defined envelope. (ex: 100% gives the signal a shape of |A|*C, while 50% gives a weaker envelope).
+</p><p><b>AMFrequency:</b>
+Adjusts the frequency of the envelope (can be though of as the frequency of g(t))
+</p>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 592.66666666667px"><div style="width: 592.66666666667px">
+			<div class="thumb" style="width: 590.66666666667px;"><div style="margin:-0.16666666666666px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:AM.PNG" class="image" title="3Hz sin amplitude modulation wave (with 100% depth) applied to 30Hz sin wave"><img alt="3Hz sin amplitude modulation wave (with 100% depth) applied to 30Hz sin wave" src="../images/4/40/AM.PNG" decoding="async" width="591" height="426" /></a></div></div>
+			<div class="gallerytext">
+<p>3Hz sin amplitude modulation wave (with 100% depth) applied to 30Hz sin wave
+</p>
+			</div>
+		</div></li>
+</ul>
+<h3><span class="mw-headline" id="FM">FM</span></h3>
+<p>Enables/adjusts frequency modification of the carrier signal. If F(t) is our carrier wave and g(t) is the FM wave, the resulting wave resembles something like F(g(t)t)
+</p><p><b>ModulateFrequency:</b>
+This parameter enables frequency modification of the signal. If this is unchecked, the rest of the parameters will not be read.
+</p><p><b>FMFunction:</b>
+Selects the shape of the frequency modification of the signal. 
+</p><p><b>FMDepth:</b>
+Sets the intensity at which the frequency is modified. A higher percent gives the resulting signal frequency character that looks more like this signal. (Can be thought of as the amplitude of g(t))
+</p><p><b>FMFrequency:</b>
+Adjusts the frequency of the modifying signal (can be thought of as the frequency of g(t))
+</p>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 563.33333333333px"><div style="width: 563.33333333333px">
+			<div class="thumb" style="width: 561.33333333333px;"><div style="margin:-0.16666666666666px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:FM15Hzcarrier10Hzfreqanddepthmodifier.PNG" class="image" title="10Hz sin frequency modulation wave (with 10Hz of depth) applied to 15Hz sin wave"><img alt="10Hz sin frequency modulation wave (with 10Hz of depth) applied to 15Hz sin wave" src="../images/8/89/FM15Hzcarrier10Hzfreqanddepthmodifier.PNG" decoding="async" width="562" height="426" /></a></div></div>
+			<div class="gallerytext">
+<p>10Hz sin frequency modulation wave (with 10Hz of depth) applied to 15Hz sin wave
+</p>
+			</div>
+		</div></li>
+</ul>
+<h3><span class="mw-headline" id="PM">PM</span></h3>
+<p>Enables/adjusts phase modification of the carrier signal. If F(t) is our carrier wave and g(t) is the FM wave, the resulting wave resembles something like F(t+g(t))
+</p><p><b>ModulatePhase:</b>
+This parameter enables phase modification of the signal. If this is unchecked, the rest of the parameters will not be read.
+</p><p><b>PMFunction:</b>
+Selects the shape of the phase modification of the signal. 
+</p><p><b>PMDeviation:</b>
+Sets the intensity at which the phase is modified. A higher percent results in function giving more phase deviation to the carrier wave. (Can be thought of as the amplitude of g(t))
+</p><p><b>PMFrequency:</b>
+Adjusts the frequency of the modifying signal (can be thought of as the frequency of g(t))
+</p>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 592.66666666667px"><div style="width: 592.66666666667px">
+			<div class="thumb" style="width: 590.66666666667px;"><div style="margin:-0.16666666666666px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:PM.PNG" class="image" title="4Hz sin phase modulation wave (with 180 degrees of depth) applied to 10Hz sin wave"><img alt="4Hz sin phase modulation wave (with 180 degrees of depth) applied to 10Hz sin wave" src="../images/c/cc/PM.PNG" decoding="async" width="591" height="426" /></a></div></div>
+			<div class="gallerytext">
+<p>4Hz sin phase modulation wave (with 180 degrees of depth) applied to 10Hz sin wave
+</p>
+			</div>
+		</div></li>
+</ul>
+<h3><span class="mw-headline" id="PWM">PWM</span></h3>
+<p><b>ModulatePulseWidth:</b>
+This parameter enables pulse width modification of the signal. If this is unchecked, the rest of the parameters will not be read.
+</p><p><b>PWMFunction:</b>
+Selects the shape of the pulse width modification of the signal. 
+</p><p><b>PWMDutyCycle:</b>
+Sets the duty cycle deviation in the percent of the period (%)
+</p><p><b>PWMFrequency:</b>
+Adjusts the frequency of the modifying signal (can be thought of as the frequency of g(t)) (Hz)
+</p>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 559.33333333333px"><div style="width: 559.33333333333px">
+			<div class="thumb" style="width: 557.33333333333px;"><div style="margin:-0.16666666666666px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:PWM.PNG" class="image" title="200Hz pulse with 90% duty cycle pulse width modulated by 1Hz ramp with 50ns deviation and 15% duty cycle"><img alt="200Hz pulse with 90% duty cycle pulse width modulated by 1Hz ramp with 50ns deviation and 15% duty cycle" src="../images/2/20/PWM.PNG" decoding="async" width="558" height="426" /></a></div></div>
+			<div class="gallerytext">
+<p>200Hz pulse with 90% duty cycle pulse width modulated by 1Hz ramp with 50ns deviation and 15% duty cycle
+</p>
+			</div>
+		</div></li>
+</ul>
+<h3><span class="mw-headline" id="Sweep">Sweep</span></h3>
+<p>This section allows the user to modify the sweep functionality. This functionality varies the frequency of the signal from the frequency defined in the Channel window to another, higher frequency specified in this section.
+</p><p><b>Sweep:</b>
+This parameter enables the sweep functionality on the specified channel. If this is left unchecked, the rest of the parameters will not be read.
+</p><p><b>SweepEndFrequency:</b>
+Sets the frequency at which the signal attains when the process reaches its end.
+</p><p><b>SweepTime:</b>
+Sets the time required for the end frequency to be reached per cycle.
+</p><p><b>SweepHoldTime:</b>
+Sets the time for which the end frequency will be held once it is attained before starting a new cycle.
+</p><p><b>SweepLogSpacing:</b>
+When checked, this parameter changes the speed at which the frequency adjusts from being based on a linear scale to a logarithmic scale.
+</p>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 554.66666666667px"><div style="width: 554.66666666667px">
+			<div class="thumb" style="width: 552.66666666667px;"><div style="margin:-0.16666666666666px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:Sweep.PNG" class="image" title="Sweep starting at 10Hz, finishing at 50Hz (over 1s) and holding for 1s"><img alt="Sweep starting at 10Hz, finishing at 50Hz (over 1s) and holding for 1s" src="../images/8/8a/Sweep.PNG" decoding="async" width="553" height="426" /></a></div></div>
+			<div class="gallerytext">
+<p>Sweep starting at 10Hz, finishing at 50Hz (over 1s) and holding for 1s
+</p>
+			</div>
+		</div></li>
+</ul>
+<h3><span class="mw-headline" id="Burst">Burst</span></h3>
+<p>This section allows the user to modify the burst functionality. This functionality executes a defined amount of cycles of the waveform before pausing for a set amount of time, then repeats.
+</p><p><b>Burst:</b>
+This parameter enables the burst functionality on the specified channel. If this is left unchecked, the rest of the parameters will not be read.
+</p><p><b>BurstCycles:</b>
+Specifies the number of periods the signal will be generated before entering a rest phase for the remainder of the burst.
+</p><p><b>BurstPeriod:</b>
+Specifies the time duration of each burst. This value must be greater than or equal to the time required to complete the specified amount of cycles for the waveform.
+</p><p><b>BurstPhase:</b>
+Adjusts the starting point of the burst, as well as the amplitude of the wave during the resting phase. For example, setting the BurstPhase to 90 for a sinusoidal wave will result in the resting phase coinciding with the peak of the wave, 0 will coincide with the midpoint, and 270 will coincide with the trough.
+</p>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 556.66666666667px"><div style="width: 556.66666666667px">
+			<div class="thumb" style="width: 554.66666666667px;"><div style="margin:-0.16666666666666px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:SinBurst.PNG" class="image" title="10 Cycle burst with a 20Hz sin wave"><img alt="10 Cycle burst with a 20Hz sin wave" src="../images/8/8d/SinBurst.PNG" decoding="async" width="555" height="426" /></a></div></div>
+			<div class="gallerytext">
+<p>10 Cycle burst with a 20Hz sin wave
+</p>
+			</div>
+		</div></li>
+</ul>
+<h3><span class="mw-headline" id="Sync">Sync</span></h3>
+<p>This section is the only section which effects both channels.
+</p><p><b>PhaseSync:</b>
+When enabled, this parameter will cause waveforms to be phase locked (up to the specified phase offset) when simultaneously generated. This also applies after one of the signals has been turned off then re-executed.
+</p>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 798.66666666667px"><div style="width: 798.66666666667px">
+			<div class="thumb" style="width: 796.66666666667px;"><div style="margin:-0.16666666666666px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:Sync.PNG" class="image" title="Two in sync sin waves"><img alt="Two in sync sin waves" src="../images/f/f5/Sync.PNG" decoding="async" width="797" height="426" /></a></div></div>
+			<div class="gallerytext">
+<p>Two in sync sin waves
+</p>
+			</div>
+		</div></li>
+</ul>
+<h2><span class="mw-headline" id="Notes">Notes</span></h2>
+<p>It does not appear that settings that modify functions (ramp's symmetry parameter, for example) affect modulation. However, one may generate data that resembles such a signal, then enter this in the "UserData" parameter and select "User" for the function in whatever modulation setting will be used.
+</p><p>For data stored in a MATLAB array, the following can be used to convert it into a format appropriate for use in the "UserData" parameter, and to copy it to your clipboard:
+</p>
+<pre>   str="";
+   for i=1:length(data)
+       if i==length(data)
+           str=str+string(data(i));
+       else
+           str=str+string(data(i))+", ";
+       end
+   end
+   clipboard('copy', str)
+</pre>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<!-- 
+NewPP limit report
+Cached time: 20241129160303
+Cache expiry: 86400
+Reduced expiry: false
+Complications: [show‐toc]
+CPU time usage: 0.052 seconds
+Real time usage: 0.056 seconds
+Preprocessor visited node count: 146/1000000
+Post‐expand include size: 15/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/100
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 8002/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2589-0!canonical and timestamp 20241129160303 and revision id 11652.
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Contributions:KeysightGenerator&amp;oldid=11652">http://www.bci2000.org/mediawiki/index.php?title=Contributions:KeysightGenerator&amp;oldid=11652</a>"</div>
+ </div>
+</body>
+</html>

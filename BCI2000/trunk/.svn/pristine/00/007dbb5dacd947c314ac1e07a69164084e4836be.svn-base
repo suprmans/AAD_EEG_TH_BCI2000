@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Programming Howto:Automatically Build BCI2000 on Non-Windows Platforms - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:grey; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:black; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul><li class="toc1">Concepts</li><ul><li class="toc2"><a href="Programming_Reference%253AFilter_Chain.html">Filter Chain</a></li><li class="toc2"><a href="Programming_Reference%253ASignals.html">Signals</a></li><li class="toc2"><a href="Programming_Reference%253AError_Handling.html">Error Handling</a></li><li class="toc2"><a href="Programming_Reference%253ALocalization.html">Localization</a></li><li class="toc2"><a href="Programming_Reference%253ARapid_Development.html">Rapid Development</a></li></ul><li class="toc1">Reference</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFilter_Class.html">GenericFilter</a></li><li class="toc2"><a href="Programming_Reference%253AEnvironment_Class.html">Environment</a></li><li class="toc2"><a href="Programming_Reference%253AGenericVisualization_Class.html">GenericVisualization</a></li><li class="toc2"><a href="Programming_Reference%253AErrors_and_Warnings.html">Errors and Warnings</a></li><li class="toc2"><a href="Programming_Reference%253ADebug_Output.html">Debug Output</a></li></ul><li class="toc1">Data Acquisition</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericADC_Class.html">GenericADC</a></li></ul><li class="toc1">Data Storage</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFileWriter_Class.html">GenericFileWriter</a></li><li class="toc2"><a href="Programming_Reference%253ABCI2000FileReader_Class.html">BCI2000FileReader</a></li></ul><li class="toc1">Signal Processing</li><ul><li class="toc2"><a href="Programming_Reference%253AIIRFilterBase_Class.html">IIR Filters</a></li></ul><li class="toc1">Application Modules</li><ul><li class="toc2"><a href="Programming_Reference%253AApplicationBase_Class.html">ApplicationBase</a></li><li class="toc2"><a href="Programming_Reference%253AFeedbackTask_Class.html">FeedbackTask</a></li><li class="toc2"><a href="Programming_Reference%253AStimulusTask_Class.html">StimulusTask</a></li><li class="toc2"><a href="Programming_Reference%253A3D_API.html">3D API</a></li></ul><li class="toc1">Howtos</li><ul><li class="toc2"><a href="Programming_Howto%253ABuilding_BCI2000.html">Building BCI2000</a></li><li class="toc2"><a href="Programming_Howto%253ASVN_Client_Setup.html">SVN Client Setup</a></li><li class="toc2"><a href="Programming_Howto%253AUsing_TortoiseSVN.html">Using TortoiseSVN</a></li></ul><li class="toc1"><a href="Programming_FAQ.html">FAQ</a></li><li class="toc1">Tutorials</li><ul><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Data_Acquisition_Module.html">Data Acquisition</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html">Signal Processing</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Matlab-based_Filter.html">Matlab Signal Processing</a></li></ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">Automatically Build BCI2000 on Non-Windows Platforms</h1>
+ <p class = "subtitle">Programming Howto</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Programming_Howto%253AAutomatically_Build_BCI2000_on_Non-Windows_Platforms.html#Back"><span class="tocnumber">1</span> <span class="toctext">Back</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Programming_Howto%253AAutomatically_Build_BCI2000_on_Non-Windows_Platforms.html#Upgrading_Homebrew"><span class="tocnumber">2</span> <span class="toctext">Upgrading Homebrew</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Programming_Howto%253AAutomatically_Build_BCI2000_on_Non-Windows_Platforms.html#Navigate_to_BCI2000_Directory"><span class="tocnumber">3</span> <span class="toctext">Navigate to BCI2000 Directory</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="Programming_Howto%253AAutomatically_Build_BCI2000_on_Non-Windows_Platforms.html#Run_Install_Script"><span class="tocnumber">4</span> <span class="toctext">Run Install Script</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="Programming_Howto%253AAutomatically_Build_BCI2000_on_Non-Windows_Platforms.html#Launch_BCI2000"><span class="tocnumber">5</span> <span class="toctext">Launch BCI2000</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Back"><a href="Programming_Howto%253ABuilding_and_Customizing_BCI2000_on_Non-Windows_Platforms.html" title="Programming Howto:Building and Customizing BCI2000 on Non-Windows Platforms">Back</a></span></h1>
+<p><a href="Programming_Howto%253ABuilding_and_Customizing_BCI2000_on_Non-Windows_Platforms.html" title="Programming Howto:Building and Customizing BCI2000 on Non-Windows Platforms">to the overview page</a>
+</p>
+<h1><span class="mw-headline" id="Upgrading_Homebrew">Upgrading Homebrew</span></h1>
+<p>The fully automated installation and compile script below depends on the <a rel="nofollow" class="external text" href="https://brew.sh/">Homebrew</a> package manager.
+If you have never installed or used it, you need not do anything; the script will take care of installing the latest Homebrew version for you.
+</p><p>Otherwise, if you have Homebrew installed, and are on an Apple Silicon machine, it is important to first update Homebrew to the latest version, in order to avoid broken binaries. From a terminal window, run the following:
+</p>
+<pre>brew update
+brew upgrade
+</pre>
+<p>You are now ready to install BCI2000 following the steps below.
+</p>
+<h1><span class="mw-headline" id="Navigate_to_BCI2000_Directory">Navigate to BCI2000 Directory</span></h1>
+<p>Navigate to the BCI2000 "trunk" directory in a finder window.<br />
+<a href="https://www.bci2000.org/mediawiki/index.php/File:Trunk-directory-non-windows.png" class="image"><img alt="Trunk-directory-non-windows.png" src="../images/f/f2/Trunk-directory-non-windows.png" decoding="async" width="700" height="439" /></a>
+</p>
+<h1><span class="mw-headline" id="Run_Install_Script">Run Install Script</span></h1>
+<p>Double click on the script named "install." It will begin the installation process in a new terminal window. First, it will prompt you for your Qt installation directory. 
+If you installed Qt through the Qt online installer, the path will look like /Users/foo/Qt/6.7.1/macos. Drag the "macos" folder on the window, and press Enter. After you press Enter, the installation will continue without any additional user input.
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:Automatic-compile-non-windows.png" class="image"><img alt="Automatic-compile-non-windows.png" src="../images/7/75/Automatic-compile-non-windows.png" decoding="async" width="700" height="496" /></a>
+</p><p><br />
+Once this script finishes running, your BCI2000 will be built!
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:Screen_Shot_2022-08-12_at_3.55.18_PM.png" class="image"><img alt="Screen Shot 2022-08-12 at 3.55.18 PM.png" src="../images/e/e1/Screen_Shot_2022-08-12_at_3.55.18_PM.png" decoding="async" width="700" height="496" /></a>
+</p><p><br />
+And the "prog" directory in your BCI2000 trunk will have been populated with executables.
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:Prog-folder-non-windows.png" class="image"><img alt="Prog-folder-non-windows.png" src="../images/a/a1/Prog-folder-non-windows.png" decoding="async" width="700" height="390" /></a>
+</p>
+<h1><span class="mw-headline" id="Launch_BCI2000">Launch BCI2000</span></h1>
+<p>To launch BCI2000, navigate to the batch directory in the terminal
+</p>
+<pre>cd trunk/batch
+</pre>
+<p>and enter the name of a batch file, prepended with "./", e.g.
+</p>
+<pre>./P3Speller_SignalGenerator.bat
+</pre>
+<p>Alternatively, double-click the desired batch in a Finder window.
+</p><p>Once it is running, you can start BCI2000 by pressing "set config" and then "start." Enjoy!
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:BCI2000Running_macOS.png" class="image"><img alt="BCI2000Running macOS.png" src="../images/2/21/BCI2000Running_macOS.png" decoding="async" width="500" height="976" /></a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20241129160447
+Cache expiry: 86400
+Reduced expiry: false
+Complications: [show‐toc]
+CPU time usage: 0.018 seconds
+Real time usage: 0.021 seconds
+Preprocessor visited node count: 23/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/100
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2502-0!canonical and timestamp 20241129160447 and revision id 11451.
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Programming_Howto:Automatically_Build_BCI2000_on_Non-Windows_Platforms&amp;oldid=11451">http://www.bci2000.org/mediawiki/index.php?title=Programming_Howto:Automatically_Build_BCI2000_on_Non-Windows_Platforms&amp;oldid=11451</a>"</div>
+ </div>
+</body>
+</html>

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>ForagingTask - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:grey; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:black; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">ForagingTask</h1>
+ <p class = "subtitle"></p>
+ <hr class = "sep" />
+ <div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><div class="thumb tright"><div class="thumbinner" style="width:452px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:ForagingTask2d-gif.gif" class="image"><img alt="" src="../images/a/a9/ForagingTask2d-gif.gif" decoding="async" width="450" height="450" class="thumbimage" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://www.bci2000.org/mediawiki/index.php/File:ForagingTask2d-gif.gif" class="internal" title="Enlarge"></a></div>Demo video of the task. The participant has learned that the brown are the most valuable, then secondly the green ones.</div></div></div>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="ForagingTask.html#Synopsis"><span class="tocnumber">1</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="ForagingTask.html#Versioning"><span class="tocnumber">2</span> <span class="toctext">Versioning</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="ForagingTask.html#Authors"><span class="tocnumber">2.1</span> <span class="toctext">Authors</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-4"><a href="ForagingTask.html#Task_Behavior"><span class="tocnumber">3</span> <span class="toctext">Task Behavior</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="ForagingTask.html#Audio_Stimuli"><span class="tocnumber">3.1</span> <span class="toctext">Audio Stimuli</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="ForagingTask.html#Dot/Dwell_radii"><span class="tocnumber">3.2</span> <span class="toctext">Dot/Dwell radii</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="ForagingTask.html#Subset_of_colors"><span class="tocnumber">3.3</span> <span class="toctext">Subset of colors</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="ForagingTask.html#Cursor_Control"><span class="tocnumber">3.4</span> <span class="toctext">Cursor Control</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-9"><a href="ForagingTask.html#Parameters"><span class="tocnumber">4</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-10"><a href="ForagingTask.html#Foraging"><span class="tocnumber">4.1</span> <span class="toctext">Foraging</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="ForagingTask.html#CursorControl"><span class="tocnumber">4.2</span> <span class="toctext">CursorControl</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="ForagingTask.html#Foraging_Dot_Size"><span class="tocnumber">4.3</span> <span class="toctext">Foraging Dot Size</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="ForagingTask.html#Foraging_Stimuli"><span class="tocnumber">4.4</span> <span class="toctext">Foraging Stimuli</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="ForagingTask.html#Foraging_Timing"><span class="tocnumber">4.5</span> <span class="toctext">Foraging Timing</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="ForagingTask.html#ProgressBar"><span class="tocnumber">4.6</span> <span class="toctext">ProgressBar</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="ForagingTask.html#PhotoDiodePatch"><span class="tocnumber">4.7</span> <span class="toctext">PhotoDiodePatch</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-17"><a href="ForagingTask.html#States"><span class="tocnumber">5</span> <span class="toctext">States</span></a></li>
+<li class="toclevel-1 tocsection-18"><a href="ForagingTask.html#See_also"><span class="tocnumber">6</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>This task presents the participant with a matrix of dots to forage. The colors of the dots have different value, and the only way the participant knows the difference is by listening to the feedback given after harvesting the dot. Over time, the participant will learn which type will give them the highest reward, and will optimize each trial. After each trial, the participant is also shown their previous trial's score to help with their learning as well.
+</p><p>This task can easily be used in BCI2000, and has many adjustable settings to allow for the perfectly designed experiment.
+</p>
+<h2><span class="mw-headline" id="Versioning">Versioning</span></h2>
+<h3><span class="mw-headline" id="Authors">Authors</span></h3>
+<p>Max Marcus
+</p><p>Will Engelhardt (engelhardt@neurotechcenter.org)
+</p>
+<h2><span class="mw-headline" id="Task_Behavior">Task Behavior</span></h2>
+<h3><span class="mw-headline" id="Audio_Stimuli">Audio Stimuli</span></h3>
+<p>The audio currently must have a specific format. It must be a .wav file. It must be in the format of <code>&lt;<b>mean</b>&gt;-&lt;<b>number (0-9)</b>&gt;.wav</code>. There must be 10 types of each mean, which is the 0-9 number. The mean corresponds to the amount of sound/reward in the audio file, and the files will be chosen based on the parameter <a href="ForagingTask.html#ForagingStimuliDistribution">ForagingStimuliDistribution</a>, where you give the mean and standard deviation. 
+</p><p>The stimuli are presented in a pseudo-random fashion. A normal distribution for each stimuli is created at the beginning of the run, with a size of the maximum possible number of presented stimuli. This is then shuffled and presented in order according to the new shuffled order. So if every possible dot is foraged for a given stimuli, by the end of the run you will have listened to the entire normal distribution of sounds with the given mean and standard deviation specified in <i>ForagingStimuliDistribution</i>.
+</p>
+<h3><span id="Dot.2FDwell_radii"></span><span class="mw-headline" id="Dot/Dwell_radii">Dot/Dwell radii</span></h3>
+<p>If <i>EyetrackerCursor</i> is enabled, the eye-tracker will stream the real-time eye-to-screen distance. This measurement is needed for calculating the pixel size from the given visual angle parameters. Without the eye-tracker, an estimation is made with the parameter <i>ViewingDistanceInCm</i>. But if the eye-tracker is enabled, we will make the most of it and use it to create an average eye-to-screen distance.
+</p><p>The radii are initially created based on the parameter <i>ViewingDistanceInCm</i>. Each trial, the radii of the fixation dot and the foraging dots are updated according to the new average viewing distance. The average distance is continually updated throughout the task. 
+</p>
+<h3><span class="mw-headline" id="Subset_of_colors">Subset of colors</span></h3>
+<p>If <i>ColorsInATrial</i> is less than the number of colors in <i>ForagingStimuliColors</i>, a subset of colors will be presented in each trial. The subsets are chosen randomly for each trial at a time. 
+</p>
+<h3><span class="mw-headline" id="Cursor_Control">Cursor Control</span></h3>
+<p>This experiment is most easily run with an eyetracker. If this is not available, it can also be controlled with anything else, such as a mouse or joystick. To configure the cursor position, go the the <code>Filtering</code> tab, and then the <code>Expressions</code> parameter. The first row will control the X position, while the second row will control the Y position of the cursor. An example parameter for using the mouse is to specify <code>(State(MousePosX) - 32768) / 2560</code> for the first row. 2560 is the screen width, and <code>MousePosX</code> is a BCI2000 state that tracks the position of the mouse. This expression can be modified to best fit your needs.
+</p>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<h3><span class="mw-headline" id="Foraging">Foraging</span></h3>
+<table>
+<tbody><tr>
+<td><b>ForagingColumns</b>
+</td>
+<td>Number of columns of dots
+</td></tr>
+<tr>
+<td><b>ForagingRows</b>
+</td>
+<td>Number of rows of dots
+</td></tr>
+<tr>
+<td><b>Trials</b>
+</td>
+<td>Number of trials in a run
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="CursorControl">CursorControl</span></h3>
+<table>
+<tbody><tr>
+<td><b>EyetrackerCursor</b>
+</td>
+<td>Enable to use the eyetracker. Otherwise, the expression filter will be used, where any Expression or State can control the cursor.
+</td></tr>
+<tr>
+<td><b>ShowCursor</b>
+</td>
+<td>Enable to show the participant the cursor on their screen
+</td></tr>
+<tr>
+<td><b>CursorColor</b>
+</td>
+<td>Color of the cursor (if shown)
+</td></tr>
+<tr>
+<td><b>CursorSize</b>
+</td>
+<td>CursorSize (if shown)
+</td></tr>
+<tr>
+<td><b>UseVelocity</b>
+</td>
+<td>Enable to control the cursor by adding a velocity to it. Otherwise, the cursor is set with position.
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="Foraging_Dot_Size">Foraging Dot Size</span></h3>
+<table>
+
+<tbody><tr>
+<td><b>MinDotAngle</b>
+</td>
+<td>Normal pixel size of the radius of each dot
+</td></tr>
+<tr>
+<td><b>MaxDotAngle</b>
+</td>
+<td>Maximum pixel size of the dot when increasing upon dwelling
+</td></tr>
+<tr>
+<td><b>DwellVisualAngle</b>
+</td>
+<td>Degrees of visual angle that triggers dwell. Uses Eye-tracker's state of distance to screen to create pixel size
+</td></tr>
+<tr>
+<td><b>FixationDotAngle</b>
+</td>
+<td>Radius of fixation dot
+</td></tr>
+<tr>
+<td><b>FixationDwellVisualAngle</b>
+</td>
+<td>Degrees of visual angle for fixation dot to be held
+</td></tr>
+<tr>
+<td><b>ViewingDistanceInCm</b>
+</td>
+<td>Distance of participant from screen (cm). To be used for calculating pixel size of dots. If eyetracker is enabled, this will not be used, and the distance will instead be measured with the eyetracker.
+</td></tr>
+<tr>
+<td><b>WindowDiagonalInCm</b>
+</td>
+<td>Length of the application window's diagonal. This helps calculate the conversion from centimeters to pixel size.
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="Foraging_Stimuli">Foraging Stimuli</span></h3>
+<table>
+<tbody><tr>
+<td><b>ForagingStimuliDirectory</b>
+</td>
+<td>Folder that contains the audio stimuli. Must be in format specified in <a href="ForagingTask.html#Limitations#Audio_Stimuli">Audio Stimuli</a>
+</td></tr>
+<tr>
+<td><b>ForagingStimuliDistribution</b>
+</td>
+<td>Mean and standard deviation of audio files for each type of stimulus. The value is associated with the column, so <i><b>make sure to have the mean in increasing order!<b><i>.
+</i></b></b></i></td></tr>
+<tr>
+<td><b>ForagingStimuliColors</b>
+</td>
+<td>List of colors to be used. The first column must be the names of the colors, then the second column is the hex values of the colors.
+</td></tr>
+<tr>
+<td><b>ColorsInATrial</b>
+</td>
+<td>Number of colors to show per trial. Cannot be greater than the size of the given color list
+</td></tr>
+<tr>
+<td><b>MaximumColorCanMiss</b>
+</td>
+<td>Maximum number of trials that a color can miss in a row
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="Foraging_Timing">Foraging Timing</span></h3>
+<table>
+<tbody><tr>
+<td><b>ForagingTrialTime</b>
+</td>
+<td>Length of time that subject gets to forage
+</td></tr>
+<tr>
+<td><b>DwellTime</b>
+</td>
+<td>Duration that subject has to dwell on a dot to receive reward
+</td></tr>
+<tr>
+<td><b>InterTrialTime</b>
+</td>
+<td>Length of time between trials
+</td></tr>
+<tr>
+<td><b>ScoreFeedbackTime</b>
+</td>
+<td>Length of time to show user previous round's score
+</td></tr>
+<tr>
+<td><b>FixationTime</b>
+</td>
+<td>Time to fixate
+</td></tr>
+<tr>
+<td><b>FixationHoldTime</b>
+</td>
+<td>Time to hold fixation before starting trial (once dots have appeared)
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="ProgressBar">ProgressBar</span></h3>
+<p>The progress bar lets the experimenter know how much time has passed and how much is left. These parameters allow for customization of the bar.
+</p>
+<h3><span class="mw-headline" id="PhotoDiodePatch">PhotoDiodePatch</span></h3>
+<p>A photodiode patch is for use with a photodiode, which measures if the light input is below or above a threshold. Used for measuring the exact time ofthe screen presentation. These parameters allow for customization of the location of the patch, the shape, and the (in)active colors.
+</p>
+<h2><span class="mw-headline" id="States">States</span></h2>
+<p>All states are integers.
+</p>
+<table>
+<tbody><tr>
+<td style="border-bottom: solid 1px grey;"><b>CursorPosX</b>
+</td>
+<td>The X position of the cursor, between 0 (left) and 1000 (right)
+</td></tr>
+<tr>
+<td><b>CursorPosY</b>
+</td>
+<td>The Y position of the cursor, between 0 (top) and 1000 (bottom)
+</td></tr>
+<tr>
+<td style="border-bottom: solid 1px grey; border-top: solid 1px grey;"><b>TargetX</b>
+</td>
+<td>Column of the target that the cursor is in
+</td></tr>
+<tr>
+<td><b>TargetY</b>
+</td>
+<td>Row of the target that the cursor is in
+</td></tr>
+<tr>
+<td style="border-bottom: solid 1px grey; border-top: solid 1px grey;"><b>TargetType</b>
+</td>
+<td>Each color is a type. Type of the target that the cursor is closest to
+</td></tr>
+<tr>
+<td><b>Score</b>
+</td>
+<td>Each round's score
+</td></tr>
+<tr>
+<td style="border-bottom: solid 1px grey; border-top: solid 1px grey;"><b>TrialPhase</b>
+</td>
+<td>Phase of trial we are currently in
+<ul><li>Fixation = 0</li>
+<li>FixationHold = 1</li>
+<li>Feedback = 2</li>
+<li>InterTrial = 3</li>
+<li>ScoreFeedback = 4</li></ul>
+</td></tr>
+<tr>
+<td><b>Trial</b>
+</td>
+<td>Trial number (1 - <a href="ForagingTask.html#Trials">number of trials</a>)
+</td></tr>
+<tr>
+<td style="border-bottom: solid 1px grey; border-top: solid 1px grey;"><b>Dwelling</b>
+</td>
+<td>Number of blocks that have occurred when the participant has been dwelling on the dot. Once it gets above the time set by <a href="ForagingTask.html#DwellTime">#DwellTime</a>, the reward is given and it goes back to 0
+</td></tr>
+<tr>
+<td><b>DotExists</b>
+</td>
+<td>Describes which dots exist in a trial. Each target is stored in a bit. The order starts top left, goes through the row, then goes to the next row. For example, in a trial with 3 rows and 4 columns, the starting value will be 2^12 = 4096. If the top left target gets acquired, it no longer exists so the first bit will be flipped: 4096 - 2^0 = 4095. If the bottom right one gets chosen next, the 12th bit will be flipped: 4095 - 2^11 = 2047. This way, when decoded, you can be certain about the dot matrix after the experiment.
+</td></tr>
+<tr>
+<td style="border-bottom: solid 1px grey; border-top: solid 1px grey;"><b>AudioType</b>
+</td>
+<td>The prefix of the audio stimuli that was played. The value corresponds to the number of blips in the audio file.
+</td></tr>
+<tr>
+<td><b>AudioVariation</b>
+</td>
+<td>The suffix of the audio stimuli that was played. The value corresponds to the variation that was played (0-10).
+</td></tr>
+<tr>
+<td style="border-top: solid 1px grey;"><b>BoardLayout</b>
+</td>
+<td>The layout of the targets for each trial. At the beginning of the InterTrial phase (as soon as the randomized board is created for the feedback trial), the BoardLayout state will update with the TargetType for each target, moving from left to right. Once the end of the board is reached, it's value will be one more than the maximum target type value.
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="Contributions%253AApplications.html" title="Contributions:Applications">Contributions:Applications</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20241129160422
+Cache expiry: 86400
+Reduced expiry: false
+Complications: [show‐toc]
+CPU time usage: 0.030 seconds
+Real time usage: 0.032 seconds
+Preprocessor visited node count: 58/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/100
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2668-0!canonical and timestamp 20241129160422 and revision id 11325.
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=ForagingTask&amp;oldid=11325">http://www.bci2000.org/mediawiki/index.php?title=ForagingTask&amp;oldid=11325</a>"</div>
+ </div>
+</body>
+</html>

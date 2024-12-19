@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Contributions:RHX - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:grey; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:black; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul><li class="toc1"><a href="Contributions%253AADCs.html">Data Acquisition</a></li><li class="toc1"><a href="Contributions%253AFileWriters.html">File Formats</a></li><li class="toc1"><a href="Contributions%253ASignalProcessing.html">Signal Processing</a></li><li class="toc1"><a href="Contributions%253AApplications.html">Applications</a></li><li class="toc1"><a href="Contributions%253ATools.html">Tools</a></li></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">RHX</h1>
+ <p class = "subtitle">Contributions</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>The Intan RHS has four SPI ports (with each port labelled A,B,C,D) which sends data to a FPGA. These ports communicate with the chips located on supported headstages. Each port has four output signals responsible for communication with the amplifier chips, two of which (MISO1,MISO2) are used to transmit data. Each chip controls 16 channels, and each chip transmits data over a single MISO line. Over all four ports, this means there are 8 lines over which data can be sent.
+</p>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 62px"><div style="width: 62px">
+			<div class="thumb" style="width: 60px;"><div style="margin:-0.16666666666666px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:Intanheadstage.jpg" class="image" title="RHS2116 Amplifier chip on 32 channel headstage"><img alt="RHS2116 Amplifier chip on 32 channel headstage" src="../images/f/f5/Intanheadstage.jpg" decoding="async" width="54" height="76" /></a></div></div>
+			<div class="gallerytext">
+<p>RHS2116 Amplifier chip on 32 channel headstage
+</p>
+			</div>
+		</div></li>
+</ul>
+<p>Attatched to the FPGA is an Opal Kelly XEM6010 USB/FPGA interface which can be used to read data in the FPGA via USB. This module has 128MByte SDRAM
+</p><p><br />
+</p>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<p>SamplingRate: Due to the RHS's ability to only take on discrete sampling rates, a value matching one of the following must be used for this parameter (given in Hz): 1000, 1250, 1500, 2000, 2500, 3000, 3333, 4000, 5000, 6250, 8000, 10000, 12500, 15000,20000 ,25000, 30000.
+</p><p>SampleBlockSize: The API provided by Intan only reads data in chunks of 128. Therefore, values that are multiples of 128 must be used for this parameter.
+</p><p>ConnectionType: Determines type of connection to be used. For devices with a XEM7310 module (which can be found via the connected device list given in the Intan RHX application or by looking at the specifications for the device in use), use ControllerStimRecord. Otherwise, depending on the USB connection, choose USB2 or USB3.
+</p><p><br />
+</p><p><br />
+~To be added~
+</p><p>Trigger parameters:
+</p><p>TriggerEnable: enables or disables the trigger function
+</p><p>TriggerType: Edge triggered: triggers stimulation upon change from inactive to active state. Level triggered: repeats stimulation while in an active state (i.e. can activate multiple times while the trigger condition is met, without needing to switch)
+</p><p>TriggerState: Allows the user to enter a state that will be used as a trigger condition (i.e. can use KeyboardMonitor)
+</p><p>TriggerValue: The value in which TriggerCondition will be compared to.
+</p><p>TriggerCondition: The condition which TriggerState must satisfy in relation to TriggerValue in order to switch to an active state.
+</p><p><br />
+Pulse train parameters:
+</p><p>PulseTrainEnable: True: enables pulse train. False: sets stimulation to only a single pulse of the waveform.
+</p><p>PulseTrainNumPulses: Number of pulses to be executed upon trigger activation
+</p><p>PulseTrainPeriod: time elapsed between the start of two subsequent pulses (i.e. stimulus duration+interstimulus interval)
+</p><p>PostTriggerDelay: Time between trigger activation and execution of pulse train
+</p><p>RefractoryPeriod: Rest period after pulse train finishes executing during which stimulation will not execute
+</p><p>Waveform parameters:
+A1: Magnitude of first phase current (nA)
+A2: Magnitude of second phase current (nA)
+Polarity: Anodic: supplies positive current first. Cathodic: supplies negative current first
+D1: Duration of first phase
+D2: Duration of second phase
+DP: Interphase delay duration (Only applicable for Biphasic with Delay stimulation shape)
+</p><p>Shape: 
+Biphasic: supplies current (with polarity determined by the Polarity parameter) for time determined by D1 and magnitude determined by A1, then supplies the opposite sign of current for time determined by D2 and magnitude determined by A2
+Biphasic with delay: supplies current (with polarity determined by the Polarity parameter) for time determined by D1 and magnitude determined by A1, then supplies no current for time specified by DP, then supplies the opposite sign of current for time determined by D2 and magnitude determined by A2
+Triphasic: supplies current (with polarity determined by the Polarity parameter) for time determined by D1 and magnitude determined by A1, then supplies the opposite sign of current for time determined by D2 and magnitude determined by A2, then repeats the first phase (current of initial polarity for duration D1 and amplitude A1)
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20241129160338
+Cache expiry: 86400
+Reduced expiry: false
+Complications: []
+CPU time usage: 0.009 seconds
+Real time usage: 0.011 seconds
+Preprocessor visited node count: 11/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/100
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 593/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2704-0!canonical and timestamp 20241129160338 and revision id 11605.
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Contributions:RHX&amp;oldid=11605">http://www.bci2000.org/mediawiki/index.php?title=Contributions:RHX&amp;oldid=11605</a>"</div>
+ </div>
+</body>
+</html>

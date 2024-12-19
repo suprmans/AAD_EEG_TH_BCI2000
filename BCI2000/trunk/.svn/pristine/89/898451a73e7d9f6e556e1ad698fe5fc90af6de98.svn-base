@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>BCI2000 Hyperscanning - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:grey; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:black; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">BCI2000 Hyperscanning</h1>
+ <p class = "subtitle"></p>
+ <hr class = "sep" />
+ <div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><p>BCI2000 Hyperscanning is a multiplayer simulation, a program that is synchronized over multiple computers, that supports the connection of two or more clients, the computers that are involved in the simulation. BCI2000 Hyperscanning also has subjects, which are the people that are using the client computers.
+</p><p>In a multiplayer simulation, each client involved must know the current state of the game. This game state allows each client to determine the output that is shown to the user. In order for each client to display the same game to each user, each client must have the same game state. The game state is stored as a collection of state variables in a state machine.
+A state machine is a set of variables, or states, that correspond with values. In essence, it is a simple database. The data in the database describes the state of the game (see figure \ref{fig:gamestate}).
+</p><p>BCI2000 Hyperscanning has a master state machine that is stored on a centralized back-end server and one state machine for each client. Each client is connected to the back-end server through a TCP socket to ensure that each connection is maintained and everything that is sent is received. The clients output a stimulus to the user based on their state machines, and update their state machines based on user inputs. When one client updates its state machine, the server saves the game state in its master state machine and updates the other clients (see figure \ref{fig:gamestateupdate}).
+</p><p><br />
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:GameStateFigure.png" class="image"><img alt="GameStateFigure.png" src="../images/f/f9/GameStateFigure.png" decoding="async" width="436" height="235" /></a></div></div>
+<p><i><b>Game State.</b> The game state shows synchrony between the master game state, which is stored on the server, and the client game states.</i>
+</p><p><br />
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:GameStateUpdateFigure.png" class="image"><img alt="GameStateUpdateFigure.png" src="../images/9/9e/GameStateUpdateFigure.png" decoding="async" width="437" height="236" /></a></div></div>
+<p><i><b>Game State Updates.</b> The game state updates (bottom) show a typical interaction that would result in a game state update to the master game state and the ensuing update to the other client(s). In this example, the user clicks, indicating they would like to place a marker in the tic-tac-toe game, and this triggers a local game state update. This local game state update is sent to the server. The server saves the update and synchronizes the remaining client(s). After the interaction has concluded, each client is synchronized.</i>
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:StateUpdatesFigure.png" class="image"><img alt="StateUpdatesFigure.png" src="../images/5/54/StateUpdatesFigure.png" decoding="async" width="844" height="578" /></a></div></div>
+<p><i><b>Game State Update Scenarios.</b> In scenario 1, the client updated its game state locally because of a user mouse press. This caused synchronization between it and the master game state to be lost. In this scenario, the client updates the master game state to match its game state. In scenario 2, a different client updated the master game state because of a user mouse press. This caused synchronization between the first client and the master game state to be lost. In this scenario, the server updates the first client to match its game state.</i>
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="BCI2000_Hyperscanning.html#Server"><span class="tocnumber">1</span> <span class="toctext">Server</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="BCI2000_Hyperscanning.html#Server_Loop"><span class="tocnumber">1.1</span> <span class="toctext">Server Loop</span></a>
+<ul>
+<li class="toclevel-3 tocsection-3"><a href="BCI2000_Hyperscanning.html#Client_Updates"><span class="tocnumber">1.1.1</span> <span class="toctext">Client Updates</span></a></li>
+<li class="toclevel-3 tocsection-4"><a href="BCI2000_Hyperscanning.html#Reconciliation"><span class="tocnumber">1.1.2</span> <span class="toctext">Reconciliation</span></a></li>
+<li class="toclevel-3 tocsection-5"><a href="BCI2000_Hyperscanning.html#Update_Clients"><span class="tocnumber">1.1.3</span> <span class="toctext">Update Clients</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="BCI2000_Hyperscanning.html#Clients"><span class="tocnumber">2</span> <span class="toctext">Clients</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="BCI2000_Hyperscanning.html#Client_Loops"><span class="tocnumber">2.1</span> <span class="toctext">Client Loops</span></a>
+<ul>
+<li class="toclevel-3 tocsection-8"><a href="BCI2000_Hyperscanning.html#Synchronous_Loop"><span class="tocnumber">2.1.1</span> <span class="toctext">Synchronous Loop</span></a></li>
+<li class="toclevel-3 tocsection-9"><a href="BCI2000_Hyperscanning.html#Asynchronous_Loop"><span class="tocnumber">2.1.2</span> <span class="toctext">Asynchronous Loop</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-10"><a href="BCI2000_Hyperscanning.html#Client_Initialization"><span class="tocnumber">2.2</span> <span class="toctext">Client Initialization</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-11"><a href="BCI2000_Hyperscanning.html#Example_Paradigm_Design"><span class="tocnumber">3</span> <span class="toctext">Example Paradigm Design</span></a>
+<ul>
+<li class="toclevel-2 tocsection-12"><a href="BCI2000_Hyperscanning.html#Turn_Based_Stimulus"><span class="tocnumber">3.1</span> <span class="toctext">Turn Based Stimulus</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-13"><a href="BCI2000_Hyperscanning.html#Important_Notes"><span class="tocnumber">4</span> <span class="toctext">Important Notes</span></a>
+<ul>
+<li class="toclevel-2 tocsection-14"><a href="BCI2000_Hyperscanning.html#Live_Interaction_Stimulus"><span class="tocnumber">4.1</span> <span class="toctext">Live Interaction Stimulus</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="BCI2000_Hyperscanning.html#Example_Server_Application"><span class="tocnumber">4.2</span> <span class="toctext">Example Server Application</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-16"><a href="BCI2000_Hyperscanning.html#Important_Notes_2"><span class="tocnumber">5</span> <span class="toctext">Important Notes</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Server">Server</span></h2>
+<p>The purpose of the server, or back-end, is to store, update, and distribute a master list of states. It synchronizes each of the client's state machines, so that each client displays the same game. 
+</p><p>At a given time, one of the clients may have a state variable set to a value that is different from the value that the server has that state set to. At this point there are two possibilities. If that state was changed based on user inputs, then the server will update its state machine to reflect that user input. Otherwise, if the client has an old value, one that has been changed by another client, then the server will update the client with the new value of the state, so that each client is synchronized (see figure \ref{fig:gamestateupdatescenarios}).
+</p><p>In addition to synchronizing states between clients, the backend must also synchronize many initial parameters to ensure that the exact same experiment is being run for each subject, e.g. the order of stimulus images needs to be synchronized. To solve this, the server contains a BCI2000 parameter file that is sent to each client when it connects to the server. This also serves as a greeting message to ensure that the connection is functioning before the experiment begins.
+</p><p>The server application can be run from any mac or linux computer, whether it is local to one of the clients or in the cloud, as long as it is configured to allow TCP traffic. It is a collection of c++ classes and methods that are implemented into an application file. This application file is then run on the server computer. The server is not an instance of BCI2000. Rather, it is a separate application that interacts with client instances of BCI2000. 
+</p><p>While the idea for this hyperscanning architecture propagated from one experimental design, we ensured that this technology was robust enough to be used reused for any experiment, even if it is radically different from our initial one. The core of the back-end is simple and abstracted. It is a state machine that can be updated from clients and will propagate those updates to other clients. This simplicity means that the central parts of the back-end will work for any experimental paradigm. The simplicity of the core also allows for a more specific framework to be built surrounding the core, should that be necessary for a specific application. 
+</p><p>For each paradigm, an application file is implemented on the server. This application file will always contain the basic backend framework, like connecting to clients and running the actual data exchange loop, but it can also contain more specific instructions. For example, if parameters need to be randomly generated and synchronized across clients the core design is flexible enough to allow that to be built. Parameters can be added to the previously mentioned parameter file through the application file to solve this particular example. If there is a paradigm requiring more complex changes to the standard backend, the core can also be broken down into its individual steps to allow that.  
+</p><p>The backend runs in a continuous loop of data exchanges with the clients. This loop continues for as long as the experiment runs. The end to the session, and thus the loop, is singaled by one of the clients breaking its connection with the server. 
+</p><p>Even though a client disconnects, the experiment may not be concluded. There could have been a crash, internet issues, or the investigator may have wanted to pause the experiment, but the server cannot continue operating properly after a client has disconnected. To solve this issue, the application file can access the state machine after the loop has ended, and save any of the states that are necessary to redetermine the experimental state after a restart. These values can then be passed to BCI2000 as parameters when it is restarted. For example, the trial number can be saved and passed to BCI2000 as an initial trial number parameter (see figure \ref{fig:pause}).
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:PauseFigure.png" class="image"><img alt="PauseFigure.png" src="../images/2/23/PauseFigure.png" decoding="async" width="822" height="558" /></a></div></div>
+<p><i><b>Example paradigm with pause feature.</b> This is a stimulus presentation paradigm, with a progression of faces being shown to the subject. During the first recording session, the subject gets through the first two trials before the session ends. The current trial number is saved to the server. During the next recording session, the server sends the current trial number, three, to the client; the client begins the session at trial number three and completes the paradigm.</i>
+</p>
+<h3><span class="mw-headline" id="Server_Loop">Server Loop</span></h3>
+<p>The loop has three main steps (see figure \ref{fig:serverloop}). First, the server updates any states changed by the clients. Second, the server reconciles all of the updated states. Third, the server sends updated states back to the clients. 
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:ReconcilliationFigure.png" class="image"><img alt="ReconcilliationFigure.png" src="../images/2/21/ReconcilliationFigure.png" decoding="async" width="842" height="586" /></a></div></div>
+<p><i><b>Progression of state updates over time.</b> Each client sends state updates, indicated by black arrows, to the server-side-client state machines, indicated by pink arrows. The server side state machines send the state updates to the master state machine. These state updates include conflicting information; the master state machine saves the state update from client 1 and disregards the conflicting update from client 2. The server sends the changed states, indicated by triangular arrows and blue ovals, back to the server-side-client state machines. The server-side-client state machines send their changed states back to the clients.</i>
+</p>
+<h4><span class="mw-headline" id="Client_Updates">Client Updates</span></h4>
+<p>In this step, the server simply waits for at least one of the clients to send states that were changed locally. If a client has not sent any data, then the server will wait for 2ms before checking another client. The server saves the data sent by the client in a state machine that tracks the current values of the states on each client. These are the server-side-client state machines.
+</p>
+<h4><span class="mw-headline" id="Reconciliation">Reconciliation</span></h4>
+<p>In this step, the server decides which states to save and prepares the updates to send to each client. After each client sends its updates, the server-side-client machines are different from the master state machine and from each other, but they are synchronized with their respective clients. The server has to synchronize all of these state machines by saving client changes to the master state machine and sending updates to the clients, but it is necessary to save only one version of each state and to send only updates with new information. If the server repeats state updates by sending the same update twice or by echoing a state change back to the client that sent it, that state will be changed at multiple times for that client, which can cause irregularities and bugs. %Tracker state machines, which track the changes when a state machine is updated, are used to ensure that only actual changes are sent to the clients. One tracker is used to determine all the changes to the master state machine from the client updates. These changes are then used to update the server-side-client state machines. The changes to the server-side-client state machines are only the updates from other clients that were saved as master states, so they are then used to update the actual client state machines.
+</p><p>To solve this, each state must pass two tests to get sent to a client. First, it must have been saved to the master state machine. Second, it must have been sent by a different client. These tests are implemented using tracker state machines, which track the changes that occur when a state machine is updated. For the first test, the server updates the master state machine from the server-side-client state machines and tracks the changes. For the second test, the changes to the master state machine are used to update the server-side-client state machines, and the changes from this interaction are tracked. The changes to the server-side-client state machines pass both tests, because they were changed on the master state machine (they were saved to the master state machine) and one of the client state machines (they weren't sent by that client because, in that case, they would have already been updated). These changes can be sent to the clients.
+</p>
+<h4><span class="mw-headline" id="Update_Clients">Update Clients</span></h4>
+<p>This final step is the opposite of the first step. The server sends the prepared states to the clients. After this step, the loop repeats, and the server waits for the client to send updates again. 
+</p>
+<h2><span class="mw-headline" id="Clients">Clients</span></h2>
+<p>The purpose of the clients is to display the stimulus to the subject. Additionally, it is responsible for actually calculating the values of the game states. Each client is a separate instance of BCI2000, which are run on separate computers. They can be next to each other or hundreds of miles apart depending on the needs of the experiment.
+</p><p>Once again, the structure is designed to be robust and reusable. To this end, the client exists in two pieces. The true frontend, which is responsible for calculating state values and outputting the stimulus, and the network logger, which is responsible for communication with the server. The true frontend is designed as a typical BCI2000 experiment, and thus will be different for every experiment. The network logger contains everything that will be the exact same for every BCI2000 Hyperscanning experiment. Thus, the network logger can be reused, while the true frontend is redesigned for every new experiment.
+</p><p>The network logger is a part of the hyperscanning application base, which is a c++ class that a hyperscanning paradigm can be built upon. The hyperscanning application base will connect the network logger to the application module. 
+</p><p>BCI2000 has its own built in state machine. The network logger seamlessly updates a predefined set of these BCI2000 states based on server activity and the activity of other clients. It translates server data into BCI2000 states. The list of states that are updated by the network logger is defined in a BCI2000 parameter called shared states that contains both the names and the sizes of each of the states that the designer wants to be synchronized amongst the clients. To ensure that the states are sent rapidly, only the necessary states should be sent between clients, so they must be defined in this parameter. Other BCI2000 states will not be synchronized.
+</p>
+<h3><span class="mw-headline" id="Client_Loops">Client Loops</span></h3>
+<p>Much like the server, the network logger loops, however, in order to conform with BCI2000 two distinct loops are utilized. One of them is synchronous with the rest of BCI2000. BCI2000 only allows its states to be changed during specific phases, so one of the loops must be synchronized with BCI2000. %The limitations of BCI2000 states require that state changes occur only during a specific time period, which necessitates synchronizing the loop with BCI2000. 
+While BCI2000 has a type of state that can be written to asynchronously, called an event, they are added to a queue and changed at a later time. This means the network logger cannot differentiate changes it made from changes the frontend made, so it doesn't know which changes to send to the server. The other loop is asynchronous, and makes use of multi-threading and parallel processing to increase the speed that data transfers can be made at, ensuring the greatest possible synchronicity between clients.
+</p><p>Because these loops are both operating on the same data, i.e. the states that need to be changed, there is the risk of data corruption if both try to operate at the same time. The data is stored in mutexed buffers to ensure that does not happen. Mutexed buffers can only be written to or read by a single source at a time. If multiple sources try to access a mutexed buffer, one of them must wait for the other to finish its operation.
+</p><p>Two buffers are shared between the two loops (see figure \ref{fig:clientloops}). One is a state machine that contains the name and value of each shared state, along with whether or not the state has a change from the server that hasn't been updated to the BCI2000 states, and the other is a message for the server that contains the states that have been updated by the frontend.
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:Clientloopsfigure.png" class="image"><img alt="Clientloopsfigure.png" src="../images/a/a4/Clientloopsfigure.png" decoding="async" width="687" height="271" /></a></div></div>
+<p><i><b>Synchronous and asynchronous client loops and their data exchanges.</b> The client updates a state, e.g. they indicate their move in tic-tac-toe with a mouse click, and the synchronous client loop adds that change to the message for the server. The asynchronous loop sends the message to the server. The asynchronous loop continues looping until it gets a response from the server. When it gets a response from the server, e.g. the other client's move, it adds it to the changed states buffer. The synchronous loop saves the changes in the changed states buffer to the BCI2000 state machine.</i>
+</p>
+<h4><span class="mw-headline" id="Synchronous_Loop">Synchronous Loop</span></h4>
+<p>The synchronous loop first updates all of the BCI2000 states that have been changed by the server. %to the value sent by the server. 
+The loop then determines if any of the states in the mutexed state machine are different from their BCI2000 counterpart. Because all of the states that were different from BCI2000 because of a server update were just updated, all of the remaining discrepancies must be due to a client change. These are then recorded in the message for the server. 
+</p><p>It is very important for analyzing the experiment that the investigator knows when states were changed in relation to the recorded data. This could be complicated when states are being sent over the internet with delays and lag, but the network logger and BCI2000 radically simplify it. The important timestamp to record is when the state had an effect on the actual stimulus, because this is when it can have an effect on the subject. The timestamp of BCI2000 states is recorded whenever they are changed, and it is the BCI2000 states that have an effect on the stimulus. It is also BCI2000 that is providing the timestamps for the recorded data, therefore those timestamps will provide an accurate comparison between state changes and recorded data.
+</p>
+<h4><span class="mw-headline" id="Asynchronous_Loop">Asynchronous Loop</span></h4>
+<p>The asynchronous loop first sends the mutexed message to the server. If the message is empty, it doesn't send anything. This is the message that the server waits for in section 2.1.1. The loop then waits for a message from the server with the changes other clients have made. It waits 2ms for the server before moving on. This is the message the server sends in section 2.1.3. The loop then records these changes in the mutexed state machine and flags that they have a change from the server.
+</p>
+<h3><span class="mw-headline" id="Client_Initialization">Client Initialization</span></h3>
+<p>The client initializes its connection with the server during the AutoConfig phase of BCI2000. This occurs after the Set Config button is pressed. The client first ensures that it hasn't already established a connection with the server, then it connects to the server. It uses user defined parameters to determine the IP address and port of the server application. The port of the server is defined by the designer in the server application file. The client then waits for the server to send an initial message that contains a client number and initial parameters. The client number is an id for the client to use to differentiate itself from other clients. For example, if each subject plays a different role in the paradigm, then the client number can be used to differentiate between roles. The parameters are then used to set BCI2000's parameters.
+</p>
+<h2><span class="mw-headline" id="Example_Paradigm_Design">Example Paradigm Design</span></h2>
+<p>A BCI2000 Hyperscanning paradigm is designed very similarly to a typical BCI2000 paradigm with a couple key differences. First, states we want to be shared with other clients must be stated in the batch file, either under the optional parameter SharedStates (for states we want to be shared that BCI2000 Hyperscanning will define for us) or the optional parameter PreDefinedSharedStates (for states we want to be shared that we will define ourselves). Second, instead of the regular BCI2000 methods, i.e. Publish, Preflight, Process, etc., we use Hyperscanning Application Base methods, which are prefixed with Shared, i.e. SharedPublish, SharedPreflight, SharedProcess, etc.. The BCI2000 Hyperscanning methods behave in the exact same way, except they also call the client loops which interact with the server.
+</p>
+<h3><span class="mw-headline" id="Turn_Based_Stimulus">Turn Based Stimulus</span></h3>
+<p>The well-known game Tic-Tac-Toe is an example of a turn based game. One player takes their turn, then the other player takes their turn. Each turn is taken after the previous one, with no overlap in timing. Here is our implementation of Tic-Tac-Toe to show how a turn based game works with BCI2000 hyperscanning:
+</p><p>TicTacToe.cpp:
+</p>
+<pre>#include "TicTacToe.h"
+#include "Shapes.h"
+#include "TextField.h"
+#include &lt;limits&gt;
+#include "BCIEvent.h"
+#include &lt;string&gt;
+
+
+//Shared States
+//grid, 32
+//turn, 8
+//x, 8
+//y, 8
+
+RegisterFilter( TicTacToe, 3 );
+
+TicTacToe::TicTacToe()&#160;: winText( NULL ), highlight( NULL ), tiles( NULL ), board( NULL ), mrDisplay( Window() ) {
+}
+
+void TicTacToe::SharedPublish() {
+}
+
+void TicTacToe::SharedPreflight( const SignalProperties&amp; Input, SignalProperties&amp; Output ) const {
+	State( "grid" );
+	State( "turn" );
+	State( "ClientNumber" );
+	State( "KeyDown" );
+	State( "x" );
+	State( "y" );
+
+	Parameter( "SampleBlockSize" );
+}
+
+void TicTacToe::SharedInitialize( const SignalProperties&amp; Input, const SignalProperties&amp; Output ) {
+	ApplicationBase::Initialize( Input, Output );
+
+	board = new ImageStimulus( mrDisplay );
+	board-&gt;SetObjectRect( { 0.f, 0.f, 1.f, 1.f } );
+	board-&gt;SetScalingMode( GUI::ScalingMode::AdjustHeight );
+	board-&gt;SetRenderingMode( GUI::RenderingMode::Transparent );
+	board-&gt;SetFile( "../tasks/hyperscanning_test/tictactoe.png" );
+	board-&gt;SetZOrder( 12 );
+
+	winText = new TextField( mrDisplay );
+	winText-&gt;SetVisible( true );
+	winText-&gt;SetObjectRect( { 0.2f, 0.4f, 0.8f, 0.6f } );
+	board-&gt;SetZOrder( 1 );
+
+	tiles = ( ImageStimulus** ) malloc( sizeof( ImageStimulus ) * 9 );
+	for ( int i = 0; i &lt; 9; i++ ) {
+		tiles[ i ] = new ImageStimulus( mrDisplay );
+		int x = i&#160;% 3;
+		int y = i / 3;
+		tiles[ i ]-&gt;SetObjectRect( { x / 3.f, y / 3.f, x / 3.f + 0.33f, y / 3.f + 0.33f } );
+		tiles[ i ]-&gt;SetScalingMode( GUI::ScalingMode::AdjustBoth );
+		tiles[ i ]-&gt;SetRenderingMode( GUI::RenderingMode::Opaque );
+		tiles[ i ]-&gt;SetZOrder( i + 2 );
+	}
+
+	highlight = new ImageStimulus( mrDisplay );
+	highlight-&gt;SetObjectRect( { 0.f, 0.f, 0.33f, 0.33f } );
+	highlight-&gt;SetScalingMode( GUI::ScalingMode::AdjustBoth );
+	highlight-&gt;SetRenderingMode( GUI::RenderingMode::Transparent );
+	highlight-&gt;SetFile( "../tasks/hyperscanning_test/highlight.png" );
+	highlight-&gt;SetZOrder( 11 );
+
+}
+
+void TicTacToe::SharedProcess( const GenericSignal&amp; Input, GenericSignal&amp; Output ) {
+	board-&gt;Present();
+	highlight-&gt;Present();
+	for ( int i = 0; i &lt; 9; i++ ) {
+		tiles[ i ]-&gt;Present();
+	}
+
+	if ( State( "turn" ) == 3 ) {
+		if ( CheckKeyPress( "KeyDown", 32 ) ) { //Space
+			Reset();
+		}
+	}
+
+	if ( State( "ClientNumber" ) == State( "turn" ) ) {
+		if ( CheckKeyPress( "KeyDown", 38 ) &amp;&amp; State( "y" ) &gt;= 1 ) { //Up
+			State( "y" ) = State( "y" ) - 1;
+		}
+
+		if ( CheckKeyPress( "KeyDown", 40 ) &amp;&amp; State( "y" ) &lt;= 1 ) { //Down
+			State( "y" ) = State( "y" ) + 1;
+		}
+
+		if ( CheckKeyPress( "KeyDown", 37 ) &amp;&amp; State( "x" ) &gt;= 1 ) { //Left
+			State( "x" ) = State( "x" ) - 1;
+		}
+
+		if ( CheckKeyPress( "KeyDown", 39 ) &amp;&amp; State( "x" ) &lt;= 1 ) { //Right
+			State( "x" ) = State( "x" ) + 1;
+		}
+
+		if ( CheckKeyPress( "KeyDown", 32 ) ) { //Space
+			long xflag = 1UL &lt;&lt; ( 2 * ( State( "y" ) * 3 + State( "x" ) ) );
+			long oflag = 1UL &lt;&lt; ( 2 * ( State( "y" ) * 3 + State( "x" ) ) + 1 );
+
+			if (&#160;!( State( "grid" ) &amp; xflag ) &amp;&amp;&#160;!( State( "grid" ) &amp; oflag ) ) {
+				if ( State( "ClientNumber" ) == 0 ) {
+					State( "grid" ) = State( "grid" ) | xflag;
+					State( "turn" ) = 1;
+				}
+
+				else {
+					State( "grid" ) = State( "grid" ) | oflag;
+					State( "turn" ) = 0;
+				}
+			}
+		}
+	}
+
+	long flag = 1UL;
+	for ( int i = 0; i &lt; 9; i++ ) {
+		if ( State( "grid" ) &amp; flag ) {
+			tiles[ i ]-&gt;SetFile( "../tasks/hyperscanning_test/x.png" );
+		}
+		flag &lt;&lt;= 1;
+		if ( State( "grid" ) &amp; flag ) {
+			tiles[ i ]-&gt;SetFile( "../tasks/hyperscanning_test/o.png" );
+		}
+		flag &lt;&lt;= 1;
+	}
+
+	long hwin = horizontal_win;
+	long vwin = vertical_win;
+	long dwin1 = diagonal_win_1;
+	long dwin2 = diagonal_win_2;
+
+	if ( ( State( "grid" ) &amp; dwin1 ) == dwin1 || ( State( "grid" ) &amp; dwin2 ) == dwin2 ) {
+		State( "turn" ) = 3;
+		winText-&gt;SetText( "X Wins" );
+	}
+
+	dwin1 &lt;&lt;= 1;
+	dwin2 &lt;&lt;= 1;
+
+	if ( ( State( "grid" ) &amp; dwin1 ) == dwin1 || ( State( "grid" ) &amp; dwin2 ) == dwin2 ) {
+		State( "turn" ) = 3;
+		winText-&gt;SetText( "O Wins" );
+	}
+
+	for ( int i = 0; i &lt; 3; i++ ) {
+		if ( ( State( "grid" ) &amp; hwin ) == hwin || ( State( "grid" ) &amp; vwin ) == vwin ) {
+			State( "turn" ) = 3;
+			winText-&gt;SetText( "X Wins" );
+		}
+
+		hwin &lt;&lt;= 1;
+		vwin &lt;&lt;= 1;
+
+		if ( ( State( "grid" ) &amp; hwin ) == hwin || ( State( "grid" ) &amp; vwin ) == vwin ) {
+			State( "turn" ) = 3;
+			winText-&gt;SetText( "O Wins" );
+		}
+
+		hwin &lt;&lt;= 5;
+		vwin &lt;&lt;= 1;
+	}
+
+	highlight-&gt;SetObjectRect( { State("x") / 3.f, State("y") / 3.f, (State("x") + 1) / 3.f, (State("y") + 1) / 3.f } );
+}
+
+bool TicTacToe::CheckKeyPress( std::string event_name, int value ) {
+	for ( unsigned int i = 0; i &lt; Parameter( "SampleBlockSize" ); i++ ) {
+		if ( State( event_name )( i ) == value ) {
+			return true;
+		}
+	}
+	return false;
+}
+
+void TicTacToe::Reset() {
+	State( "turn" ) = 0;
+	State( "grid" ) = 0;
+
+	delete board;
+	board = new ImageStimulus( mrDisplay );
+	board-&gt;SetObjectRect( { 0.f, 0.f, 1.f, 1.f } );
+	board-&gt;SetScalingMode( GUI::ScalingMode::AdjustHeight );
+	board-&gt;SetRenderingMode( GUI::RenderingMode::Transparent );
+	board-&gt;SetFile( "../tasks/hyperscanning_test/tictactoe.png" );
+	board-&gt;SetZOrder( 12 );
+
+	delete winText;
+	winText = new TextField( mrDisplay );
+	winText-&gt;SetVisible( true );
+	winText-&gt;SetObjectRect( { 0.2f, 0.4f, 0.8f, 0.6f } );
+	board-&gt;SetZOrder( 1 );
+
+	for ( int i = 0; i &lt; 9; i++ ) {
+		delete tiles[ i ];
+	}
+	free( tiles );
+
+	tiles = ( ImageStimulus** ) malloc( sizeof( ImageStimulus ) * 9 );
+	for ( int i = 0; i &lt; 9; i++ ) {
+		tiles[ i ] = new ImageStimulus( mrDisplay );
+		int x = i&#160;% 3;
+		int y = i / 3;
+		tiles[ i ]-&gt;SetObjectRect( { x / 3.f, y / 3.f, x / 3.f + 0.33f, y / 3.f + 0.33f } );
+		tiles[ i ]-&gt;SetScalingMode( GUI::ScalingMode::AdjustBoth );
+		tiles[ i ]-&gt;SetRenderingMode( GUI::RenderingMode::Opaque );
+		tiles[ i ]-&gt;SetZOrder( i + 2 );
+	}
+
+	delete highlight;
+
+	highlight = new ImageStimulus( mrDisplay );
+	highlight-&gt;SetObjectRect( { 0.f, 0.f, 0.33f, 0.33f } );
+	highlight-&gt;SetScalingMode( GUI::ScalingMode::AdjustBoth );
+	highlight-&gt;SetRenderingMode( GUI::RenderingMode::Transparent );
+	highlight-&gt;SetFile( "../tasks/hyperscanning_test/highlight.png" );
+	highlight-&gt;SetZOrder( 11 );
+}
+</pre>
+<p>TicTacToe.h
+</p>
+<pre>#include "Shapes.h"
+#include "TextField.h"
+#include "ApplicationWindow.h"
+#include "ImageStimulus.h"
+#include "HyperscanningApplicationBase.h"
+
+class TicTacToe&#160;: public HyperscanningApplicationBase {
+	public:
+		TicTacToe();
+
+		void SharedPublish() override;
+
+		void SharedPreflight( const SignalProperties&amp; Input, SignalProperties&amp; Output ) const override;
+		void SharedInitialize( const SignalProperties&amp; Input, const SignalProperties&amp; Output ) override;
+		void SharedProcess( const GenericSignal&amp; Input, GenericSignal&amp; Output ) override;
+
+		bool CheckKeyPress( std::string, int );
+
+		void Reset();
+
+	private:
+		ApplicationWindow&amp; mrDisplay;
+
+		ImageStimulus* board;
+		ImageStimulus** tiles;
+		ImageStimulus* highlight;
+
+		TextField* winText;
+
+		long horizontal_win = 21;
+		long vertical_win = 4161;
+		long diagonal_win_1 = 65793;
+		long diagonal_win_2 = 4368;
+};
+
+</pre>
+<p>and TicTacToe.bat
+</p>
+<pre>Change directory $BCI2000LAUNCHDIR
+Show window; Set title ${Extract file base $0}
+Reset system
+Startup system localhost
+Start executable SignalGenerator --local --LogKeyboard=1
+Start executable DummySignalProcessing --local
+Start executable TicTacToe --local --Port=1234 --IPAddress=192.168.1.102 --SharedStates=grid,32&amp;turn,8&amp;x,8&amp;y,8
+Wait for Connected
+Load parameterfile "../parms/CommunicationTask/Communication_task_dual.prm"
+</pre>
+<h2><span class="mw-headline" id="Important_Notes">Important Notes</span></h2>
+<p>The most are important sections to draw your attention to are:
+</p>
+<pre>if ( State( "ClientNumber" ) == State( "turn" ) ) {
+</pre>
+<p>ClientNumber is a state that is automatically sent by the server. It is an id, between 0 and N, where N is the number of clients connected, that can be used to differentiate between each client without having to run a separate application on each. "turn" is a shared state between the clients. Shared states are accessed in the exact same way that a normal BCI2000 state is accessed. This way we can use shared states and the client number to determine which client should be placing their mark. 
+</p>
+<pre>State( "turn" ) = 1;
+</pre>
+<p>Shared states are also written to the exact same way as normal BCI2000 shared states. They will be automatically updated for the other clients.
+</p>
+<pre> Start executable TicTacToe --local --Port=1234 --IPAddress=192.168.1.102 --SharedStates=grid,32&amp;turn,8&amp;x,8&amp;y,8
+</pre>
+<p>This is where we define the states that we want to share with "--SharedStates=". The format is:
+</p>
+<pre>--SharedStates=&lt;state-1&gt;,&lt;state-1-size&gt;&amp;&lt;state-2&gt;,&lt;state-2-size&gt;&amp;&lt;state-3&gt;,&lt;state-3-size&gt;...
+</pre>
+<p>We can also define predefined shared states here in a similar way, but without the size (because the size is already defined), using:
+</p>
+<pre>--PreDefinedSharedStates=&lt;state-1&gt;&amp;&lt;state-2&gt;&amp;&lt;state-3&gt;
+</pre>
+<p>--Port and --IPAddress are additional parameters that tell the client where to find the server on the internet. All of these parameters can also be changed from the Config menu, and the client connects to the server after "Set Config" is pressed.
+</p>
+<h3><span class="mw-headline" id="Live_Interaction_Stimulus">Live Interaction Stimulus</span></h3>
+<p>The classic video game pong is an example of live interaction. Both players can interact with the game simultaneously. There are no discrete turns. We implemented pong with BCI2000 hyperscanning to demonstrate a live interaction.
+</p><p>pong.cpp
+</p>
+<pre>#include "Pong.h"
+#include "Shapes.h"
+#include &lt;limits&gt;
+#include "BCIEvent.h"
+
+
+//Shared States
+//BallX 32
+//BallY 32
+//BallVX 8
+//BallVY 8
+//Player1Y 32
+//Player2Y 32
+//Player1Ready 1
+//Player2Ready 1
+//GamePhase 8
+//
+//Game Phases
+//0&#160;: Instruction
+//1&#160;: Game
+//2&#160;: Between Rounds
+
+RegisterFilter( Pong, 3 );
+
+Pong::Pong()&#160;: player1Paddle( NULL ), player2Paddle( NULL ), ball( NULL ), mrDisplay( Window() ) {
+}
+
+void Pong::SharedPublish() {
+}
+
+void Pong::SharedPreflight( const SignalProperties&amp; Input, SignalProperties&amp; Output ) const {
+	State( "BallX" );
+	State( "BallY" );
+	State( "BallVX" );
+	State( "BallVY" );
+	State( "Player1Y" );
+	State( "Player2Y" );
+	State( "Player1Ready" );
+	State( "Player2Ready" );
+	State( "GamePhase" );
+	State("ClientNumber");
+//	State( "KeyDown" );
+	Parameter( "SampleBlockSize" );
+}
+
+void Pong::SharedInitialize( const SignalProperties&amp; Input, const SignalProperties&amp; Output ) {
+	player1Paddle = new RectangularShape( mrDisplay );
+	player1Paddle-&gt;SetFillColor( RGBColor::Teal );
+	player1Paddle-&gt;SetVisible( true );
+
+	player2Paddle = new RectangularShape( mrDisplay );
+	player2Paddle-&gt;SetFillColor( RGBColor::Red );
+	player2Paddle-&gt;SetVisible( true );
+
+	ball = new RectangularShape( mrDisplay );
+	ball-&gt;SetFillColor( RGBColor::Black );
+	ball-&gt;SetVisible( true );
+
+}
+
+void Pong::SharedStartRun() {
+	State( "BallX" ) = 500;
+	State( "BallY" ) = 500;
+	State( "Player1Y" ) = 200;
+	State( "Player2Y" ) = 800;
+	State( "BallVX" ) = 493;
+	State( "BallVY" ) = 497;
+	State( "GamePhase" ) = 2;
+}
+
+void Pong::SharedProcess( const GenericSignal&amp; Input, GenericSignal&amp; Output ) {
+	if ( State( "GamePhase" ) == 1 ) {
+		if ( State( "ClientNumber" ) == 0 ) {
+			State( "BallX" ) = State( "BallX" ) + State( "BallVX" ) - 500;
+			State( "BallY" ) = State( "BallY" ) + State( "BallVY" ) - 500;
+
+			if ( State( "BallY" ) &gt; 950 || State( "BallY" ) &lt; 50 ) {
+				State( "BallVY" ) = 1000 - State( "BallVY" );
+			}
+
+			if ( State( "BallX" ) + 50 &gt; 875 &amp;&amp; State( "BallX" ) - 50 &lt; 925 &amp;&amp; State( "BallY" ) + 50 &gt; State( "Player2Y" ) - 100 &amp;&amp; State( "BallY" ) - 50 &lt; State( "Player2Y" ) + 100 ) {
+				State( "BallVX" ) = 1000 - State( "BallVX" );
+				State( "BallX" ) = 875 - 50;
+			}
+
+			if ( State( "BallX" ) + 50 &gt; 75  &amp;&amp; State( "BallX" ) - 50 &lt; 125 &amp;&amp; State( "BallY" ) + 50 &gt; State( "Player1Y" ) - 100 &amp;&amp; State( "BallY" ) - 50 &lt; State( "Player1Y" ) + 100 ) {
+				State( "BallVX" ) = 1000 - State( "BallVX" );
+				State( "BallX" ) = 125 + 50;
+			}
+
+			if ( State( "BallX" ) + 50 &gt; 1000 || State( "BallX" ) - 50 &lt; 0 ) {
+				State( "BallX" ) = 500;
+				State( "BallVY" ) = State( "BallVY" ) + 1;
+				State( "GamePhase" ) = 2;
+			}
+		}
+
+		if ( CheckKeyPress( "KeyDown", 38 ) ) { //Up
+			if ( State( "ClientNumber" ) == 0 )
+				State( "Player1Y" ) = State( "Player1Y" ) - 30;
+			else 
+				State( "Player2Y" ) = State( "Player2Y" ) - 30;
+		}
+
+		if ( CheckKeyPress( "KeyDown", 40 ) ) { //Down
+			if ( State( "ClientNumber" ) == 0 )
+				State( "Player1Y" ) = State( "Player1Y" ) + 30;
+			else 
+				State( "Player2Y" ) = State( "Player2Y" ) + 30;
+		}
+	}
+
+	if ( State( "GamePhase" ) == 2 ) {
+		if ( CheckKeyPress( "KeyDown", 32 ) == 0 ) { //Space
+			if ( State( "ClientNumber" ) == 0 )
+				State( "Player1Ready" ) = 1;
+			else
+				State( "Player2Ready" ) = 1;
+		}
+
+		if ( State( "Player1Ready" ) == 1 &amp;&amp; State( "Player2Ready" ) == 1 ) {
+			State( "GamePhase" ) = 1;
+			State( "Player1Ready" ) = 0;
+			State( "Player2Ready" ) = 0;
+		}
+	}
+
+
+
+	bciout &lt;&lt; "Ball: (" &lt;&lt; State("BallX") &lt;&lt; ", " &lt;&lt; State("BallY") &lt;&lt; ")";
+	bciout &lt;&lt; "Player1: " &lt;&lt; State("Player1Y");
+
+	GUI::Rect rect = { ( State( "BallX" ) / 1000.f ) - 0.05, ( State( "BallY" ) / 1000.f ) - 0.05, ( State( "BallX" ) / 1000.f ) + 0.05, ( State( "BallY" ) / 1000.f ) + 0.05 };
+	ball-&gt;SetObjectRect( rect );
+
+	rect = { 0.075f, ( State( "Player1Y" ) / 1000.f ) - 0.1f, 0.125f, ( State( "Player1Y" ) / 1000.f ) + 0.1f };
+	player1Paddle-&gt;SetObjectRect( rect );
+
+	rect = { 0.875f, ( State( "Player2Y" ) / 1000.f ) - 0.1f, 0.925f, ( State( "Player2Y" ) / 1000.f ) + 0.1f };
+	player2Paddle-&gt;SetObjectRect( rect );
+
+}
+
+bool Pong::CheckKeyPress( std::string event_name, int value ) {
+	for ( unsigned int i = 0; i &lt; Parameter( "SampleBlockSize" ); i++ ) {
+		if ( State( event_name )( i ) == value ) {
+			return true;
+		}
+	}
+	return false;
+}
+</pre>
+<p>pong.h
+</p>
+<pre>#include "Shapes.h"
+#include "ApplicationWindow.h"
+#include "HyperscanningApplicationBase.h"
+
+class Pong&#160;: public HyperscanningApplicationBase {
+	public:
+		Pong();
+
+		void SharedPublish() override;
+
+		void SharedPreflight( const SignalProperties&amp; Input, SignalProperties&amp; Output ) const override;
+		void SharedInitialize( const SignalProperties&amp; Input, const SignalProperties&amp; Output ) override;
+		void SharedProcess( const GenericSignal&amp; Input, GenericSignal&amp; Output ) override;
+		void SharedStartRun() override;
+
+		bool CheckKeyPress( std::string event_name, int value );
+
+	private:
+		ApplicationWindow&amp; mrDisplay;
+		RectangularShape* player1Paddle;
+		RectangularShape* player2Paddle;
+		RectangularShape* ball;
+};
+</pre>
+<p>and pong.bat
+</p>
+<pre>Change directory $BCI2000LAUNCHDIR
+Show window; Set title ${Extract file base $0}
+Reset system
+Startup system localhost
+Start executable SignalGenerator --local --LogKeyboard=1
+Start executable DummySignalProcessing --local
+Start executable Pong --local --Port=1234 --IPAddress=192.168.1.102 --SharedStates=BallX,32&amp;BallY,32&amp;Player1Y,32&amp;Player2Y,32&amp;BallVX,32&amp;BallVY,32&amp;Player1Ready,8&amp;Player2Ready,8&amp;GamePhase,8&amp;Player1Score,8&amp;Player2Score,8
+Wait for Connected
+Load parameterfile "../parms/CommunicationTask/Communication_task_dual.prm"
+</pre>
+<p>This behaves very similarly to the tic-tac-toe example, with the key difference being both clients can interact with states simultaneously, whereas in tic-tac-toe only one client was changing states at a time.
+</p><p>Any processing of game states, for example changing the position of the ball in pong, can occur on either the clients or the server depending on the wants and needs of each implementation. If they are placed on the client side, only one of clients should be responsible for actually processing the data because otherwise there could be multiple versions of the same state that are equally correct, because they were each accurately calculated by a different client, so the server would have to choose one state to save to the master state machine and discard the other versions. This could lead to jumpiness when displaying the state or bugs. Because only one client is processing data, only that client will have a greater load than the others. If the overhead of the game is too significant, this could become problematic. If the processing is done on the server, there will not be an issue with one client running slower, but it will be more tedious to implement, because a custom installation will have to be designed instead of a premade backend application, and a more powerful server will be required.
+</p><p>For turn based games, this is a non-issue because each client can process the game state for their own turn. It only becomes an issue when a game state needs to be calculated that isn't based on client inputs, once again like the movement of the ball in pong, as opposed to the movement of the paddles in pong.
+</p>
+<h3><span class="mw-headline" id="Example_Server_Application">Example Server Application</span></h3>
+<p>application.cpp
+</p>
+<pre>#include "statemachine.h"
+#include "game.h"
+#include "port.h"
+#include "client.h"
+#include "statemachine.h"
+#include &lt;iostream&gt;
+#include &lt;thread&gt;
+#include &lt;chrono&gt;
+#include &lt;fstream&gt;
+#include &lt;algorithm&gt;
+#include &lt;random&gt;
+#include "params.h"
+
+
+int main() {
+
+</pre>
+<p>Here we load a general parameter file to ensure that the experiment is the same on each client. We also load a parameter file for an existing game, so we can resume where we left off. We will write to the existing game file in the final section of the application file. If this is the first session, then we will randomly generate a stimuli sequence.
+</p>
+<pre>	// Load Parameter File
+	Params params = Params( "Parameters.prm" );
+
+	// Load previous parameters
+	Params existing = Params( "ExistingGame.prm" );
+
+	std::string stimuliSequence;
+       
+       // Check if saved parameters from previous game are populated
+	if ( existing.contents.size() &gt; 0 ) {
+		params.contents += existing.contents;
+
+		stimuliSequence = existing.GetParam( "StimuliSequence" )-&gt;line;
+	} // If they are not then generate them, and they will be saved when this game finishes
+	else {
+		// Generate Random Sequence
+
+		Param* stimmat = params.GetParam( "StimuliMatrix" );
+
+		std::vector&lt;int&gt; order = std::vector&lt;int&gt;( stimmat-&gt;width );
+		for ( int i = 0; i &lt; stimmat-&gt;width; i++ )
+			order[ i ] = i;
+
+		std::random_device rd;
+		auto rng = std::default_random_engine( rd() );
+		std::shuffle( std::begin( order ), std::end( order ), rng );
+
+		stimuliSequence = "\nApplication:Sequence intlist StimuliSequence= ";
+		stimuliSequence += std::to_string( stimmat-&gt;width );
+		stimuliSequence += " ";
+		for ( int i = 0; i &lt; stimmat-&gt;width; i++ ) {
+			stimuliSequence += std::to_string( order[ i ] );
+			stimuliSequence += " ";
+		}
+		stimuliSequence += "%&#160;%&#160;% //Random Stimuli Sequence";
+
+		params.AddParam( stimuliSequence );
+
+		params.AddParam( "Application int InitialTrialNumber= 0&#160;%&#160;%&#160;% // trial number" );
+	}
+
+	params.contents.push_back( 0 );
+</pre>
+<p>This is the only necessary part of the main function. Here we open the port for listening, connect to the clients, and start the loop. 
+</p>
+<pre>       //Open the port for listening
+	Port port( 1234, 100 );
+	if ( !port.open )
+		return 0;
+	std::cout &lt;&lt; "Connected to port " &lt;&lt; 1234 &lt;&lt; std::endl;
+
+       // Initialize Game class
+	Game game = Game( port, params.contents );
+
+	std::cout &lt;&lt; "Waiting for clients" &lt;&lt; std::endl;
+       
+       // Wait for a client to open a socket connection then connect them to the game
+	Client* client1 = port.WaitForClient();
+	game.Connect( client1 );
+
+	std::cout &lt;&lt; "Connected to first client" &lt;&lt; std::endl;
+	std::cout &lt;&lt; "Waiting for second client" &lt;&lt; std::endl;
+
+       // Do the same for a second client
+	game.Connect( port.WaitForClient() );
+
+	std::cout &lt;&lt; "Connected to second client" &lt;&lt; std::endl;
+       
+       // Run the server loop and save the final states
+	StateMachine out_states = game.Loop();
+</pre>
+<p>Here we take data from the master state machine and save it to the existing game parameter file, so we can use it when we restart the paradigm.
+</p>
+<pre>       // Save the trial number from when the paradigm was ended
+	std::string InitialTrialNumber = out_states.GetState( "TrialNumber" );
+	std::cout &lt;&lt; "Trial Number: " &lt;&lt; InitialTrialNumber &lt;&lt; std::endl;
+       
+       // Make sure that the trial number is populated and subtract one to repeat the unfinished trial
+	if ( InitialTrialNumber.size() == 0 ) InitialTrialNumber = "\1";
+	std::cout &lt;&lt; "Saving Trial Number: " &lt;&lt; ( int ) *InitialTrialNumber.c_str() - 1 &lt;&lt; std::endl;
+
+	// Save Initial Trial Number and random stimuli sequence
+	std::ofstream egof( "ExistingGame.prm" );
+	egof &lt;&lt; "Application int InitialTrialNumber= " &lt;&lt; ( int )*InitialTrialNumber.c_str() - 1 &lt;&lt; "&#160;%&#160;%&#160;% // trial number" &lt;&lt; std::endl;
+	egof &lt;&lt; stimuliSequence &lt;&lt; std::endl;
+
+       // All Done!
+	std::cout &lt;&lt; "All done!" &lt;&lt; std::endl;
+}
+</pre>
+<h2><span class="mw-headline" id="Important_Notes_2">Important Notes</span></h2>
+<p>The server must be configured to allow inbound TCP traffic. Most only server services, like AWS or Azure, will allow you to do this easily. 
+</p><p>In AWS:
+</p>
+<ol><li>Select an instance</li>
+<li>Go to the "Security" tab</li>
+<li>Select one of the security groups</li>
+<li>With one of the security groups selected, go to the "inbound rules" tab</li>
+<li>Press "edit inbound rules"</li>
+<li>Press "Add Rule"</li>
+<li>Set "Type" to "Any TCP"</li>
+<li>Set "Source" to the IP Addresses of each of your clients or to "Anywhere IPv4"</li>
+<li>Press "Save Rules"</li></ol>
+<p>To create an instance in AWS:
+</p>
+<ol><li>Go to [aws.amazon.com/ec2|AWS] and create an account or log in</li>
+<li>Press "Launch Instance"</li>
+<li>Give your instance a name</li>
+<li>Select "Amazon Linux" or any other non-windows operating system of your choice</li>
+<li>Select the tier of server you would like. If you are doing the processing on the clients then the free-tier or cheapest option will suffice with no performance penalties. If you followed the example server application, then you are doing the processing on the clients. If you are doing processing on the server, then select whichever performance tier is necessary to run your application at an acceptable speed.</li>
+<li>Under Key Pair, press "Create New Key Pair"</li>
+<li>Name is whatever you would like</li>
+<li>Select RSA for key pair type</li>
+<li>Select .pem for private key file format</li>
+<li>Press create key pair and remember where you save it to. We will need to use this to connect to the server.</li>
+<li>Now press "Launch Instance"</li></ol>
+<p>To configure and run your aws instance (if it isn't an aws instance the same applies, except instead of "ec2-user" you will use the username for your server or if it is local ignore the ssh step):
+Open a terminal or shell
+Enter the command
+</p>
+<pre>ssh -i &lt;/path/key-pair-name.pem&gt; ec2-user@&lt;public-IPv4-address&gt;
+</pre>
+<p>The public IPv4 address can be found by selecting the instance in the instance dashboard. If you do not see one, ensure that the instance is running.
+If prompted with
+</p>
+<pre>The authenticity of host 'ec2-198-51-100-1.compute-1.amazonaws.com (198-51-100-1)' can't be established.
+ECDSA key fingerprint is l4UB/neBad9tvkgJf1QZWxheQmR59WgrgzEimCG6kZY.
+Are you sure you want to continue connecting (yes/no)?
+</pre>
+<p>Type
+</p>
+<pre>yes
+</pre>
+<p>Clone the github repository with
+</p>
+<pre>git clone <a rel="nofollow" class="external free" href="https://github.com/MaxwellMarcus/hyperscanning-backend">https://github.com/MaxwellMarcus/hyperscanning-backend</a>
+</pre>
+<p>Go to the directory
+</p>
+<pre>cd hyperscanning-backend
+</pre>
+<p>Edit or create an application in the file application.cpp, if you aren't using the default tutorial application file
+Build the application with
+</p>
+<pre>make
+</pre>
+<p>Run the application with
+</p>
+<pre>./application
+</pre>
+<p>The application will only run as long as the experiment and will have to be restarted.
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20241129160149
+Cache expiry: 86400
+Reduced expiry: false
+Complications: [show‐toc]
+CPU time usage: 0.035 seconds
+Real time usage: 0.037 seconds
+Preprocessor visited node count: 54/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/100
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2576-0!canonical and timestamp 20241129160149 and revision id 10448.
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=BCI2000_Hyperscanning&amp;oldid=10448">http://www.bci2000.org/mediawiki/index.php?title=BCI2000_Hyperscanning&amp;oldid=10448</a>"</div>
+ </div>
+</body>
+</html>

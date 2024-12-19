@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Programming Reference:ParallelCombination - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:grey; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:black; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul><li class="toc1">Concepts</li><ul><li class="toc2"><a href="Programming_Reference%253AFilter_Chain.html">Filter Chain</a></li><li class="toc2"><a href="Programming_Reference%253ASignals.html">Signals</a></li><li class="toc2"><a href="Programming_Reference%253AError_Handling.html">Error Handling</a></li><li class="toc2"><a href="Programming_Reference%253ALocalization.html">Localization</a></li><li class="toc2"><a href="Programming_Reference%253ARapid_Development.html">Rapid Development</a></li></ul><li class="toc1">Reference</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFilter_Class.html">GenericFilter</a></li><li class="toc2"><a href="Programming_Reference%253AEnvironment_Class.html">Environment</a></li><li class="toc2"><a href="Programming_Reference%253AGenericVisualization_Class.html">GenericVisualization</a></li><li class="toc2"><a href="Programming_Reference%253AErrors_and_Warnings.html">Errors and Warnings</a></li><li class="toc2"><a href="Programming_Reference%253ADebug_Output.html">Debug Output</a></li></ul><li class="toc1">Data Acquisition</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericADC_Class.html">GenericADC</a></li></ul><li class="toc1">Data Storage</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFileWriter_Class.html">GenericFileWriter</a></li><li class="toc2"><a href="Programming_Reference%253ABCI2000FileReader_Class.html">BCI2000FileReader</a></li></ul><li class="toc1">Signal Processing</li><ul><li class="toc2"><a href="Programming_Reference%253AIIRFilterBase_Class.html">IIR Filters</a></li></ul><li class="toc1">Application Modules</li><ul><li class="toc2"><a href="Programming_Reference%253AApplicationBase_Class.html">ApplicationBase</a></li><li class="toc2"><a href="Programming_Reference%253AFeedbackTask_Class.html">FeedbackTask</a></li><li class="toc2"><a href="Programming_Reference%253AStimulusTask_Class.html">StimulusTask</a></li><li class="toc2"><a href="Programming_Reference%253A3D_API.html">3D API</a></li></ul><li class="toc1">Howtos</li><ul><li class="toc2"><a href="Programming_Howto%253ABuilding_BCI2000.html">Building BCI2000</a></li><li class="toc2"><a href="Programming_Howto%253ASVN_Client_Setup.html">SVN Client Setup</a></li><li class="toc2"><a href="Programming_Howto%253AUsing_TortoiseSVN.html">Using TortoiseSVN</a></li></ul><li class="toc1"><a href="Programming_FAQ.html">FAQ</a></li><li class="toc1">Tutorials</li><ul><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Data_Acquisition_Module.html">Data Acquisition</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html">Signal Processing</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Matlab-based_Filter.html">Matlab Signal Processing</a></li></ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">ParallelCombination</h1>
+ <p class = "subtitle">Programming Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Programming_Reference%253AParallelCombination.html#Function"><span class="tocnumber">1</span> <span class="toctext">Function</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Programming_Reference%253AParallelCombination.html#Parameters"><span class="tocnumber">2</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="Programming_Reference%253AParallelCombination.html#&lt;FilterName&gt;Channels"><span class="tocnumber">2.1</span> <span class="toctext">&lt;FilterName&gt;Channels</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-4"><a href="Programming_Reference%253AParallelCombination.html#States"><span class="tocnumber">3</span> <span class="toctext">States</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="Programming_Reference%253AParallelCombination.html#Output_Signal"><span class="tocnumber">4</span> <span class="toctext">Output Signal</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="Programming_Reference%253AParallelCombination.html#See_also"><span class="tocnumber">5</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Function">Function</span></h2>
+<p>The <tt>ParallelCombination</tt> class is a template that takes as arguments two filter class names.
+The instantiated template is then a combined filter, and must be given its own class name by defining a struct that publicly inherits from the instantiated template:
+</p>
+<pre>#include "FilterCombination.h"
+#include "Filter1.h"
+#include "Filter2.h"
+
+struct MyCombination&#160;: ParallelCombination&lt;Filter1, Filter2&gt; {};
+</pre>
+<p>The instantiated <tt>ParallelCombination</tt> template may then be referred to as a filter with name <tt>MyCombination</tt>.
+</p><p>For the resulting filter, the following applies:
+</p>
+<ul><li>The the filter's <i>input</i> channels may be fed selectively into the inputs of the two filters (see <i>Parameters</i> below).</li>
+<li>The filter's <i>output</i> is a concatenation of its two subfilters' outputs (see <i>Output Signal</i> below),</li></ul>
+<p>Any of the two filters may be a <a href="Programming_Reference%253ASubchainFilter.html" title="Programming Reference:SubchainFilter">SubchainFilter</a>, which allows for two parallel chains of filters, as well as more complex topologies because SubchainFilters may again contain ParallelCombination instantiations.
+</p>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<h3><span id=".3CFilterName.3EChannels"></span><span class="mw-headline" id="&lt;FilterName&gt;Channels">&lt;FilterName&gt;Channels</span></h3>
+<p>The name of this parameter depends on the class name given to the instantiated combination as described under "Function", or the name given to the filter programmatically. In the example above, the parameter's name will be <i>MyCombinationChannels</i>.
+</p><p>The parameter is matrix-valued, and contains only a single column with two entries.
+The two rows correspond to the two filters given as template arguments, and each row's label gives the name of the filter it corresponds to.
+</p><p>Matrix elements themselves contain a list of channels each, determing which channels are transmitted to which of the two subfilters, or chains.
+</p><p>For channel lists, the following rules apply:
+</p>
+<ul><li>Entries are separated by white space.</li>
+<li>Entries may contain wildcards: * to represent one or more arbitrary characters, and&#160;? to represent a single arbitrary character.</li>
+<li>Character ranges may be enclosed by [].</li>
+<li>Wildcard patterns may be negated by prepending an exclamation mark.</li>
+<li>Ranges of channels may be specified using&#160;: or - to separate begin from end.</li></ul>
+<p>Examples for channel lists are:
+</p>
+<pre>*             [matches all channels]
+EMG*          [matches all channels whose name begins with 'EMG']
+EEG*          [matches all channels whose name begins with 'EEG']
+</pre>
+<h2><span class="mw-headline" id="States">States</span></h2>
+<p>None.
+</p>
+<h2><span class="mw-headline" id="Output_Signal">Output Signal</span></h2>
+<p>The output signal is a <i>concatenation</i> of both subfilters' (or subchains') output signals.
+First are output channels of the first subfilter, then output channels of the second subfilter.
+If one of these output signals has more signal elements (samples) than the other, then the <i>maximum</i> number of signal elements (samples) is taken as the number of signal elements of the concatenated output signal.
+Signal elements (samples) of the concatenated output signal that do not exist in one of the two subfilters' output will be filled with NaN values.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="Programming_Reference%253ASubchainFilter.html" title="Programming Reference:SubchainFilter">Programming Reference:SubchainFilter</a>, <a href="Programming_Reference%253ALinearCombination.html" title="Programming Reference:LinearCombination">Programming Reference:LinearCombination</a>, <a href="Programming_Reference%253AChoiceCombination.html" title="Programming Reference:ChoiceCombination">Programming Reference:ChoiceCombination</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20241129160613
+Cache expiry: 86400
+Reduced expiry: false
+Complications: [show‐toc]
+CPU time usage: 0.012 seconds
+Real time usage: 0.015 seconds
+Preprocessor visited node count: 18/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/100
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2606-0!canonical and timestamp 20241129160613 and revision id 10658.
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:ParallelCombination&amp;oldid=10658">http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:ParallelCombination&amp;oldid=10658</a>"</div>
+ </div>
+</body>
+</html>

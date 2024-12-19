@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>EglyDriverTask - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:grey; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:black; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">EglyDriverTask</h1>
+ <p class = "subtitle"></p>
+ <hr class = "sep" />
+ <div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="EglyDriverTask.html#Synopsis"><span class="tocnumber">1</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="EglyDriverTask.html#Timeline"><span class="tocnumber">2</span> <span class="toctext">Timeline</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="EglyDriverTask.html#Visual_Representation"><span class="tocnumber">3</span> <span class="toctext">Visual Representation</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="EglyDriverTask.html#Versioning"><span class="tocnumber">4</span> <span class="toctext">Versioning</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="EglyDriverTask.html#Authors"><span class="tocnumber">4.1</span> <span class="toctext">Authors</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="EglyDriverTask.html#Parameters"><span class="tocnumber">5</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="EglyDriverTask.html#PushButtonType"><span class="tocnumber">5.1</span> <span class="toctext">PushButtonType</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="EglyDriverTask.html#FixationColor,_BarColor,_CueColor,_TargetColor"><span class="tocnumber">5.2</span> <span class="toctext">FixationColor, BarColor, CueColor, TargetColor</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="EglyDriverTask.html#BarThick"><span class="tocnumber">5.3</span> <span class="toctext">BarThick</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="EglyDriverTask.html#FixationWidth"><span class="tocnumber">5.4</span> <span class="toctext">FixationWidth</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="EglyDriverTask.html#CueThick"><span class="tocnumber">5.5</span> <span class="toctext">CueThick</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="EglyDriverTask.html#TargetWidth"><span class="tocnumber">5.6</span> <span class="toctext">TargetWidth</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="EglyDriverTask.html#FixationDurationMin,_FixationDurationMax"><span class="tocnumber">5.7</span> <span class="toctext">FixationDurationMin, FixationDurationMax</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="EglyDriverTask.html#BarDurationMin,_BarDurationMax"><span class="tocnumber">5.8</span> <span class="toctext">BarDurationMin, BarDurationMax</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="EglyDriverTask.html#CueDuration"><span class="tocnumber">5.9</span> <span class="toctext">CueDuration</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="EglyDriverTask.html#CueToTargetDurationMin,_CueToTargetDurationMax"><span class="tocnumber">5.10</span> <span class="toctext">CueToTargetDurationMin, CueToTargetDurationMax</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="EglyDriverTask.html#TargetDuration"><span class="tocnumber">5.11</span> <span class="toctext">TargetDuration</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="EglyDriverTask.html#PostTargetResponseTime"><span class="tocnumber">5.12</span> <span class="toctext">PostTargetResponseTime</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="EglyDriverTask.html#FeedbackDuration"><span class="tocnumber">5.13</span> <span class="toctext">FeedbackDuration</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="EglyDriverTask.html#TotalTrial"><span class="tocnumber">5.14</span> <span class="toctext">TotalTrial</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="EglyDriverTask.html#CatchTrialPerctg"><span class="tocnumber">5.15</span> <span class="toctext">CatchTrialPerctg</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="EglyDriverTask.html#CueTgtMatchPerctg"><span class="tocnumber">5.16</span> <span class="toctext">CueTgtMatchPerctg</span></a></li>
+<li class="toclevel-2 tocsection-23"><a href="EglyDriverTask.html#CueTgtSmObjctPerctg"><span class="tocnumber">5.17</span> <span class="toctext">CueTgtSmObjctPerctg</span></a></li>
+<li class="toclevel-2 tocsection-24"><a href="EglyDriverTask.html#CueTgtDifObjctPerctg"><span class="tocnumber">5.18</span> <span class="toctext">CueTgtDifObjctPerctg</span></a></li>
+<li class="toclevel-2 tocsection-25"><a href="EglyDriverTask.html#ScreenWidth,_ScreenHeight"><span class="tocnumber">5.19</span> <span class="toctext">ScreenWidth, ScreenHeight</span></a></li>
+<li class="toclevel-2 tocsection-26"><a href="EglyDriverTask.html#EyeToSreenDistance"><span class="tocnumber">5.20</span> <span class="toctext">EyeToSreenDistance</span></a></li>
+<li class="toclevel-2 tocsection-27"><a href="EglyDriverTask.html#VisualAngle"><span class="tocnumber">5.21</span> <span class="toctext">VisualAngle</span></a></li>
+<li class="toclevel-2 tocsection-28"><a href="EglyDriverTask.html#AdjustContrastBy"><span class="tocnumber">5.22</span> <span class="toctext">AdjustContrastBy</span></a></li>
+<li class="toclevel-2 tocsection-29"><a href="EglyDriverTask.html#AdjustContrastTrialNum"><span class="tocnumber">5.23</span> <span class="toctext">AdjustContrastTrialNum</span></a></li>
+<li class="toclevel-2 tocsection-30"><a href="EglyDriverTask.html#AccuracyUp"><span class="tocnumber">5.24</span> <span class="toctext">AccuracyUp</span></a></li>
+<li class="toclevel-2 tocsection-31"><a href="EglyDriverTask.html#AccuracyLow"><span class="tocnumber">5.25</span> <span class="toctext">AccuracyLow</span></a></li>
+<li class="toclevel-2 tocsection-32"><a href="EglyDriverTask.html#Simplified"><span class="tocnumber">5.26</span> <span class="toctext">Simplified</span></a></li>
+<li class="toclevel-2 tocsection-33"><a href="EglyDriverTask.html#SquareLength"><span class="tocnumber">5.27</span> <span class="toctext">SquareLength</span></a></li>
+<li class="toclevel-2 tocsection-34"><a href="EglyDriverTask.html#IsStairCase"><span class="tocnumber">5.28</span> <span class="toctext">IsStairCase</span></a></li>
+<li class="toclevel-2 tocsection-35"><a href="EglyDriverTask.html#DownCounts"><span class="tocnumber">5.29</span> <span class="toctext">DownCounts</span></a></li>
+<li class="toclevel-2 tocsection-36"><a href="EglyDriverTask.html#UpCounts"><span class="tocnumber">5.30</span> <span class="toctext">UpCounts</span></a></li>
+<li class="toclevel-2 tocsection-37"><a href="EglyDriverTask.html#ProgressBar"><span class="tocnumber">5.31</span> <span class="toctext">ProgressBar</span></a></li>
+<li class="toclevel-2 tocsection-38"><a href="EglyDriverTask.html#ProgressBarHeight,_ProgressBarWidth"><span class="tocnumber">5.32</span> <span class="toctext">ProgressBarHeight, ProgressBarWidth</span></a></li>
+<li class="toclevel-2 tocsection-39"><a href="EglyDriverTask.html#ProgressBarBackgroundColor,_ProgressBarForegroundColor"><span class="tocnumber">5.33</span> <span class="toctext">ProgressBarBackgroundColor, ProgressBarForegroundColor</span></a></li>
+<li class="toclevel-2 tocsection-40"><a href="EglyDriverTask.html#PhotoDiodePatch"><span class="tocnumber">5.34</span> <span class="toctext">PhotoDiodePatch</span></a></li>
+<li class="toclevel-2 tocsection-41"><a href="EglyDriverTask.html#PhotoDiodePatchHeight,_PhotoDiodePatchWidth"><span class="tocnumber">5.35</span> <span class="toctext">PhotoDiodePatchHeight, PhotoDiodePatchWidth</span></a></li>
+<li class="toclevel-2 tocsection-42"><a href="EglyDriverTask.html#PhotoDiodePatchLeft,_PhotoDiodePatchTop"><span class="tocnumber">5.36</span> <span class="toctext">PhotoDiodePatchLeft, PhotoDiodePatchTop</span></a></li>
+<li class="toclevel-2 tocsection-43"><a href="EglyDriverTask.html#PhotoDiodePatchShape"><span class="tocnumber">5.37</span> <span class="toctext">PhotoDiodePatchShape</span></a></li>
+<li class="toclevel-2 tocsection-44"><a href="EglyDriverTask.html#PhotoDiodePatchActiveColor"><span class="tocnumber">5.38</span> <span class="toctext">PhotoDiodePatchActiveColor</span></a></li>
+<li class="toclevel-2 tocsection-45"><a href="EglyDriverTask.html#PhotoDiodePatchInactiveColor"><span class="tocnumber">5.39</span> <span class="toctext">PhotoDiodePatchInactiveColor</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-46"><a href="EglyDriverTask.html#States"><span class="tocnumber">6</span> <span class="toctext">States</span></a>
+<ul>
+<li class="toclevel-2 tocsection-47"><a href="EglyDriverTask.html#KeyDown,_KeyUp,_DCXX,_PushButton"><span class="tocnumber">6.1</span> <span class="toctext">KeyDown, KeyUp, DCXX, PushButton</span></a></li>
+<li class="toclevel-2 tocsection-48"><a href="EglyDriverTask.html#PhaseNumber"><span class="tocnumber">6.2</span> <span class="toctext">PhaseNumber</span></a></li>
+<li class="toclevel-2 tocsection-49"><a href="EglyDriverTask.html#TrialNumber"><span class="tocnumber">6.3</span> <span class="toctext">TrialNumber</span></a></li>
+<li class="toclevel-2 tocsection-50"><a href="EglyDriverTask.html#BarDirection"><span class="tocnumber">6.4</span> <span class="toctext">BarDirection</span></a></li>
+<li class="toclevel-2 tocsection-51"><a href="EglyDriverTask.html#CuePosition,_TargetPosition"><span class="tocnumber">6.5</span> <span class="toctext">CuePosition, TargetPosition</span></a></li>
+<li class="toclevel-2 tocsection-52"><a href="EglyDriverTask.html#TrialType"><span class="tocnumber">6.6</span> <span class="toctext">TrialType</span></a></li>
+<li class="toclevel-2 tocsection-53"><a href="EglyDriverTask.html#FixationDuration"><span class="tocnumber">6.7</span> <span class="toctext">FixationDuration</span></a></li>
+<li class="toclevel-2 tocsection-54"><a href="EglyDriverTask.html#BarDuration"><span class="tocnumber">6.8</span> <span class="toctext">BarDuration</span></a></li>
+<li class="toclevel-2 tocsection-55"><a href="EglyDriverTask.html#CueToTargetDuration"><span class="tocnumber">6.9</span> <span class="toctext">CueToTargetDuration</span></a></li>
+<li class="toclevel-2 tocsection-56"><a href="EglyDriverTask.html#TargetColor"><span class="tocnumber">6.10</span> <span class="toctext">TargetColor</span></a></li>
+<li class="toclevel-2 tocsection-57"><a href="EglyDriverTask.html#Response"><span class="tocnumber">6.11</span> <span class="toctext">Response</span></a></li>
+<li class="toclevel-2 tocsection-58"><a href="EglyDriverTask.html#Photodiode"><span class="tocnumber">6.12</span> <span class="toctext">Photodiode</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-59"><a href="EglyDriverTask.html#See_also"><span class="tocnumber">7</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<h2><span class="mw-headline" id="Timeline">Timeline</span></h2>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 1372px"><div style="width: 1372px">
+			<div class="thumb" style="width: 1370px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:Egly_driver_Timeline.jpg" class="image" title="Figure 1: Single trial timeline."><img alt="Figure 1: Single trial timeline." src="../images/e/e5/Egly_driver_Timeline.jpg" decoding="async" width="1370" height="450" /></a></div></div>
+			<div class="gallerytext">
+<p>Figure 1: Single trial timeline.
+</p>
+			</div>
+		</div></li>
+</ul>
+<p><br />
+</p><p><br />
+</p>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 520px"><div style="width: 520px">
+			<div class="thumb" style="width: 518px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:Egly_driver_trial_types.jpg" class="image" title="Figure 2: Trial types"><img alt="Figure 2: Trial types" src="../images/3/30/Egly_driver_trial_types.jpg" decoding="async" width="518" height="600" /></a></div></div>
+			<div class="gallerytext">
+<p>Figure 2: Trial types
+</p>
+			</div>
+		</div></li>
+</ul>
+<h2><span class="mw-headline" id="Visual_Representation">Visual Representation</span></h2>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 1922px"><div style="width: 1922px">
+			<div class="thumb" style="width: 1920px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:Egly_driver_visualize.gif" class="image"><img alt="Egly driver visualize.gif" src="../images/5/50/Egly_driver_visualize.gif" decoding="async" width="1920" height="1080" /></a></div></div>
+			<div class="gallerytext">
+			</div>
+		</div></li>
+</ul>
+<h2><span class="mw-headline" id="Versioning">Versioning</span></h2>
+<h3><span class="mw-headline" id="Authors">Authors</span></h3>
+<p>Huiling Huang (huiling@neurotechcenter.org)
+</p><p><br />
+</p>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<h3><span class="mw-headline" id="PushButtonType">PushButtonType</span></h3>
+<p>We provide 3 sources of pushbuttons: DC, analog, and keyboard.<br />
+DC and analog: the push button is directly connected to the amplifier; the delay is minor and can be ignored. Please confirm the variable name where the PushButtom is stored with the experimenter. The variable name varies with the channel that the push button connects to through the amplifier.<br />
+keyboard: usually has tens of milliseconds delay.
+</p>
+<h3><span id="FixationColor.2C_BarColor.2C_CueColor.2C_TargetColor"></span><span class="mw-headline" id="FixationColor,_BarColor,_CueColor,_TargetColor">FixationColor, BarColor, CueColor, TargetColor</span></h3>
+<p>The color of the fixation, bar, cue, target.
+</p>
+<h3><span class="mw-headline" id="BarThick">BarThick</span></h3>
+<p>The thickness of the bar.
+</p>
+<h3><span class="mw-headline" id="FixationWidth">FixationWidth</span></h3>
+<p>The width of the fixation cross.
+</p>
+<h3><span class="mw-headline" id="CueThick">CueThick</span></h3>
+<p>The thickness of the cue.
+</p>
+<h3><span class="mw-headline" id="TargetWidth">TargetWidth</span></h3>
+<p>The width of the target.
+</p>
+<h3><span id="FixationDurationMin.2C_FixationDurationMax"></span><span class="mw-headline" id="FixationDurationMin,_FixationDurationMax">FixationDurationMin, FixationDurationMax</span></h3>
+<p>Minimum/Maximum duration of the fixation phase.
+</p>
+<h3><span id="BarDurationMin.2C_BarDurationMax"></span><span class="mw-headline" id="BarDurationMin,_BarDurationMax">BarDurationMin, BarDurationMax</span></h3>
+<p>Minimum/Maximum duration of the bar phase.
+</p>
+<h3><span class="mw-headline" id="CueDuration">CueDuration</span></h3>
+<p>Duration of cue.
+</p>
+<h3><span id="CueToTargetDurationMin.2C_CueToTargetDurationMax"></span><span class="mw-headline" id="CueToTargetDurationMin,_CueToTargetDurationMax">CueToTargetDurationMin, CueToTargetDurationMax</span></h3>
+<p>Minimum/Maximum interval time between cue and target.
+</p>
+<h3><span class="mw-headline" id="TargetDuration">TargetDuration</span></h3>
+<p>Duration of target.
+</p>
+<h3><span class="mw-headline" id="PostTargetResponseTime">PostTargetResponseTime</span></h3>
+<p>The maximum time allows the subject to respond after the target disappears.
+</p>
+<h3><span class="mw-headline" id="FeedbackDuration">FeedbackDuration</span></h3>
+<p>Duration of the feedback
+</p>
+<h3><span class="mw-headline" id="TotalTrial">TotalTrial</span></h3>
+<p>Number of the total trials.
+</p>
+<h3><span class="mw-headline" id="CatchTrialPerctg">CatchTrialPerctg</span></h3>
+<p>The percentage of the catch trial(no target)(%).
+</p>
+<h3><span class="mw-headline" id="CueTgtMatchPerctg">CueTgtMatchPerctg</span></h3>
+<p>The percentage of the cue matches the target trial(%).
+</p>
+<h3><span class="mw-headline" id="CueTgtSmObjctPerctg">CueTgtSmObjctPerctg</span></h3>
+<p>The percentage of the target mismatches the cue, on the same object(%).
+</p>
+<h3><span class="mw-headline" id="CueTgtDifObjctPerctg">CueTgtDifObjctPerctg</span></h3>
+<p>The percentage of the target mismatches the cue, on the different objects(%). Set as 0 when it is a simplified task.
+</p>
+<h3><span id="ScreenWidth.2C_ScreenHeight"></span><span class="mw-headline" id="ScreenWidth,_ScreenHeight">ScreenWidth, ScreenHeight</span></h3>
+<p>Width/height of the monitor screen in cm.
+</p>
+<h3><span class="mw-headline" id="EyeToSreenDistance">EyeToSreenDistance</span></h3>
+<p>Distance from the subject's eyes to the screen in cm.
+</p>
+<h3><span class="mw-headline" id="VisualAngle">VisualAngle</span></h3>
+<p>The degrees of visual angle.
+</p>
+<h3><span class="mw-headline" id="AdjustContrastBy">AdjustContrastBy</span></h3>
+<p>Adjust the contrast of the target color by: 0 overall accuracy, 1 match accuracy, 2 non-match accuracy.
+</p>
+<h3><span class="mw-headline" id="AdjustContrastTrialNum">AdjustContrastTrialNum</span></h3>
+<p>The number of trials needed to calculate the accuracy for adjusting the contrast.
+</p>
+<h3><span class="mw-headline" id="AccuracyUp">AccuracyUp</span></h3>
+<p>The up boundary of the accuracy.
+</p>
+<h3><span class="mw-headline" id="AccuracyLow">AccuracyLow</span></h3>
+<p>The low boundary of the accuracy.
+</p>
+<h3><span class="mw-headline" id="Simplified">Simplified</span></h3>
+<p>Enable the simplified version, only has two squares rather than two bars.
+</p>
+<h3><span class="mw-headline" id="SquareLength">SquareLength</span></h3>
+<p>The lenght of square in simplified version.
+</p>
+<h3><span class="mw-headline" id="IsStairCase">IsStairCase</span></h3>
+<p>Enable the Staircase.
+</p>
+<h3><span class="mw-headline" id="DownCounts">DownCounts</span></h3>
+<p>Contrast decreases one step following the number of consecutive correct trials.
+</p>
+<h3><span class="mw-headline" id="UpCounts">UpCounts</span></h3>
+<p>Contrast increases one step following the number of consecutive incorrect trials.
+</p>
+<h3><span class="mw-headline" id="ProgressBar">ProgressBar</span></h3>
+<p>Display progress bar.
+</p>
+<h3><span id="ProgressBarHeight.2C_ProgressBarWidth"></span><span class="mw-headline" id="ProgressBarHeight,_ProgressBarWidth">ProgressBarHeight, ProgressBarWidth</span></h3>
+<p>Progress bar height/width in pixels.
+</p>
+<h3><span id="ProgressBarBackgroundColor.2C_ProgressBarForegroundColor"></span><span class="mw-headline" id="ProgressBarBackgroundColor,_ProgressBarForegroundColor">ProgressBarBackgroundColor, ProgressBarForegroundColor</span></h3>
+<p>Color of progress bar background/foreground.
+</p>
+<h3><span class="mw-headline" id="PhotoDiodePatch">PhotoDiodePatch</span></h3>
+<p>Display a photo diode patch on the stimulus window. Recording from a photo diode located on that patch will allow triggering on actual stimulus delivery (see User_Reference:P3TemporalFilter#OnsetExpression).
+</p>
+<h3><span id="PhotoDiodePatchHeight.2C_PhotoDiodePatchWidth"></span><span class="mw-headline" id="PhotoDiodePatchHeight,_PhotoDiodePatchWidth">PhotoDiodePatchHeight, PhotoDiodePatchWidth</span></h3>
+<p>Photo diode patch height/width in relative coordinates (between 0 and 1).
+</p>
+<h3><span id="PhotoDiodePatchLeft.2C_PhotoDiodePatchTop"></span><span class="mw-headline" id="PhotoDiodePatchLeft,_PhotoDiodePatchTop">PhotoDiodePatchLeft, PhotoDiodePatchTop</span></h3>
+<p>Photo diode patch left/top position in relative coordinates (between 0 and 1).
+</p>
+<h3><span class="mw-headline" id="PhotoDiodePatchShape">PhotoDiodePatchShape</span></h3>
+<p>Photo diode patch shape: 0 rectangle, 1 ellipse.
+</p>
+<h3><span class="mw-headline" id="PhotoDiodePatchActiveColor">PhotoDiodePatchActiveColor</span></h3>
+<p>Photo diode patch color when active (RGB color in format 0xrrggbb).
+</p>
+<h3><span class="mw-headline" id="PhotoDiodePatchInactiveColor">PhotoDiodePatchInactiveColor</span></h3>
+<p>Photo diode patch color when inactive, (RGB color in format 0xrrggbb, use 0xff000000 for transparent).
+</p>
+<h2><span class="mw-headline" id="States">States</span></h2>
+<h3><span id="KeyDown.2C_KeyUp.2C_DCXX.2C_PushButton"></span><span class="mw-headline" id="KeyDown,_KeyUp,_DCXX,_PushButton">KeyDown, KeyUp, DCXX, PushButton</span></h3>
+<p>Recording when the subject is pushing or releasing the button.<br /><br />
+We provide 3 sources of pushbuttons: DC, analog, and keyboard.
+DC and analog: The push button is directly connected to the amplifier, so the delay is minor and can be ignored. Please confirm the variable name where the PushButtom is stored with the experimenter. The variable name varies with the channel the push button connects to through the amplifier. Usually, the variable name begins with "DC"; for example, "DC02", the number "02" is the channel ID.<br />
+Keyboard: This usually has a tens of millisecond delay. When a key is pressed, "KeyDown" will be set to the key's <a rel="nofollow" class="external text" href="http://msdn.microsoft.com/en-us/library/ms927178.aspx"><i>virtual key code</i></a> at the corresponding sample position. When a key is released, the key code will be written into the "KeyUp" state variable.<br /><br />
+We also have a backup State called "PushButton." It registers when the software detects the keyboard or button push or release. There is a delay after the software detects the response, so the backup "PushButton" happens later than the actual keyboard or button response. You only need the backup "PushButton" when the "DCXX" or "KeyDown" is not available for some reason.
+</p>
+<h3><span class="mw-headline" id="PhaseNumber">PhaseNumber</span></h3>
+<p>The index of phase in each trial. (8 bits)
+0: none; 1: Beginning of the trial; 2: Fixation; 3: Bar; 4: Cue; 5: Cue to target; 6: Target; 7: Post target response; 8: Feedback.
+</p>
+<h3><span class="mw-headline" id="TrialNumber">TrialNumber</span></h3>
+<p>Index of trials. (16 bits)
+</p>
+<h3><span class="mw-headline" id="BarDirection">BarDirection</span></h3>
+<p>Main task: 1: Vertical; 2: Horizontal. <br />
+Simplified task: 1: LeftTop; 2: RightTop; 3: RightBottom; 4: LeftBottom.
+</p>
+<h3><span id="CuePosition.2C_TargetPosition"></span><span class="mw-headline" id="CuePosition,_TargetPosition">CuePosition, TargetPosition</span></h3>
+<p>1: LeftTop; 2: RightTop; 3: RightBottom; 4: LeftBottom.
+</p>
+<h3><span class="mw-headline" id="TrialType">TrialType</span></h3>
+<p>1: no target, catch trial;<br /> 2: cue target match; <br />3:cue target don't match, on the same object;<br />
+4: cue target don't match,  on the different object;
+</p>
+<h3><span class="mw-headline" id="FixationDuration">FixationDuration</span></h3>
+<p>Duration of the phase Fixation by the number of blocks.
+</p>
+<h3><span class="mw-headline" id="BarDuration">BarDuration</span></h3>
+<p>Duration of the phase Bar by the number of blocks.
+</p>
+<h3><span class="mw-headline" id="CueToTargetDuration">CueToTargetDuration</span></h3>
+<p>Duration of the phase CueToTargetDuration by the number of blocks.
+</p>
+<h3><span class="mw-headline" id="TargetColor">TargetColor</span></h3>
+<p>The color of the target. Represent in decimal numbers.
+</p>
+<h3><span class="mw-headline" id="Response">Response</span></h3>
+<p>1: correct. <br />
+2: incorrect
+</p>
+<h3><span class="mw-headline" id="Photodiode">Photodiode</span></h3>
+<p>The Photodiode is stored in the .bat file, and the name begins with "DC". For example, "DC03", the number after "DC" represents the channel number, because the photodiode is directly connected to the amplifier, the name depends on the hardware connection. Please confirm the name of the Photodiode with the experimenter before starting the analysis. <br />
+We also have a backup State called "Photodiode". It registers when the software sends the command to hardware to present the stimulus or whenever we need to flash the photodiode. Between the software sending the command to the hardware actual response, there are roughly about 20 ms delays. So the backup "Photodiode" happens earlier than the actual photodiode flashes. You only need the backup Phtodiode when the "DCXX" is not available for some reason.
+</p><p>1: active; <br />
+2: non-active
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="Contributions%253AApplications.html" title="Contributions:Applications">Contributions:Applications</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20241129160419
+Cache expiry: 86400
+Reduced expiry: false
+Complications: [show‐toc]
+CPU time usage: 0.043 seconds
+Real time usage: 0.047 seconds
+Preprocessor visited node count: 193/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/100
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 1560/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2642-0!canonical and timestamp 20241129160419 and revision id 11621.
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=EglyDriverTask&amp;oldid=11621">http://www.bci2000.org/mediawiki/index.php?title=EglyDriverTask&amp;oldid=11621</a>"</div>
+ </div>
+</body>
+</html>

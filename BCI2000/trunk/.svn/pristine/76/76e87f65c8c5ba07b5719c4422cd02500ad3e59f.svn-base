@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Supported Frameworks - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:grey; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:black; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">Supported Frameworks</h1>
+ <p class = "subtitle"></p>
+ <hr class = "sep" />
+ <div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Supported_Frameworks.html#Purpose"><span class="tocnumber">1</span> <span class="toctext">Purpose</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Supported_Frameworks.html#Schematic"><span class="tocnumber">2</span> <span class="toctext">Schematic</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Supported_Frameworks.html#Documentation"><span class="tocnumber">3</span> <span class="toctext">Documentation</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="Supported_Frameworks.html#External_Interfaces"><span class="tocnumber">3.1</span> <span class="toctext">External Interfaces</span></a>
+<ul>
+<li class="toclevel-3 tocsection-5"><a href="Supported_Frameworks.html#BCI2000_Operator_Module_Scripting"><span class="tocnumber">3.1.1</span> <span class="toctext">BCI2000 Operator Module Scripting</span></a>
+<ul>
+<li class="toclevel-4 tocsection-6"><a href="Supported_Frameworks.html#BCI2000Remote"><span class="tocnumber">3.1.1.1</span> <span class="toctext">BCI2000Remote</span></a>
+<ul>
+<li class="toclevel-5 tocsection-7"><a href="Supported_Frameworks.html#BCI2000RemoteLib"><span class="tocnumber">3.1.1.1.1</span> <span class="toctext">BCI2000RemoteLib</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="Supported_Frameworks.html#Frameworks_organized_by_languages"><span class="tocnumber">4</span> <span class="toctext">Frameworks organized by languages</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Purpose">Purpose</span></h2>
+<p>BCI2000 supports many frameworks outside of its native implementation. This page gives a list of each of these frameworks and how they interact with one another.
+</p>
+<h2><span class="mw-headline" id="Schematic">Schematic</span></h2>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:ExternalInterfaces.png" class="image"><img alt="ExternalInterfaces.png" src="../images/d/d9/ExternalInterfaces.png" decoding="async" width="1073" height="807" /></a></div></div>
+<p>A visual schematic for how the varying interfaces of BCI2000 interact. Encapsulated items mean they are built on top of the larger, overarching framework. For example, BCI2000Remote is an extension of BCI2000 Operator Module Scripting. Each interface has a descriptor of the language/method/application you would use for the framework. 
+</p>
+<h2><span class="mw-headline" id="Documentation">Documentation</span></h2>
+<h3><span class="mw-headline" id="External_Interfaces"><a href="Contributions%253AExternal_Interfaces.html" title="Contributions:External Interfaces">External Interfaces</a></span></h3>
+<ul><li><a href="Contributions%253ABCPy2000.html" title="Contributions:BCPy2000">Contributions:BCPy2000</a></li>
+<li><a href="Contributions%253ABCI2000SimulinkConnector.html" title="Contributions:BCI2000SimulinkConnector">Contributions:BCI2000SimulinkConnector</a></li>
+<li><a href="Programming_Reference%253AMatlabFilter.html" title="Programming Reference:MatlabFilter">Programming Reference:MatlabFilter</a></li>
+<li><a href="User_Reference%253AEEGLabImport.html" title="User Reference:EEGLabImport">User Reference:EEGLabImport</a></li>
+<li><a href="Contributions%253AFieldTripBuffer.html" title="Contributions:FieldTripBuffer">Contributions:FieldTripBuffer</a></li></ul>
+<h4><span class="mw-headline" id="BCI2000_Operator_Module_Scripting">BCI2000 Operator Module Scripting</span></h4>
+<p>Documentation: <a href="User_Reference%253AModule_Command_Line_Options.html" title="User Reference:Module Command Line Options">User Reference:Module Command Line Options</a>, <a href="User_Reference%253AOperator_Module_Scripting.html" title="User Reference:Operator Module Scripting">User Reference:Operator Module Scripting</a>
+</p>
+<ul><li><a href="User_Reference%253ABCI2000Shell.html" title="User Reference:BCI2000Shell">User Reference:BCI2000Shell</a></li>
+<li><a href="User_Reference%253ABCI2000Launcher.html" title="User Reference:BCI2000Launcher">User Reference:BCI2000Launcher</a></li>
+<li><a href="Contributions%253ABCI2000Command.html" title="Contributions:BCI2000Command">Contributions:BCI2000Command</a></li>
+<li><a href="Technical_Reference%253AOperator_Library.html" title="Technical Reference:Operator Library">Technical Reference:Operator Library</a></li></ul>
+<h5><span class="mw-headline" id="BCI2000Remote">BCI2000Remote</span></h5>
+<p>Documentation: <a href="User_Tutorial%253ABCI2000Remote.html" title="User Tutorial:BCI2000Remote">User Tutorial:BCI2000Remote</a>, <a href="Programming_Reference%253ABCI2000Remote_Class.html" title="Programming Reference:BCI2000Remote Class">Programming Reference:BCI2000Remote Class</a>, <a href="Contributions%253ABCI2000PythonBindings.html" title="Contributions:BCI2000PythonBindings">Contributions:BCI2000PythonBindings</a>
+</p>
+<ul><li><a href="PsychoPy.html" title="PsychoPy">PsychoPy</a></li>
+<li><a href="Python_Visualizations.html" title="Python Visualizations">Python Visualizations</a></li></ul>
+<h6><span class="mw-headline" id="BCI2000RemoteLib"><a href="Technical_Reference%253ABCI2000Remote_Library.html" title="Technical Reference:BCI2000Remote Library">BCI2000RemoteLib</a></span></h6>
+<ul><li><a href="Contributions%253ABCI2000Automation.html" title="Contributions:BCI2000Automation">Contributions:BCI2000Automation</a></li>
+<li><a href="Contributions%253ABCI2000PresentationLink.html" title="Contributions:BCI2000PresentationLink">Contributions:BCI2000PresentationLink</a></li></ul>
+<h2><span class="mw-headline" id="Frameworks_organized_by_languages">Frameworks organized by languages</span></h2>
+<p><b>User Interface (no coding)</b>: <a href="User_Reference%253ABCI2000Launcher.html" title="User Reference:BCI2000Launcher">BCI2000Launcher</a>
+</p><p><b>Python</b>: <a href="PsychoPy.html" title="PsychoPy">PsychoPy</a>, <a href="Contributions%253ABCPy2000.html" title="Contributions:BCPy2000">BCPy2000</a>, <a href="User_Tutorial%253ABCI2000Remote.html#Python_Tutorial" title="User Tutorial:BCI2000Remote">BCI2000Remote</a>, <a href="Python_Visualizations.html" title="Python Visualizations">Python Visualizations</a>
+</p><p><b>Matlab</b>: <a href="Programming_Reference%253AMatlabFilter.html" title="Programming Reference:MatlabFilter">MatlabFilter</a>, <a href="User_Tutorial%253ABCI2000Remote.html#MatlabTutorial" title="User Tutorial:BCI2000Remote">BCI2000Remote</a>, <a href="Contributions%253ABCI2000SimulinkConnector.html" title="Contributions:BCI2000SimulinkConnector">Simulink</a>
+</p><p><b>Command-line shell</b>: <a href="User_Reference%253AOperator_Module_Scripting.html" title="User Reference:Operator Module Scripting">Operator Module Scripting</a>, <a href="User_Reference%253ABCI2000Shell.html" title="User Reference:BCI2000Shell">BCI2000Shell</a>, <a href="Contributions%253ABCI2000Command.html" title="Contributions:BCI2000Command">BCI2000Command</a>
+</p><p><b>.NET (Visual Basic, C#)</b>: <a href="Contributions%253ABCI2000Automation.html" title="Contributions:BCI2000Automation">BCI2000Automation</a>, <a href="Contributions%253ABCI2000RemoteNET.html" title="Contributions:BCI2000RemoteNET">BCI2000RemoteNET</a>
+</p><p><b>C++</b>: <a href="User_Reference%253AFilters.html" title="User Reference:Filters">Create a native BCI2000 filter</a>, <a href="User_Tutorial%253ABCI2000Remote.html#C++_Tutorial" title="User Tutorial:BCI2000Remote">BCI2000Remote</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20241129160713
+Cache expiry: 86400
+Reduced expiry: false
+Complications: [show‐toc]
+CPU time usage: 0.037 seconds
+Real time usage: 0.047 seconds
+Preprocessor visited node count: 42/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/100
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2653-0!canonical and timestamp 20241129160713 and revision id 11419.
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Supported_Frameworks&amp;oldid=11419">http://www.bci2000.org/mediawiki/index.php?title=Supported_Frameworks&amp;oldid=11419</a>"</div>
+ </div>
+</body>
+</html>

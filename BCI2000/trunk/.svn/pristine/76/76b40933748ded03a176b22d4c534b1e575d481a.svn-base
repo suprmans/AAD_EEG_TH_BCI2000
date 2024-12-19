@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>BCI2000Tools.EventRelated - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:grey; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:black; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">BCI2000Tools.EventRelated</h1>
+ <p class = "subtitle"></p>
+ <hr class = "sep" />
+ <div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="BCI2000Tools.EventRelated.html#Analysis_of_Event-Related_Potentials_from_BCI2000_Files_with_Python"><span class="tocnumber">1</span> <span class="toctext">Analysis of Event-Related Potentials from BCI2000 Files with Python</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="BCI2000Tools.EventRelated.html#1._Obtain_the_code"><span class="tocnumber">1.1</span> <span class="toctext">1. Obtain the code</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="BCI2000Tools.EventRelated.html#2._Tell_Python_where_the_code_is"><span class="tocnumber">1.2</span> <span class="toctext">2. Tell Python where the code is</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="BCI2000Tools.EventRelated.html#3._Invoke_BCI2000Tools.EventRelated"><span class="tocnumber">1.3</span> <span class="toctext">3. Invoke BCI2000Tools.EventRelated</span></a>
+<ul>
+<li class="toclevel-3 tocsection-5"><a href="BCI2000Tools.EventRelated.html#Example_Output"><span class="tocnumber">1.3.1</span> <span class="toctext">Example Output</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Analysis_of_Event-Related_Potentials_from_BCI2000_Files_with_Python">Analysis of Event-Related Potentials from BCI2000 Files with Python</span></h1>
+<p>These instructions assume you are OK with typing commands at a command prompt.
+If you are not, read this:  <a rel="nofollow" class="external free" href="https://bitbucket.org/jezhill/doc/wiki/CommandLine">https://bitbucket.org/jezhill/doc/wiki/CommandLine</a>
+</p><p><br />
+</p>
+<h2><span class="mw-headline" id="1._Obtain_the_code">1. Obtain the code</span></h2>
+<p>BCI2000Tools is a set of Python modules and command-line programs. It is part of the BCI2000 distribution, where it resides inside the <code>tools/python</code> directory. If you already have these files, that's great. If you still need to download them, the best way to do it is by using Subversion, a.k.a. <code>svn</code>:
+</p>
+<ul><li>On Windows, you should download and install TortoiseSVN, <b>and during installation, remember to explicitly select "command line client tools</b>" because the installer might not include this by default.  After installation, start a whole new Command Prompt.</li></ul>
+<ul><li>macOS may already come with a command-line <code>svn</code> built-in, or you may need to install the "XCode Command-line Tools" with <code>sudo xcode-select --install</code>. If all else fails you can install <a rel="nofollow" class="external free" href="https://brew.sh">https://brew.sh</a>  and then <code>brew install svn</code>.</li></ul>
+<p>Once you have subversion, you will need a BCI2000 username and password: if you do not already have one, go to <a rel="nofollow" class="external free" href="https://www.bci2000.org/useradmin/">https://www.bci2000.org/useradmin/</a>
+</p><p>When you are ready, decide where you're going to put the BCI2000 files and <code>cd</code> to that location. You
+do not need a separate copy for every project (you could do it that way, but that would lead to version-confusion very easily in future).  Pick a place, then choose whether to download the whole (quite large) BCI2000 source distribution:
+</p>
+<pre>   svn checkout <a rel="nofollow" class="external free" href="https://bci2000.org/svn/trunk">https://bci2000.org/svn/trunk</a>  bci2000-svn
+</pre>
+<p>or just the minimal set of files needed for Python:
+</p>
+<pre>   svn checkout <a rel="nofollow" class="external free" href="https://bci2000.org/svn/trunk/tools/python">https://bci2000.org/svn/trunk/tools/python</a>  bci2000-tools-python
+</pre>
+<p>If you are going to use the real-time BCI2000 system on this computer, there are
+advantages to going the first route and keeping everything in one place.
+If this computer is <i>only</i> going to be used for analysis, then the second
+route is fine.
+</p><p><br />    
+</p>
+<h2><span class="mw-headline" id="2._Tell_Python_where_the_code_is">2. Tell Python where the code is</span></h2>
+<p>Let's assume that when you type <code>python</code> at the command-line, you get the intended 
+version of Python, in the environment you are comfortable with (with all the sciencey
+third-party packages you're accustomed to for your other analyses). To support <code>BCI2000Tools.EventRelated</code>, you will need <code>numpy</code>, <code>scipy</code> and <code>matplotlib</code>, and it is also recommended to get <code>IPython</code>. Getting to this
+point is non-trivial in itself and will not be covered here, except to say:
+on Windows, maybe download and install Anaconda, then launch the  "Anaconda Prompt"?
+On a non-Windows system, maybe you need to be typing <code>python3</code> instead of <code>python</code>? Maybe it's a good idea to set up a virtual environment first, then activate it, before installing anything?
+The hardest program to write in Python is "Hello World" and this document unfortunately
+cannot help with that. Things have got somewhat better since <a rel="nofollow" class="external free" href="https://xkcd.com/1987">https://xkcd.com/1987</a>
+but there's probably still some way to go.
+</p><p>First change your working directory to the directory you just checked out with svn.
+For example:
+</p>
+<pre>   cd bci2000-tools-python
+</pre>
+<p>if that's what you called it on the <code>checkout</code> line.  Or maybe it's:
+</p>
+<pre>   cd C:\Somewhere\Somewhere\Somewhere\bci2000-svn\tools\python
+</pre>
+<p>if you're on Windows and you checked out the whole distro. Either way, you should now
+be working in the directory that contains the file <code>setup.py</code>. From there, you type:
+</p>
+<pre>   python -m pip install -e .
+</pre>
+<p>Make sure to include the <code>-e</code>. And the space and the dot at the end. In fact, include
+<i>all</i> the words and all punctuation: computers don't do the right thing unless the
+command is exactly right, you know that. Copy-and-paste is your friend.
+</p><p>The <code>-e</code> causes your Python distribution (or virtual environment) to make a note of
+where the BCI2000Tools reside, so in future Python will be able know what to reach for
+when you <code>import BCI2000Tools.EventRelated</code> or <code>%run -m BCI2000Tools.EventRelated</code>.
+The advantage of doing it this way is that you can later get bugfixes and updates simply
+by running the command <code>svn update</code> from that directory.  The one thing that could go
+wrong is that, after telling Python where the files are, you decide to drag and move them
+somewhere else.  In that case, Python will not know where to find them any more, and you will have to
+tell it again.
+</p><p><br />
+</p>
+<h2><span class="mw-headline" id="3._Invoke_BCI2000Tools.EventRelated">3. Invoke BCI2000Tools.EventRelated</span></h2>
+<p>You can invoke the <code>BCI2000Tools.EventRelated</code> code in various different ways. From your system command prompt:
+</p>
+<pre>   python -m BCI2000Tools.EventRelated ...
+</pre>
+<p>or from the IPython command prompt (after launching with <code>python -m IPython</code>):
+</p>
+<pre>   %run -m BCI2000Tools.EventRelated ...
+</pre>
+<p>or from your own Python program:
+</p>
+<pre>   from BCI2000Tools.EventRelated import EpochSet
+   x = EpochSet( ... )
+</pre>
+<p>These are all roughly equivalent. The command-line invocations that use
+<code>-m BCI2000Tools.EventRelated</code> merely translate your command-line arguments into
+parameters that get passed to the <code>EpochSet</code> constructor, creating an <code>EpochSet</code> instance that happens to be called <code>self</code> (if you're in IPython, you can then reassign it to a more meaningfully-named variable and continue from there).
+</p><p>In all cases the <code>...</code> stands for additional arguments.  The main arguments will be names of (or paths to) BCI2000 <code>.dat</code> files. Various other options are explained from the command-line help (let's assume you're using IPython):
+</p>
+<pre>   %run -m BCI2000Tools.EventRelated . --help
+</pre>
+<p>Note that <code>BCI2000Tools.EventRelated</code> produces interactive plots by default: you can click on the raster-plot to see the waveform an scalp topography that cut through the time and place you select.   If you are running IPython in a
+"notebook" interface, you may need to run the <code>%matplotlib notebook</code> or
+<code>%matplotlib widget</code> command, or otherwise enable interactivity in your notebook after consulting the relevant documentation.
+</p><p>Here is a simple example command-line:
+</p>
+<pre>  %run -m BCI2000Tools.EventRelated testS001R@.dat  -t DigitalInput1 -p 2-1B
+</pre>
+<p>The <code>@</code> symbol is equivalent to <code>*</code> (so, this example will match all files that conform to the pattern <code>testS001R*.dat</code>) but unlike <code>*</code> it will not get intercepted and expanded by IPython itself.
+</p><p>The <code>-t</code> option (a.k.a. <code>--trigger</code>) is critical. It specifies the name of a channel or state variable whose value becomes non-zero whenever a stimulus event occurs.  You <i>could</i> use the <code>StimulusCode</code> state variable itself here, but then you are relying on software timing; you will get <i>much</i> better results if you use a digital trigger activated by some kind of trigger box that senses the light or sound signal in hardware. In the example above, we are imagining that the trigger pulse got digitized into the <code>DigitalInput1</code> state variable (which is provided by the
+BCI2000 modules that support various g.tec devices).  Once the program has used this to establish <i>when</i> an event occurred, it will work backwards to find the most
+recent change of the <code>StimulusCode</code> state variable to a non-zero value, and read that value to determine <i>what</i> kind of event occurred.
+</p><p>The <code>-p</code> option (a.k.a. <code>--plot</code>) signifies that a plot is required, but it also takes an argument that specifies what should be plotted. The example string here, <code>2-1B</code>, is a densely coded shorthand that translates to "subtract the average of <code>StimulusCode=1</code> events from the average of <code>StimulusCode=2</code> events, and perform subtractive baseline correction". Obviously, you need to know what <code>StimulusCode</code> value corresponds to what stimulus in your experiment, and adjust accordingly. You can pool stimulus codes, you can plot average responses with or without contrasting, you can turn baseline correction on or off, you can z-score, you can plot signed r-squared values. All of these options are explained in the documentation for the <code>Processing</code> class, which in IPython can be examined by saying:
+</p>
+<pre>   from BCI2000Tools.EventRelated import Processing
+   Processing?
+</pre>
+<p>or:
+</p>
+<pre>   %run -m BCI2000Tools.EventRelated .  --help-processing
+</pre>
+<p>It is also worth emphasizing the role of the <code>-c</code> option (a.k.a.
+<code>--highlightChannel</code>), which we did not use in the example above: this gives you versatile options for automatically picking positive and/or negative peaks within certain spatial and temporal constraints, and initializing the interactive plot at that location.  In doing so, the program also attaches the results of its search to <code>self.highlighted</code> for later examination and processing.  Like the <code>-p</code> option, the <code>-c</code> option also takes a shorthand argument: read the <code>--help</code>.
+</p>
+<h3><span class="mw-headline" id="Example_Output">Example Output</span></h3>
+<pre>   &gt; python -m IPython
+</pre>
+<pre>   In [1]:  run -m BCI2000Tools.EventRelated S05S005R@.dat -t DigitalInput3 -d A2 -p 1-2ZN -c Pz+@250-600 -s "Auditory (Sham Stim.)"
+</pre>
+<p><br />
+<a href="https://www.bci2000.org/mediawiki/index.php/File:BCI2000ToolsEventRelatedExampleOutput.PNG" class="image" title="width=100%"><img alt="width=100%" src="../images/9/9c/BCI2000ToolsEventRelatedExampleOutput.PNG" decoding="async" width="300" height="210" /></a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20241129160146
+Cache expiry: 86400
+Reduced expiry: false
+Complications: [show‐toc]
+CPU time usage: 0.021 seconds
+Real time usage: 0.022 seconds
+Preprocessor visited node count: 14/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/100
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2706-0!canonical and timestamp 20241129160146 and revision id 11515.
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=BCI2000Tools.EventRelated&amp;oldid=11515">http://www.bci2000.org/mediawiki/index.php?title=BCI2000Tools.EventRelated&amp;oldid=11515</a>"</div>
+ </div>
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>User Reference:Designing a Signal Processing Filter - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:grey; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:black; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul><li class="toc1"><a href="User_Reference%253AOperator_Module.html">Operator Module</a></li><li class="toc1"><a href="User_Reference%253AOperator_Module_Scripting.html">Operator Scripting</a></li><li class="toc1"><a href="User_Reference%253AModule_Command_Line_Options.html">Module Command Line Options</a></li><li class="toc1"><a href="User_Reference%253AData_File_Formats.html">Data File Formats</a></li><li class="toc1"><a href="User_Reference%253AFilters.html">Configuration Guide</a></li><li class="toc1"><a href="User_FAQ.html">FAQ</a></li><li class="toc1">Applications</li><ul><li class="toc2"><a href="User_Reference%253ACursorTask.html">Cursor Task</a></li><li class="toc2"><a href="User_Reference%253AP3SpellerTask.html">P3Speller Task</a></li><li class="toc2"><a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:StimulusPresentation">Stimulus Presentation</a></li></ul><li class="toc1">Tools</li><ul><li class="toc2"><a href="User_Reference%253ABCI2000Launcher.html">BCI2000Launcher</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Viewer.html">BCI2000Viewer</a></li><li class="toc2"><a href="User_Reference%253ABCI2000FileInfo.html">BCI2000FileInfo</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Export.html">BCI2000Export</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Analysis.html">BCI2000Analysis</a></li><li class="toc2"><a href="User_Reference%253ABCI2000_Offline_Analysis.html">BCI2000 Offline Analysis</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Certification.html">BCI2000Certification</a></li><li class="toc2"><a href="User_Reference%253AEloc_Helper.html">Eloc Helper</a></li><li class="toc2"><a href="User_Reference%253AEEGLabImport.html">EEGLabImport</a></li><li class="toc2"><a href="User_Reference%253AMatlab_Tools.html">Matlab Tools</a></li><li class="toc2"><a href="User_Reference%253AMatlab_MEX_Files.html">Matlab MEX Files</a></li><li class="toc2"><a href="User_Reference%253ACommand_Line_Processing.html">Command Line Processing</a></li></ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">Designing a Signal Processing Filter</h1>
+ <p class = "subtitle">User Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><p>This reference page will summarize how to use the available tools in BCI2000 to customize your own Signal Processing filter. Using these tools will allow you to widely adapt BCI2000 to your own goals, all with minimal coding.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="User_Reference%253ADesigning_a_Signal_Processing_Filter.html#Purpose"><span class="tocnumber">1</span> <span class="toctext">Purpose</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="User_Reference%253ADesigning_a_Signal_Processing_Filter.html#Outline"><span class="tocnumber">2</span> <span class="toctext">Outline</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="User_Reference%253ADesigning_a_Signal_Processing_Filter.html#Pipe_Definition"><span class="tocnumber">3</span> <span class="toctext">Pipe Definition</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="User_Reference%253ADesigning_a_Signal_Processing_Filter.html#Filters_to_mix_and_match"><span class="tocnumber">4</span> <span class="toctext">Filters to mix and match</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="User_Reference%253ADesigning_a_Signal_Processing_Filter.html#Recommended_for_Use"><span class="tocnumber">4.1</span> <span class="toctext">Recommended for Use</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="User_Reference%253ADesigning_a_Signal_Processing_Filter.html#Not_Recommended_for_Use"><span class="tocnumber">4.2</span> <span class="toctext">Not Recommended for Use</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="User_Reference%253ADesigning_a_Signal_Processing_Filter.html#Tools_for_Combining_Filters"><span class="tocnumber">5</span> <span class="toctext">Tools for Combining Filters</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="User_Reference%253ADesigning_a_Signal_Processing_Filter.html#Pipe_Definition_Examples"><span class="tocnumber">6</span> <span class="toctext">Pipe Definition Examples</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="User_Reference%253ADesigning_a_Signal_Processing_Filter.html#Further_Documentation"><span class="tocnumber">7</span> <span class="toctext">Further Documentation</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Purpose">Purpose</span></h2>
+<p>To create your custom SignalProcessing filter, there are two options:
+</p>
+<ol><li>Create your own pipeline of filters, only by using the existing filters. This is simple, and will be encompassing for most purposes</li>
+<li>Follow the <a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html" title="Programming Tutorial:Implementing a Signal Processing Filter">Programming Tutorial</a> for how to create your own filter from scratch. This gives you flexibility, however might be more work than needed. First see if the work can be done with existing options, then add your own capabilities</li>
+<li>Combine the two options</li></ol>
+<p>This page shows how to create a SignalProcessing filter only by using existing filters in BCI2000. To go more in depth about how to make your own from scratch, please direct to <a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html" title="Programming Tutorial:Implementing a Signal Processing Filter">this page</a>.
+</p>
+<h2><span class="mw-headline" id="Outline">Outline</span></h2>
+<p>See <a href="Programming_Howto%253ACreate_a_custom_Signal_Processing_Module.html" title="Programming Howto:Create a custom Signal Processing Module">Programming Howto:Create a custom Signal Processing Module</a> for detailed steps and images on how to create your filter template. A summarization of the steps are below:
+</p>
+<ul><li>Use <code>NewBCI2000Module.exe</code> under the build folder to create your own filter
+<ul><li>Enter parent directory of src/contrib/SignalProcessing</li></ul></li>
+<li>Re-run CMake to include your new module</li>
+<li>Open the new PipeDefinition.cpp that was created</li></ul>
+<p>Now we can create your own pipeline using the other filters.
+</p>
+<h2><span class="mw-headline" id="Pipe_Definition">Pipe Definition</span></h2>
+<p>To use multiple filters, we define a PipeDefinition for our Signal Processing module. This essentially means we define our Filters in order. <a href="User_Reference%253AFilters.html" title="User Reference:Filters">See this page on Filters for details</a>. Here is an example for a pipeline of 7 filters in our Signal Processing module:
+</p>
+<div class="mw-highlight mw-highlight-lang-cpp mw-content-ltr" dir="ltr"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;SpatialFilter.h&quot;</span>
+<span class="n">Filter</span><span class="p">(</span><span class="w"> </span><span class="n">SpatialFilter</span><span class="p">,</span><span class="w"> </span><span class="mf">2.</span><span class="n">B</span><span class="w"> </span><span class="p">);</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;IIRBandpass.h&quot;</span>
+<span class="n">Filter</span><span class="p">(</span><span class="w"> </span><span class="n">IIRBandpass</span><span class="p">,</span><span class="w"> </span><span class="mf">2.</span><span class="n">B3</span><span class="w"> </span><span class="p">);</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;ARFilter.h&quot;</span>
+<span class="n">Filter</span><span class="p">(</span><span class="w"> </span><span class="n">ARFilter</span><span class="p">,</span><span class="w"> </span><span class="mf">2.</span><span class="n">C</span><span class="w"> </span><span class="p">);</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;LinearClassifier.h&quot;</span>
+<span class="n">Filter</span><span class="p">(</span><span class="w"> </span><span class="n">LinearClassifier</span><span class="p">,</span><span class="w"> </span><span class="mf">2.</span><span class="n">D</span><span class="w"> </span><span class="p">);</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;LPFilter.h&quot;</span>
+<span class="n">Filter</span><span class="p">(</span><span class="w"> </span><span class="n">LPFilter</span><span class="p">,</span><span class="w"> </span><span class="mf">2.</span><span class="n">D1</span><span class="w"> </span><span class="p">);</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;ExpressionFilter.h&quot;</span>
+<span class="n">Filter</span><span class="p">(</span><span class="w"> </span><span class="n">ExpressionFilter</span><span class="p">,</span><span class="w"> </span><span class="mf">2.</span><span class="n">D2</span><span class="w"> </span><span class="p">);</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Normalizer.h&quot;</span>
+<span class="n">Filter</span><span class="p">(</span><span class="w"> </span><span class="n">Normalizer</span><span class="p">,</span><span class="w"> </span><span class="mf">2.</span><span class="n">E</span><span class="w"> </span><span class="p">);</span>
+</pre></div>
+<p>If we build this project as is, we will be able to customize each filter's parameters, with the final output as the output from Normalizer. The order of the filters is organized by number and letter. We use 2 by convention to declare it as a Signal Processing Filter. The letters further define the order: B → B3 → C → D → D1 → D2 → E. See <a href="Programming_Reference%253AFilter_Chain.html" title="Programming Reference:Filter Chain"> the Filter Chain</a> page for more information.
+</p>
+<h2><span class="mw-headline" id="Filters_to_mix_and_match">Filters to mix and match</span></h2>
+<p>This is an extensive list of the shared filters of use, located at <code>src/shared/modules/signalprocessing</code>
+</p>
+<h3><span class="mw-headline" id="Recommended_for_Use">Recommended for Use</span></h3>
+<ul><li>AverageDisplay: Computes epoch averages of its input signal, and displays these in a visualization window.</li>
+<li><a href="User_Reference%253AConditionalIntegrator.html" title="User Reference:ConditionalIntegrator">ConditionalIntegrator</a>: Integrates its input signal while a given expression evaluates to true. This filter is intended for offline simulations of application module behavior.</li>
+<li>FrequencyEstimator: A filter that continuously estimates the dominant frequency of its input signal, similar to a frequency counter.</li>
+<li><a href="User_Reference%253AIIRBandpass.html" title="User Reference:IIRBandpass">IIRBandpass</a>: A generic IIR bandpass filter that also provides a notch. Built on <a href="Programming_Reference%253AIIRFilterBase_Class.html" title="Programming Reference:IIRFilterBase Class">IIR Filter Base Class</a></li>
+<li><a href="User_Reference%253ALinearClassifier.html" title="User Reference:LinearClassifier">LinearClassifier</a></li>
+<li><a href="User_Reference%253ALPFilter.html" title="User Reference:LPFilter">Low Pass (LP) filter</a></li>
+<li><a href="User_Reference%253ANormalizer.html" title="User Reference:Normalizer">Normalizer</a></li>
+<li><a href="User_Reference%253AP3TemporalFilter.html" title="User Reference:P3TemporalFilter">P3Temporal</a></li>
+<li>PowerEstimator: A filter that estimates the power contained in its input.</li>
+<li>RandomFilter: A filter that returns zero-mean white noise multiplied by the input signal's value.</li>
+<li><a href="User_Reference%253ASpatialFilter.html" title="User Reference:SpatialFilter">SpatialFilter</a></li>
+<li><a href="User_Reference%253ASpectralEstimator.html" title="User Reference:SpectralEstimator">SpectralEstimator</a>: Allows for spectral estimation choice between AR or FFT</li>
+<li><a href="User_Reference%253AStateTransform.html" title="User Reference:StateTransform">StateTransform</a>: A filter that transforms state values according to rules. Whenever a given state's value changes, it replaces the new value by a user-defined expression.</li>
+<li>SourceDecimation: Conducts low-pass on signal to decimate source. Helpful to lower the required computation time for filters ahead in the chain.</li>
+<li>WindowingFilter: The WindowingFilter provides
+<ul><li>Buffering of the signal into time windows that may be larger than SampleBlockSize,</li>
+<li>Detrending options (mean or linear),</li>
+<li>Window functions typically used with FFT (Hann, Hamming, Blackman). Typically, the Windowing filter provides its output to a spectral estimator (AR, FFT).</li></ul></li></ul>
+<h3><span class="mw-headline" id="Not_Recommended_for_Use">Not Recommended for Use</span></h3>
+<ul><li>ARFilter: Used in SpectralEstimator. This is a LinearCombination of WindowingFilter and ARSpectrum</li>
+<li>ARSpectrum: Used in ARFilter. Performs AR algorithm, see <a href="User_Reference%253ASpectralEstimator.html" title="User Reference:SpectralEstimator">User Reference:SpectralEstimator</a> for details</li>
+<li>ExpressionFilter: Uses arithmetic expressions to compute its output. Can use capabilities without putting it in Filter Chain</li>
+<li>FFTSpectrum: Performs FFT that is used in <a href="User_Reference%253ASpectralEstimator.html" title="User Reference:SpectralEstimator">User Reference:SpectralEstimator</a></li>
+<li>ComplexDemodulator: Computes the squared amplitudes for a small number of bands. Its operation is roughly equivalent to a short-term fourier transform followed by demodulation for selected frequency bins.</li>
+<li>FFTFilter</li>
+<li>IIRFilterBase: Abstract base class</li>
+<li>Spectrum: Base class for spectral estimator threads</li>
+<li>TaskAdapter: Purpose of this filter is to connect old-style application modules to the newer normalizer filter without changing their behavior.</li>
+<li>ThreadedFilter: Template class for filters that use multiple threads to compute their results</li></ul>
+<h2><span class="mw-headline" id="Tools_for_Combining_Filters">Tools for Combining Filters</span></h2>
+<p>These are located in the source code at <code>src/shared/filters</code>. Can be used to create parallel filters, subchains, and easy toggling between filters.
+</p>
+<ul><li><a href="Programming_Reference%253AParallelCombination.html" title="Programming Reference:ParallelCombination">Programming Reference:ParallelCombination</a></li>
+<li><a href="Programming_Reference%253ASubchainFilter.html" title="Programming Reference:SubchainFilter">Programming Reference:SubchainFilter</a></li>
+<li><a href="Programming_Reference%253AChoiceCombination.html" title="Programming Reference:ChoiceCombination">Programming Reference:ChoiceCombination</a></li>
+<li><a href="Programming_Reference%253AIdentityFilter.html" title="Programming Reference:IdentityFilter">Programming Reference:IdentityFilter</a></li>
+<li><s><a href="Programming_Reference%253ALinearCombination.html" title="Programming Reference:LinearCombination">Programming Reference:LinearCombination</a></s>: Deprecated, use <a href="Programming_Reference%253ASubchainFilter.html" title="Programming Reference:SubchainFilter">SubchainFilter instead</a></li></ul>
+<h2><span class="mw-headline" id="Pipe_Definition_Examples">Pipe Definition Examples</span></h2>
+<p><b><a href="Contributions%253APeakDetector.html" title="Contributions:PeakDetector">Contributions:PeakDetector</a>:</b> PeakDetector is the custom Filter, and uses it in a pipeline with other existing filters
+</p>
+<div class="mw-highlight mw-highlight-lang-cpp mw-content-ltr" dir="ltr"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;SpatialFilter.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;UPeakDetector.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;LinearClassifier.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Normalizer.h&quot;</span>
+
+<span class="n">Filter</span><span class="p">(</span><span class="w"> </span><span class="n">SpatialFilter</span><span class="p">,</span><span class="w"> </span><span class="mf">2.</span><span class="n">B</span><span class="w"> </span><span class="p">);</span>
+<span class="n">Filter</span><span class="p">(</span><span class="w"> </span><span class="n">PeakDetector</span><span class="p">,</span><span class="w"> </span><span class="mf">2.</span><span class="n">C</span><span class="w"> </span><span class="p">);</span>
+<span class="n">Filter</span><span class="p">(</span><span class="w"> </span><span class="n">LinearClassifier</span><span class="p">,</span><span class="w"> </span><span class="mf">2.</span><span class="n">D</span><span class="w"> </span><span class="p">);</span>
+<span class="n">Filter</span><span class="p">(</span><span class="w"> </span><span class="n">Normalizer</span><span class="p">,</span><span class="w"> </span><span class="mf">2.</span><span class="n">E</span><span class="w"> </span><span class="p">);</span>
+</pre></div>
+<p><b><a href="Programming_Reference%253AMatlabFilter.html" title="Programming Reference:MatlabFilter">MatlabFilter</a></b> sends the signal to Matlab within the BCI2000 chain. This lets you conduct a Matlab script and have it affect the signal sent to the Application.
+</p>
+<div class="mw-highlight mw-highlight-lang-cpp mw-content-ltr" dir="ltr"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;MatlabFilter.h&quot;</span>
+<span class="n">Filter</span><span class="p">(</span><span class="n">MatlabFilter</span><span class="p">,</span><span class="w"> </span><span class="mf">2.</span><span class="n">C</span><span class="p">);</span>
+</pre></div>
+<p><b><a href="Contributions%253APAC.html" title="Contributions:PAC">Phase-amplitude coupling</a></b> is when you analyze the correlation of the phase of one frequency of the signal with the amplitude of the other. We can easily do that with a unique filter chain. This chain uses the custom <a href="Contributions%253AHilbertFilter.html" title="Contributions:HilbertFilter">Hilbert Filter</a> in parallel, once to get the phase, once to get the amplitude. These can be of different frequency bands, specified by varying parameters in the IIRBandpass filter. Next, the custom PACFilter receives the combined computations to simply calculate a correlation value between the phase and amplitude. Lastly, the <a href="Programming_Reference%253ASignalSharingDemo_Signal_Processing.html" class="mw-redirect" title="Programming Reference:SignalSharingDemo Signal Processing">SignalSharing Demo Filter</a> shares the data so other applications can use it.
+</p>
+<div class="mw-highlight mw-highlight-lang-cpp mw-content-ltr" dir="ltr"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;IIRBandpass.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;HilbertFilter.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;SubchainFilter.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;FilterCombination.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;SourceDecimationFilter.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;SpatialFilter.h&quot;</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">MySubchain</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">SubchainFilter</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">MySubchain</span><span class="p">()</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Add</span><span class="o">&lt;</span><span class="n">IIRBandpass</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">    </span><span class="n">Add</span><span class="o">&lt;</span><span class="n">HilbertFilter</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Phase</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">MySubchain</span><span class="w"> </span><span class="p">{};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Amplitude</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">MySubchain</span><span class="w"> </span><span class="p">{};</span>
+<span class="c1">//combines parallel filters back into one chain</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">MyParallelFilter</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">ParallelCombination</span><span class="o">&lt;</span><span class="n">Phase</span><span class="p">,</span><span class="w"> </span><span class="n">Amplitude</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{};</span>
+
+
+<span class="n">Filter</span><span class="p">(</span><span class="n">SourceDecimationFilter</span><span class="p">,</span><span class="w"> </span><span class="mf">2.</span><span class="n">A1</span><span class="p">);</span>
+<span class="n">Filter</span><span class="p">(</span><span class="n">SpatialFilter</span><span class="p">,</span><span class="w"> </span><span class="mf">2.</span><span class="n">A2</span><span class="p">);</span>
+<span class="n">Filter</span><span class="p">(</span><span class="n">MyParallelFilter</span><span class="p">,</span><span class="w"> </span><span class="mf">2.</span><span class="n">B</span><span class="p">);</span>
+
+<span class="c1">//custom filter to compute the output of the filters</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;PACFilter.h&quot;</span>
+<span class="n">Filter</span><span class="p">(</span><span class="n">PACFilter</span><span class="p">,</span><span class="w"> </span><span class="mf">2.</span><span class="n">C</span><span class="p">);</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;SignalSharingDemoFilter.h&quot;</span>
+<span class="n">Filter</span><span class="p">(</span><span class="n">SignalSharingDemoFilter</span><span class="p">,</span><span class="w"> </span><span class="mf">2.</span><span class="n">D</span><span class="p">);</span>
+</pre></div>
+<h2><span class="mw-headline" id="Further_Documentation">Further Documentation</span></h2>
+<ul><li><a href="User_Reference%253AFilters.html" title="User Reference:Filters">Filters in BCI2000</a></li>
+<li><a href="Programming_Reference%253AFilter_Chain.html" title="Programming Reference:Filter Chain">Filter Chain Details</a></li>
+<li><a href="Programming_Howto%253ACreate_a_custom_Signal_Processing_Module.html" title="Programming Howto:Create a custom Signal Processing Module">Create a new SignalProcessing module</a></li>
+<li><a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html" title="Programming Tutorial:Implementing a Signal Processing Filter">Details about the SignalProcessing Filter code, using LPFilter as an example</a></li>
+<li><a href="Contributions%253ASignalProcessing.html" title="Contributions:SignalProcessing"> Signal Processing modules in Contributions</a></li>
+<li><a href="User_Reference%253ABCI2000Analysis.html" title="User Reference:BCI2000Analysis">The BCI2000Analysis tool may be used to create filter pipelines and graphs, and create <tt>PipeDefinition.cpp</tt> code for them</a>‏</li></ul>
+<!-- 
+NewPP limit report
+Cached time: 20241129160759
+Cache expiry: 86400
+Reduced expiry: false
+Complications: [show‐toc]
+CPU time usage: 0.055 seconds
+Real time usage: 0.064 seconds
+Preprocessor visited node count: 75/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/100
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 8784/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2650-0!canonical and timestamp 20241129160759 and revision id 11187.
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=User_Reference:Designing_a_Signal_Processing_Filter&amp;oldid=11187">http://www.bci2000.org/mediawiki/index.php?title=User_Reference:Designing_a_Signal_Processing_Filter&amp;oldid=11187</a>"</div>
+ </div>
+</body>
+</html>

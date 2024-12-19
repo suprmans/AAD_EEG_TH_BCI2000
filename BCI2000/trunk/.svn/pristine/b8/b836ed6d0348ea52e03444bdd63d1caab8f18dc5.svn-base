@@ -1,0 +1,7 @@
+bci2000_include(brainflow)
+bci2000_add_signal_source_module(
+  Brainflow
+  BrainflowADC.cpp
+  SUPPORT batch/*=>/batch
+  SUPPORT parms/*=>/parms/fragments/amplifiers
+)

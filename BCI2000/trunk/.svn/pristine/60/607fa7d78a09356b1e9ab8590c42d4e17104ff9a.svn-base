@@ -1,0 +1,286 @@
+////////////////////////////////////////////////////////////////////////////////
+// $Id$
+// Author: mellinger@neurotechcenter.org
+// Description: A class that encapsulates a subset of possibly downsampled
+//  channels going into a data file.
+//
+// $BEGIN_BCI2000_LICENSE$
+//
+// This file is part of BCI2000, a platform for real-time bio-signal research.
+// [ Copyright (C) 2000-2023: BCI2000 team and many external contributors ]
+//
+// BCI2000 is free software: you can redistribute it and/or modify it under the
+// terms of the GNU General Public License as published by the Free Software
+// Foundation, either version 3 of the License, or (at your option) any later
+// version.
+//
+// BCI2000 is distributed in the hope that it will be useful, but
+//                         WITHOUT ANY WARRANTY
+// - without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+// A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License along with
+// this program.  If not, see <http://www.gnu.org/licenses/>.
+//
+// $END_BCI2000_LICENSE$
+////////////////////////////////////////////////////////////////////////////////
+#include "OutputFileStream.h"
+
+#include "FileUtils.h"
+#include "Debugging.h"
+
+static const int cBufferSize = 65536;
+static const double cFilterCorner = 2. / 3.; // in terms of downsampled Nyquist frequency
+static const int cFilterOrder = 3;
+
+OutputFileStream::OutputFileStream(const Properties& properties, std::shared_ptr<GenericOutputFormat> pFormat)
+: mProperties(properties), mpOutputFormat(pFormat), mOutputStream(&mStreambuf), mStreambuf(0, cBufferSize)
+{
+    Assert(mpOutputFormat.get());
+}
+
+OutputFileStream::~OutputFileStream()
+{
+    if (!IsPrimaryStream())
+        delete mpFile;
+}
+
+void OutputFileStream::Preflight(const SignalProperties& Input) const
+{
+    SignalProperties subset, downsampledSubset;
+    ConstructSubsetProperties(Input, subset);
+    ConstructDownsampledProperties(subset, downsampledSubset);
+    mpOutputFormat->Preflight(downsampledSubset);
+}
+
+void OutputFileStream::Initialize(const SignalProperties& inInput, int inStatevectorLength)
+{
+    SignalProperties subset, downsampledSubset;
+    ConstructSubsetProperties(inInput, subset);
+    ConstructDownsampledProperties(subset, downsampledSubset);
+    ConstructStatevector(downsampledSubset.Elements());
+    mSignalSubset = GenericSignal(subset);
+    mDownsampledSubset = GenericSignal(downsampledSubset);
+    ConfigureFilter();
+
+    mChannelSubsetIsIdentity = (inInput.Channels() == mProperties.channels.size());
+    for (int i = 0; i < mProperties.channels.size(); ++i)
+        mChannelSubsetIsIdentity = mChannelSubsetIsIdentity && i == mProperties.channels[i];
+
+    int statevectorLength = IsPrimaryStream() ? inStatevectorLength : mStatevector.Length();
+    mpOutputFormat->Initialize(downsampledSubset, statevectorLength);
+}
+
+void OutputFileStream::BeginFile(Tiny::File& inPrimaryOutputFile, const ParamList& inParameters, const StateList& inStates)
+{
+    SetPrimaryOutputFile(&inPrimaryOutputFile);
+    mParameters = inParameters;
+    FixupChannelParameters();
+    FixupSamplingRateParameters();
+    const StateList& states = IsPrimaryStream() ? inStates : mStates;
+    mpOutputFormat->BeginFile(mOutputStream, mParameters, states);
+}
+
+void OutputFileStream::EndFile()
+{
+    mpOutputFormat->EndFile(mOutputStream);
+    CloseOutputFile();
+}
+
+void OutputFileStream::Write(const GenericSignal& inSignal, const StateVector& inStatevector)
+{
+    CopySubset(inSignal, mSignalSubset);
+    if (IsPrimaryStream()) {
+        mpOutputFormat->Write(mOutputStream, mSignalSubset, inStatevector);
+    }
+    else {
+        DownsampleSubset(mSignalSubset, mDownsampledSubset);
+        if (!mpSourceTimeSource)
+            mpSourceTimeSource = &inStatevector.StateList().ByName("SourceTime");
+        auto sourceTime = inStatevector.StateValue(mpSourceTimeSource->Location(), mpSourceTimeSource->Length());
+        mStatevector.ChangeOwnerThread(); // necessary to allow writing from this thread
+        mStatevector.SetStateValue(mpSourceTimeTarget->Location(), mpSourceTimeTarget->Length(), sourceTime);
+        mpOutputFormat->Write(mOutputStream, mDownsampledSubset, mStatevector);
+    }
+}
+
+void OutputFileStream::Flush()
+{
+    mOutputStream.flush();
+}
+
+bool OutputFileStream::IsGood() const
+{
+    return !!mOutputStream;
+}
+
+int64_t OutputFileStream::Position()
+{
+    return mOutputStream.tellp();
+}
+
+void OutputFileStream::SetPrimaryOutputFile(Tiny::File* pFile)
+{
+    CloseOutputFile();
+
+    if (IsPrimaryStream()) {
+        mpFile = pFile;
+    }
+    else {
+        std::string file = pFile->Name();
+        if (!mProperties.name.empty()) {
+            file = FileUtils::StripExtension(pFile->Name());
+            file += "." + mProperties.name;
+            file += mpOutputFormat->DataFileExtension();
+        }
+        delete mpFile;
+        mpFile = new File;
+        if (!mpFile->Open(file, File::out | File::exclusive))
+            bcierr << "Could not open \"" << file << "\" for writing";
+    }
+    mStreambuf.SetOutput(&mpFile->Output());
+}
+
+void OutputFileStream::CloseOutputFile()
+{
+    mOutputStream.flush();
+    mOutputStream.clear();
+    mStreambuf.SetOutput(nullptr);
+    if (mpFile)
+        mpFile->Close();
+    if (!IsPrimaryStream())
+        delete mpFile;
+    mpFile = nullptr;
+}
+
+std::string OutputFileStream::FileName() const
+{
+    return mpFile ? mpFile->Name() : "<N/A>";
+}
+
+void OutputFileStream::ConstructSubsetProperties(const SignalProperties& Input, SignalProperties& Subset) const
+{
+    Subset = Input;
+    Subset.SetChannels(mProperties.channels.size());
+    for (int i = 0; i < mProperties.channels.size(); ++i)
+        Subset.ChannelLabels()[i] = Input.ChannelLabels()[mProperties.channels[i]];
+}
+
+void OutputFileStream::ConstructDownsampledProperties(const SignalProperties& Input, SignalProperties& Downsampled) const
+{
+    Downsampled = Input;
+    if (mProperties.decimation < 2)
+        return;
+
+    Assert(Input.Elements() % mProperties.decimation == 0);
+    Downsampled.SetElements(Input.Elements() / mProperties.decimation);
+    Downsampled.ElementUnit().SetGain(Input.ElementUnit().Gain() * mProperties.decimation)
+                             .SetRawMax(Downsampled.Elements() - 1);
+}
+
+void OutputFileStream::ConstructStatevector(int samples)
+{
+    if (IsPrimaryStream())
+        return;
+
+    mStates.Clear();
+    mStates.Add("SourceTime 16 0 0 0");
+    mStates.AssignPositions();
+    mStatevector = StateVector(mStates, samples);
+    mStatevector.CommitStateChanges();
+    mpSourceTimeTarget = &mStates.ByName("SourceTime");
+    mpSourceTimeSource = nullptr;
+}
+
+void OutputFileStream::ConfigureFilter()
+{
+    if (IsPrimaryStream())
+        return;
+
+    auto tf = FilterDesign::Butterworth()
+        .Lowpass(0.5 * cFilterCorner / mProperties.decimation)
+        .Order(cFilterOrder)
+        .TransferFunction();
+    double gain = std::abs(tf.Evaluate(1.0));
+    mFilter.SetChannels(mSignalSubset.Channels())
+           .SetGain(1. / gain)
+           .SetZeros(tf.Numerator().Roots())
+           .SetPoles(tf.Denominator().Roots())
+           .Initialize();
+}
+
+void OutputFileStream::CopySubset(const GenericSignal& Input, GenericSignal& Output) const
+{
+    if (mChannelSubsetIsIdentity) {
+        Output = Input;
+        return;
+    }
+    for (int ch = 0; ch < mProperties.channels.size(); ++ch) {
+        for (int el = 0; el < Input.Elements(); ++el) {
+            Output(ch, el) = Input(mProperties.channels[ch], el);
+        }
+    }
+}
+
+void OutputFileStream::DownsampleSubset(const GenericSignal& Input, GenericSignal& Output)
+{
+    if (mProperties.decimation < 2)
+        Output = Input;
+    else
+        mFilter.Process(Input, Output);
+}
+
+void OutputFileStream::FixupChannelParameters()
+{
+    if (mChannelSubsetIsIdentity)
+        return;
+
+    mParameters("/SourceCh") = mProperties.channels.size();
+    MutableParamRef SourceChGain = mParameters("/SourceChGain"),
+        SourceChOffset = mParameters("/SourceChOffset"),
+        ChannelNames = mParameters("/ChannelNames");
+
+    std::vector<std::string> gain, offset, names, align;
+    for (int ch = 0; ch < mProperties.channels.size(); ++ch) {
+        int sourceIdx = mProperties.channels[ch];
+        gain.push_back(SourceChGain(sourceIdx));
+        offset.push_back(SourceChOffset(sourceIdx));
+
+        if (ChannelNames->NumValues() > sourceIdx) {
+            names.push_back(ChannelNames(sourceIdx));
+        }
+        else if (ChannelNames->NumValues() > 0) {
+            names.push_back(std::to_string(sourceIdx + 1));
+        }
+    }
+
+    SourceChGain->SetNumValues(gain.size());
+    SourceChOffset->SetNumValues(offset.size());
+    for (int ch = 0; ch < gain.size(); ++ch) {
+        SourceChGain(ch) = gain[ch];
+        SourceChOffset(ch) = offset[ch];
+    }
+
+    if (ChannelNames->NumValues() > 0) {
+        ChannelNames->SetNumValues(names.size());
+        for (int ch = 0; ch < gain.size(); ++ch) {
+            ChannelNames(ch) = names[ch];
+        }
+    }
+}
+
+void OutputFileStream::FixupSamplingRateParameters()
+{
+    if (mProperties.decimation < 2)
+        return;
+
+    MutableParamRef SampleBlockSize = mParameters("SampleBlockSize"),
+        SamplingRate = mParameters("SamplingRate");
+    SampleBlockSize << SampleBlockSize.ToNumber() / mProperties.decimation;
+    SamplingRate << SamplingRate.InHertz() / mProperties.decimation << "Hz";
+}
+
+bool OutputFileStream::IsPrimaryStream() const
+{
+    return mProperties.name.empty();
+}

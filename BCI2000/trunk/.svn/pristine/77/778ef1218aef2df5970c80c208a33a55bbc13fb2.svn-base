@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>User Reference:SpectralEstimator - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:grey; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:black; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul><li class="toc1"><a href="User_Reference%253AOperator_Module.html">Operator Module</a></li><li class="toc1"><a href="User_Reference%253AOperator_Module_Scripting.html">Operator Scripting</a></li><li class="toc1"><a href="User_Reference%253AModule_Command_Line_Options.html">Module Command Line Options</a></li><li class="toc1"><a href="User_Reference%253AData_File_Formats.html">Data File Formats</a></li><li class="toc1"><a href="User_Reference%253AFilters.html">Configuration Guide</a></li><li class="toc1"><a href="User_FAQ.html">FAQ</a></li><li class="toc1">Applications</li><ul><li class="toc2"><a href="User_Reference%253ACursorTask.html">Cursor Task</a></li><li class="toc2"><a href="User_Reference%253AP3SpellerTask.html">P3Speller Task</a></li><li class="toc2"><a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:StimulusPresentation">Stimulus Presentation</a></li></ul><li class="toc1">Tools</li><ul><li class="toc2"><a href="User_Reference%253ABCI2000Launcher.html">BCI2000Launcher</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Viewer.html">BCI2000Viewer</a></li><li class="toc2"><a href="User_Reference%253ABCI2000FileInfo.html">BCI2000FileInfo</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Export.html">BCI2000Export</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Analysis.html">BCI2000Analysis</a></li><li class="toc2"><a href="User_Reference%253ABCI2000_Offline_Analysis.html">BCI2000 Offline Analysis</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Certification.html">BCI2000Certification</a></li><li class="toc2"><a href="User_Reference%253AEloc_Helper.html">Eloc Helper</a></li><li class="toc2"><a href="User_Reference%253AEEGLabImport.html">EEGLabImport</a></li><li class="toc2"><a href="User_Reference%253AMatlab_Tools.html">Matlab Tools</a></li><li class="toc2"><a href="User_Reference%253AMatlab_MEX_Files.html">Matlab MEX Files</a></li><li class="toc2"><a href="User_Reference%253ACommand_Line_Processing.html">Command Line Processing</a></li></ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">SpectralEstimator</h1>
+ <p class = "subtitle">User Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="User_Reference%253ASpectralEstimator.html#Function"><span class="tocnumber">1</span> <span class="toctext">Function</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="User_Reference%253ASpectralEstimator.html#AR_Algorithm"><span class="tocnumber">1.1</span> <span class="toctext">AR Algorithm</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="User_Reference%253ASpectralEstimator.html#FFT_Algorithm"><span class="tocnumber">1.2</span> <span class="toctext">FFT Algorithm</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="User_Reference%253ASpectralEstimator.html#Physical_unit_of_the_estimated_spectrum"><span class="tocnumber">1.3</span> <span class="toctext">Physical unit of the estimated spectrum</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="User_Reference%253ASpectralEstimator.html#Normalization_of_the_estimated_spectrum"><span class="tocnumber">1.4</span> <span class="toctext">Normalization of the estimated spectrum</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="User_Reference%253ASpectralEstimator.html#Parameters"><span class="tocnumber">2</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="User_Reference%253ASpectralEstimator.html#WindowLength"><span class="tocnumber">2.1</span> <span class="toctext">WindowLength</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="User_Reference%253ASpectralEstimator.html#Detrend"><span class="tocnumber">2.2</span> <span class="toctext">Detrend</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="User_Reference%253ASpectralEstimator.html#ModelOrder"><span class="tocnumber">2.3</span> <span class="toctext">ModelOrder</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="User_Reference%253ASpectralEstimator.html#OutputType"><span class="tocnumber">2.4</span> <span class="toctext">OutputType</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="User_Reference%253ASpectralEstimator.html#FirstBinCenter"><span class="tocnumber">2.5</span> <span class="toctext">FirstBinCenter</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="User_Reference%253ASpectralEstimator.html#LastBinCenter"><span class="tocnumber">2.6</span> <span class="toctext">LastBinCenter</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="User_Reference%253ASpectralEstimator.html#BinWidth"><span class="tocnumber">2.7</span> <span class="toctext">BinWidth</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="User_Reference%253ASpectralEstimator.html#EvaluationsPerBin"><span class="tocnumber">2.8</span> <span class="toctext">EvaluationsPerBin</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-15"><a href="User_Reference%253ASpectralEstimator.html#States"><span class="tocnumber">3</span> <span class="toctext">States</span></a></li>
+<li class="toclevel-1 tocsection-16"><a href="User_Reference%253ASpectralEstimator.html#Examples"><span class="tocnumber">4</span> <span class="toctext">Examples</span></a></li>
+<li class="toclevel-1 tocsection-17"><a href="User_Reference%253ASpectralEstimator.html#See_also"><span class="tocnumber">5</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Function">Function</span></h2>
+<p>The SpectralEstimator computes a continually updated estimate of the spectrum of its input data, i.e. the distribution of amplitude or energy over frequencies.
+Spectral estimation is done separately for each of the filter's input channels.
+</p><p>For each block of data, it uses a past window of data. Optionally, detrending is applied to the data in this window. Also, multiplication with a side lobe suppression window function may be performed, which is routinely done when estimating a spectrum from windowed data.
+</p><p>You may choose from two independent, and very different, spectral estimation algorithms, one based on <b>Autoregression</b> (AR), and one based on the <b>Fast Fourier Transform</b> (FFT).
+</p>
+<h3><span class="mw-headline" id="AR_Algorithm">AR Algorithm</span></h3>
+<p>The AR algorithm computes an autoregressive model of its input data using the <a rel="nofollow" class="external text" href="http://en.wikipedia.org/wiki/Maximum_entropy_spectral_estimation">Maximum Entropy Method</a> (Burg method).
+Its output may be raw AR coefficients, or an estimated power spectrum collected into bins.
+</p><p>AR coefficients are actually the coefficients of an all-pole <a rel="nofollow" class="external text" href="http://en.wikipedia.org/wiki/Linear_filter">linear filter</a> that is fitted to reproduce the data's spectrum when applied to white noise.
+</p><p>Thus, the estimated <i>power spectrum</i> directly corresponds to that filter's transfer function, divided by the signal's total power.
+To obtain spectral power for finite-sized <i>frequency bins</i>, that <i>power spectrum</i> needs to be multiplied by total signal power, and integrated over the frequency ranges corresponding to individual bins.
+</p><p>This is done by numerical integration, evaluating the spectrum at equally spaced evaluation points, summing, and multiplying by bin width to obtain the power corresponding to a certain bin.
+For <i>amplitude</i> rather than <i>power spectrum</i> output, bin integrals are replaced with their square roots.
+</p>
+<h3><span class="mw-headline" id="FFT_Algorithm">FFT Algorithm</span></h3>
+<p>The FFT algorithm computes the <a rel="nofollow" class="external text" href="http://en.wikipedia.org/wiki/Discrete_Fourier_Transform">Discrete Fourier Transform</a> of its input data, i.e. it transforms its input into a representation in the frequency domain rather than the time domain. This is a linear transform, which may be viewed as expanding the input data in a new set of basis vectors, which correspond to equally spaced negative and positive frequency bins. The expansion coefficient (or Fourier coefficient) corresponding to a frequency component is a complex number, whose magnitude may be interpreted to represent signal amplitude in the associated frequency bin, and whose phase corresponds to the phase of the signal in that frequency bin.
+</p><p>In contrast to a naive DFT implementation, which requires time proportional to <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(N^{2})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>N</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(N^{2})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e5d43a3df904fa4d7220f5b86285298aa36d969b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:6.76ex; height:3.176ex;" alt="{\displaystyle O(N^{2})}"/></span>, the FFT algorithm performs the computation in time proportional to <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(NlogN)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mi>N</mi>
+        <mi>l</mi>
+        <mi>o</mi>
+        <mi>g</mi>
+        <mi>N</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(NlogN)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/93edc9da3cc6b3506524f9d74a6a3320e7397b93" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:10.647ex; height:2.843ex;" alt="{\displaystyle O(NlogN)}"/></span> (with <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle N}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>N</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle N}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f5e3890c981ae85503089652feb48b191b57aae3" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:2.064ex; height:2.176ex;" alt="{\displaystyle N}"/></span> being the number of input samples, which must be powers of two in the original FFT algorithm). The SpectralEstimation filter uses a generalization of the FFT algorithm, called <a rel="nofollow" class="external text" href="http://www.fftw.org">FFTW</a>, that can efficiently handle any number of input samples.
+</p>
+<h3><span class="mw-headline" id="Physical_unit_of_the_estimated_spectrum">Physical unit of the estimated spectrum</span></h3>
+<p>A power spectrum is an energy density distribution over frequencies. Thus, its physical dimension is "energy per frequency". The ARFilter actually computes a time series of such spectra, representing a flow of energy through each single point in the frequency domain. The proper physical dimension of such a flow is "energy per frequency per time".
+</p><p>In BCI2000, signal amplitude is measured in <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \mu V}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>&#x03BC;<!-- μ --></mi>
+        <mi>V</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mu V}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/fc17825946551199828416c3dd91fd2db49c14a0" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:3.189ex; height:2.676ex;" alt="{\displaystyle \mu V}"/></span>, so signal energy is measured in <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle (\mu V)^{2}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mi>&#x03BC;<!-- μ --></mi>
+        <mi>V</mi>
+        <msup>
+          <mo stretchy="false">)</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (\mu V)^{2}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/03b19cba0e419cdaaaf399cc364d026ac42e05a9" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:6.052ex; height:3.176ex;" alt="{\displaystyle (\mu V)^{2}}"/></span>. Measuring frequency in Hz, and time in seconds, these will cancel out in the physical unit's denominator. Thus, the physical unit of a power spectrum is <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle (\mu V)^{2}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mi>&#x03BC;<!-- μ --></mi>
+        <mi>V</mi>
+        <msup>
+          <mo stretchy="false">)</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (\mu V)^{2}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/03b19cba0e419cdaaaf399cc364d026ac42e05a9" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:6.052ex; height:3.176ex;" alt="{\displaystyle (\mu V)^{2}}"/></span>, and <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \mu V}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>&#x03BC;<!-- μ --></mi>
+        <mi>V</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mu V}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/fc17825946551199828416c3dd91fd2db49c14a0" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:3.189ex; height:2.676ex;" alt="{\displaystyle \mu V}"/></span> for an amplitude spectrum.
+</p>
+<h3><span class="mw-headline" id="Normalization_of_the_estimated_spectrum">Normalization of the estimated spectrum</span></h3>
+<p>Normalization is applied to energy, and chosen such that input energy per second matches output energy, summed over all bins. For an input signal <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle s_{t}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>s</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle s_{t}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/92a402d151a0173378ee252a634c77898ebe4b06" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:1.916ex; height:2.009ex;" alt="{\displaystyle s_{t}}"/></span> and an output spectrum <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle f_{\omega }}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>f</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>&#x03C9;<!-- ω --></mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle f_{\omega }}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/717448fe2fb180da2ce820346f0535820790d135" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:2.394ex; height:2.509ex;" alt="{\displaystyle f_{\omega }}"/></span>, this means
+</p><p><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\frac {\sum _{t=t_{0}..t_{N}}s_{t}^{2}}{t_{N}-t_{0}}}=\sum _{\omega }|f_{\omega }|^{2}.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <munder>
+                <mo>&#x2211;<!-- ∑ --></mo>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi>t</mi>
+                  <mo>=</mo>
+                  <msub>
+                    <mi>t</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mn>0</mn>
+                    </mrow>
+                  </msub>
+                  <mo>.</mo>
+                  <mo>.</mo>
+                  <msub>
+                    <mi>t</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mi>N</mi>
+                    </mrow>
+                  </msub>
+                </mrow>
+              </munder>
+              <msubsup>
+                <mi>s</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi>t</mi>
+                </mrow>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msubsup>
+            </mrow>
+            <mrow>
+              <msub>
+                <mi>t</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi>N</mi>
+                </mrow>
+              </msub>
+              <mo>&#x2212;<!-- − --></mo>
+              <msub>
+                <mi>t</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>0</mn>
+                </mrow>
+              </msub>
+            </mrow>
+          </mfrac>
+        </mrow>
+        <mo>=</mo>
+        <munder>
+          <mo>&#x2211;<!-- ∑ --></mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>&#x03C9;<!-- ω --></mi>
+          </mrow>
+        </munder>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <msub>
+          <mi>f</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>&#x03C9;<!-- ω --></mi>
+          </mrow>
+        </msub>
+        <msup>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo stretchy="false">|</mo>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\frac {\sum _{t=t_{0}..t_{N}}s_{t}^{2}}{t_{N}-t_{0}}}=\sum _{\omega }|f_{\omega }|^{2}.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d931575046b4729130f61d9d4b5c3ebefd5492e1" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -3.005ex; width:24.438ex; height:7.343ex;" alt="{\displaystyle {\frac {\sum _{t=t_{0}..t_{N}}s_{t}^{2}}{t_{N}-t_{0}}}=\sum _{\omega }|f_{\omega }|^{2}.}"/></span>
+</p><p>Normalization is applied for both AR and FFT algorithms in this way.
+</p>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<p>For all frequency-valued parameters, raw float values are interpreted in terms of the sampling rate; absolute frequencies may be given when followed with <i>Hz</i>, as in the following examples:
+</p>
+<ul><li><i>0.5</i> will always refer to the Nyquist frequency (half the sampling rate).</li>
+<li><i>10.3Hz</i> specifies a value of 10.3 Hz, regardless of the sampling rate.</li>
+<li><i>15/2Hz</i> specifies a value of 7.5 Hz.</li>
+<li>The unit must immediately follow the number.</li></ul>
+<h3><span class="mw-headline" id="WindowLength">WindowLength</span></h3>
+<p>The length of the input data window over which the model/spectrum is computed, given as a time value in seconds (then immediately followed by the unit), or the number of signal blocks as in the following examples:
+</p>
+<pre>1.34s
+500ms
+5
+</pre>
+<p>In case of the FFT algorithm, the <tt>WindowLength</tt> parameter does not determine the number of input samples in the FFT (FFT size); rather, FFT size is determined by the <tt>BinWidth</tt> parameter.
+</p>
+<h3><span class="mw-headline" id="Detrend">Detrend</span></h3>
+<p>Determines whether data are detrended prior to spectral estimation. Possible values are
+</p>
+<ul><li>0: no detrending,</li>
+<li>1: mean removal,</li>
+<li>2: linear trend removal.</li></ul>
+<h3><span class="mw-headline" id="ModelOrder">ModelOrder</span></h3>
+<p>The order of the autoregressive model. Roughly, this corresponds to the maximum number of peaks in the resulting spectrum. When using the FFT-based algorithm, this parameter is not used.
+</p>
+<h3><span class="mw-headline" id="OutputType">OutputType</span></h3>
+<p>Possible values are
+</p>
+<ul><li>0: spectral amplitude,</li>
+<li>1: spectral power,</li>
+<li>2: AR coefficients.</li></ul>
+<p>If the output is a spectrum, the output signal's elements correspond to uniformly spaced frequency bins. For raw AR coefficients, the first output signal element contains total signal power, followed by the model's denominator coefficients.
+</p>
+<h3><span class="mw-headline" id="FirstBinCenter">FirstBinCenter</span></h3>
+<p>A float value representing the center of the first frequency bin, e.g. "5Hz".
+</p><p>In case of the AR algorithm, this is the first point where the estimated spectral function is evaluated. In case of the FFT algorithm, the input signal's DC component is shifted to the <tt>FirstBinCenter</tt> frequency by modulating with a complex carrier signal of a frequency <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \omega =2\pi {\texttt {FirstBinCenter}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>&#x03C9;<!-- ω --></mi>
+        <mo>=</mo>
+        <mn>2</mn>
+        <mi>&#x03C0;<!-- π --></mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mtext mathvariant="monospace">FirstBinCenter</mtext>
+          </mrow>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \omega =2\pi {\texttt {FirstBinCenter}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ef1d4db6689304538a8b9e1ed8083c2574d3e932" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:24.126ex; height:2.176ex;" alt="{\displaystyle \omega =2\pi {\texttt {FirstBinCenter}}}"/></span>.
+</p>
+<h3><span class="mw-headline" id="LastBinCenter">LastBinCenter</span></h3>
+<p>A float value representing the center of the last frequency bin. 
+</p><p>If <tt>LastBinCenter</tt> - <tt>FirstBinCenter</tt> is not an integer multiple of <tt>BinWidth</tt>, <tt>LastBinCenter</tt> is rounded downward towards the closest integer multiple of <tt>BinWidth</tt>.
+</p>
+<h3><span class="mw-headline" id="BinWidth">BinWidth</span></h3>
+<p>A single nonnegative float value representing the width of a single bin, e.g. "3Hz". For the AR algorithm, this is the distance between points where the spectrum is evaluated. For the FFT algorithm, this determines the number of points over which the FFT is calculated (FFT size). If the <tt>WindowSize</tt> parameter is less than FFT size, the FFT's input is padded with zeros. If <tt>WindowSize</tt> is greater than FFT size, multiple FFTs are computed, and their results summed up, until all input data has been used.
+</p>
+<h3><span class="mw-headline" id="EvaluationsPerBin">EvaluationsPerBin</span></h3>
+<p>For the AR algorithm, this is a single nonnegative integer value representing the number of uniformly spaced evaluation points that enter into a single bin's value. For the FFT algorithm, this value is ignored.
+</p>
+<h2><span class="mw-headline" id="States">States</span></h2>
+<p>None.
+</p>
+<h2><span class="mw-headline" id="Examples">Examples</span></h2>
+<p>For a typical EEG application, you might use the following configuration:
+</p>
+<pre>ModelOrder= 16
+FirstBinCenter= 0Hz
+LastBinCenter= 30Hz
+BinWidth= 3Hz
+EvaluationsPerBin= 15
+</pre>
+<p>This will result in 11 bins, with the first bin covering the DC range from -1.5 to 1.5 Hz, which, due to symmetry of the transfer function, is twice the integral from 0 to 1.5 Hz. The last bin will cover the range from 28.5 Hz to 31.5 Hz. Evaluation points will be 0.2 Hz apart.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="User_Reference%253AFFTFilter.html" title="User Reference:FFTFilter">FFTFilter</a>, <a href="User_Reference%253AMatlab_MEX_Files.html#mem" title="User Reference:Matlab MEX Files">User Reference:Matlab MEX Files#mem</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20241129160738
+Cache expiry: 86400
+Reduced expiry: false
+Complications: [show‐toc]
+CPU time usage: 0.738 seconds
+Real time usage: 0.771 seconds
+Preprocessor visited node count: 105/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/100
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 396/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1480-0!canonical and timestamp 20241129160738 and revision id 8074.
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=User_Reference:SpectralEstimator&amp;oldid=8074">http://www.bci2000.org/mediawiki/index.php?title=User_Reference:SpectralEstimator&amp;oldid=8074</a>"</div>
+ </div>
+</body>
+</html>

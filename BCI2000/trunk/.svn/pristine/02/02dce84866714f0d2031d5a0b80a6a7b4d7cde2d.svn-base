@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>User Tutorial:StimulusPresentation - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:grey; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:black; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul><li class="toc1"><a href="User_Tutorial%253ABCI2000_Tour.html">Tour</a></li><li class="toc1"><a href="User_Tutorial%253AMu_Rhythm_BCI_Tutorial.html">Mu Tutorial</a></li><li class="toc1"><a href="User_Tutorial%253AP300_BCI_Tutorial.html">P300 Tutorial</a></li></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">StimulusPresentation</h1>
+ <p class = "subtitle">User Tutorial</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="User_Tutorial%253AStimulusPresentation.html#Synopsis"><span class="tocnumber">1</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="User_Tutorial%253AStimulusPresentation.html#Demo_Script_Location"><span class="tocnumber">2</span> <span class="toctext">Demo Script Location</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="User_Tutorial%253AStimulusPresentation.html#Video"><span class="tocnumber">3</span> <span class="toctext">Video</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="User_Tutorial%253AStimulusPresentation.html#Limitations"><span class="tocnumber">4</span> <span class="toctext">Limitations</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="User_Tutorial%253AStimulusPresentation.html#General_Use_Instructions"><span class="tocnumber">5</span> <span class="toctext">General Use Instructions</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="User_Tutorial%253AStimulusPresentation.html#Tutorial"><span class="tocnumber">6</span> <span class="toctext">Tutorial</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="User_Tutorial%253AStimulusPresentation.html#See_Also"><span class="tocnumber">7</span> <span class="toctext">See Also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>This is a tutorial for implementing a stimulus presentation experiment using the default BCI2000 stimulus presentation application module. The BCI2000 stimulus presentation application module is implemented directly in C++ and has ongoing development support, making it ideal for creating stimulus presentation experiments. In this tutorial we will use a MATLAB script to create a BCI2000 parameter fragment (text file) detailing the experiment. With this script you can define different types of stimuli (images, audio, video, or other outputs), the stimulus duration, interstimulus interval, early offset expressions (for advancing to the next stimulus), and the sequence in which to present the stimuli. You can also store any other BCI2000 parameters (such as the source sampling rate) in this parameter fragment using the same structure described in this MATLAB script. This parameter fragment can be loaded into BCI2000 while running the Stimulus Presentation application module to run your experiment.
+</p><p>Use this template MATLAB script as a starting point to implement your experiment!
+</p><p>A parallel script for implementing BCI2000 stimulus presentation experiments in Python is coming soon!
+</p>
+<h2><span class="mw-headline" id="Demo_Script_Location">Demo Script Location</span></h2>
+<p>The Stimulus Presentation MATLAB demo script can be found in the root directory of your BCI2000 folder in /tools/matlab/StimulusPresentationScript_Demo.m.
+</p><p>A parallel version of this script implemented in Python can be found in the root directory of your BCI2000 folder in /tools/python/StimulusPresentationScript_Demo.py.
+</p>
+<h2><span class="mw-headline" id="Video">Video</span></h2>
+<div class="thumb embedvideo  ev_center autoResize" style="width: 648px;"><div class="embedvideo autoResize" style=" width: 646px;"><div class="embedvideowrap" style="width: 640px;"><iframe title="Play video" src="https://www.youtube.com/embed/4qlKAqOuEhQ?" width="640" height="360" frameborder="0" allowfullscreen="true"></iframe></div></div></div>
+<h2><span class="mw-headline" id="Limitations">Limitations</span></h2>
+<p>Note that the BCI2000 Stimulus Presentation application module is limited to feedforward experiments where the subjects behavior does not affect the experimental workflow.
+</p>
+<h2><span class="mw-headline" id="General_Use_Instructions">General Use Instructions</span></h2>
+<p>The MATLAB demo script for BCI2000 Stimulus Presentation is an m-file that can be run to create a BCI2000 parameter file. This parameter file can be loaded into an instance of BCI2000 using the stimulus presentation application module to run your experiment. The steps to do this are as follows:
+</p>
+<ol>
+<li>
+Open and run StimulusPresentationScript_Demo.m located in the /tools/matlab folder. This will produce a new parameter file /parms/demo_parms.prm.
+</li>
+
+<li>
+Start a batch file using the Stimulus Presentation application module, e.g., /batch/StimulusPresentation_SignalGenerator.bat.
+</li>
+
+<li>
+In the configuration window, load the parameter file demo_parms.prm.
+</li>
+
+<li>
+Set config and press start to run the experiment!
+</li>
+</ol>
+<h2><span class="mw-headline" id="Tutorial">Tutorial</span></h2>
+<ol>
+<li>
+This section identifies the path of the BCI2000 root directory, relative to the location of the StimulusPresentationScript_Demo.m file. Here we also add the 'tools' folder to the MATLAB path so we can later use the convert_bciprm function to write our experiment to a BCI2000 parameter file.
+<pre>%% Set the path of the BCI2000 main directory here
+BCI2000pathparts = regexp(pwd,filesep,'split');
+BCI2000path = '';
+for i = 1:length(BCI2000pathparts)-2
+    BCI2000path = [BCI2000path BCI2000pathparts{i} filesep];
+end
+settings.BCI2000path = BCI2000path;
+clear BCI2000path BCI2000pathparts i
+
+% Add BCI2000 tools to path
+addpath(genpath(fullfile(settings.BCI2000path,'tools')))
+</pre>
+</li>
+
+<li>
+Set various parameters to be stored in the parameter file. Most of these are standard parameters for BCI2000 stimulus presentation. Here the save path settings.parm_filename stores the location where the parameter file is written.
+<pre>%% Settings
+settings.SamplingRate          = '256Hz';&#160;% device sampling rate
+settings.SampleBlockSize       = '8';    &#160;% number of samples in a block
+
+settings.PreRunDuration        = '2s';
+settings.PostRunDuration       = '0.5s';
+settings.TaskDuration          = '2s';
+settings.InstructionDuration   = '30s';
+settings.SyncPulseDuration     = '1s';
+settings.BaselineMinDuration   = '0.5s';
+settings.BaselineMaxDuration   = '1.5s';
+settings.NumberOfSequences     = '1';
+settings.StimulusWidth         = '30';
+settings.WindowTop             = '0';
+settings.WindowLeft            = '0';
+settings.WindowWidth           = '640';
+settings.WindowHeight          = '480';
+settings.BackgroundColor       = '0x000000';
+settings.CaptionColor          = '0xFFFFFF';
+settings.CaptionSwitch         = '1';
+settings.WindowBackgroundColor = '0x000000';
+settings.ISIMinDuration        = '0s';
+settings.ISIMaxDuration        = '0s';
+settings.SubjectName           = 'BCI';
+settings.DataDirectory         = fullfile('..','data');
+settings.SubjectSession        = 'auto';
+settings.SubjectRun            = '01';
+settings.parm_filename         = fullfile(settings.BCI2000path,'parms','demo_parms.prm');
+settings.UserComment           = 'Enter user comment here';
+
+settings.InstructionsCaption   = {'Stimulus Presentation Task. Press space to continue'; 'End of task.'};
+</pre>
+</li>
+
+<li>
+Create a structure with details about the stimuli that will be presented. In this example, we are simply using all of the *.bmp images in the /prog/images folder. Stimuli can also be *.wav files or *.mp4 files.
+<pre>%% Get task images
+task_images = dir(fullfile(settings.BCI2000path,'prog','images','*.bmp'));
+</pre>
+</li>
+
+<li>
+Initialize the Stimuli matrix. A good practice is to separate your stimuli into "banks" for easy evaluation later. Set n_stimuli to the total number of columns needed in the stimuli matrix (i.e., if there are 10 stimuli, but you have them separated into two banks (task 1-5, and rest 11-15), n_stimuli should be set to 15). In this example there are 103 unique stimuli, but they are separated into a total of 301 columns in the Stimuli matrix The column number of the stimulus in the stimuli matrix corresponds to that stimulus' Stimulus Code. The Stimulus Code is a BCI2000 state that reflects which stimuli were actually presented throughout the experiment, sampled at the same rate as the signal source. Details about each stimulus are stored in the rows. You must include the first 3 rows in the order shown, regardless of whether or not you will present e.g. a caption. Replace the 'audio' row label with 'av' to include *.mp4 files. These rows can be expanded to include additional information about each stimulus, such as an image's mean luminance (this can be useful for analyzing the data later). Each cell needs to be initialized as an empty string for BCI2000 to recognize the Stimuli parameter. The current row labels are described below:
+<ul><li>caption - text written to the screen by BCI2000</li>
+<li>icon - the path to a *.bmp or *.png image file</li>
+<li>audio - the path to a *.wav  audio file</li>
+<li>StimulusDuration - the duration of each individual stimulus</li>
+<li>AudioVolume - the volume of audio files. Enter a '0' if there are no audio stimuli, as this field must be filled with a value 0-100</li>
+<li>Category - additional information about the category of a stimulus can be stored, such as whether a stimulus code corresponds to an instruction</li>
+<li>EarlyOffsetExpression - an expression that will cause BCI2000 to end the current stimulus before StimulusDuration elapses, e.g. KeyDown == 32 (when the subject/experimenter presses the space key)</li></ul>
+
+<pre>%% Set up the different stimuli so they are represented by unique stimulus codes, separated into banks for easy evaluation later
+n_stimuli = 301;&#160;% Total events
+n_rows    = 7;
+
+% break down into blocks for easier analysis later
+% 1-50:    image stimuli
+% 101-150: inter-stimulus interval (variable duration)
+% 201:     instructions
+% 301:     sync pulse
+
+% Set up Stimuli
+param.Stimuli.Section         = 'Application';
+param.Stimuli.Type            = 'matrix';
+param.Stimuli.DefaultValue    = '';
+param.Stimuli.LowRange        = '';
+param.Stimuli.HighRange       = '';
+param.Stimuli.Comment         = 'captions and icons to be displayed, sounds to be played for different stimuli';
+param.Stimuli.Value           = cell(n_rows,n_stimuli);
+param.Stimuli.Value(:)        = {''};
+param.Stimuli.RowLabels       = cell(n_rows,1);
+param.Stimuli.RowLabels(:)    = {''};
+param.Stimuli.ColumnLabels    = cell(1,n_stimuli);
+param.Stimuli.ColumnLabels(:) = {''};
+
+param.Stimuli.RowLabels{1}  = 'caption';
+param.Stimuli.RowLabels{2}  = 'icon';
+param.Stimuli.RowLabels{3}  = 'audio';
+param.Stimuli.RowLabels{4}  = 'StimulusDuration';
+param.Stimuli.RowLabels{5}  = 'AudioVolume';
+param.Stimuli.RowLabels{6}  = 'Category';
+param.Stimuli.RowLabels{7}  = 'EarlyOffsetExpression';
+</pre>
+</li>
+
+<li>
+Populate the Stimuli matrix with details about the task (image) stimuli in columns 1-50. Note that there needs to be at least an empty string for each row.
+<pre>%% Study images 1-50
+for idx = 1:length(task_images)
+    param.Stimuli.ColumnLabels{idx} = sprintf('%d',idx);
+    param.Stimuli.Value{1,idx}      = '';
+    param.Stimuli.Value{2,idx}      = sprintf('%s',fullfile('..','prog','images',task_images(idx).name));
+    param.Stimuli.Value{3,idx}      = '';
+    param.Stimuli.Value{4,idx}      = settings.TaskDuration;
+    param.Stimuli.Value{5,idx}      = '0';      
+    param.Stimuli.Value{6,idx}      = 'image'; 
+    param.Stimuli.Value{7,idx}      = ''; 
+end 
+</pre>
+</li>
+
+<li>
+Create fixation cross stimuli to act as the 'rest' data. In this example, we create a variable duration rest period by sampling from a distribution of stimulus durations ranging from 0.5-1.5 s. Because BCI2000 presents stimuli for entire processing blocks (block size, e.g., 50 ms) we ensure that the rest period duration options are divisible by BCI2000 block size. Note that the value entered for the 'StimulusDuration' row of each stimulus is a string with the letter 's' (seconds) appended to the end.
+<pre>%% inter-stimulus interval (fixation cross) 101-150
+% variable duration from 0.5-1.5s
+SamplingRate = str2double(settings.SamplingRate(1:end-2));
+BlockSize    = str2double(settings.SampleBlockSize);
+MinDuration  = str2double(settings.BaselineMinDuration(1:end-1));
+MaxDuration  = str2double(settings.BaselineMaxDuration(1:end-1));
+for idx = 101:100+length(task_images)
+    blockvals = MinDuration:BlockSize/SamplingRate:MaxDuration;
+    randval   = randi(length(blockvals));
+    duration  = blockvals(randval);
+    
+    param.Stimuli.ColumnLabels{idx} = sprintf('%d',idx);
+    param.Stimuli.Value{1,idx}      = '+';
+    param.Stimuli.Value{2,idx}      = '';
+    param.Stimuli.Value{3,idx}      = '';
+    param.Stimuli.Value{4,idx}      = strcat(num2str(duration,7),'s');
+    param.Stimuli.Value{5,idx}      = '0';      
+    param.Stimuli.Value{6,idx}      = 'fixation'; 
+    param.Stimuli.Value{7,idx}      = ''; 
+end
+</pre>
+</li>
+
+<li>
+Populate the Stimuli matrix with the instructions. These instructions are captions specified in the "settings" section. Instuctions could alternately be an image of text. Note that captions do not wrap to the second line.
+<pre>%% Instructions 201-202
+idx_iter = 1;
+for idx = 201:200+length(settings.InstructionsCaption)
+    param.Stimuli.ColumnLabels{idx} = sprintf('%d',idx);
+    param.Stimuli.Value{1,idx}      = settings.InstructionsCaption{idx_iter};
+    param.Stimuli.Value{2,idx}      = '';
+    param.Stimuli.Value{3,idx}      = '';
+    param.Stimuli.Value{4,idx}      = settings.InstructionDuration;
+    param.Stimuli.Value{5,idx}      = '0';    
+    param.Stimuli.Value{6,idx}      = 'instruction'; 
+    param.Stimuli.Value{7,idx}      = 'KeyDown == 32';&#160;% space key 
+    
+    idx_iter = idx_iter + 1;
+end 
+</pre>
+</li>
+
+<li>
+Include a Stimulus Code for a sync pulse. This could be used to e.g. trigger an output TTL to synchronize recording from a device not connected to BCI2000.
+<pre>%% Sync pulse 301
+idx = 301;
+param.Stimuli.ColumnLabels{idx} = sprintf('%d',idx);
+param.Stimuli.Value{1,idx}      = '';
+param.Stimuli.Value{2,idx}      = '';
+param.Stimuli.Value{3,idx}      = '';
+param.Stimuli.Value{4,idx}      = settings.SyncPulseDuration;
+param.Stimuli.Value{5,idx}      = '0';      
+param.Stimuli.Value{6,idx}      = 'sync'; 
+param.Stimuli.Value{7,idx}      = '';    
+</pre>
+</li>
+
+<li>
+Present images in a random sequence. The Sequence parameter specifies which Stimulus Codes (corresponding to the columns of the Stimuli matrix) will be presented and the order in which they will be presented. This section creates a sequence that starts with the Stimulus Code for the instructions, then alternates the Stimulus Codes for the image and variable duration fixation cross stimuli. Note that the Sequence is also stored in the param structure as a string.
+<pre>%% Sequence
+% 1-50:    image stimuli
+% 101-150: inter-stimulus interval (variable duration)
+% 201:     instructions
+% 301:     sync pulse
+
+randOrder = randperm(length(task_images));
+taskseq   = [];
+for i = 1:length(task_images)
+    currentImage = randOrder(i);
+    taskseq      = [taskseq (100+currentImage) currentImage];
+end
+
+seq = [301 201 taskseq 202 301]';
+
+param.Sequence.Section      = 'Application';
+param.Sequence.Type         = 'intlist';
+param.Sequence.DefaultValue = '1';
+param.Sequence.LowRange     = '1';
+param.Sequence.HighRange    = '';
+param.Sequence.Comment      = 'Sequence in which stimuli are presented (deterministic mode)/ Stimulus frequencies for each stimulus (random mode)';
+param.Sequence.Value        = cellfun(@num2str, num2cell(seq), 'un',0);
+param.Sequence.NumericValue = seq;
+</pre>
+</li>
+
+<li>
+This script includes examples of various other stimuli that can be stored in the BCI2000 parameter file. The below example shows how the Sampling Rate parameter could be stored according to the value set in the "settings" section.
+<pre>%%
+param.SamplingRate.Section         = 'Source';
+param.SamplingRate.Type            = 'int';
+param.SamplingRate.DefaultValue    = '256Hz';
+param.SamplingRate.LowRange        = '1';
+param.SamplingRate.HighRange       = '';
+param.SamplingRate.Comment         = 'sample rate';
+param.SamplingRate.Value           = {settings.SamplingRate};
+</pre>
+</li>
+
+<li>
+The last section of this script uses the "convert_bciprm" function to write the param structure to a BCI2000 parameter file. As stated above, this parameter file can be loaded in the BCI2000 configuration window to load the stored parameters and run the experiment.
+<pre>%% write the param struct to a bci2000 parameter file
+parameter_lines = convert_bciprm( param );
+fid = fopen(settings.parm_filename, 'w');
+
+for i=1:length(parameter_lines)
+    fprintf( fid, '%s', parameter_lines{i} );
+    fprintf( fid, '\r\n' );
+end
+fclose(fid);
+</pre>
+</li>
+
+</ol>
+<h2><span class="mw-headline" id="See_Also">See Also</span></h2>
+<ul><li><a href="User_Reference%253AStimulusPresentationTask.html" title="User Reference:StimulusPresentationTask">User_Reference:StimulusPresentationTask</a></li></ul>
+<!-- 
+NewPP limit report
+Cached time: 20241129160938
+Cache expiry: 86400
+Reduced expiry: false
+Complications: [show‐toc]
+CPU time usage: 0.013 seconds
+Real time usage: 0.015 seconds
+Preprocessor visited node count: 80/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/100
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 7364/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2463-0!canonical and timestamp 20241129160938 and revision id 9945.
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=User_Tutorial:StimulusPresentation&amp;oldid=9945">http://www.bci2000.org/mediawiki/index.php?title=User_Tutorial:StimulusPresentation&amp;oldid=9945</a>"</div>
+ </div>
+</body>
+</html>

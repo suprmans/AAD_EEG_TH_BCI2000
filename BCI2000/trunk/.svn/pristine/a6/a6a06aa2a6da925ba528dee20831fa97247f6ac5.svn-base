@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>User Reference:BCI2000Watchdog - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:grey; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:black; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul><li class="toc1"><a href="User_Reference%253AOperator_Module.html">Operator Module</a></li><li class="toc1"><a href="User_Reference%253AOperator_Module_Scripting.html">Operator Scripting</a></li><li class="toc1"><a href="User_Reference%253AModule_Command_Line_Options.html">Module Command Line Options</a></li><li class="toc1"><a href="User_Reference%253AData_File_Formats.html">Data File Formats</a></li><li class="toc1"><a href="User_Reference%253AFilters.html">Configuration Guide</a></li><li class="toc1"><a href="User_FAQ.html">FAQ</a></li><li class="toc1">Applications</li><ul><li class="toc2"><a href="User_Reference%253ACursorTask.html">Cursor Task</a></li><li class="toc2"><a href="User_Reference%253AP3SpellerTask.html">P3Speller Task</a></li><li class="toc2"><a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:StimulusPresentation">Stimulus Presentation</a></li></ul><li class="toc1">Tools</li><ul><li class="toc2"><a href="User_Reference%253ABCI2000Launcher.html">BCI2000Launcher</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Viewer.html">BCI2000Viewer</a></li><li class="toc2"><a href="User_Reference%253ABCI2000FileInfo.html">BCI2000FileInfo</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Export.html">BCI2000Export</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Analysis.html">BCI2000Analysis</a></li><li class="toc2"><a href="User_Reference%253ABCI2000_Offline_Analysis.html">BCI2000 Offline Analysis</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Certification.html">BCI2000Certification</a></li><li class="toc2"><a href="User_Reference%253AEloc_Helper.html">Eloc Helper</a></li><li class="toc2"><a href="User_Reference%253AEEGLabImport.html">EEGLabImport</a></li><li class="toc2"><a href="User_Reference%253AMatlab_Tools.html">Matlab Tools</a></li><li class="toc2"><a href="User_Reference%253AMatlab_MEX_Files.html">Matlab MEX Files</a></li><li class="toc2"><a href="User_Reference%253ACommand_Line_Processing.html">Command Line Processing</a></li></ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">BCI2000Watchdog</h1>
+ <p class = "subtitle">User Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="User_Reference%253ABCI2000Watchdog.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="User_Reference%253ABCI2000Watchdog.html#Using_BCI2000Watchdog_Interactively"><span class="tocnumber">2</span> <span class="toctext">Using BCI2000Watchdog Interactively</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="User_Reference%253ABCI2000Watchdog.html#Selecting_a_BCI2000_Startup_Batch_File"><span class="tocnumber">2.1</span> <span class="toctext">Selecting a BCI2000 Startup Batch File</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="User_Reference%253ABCI2000Watchdog.html#Choosing_the_Timeout_for_reaching_the_&quot;Running&quot;_State"><span class="tocnumber">2.2</span> <span class="toctext">Choosing the Timeout for reaching the "Running" State</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="User_Reference%253ABCI2000Watchdog.html#Choosing_the_Timeout_for_Process_Termination"><span class="tocnumber">2.3</span> <span class="toctext">Choosing the Timeout for Process Termination</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="User_Reference%253ABCI2000Watchdog.html#Entering_Canary_Expressions_(Watches)"><span class="tocnumber">2.4</span> <span class="toctext">Entering Canary Expressions (Watches)</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="User_Reference%253ABCI2000Watchdog.html#Starting_BCI20000"><span class="tocnumber">2.5</span> <span class="toctext">Starting BCI20000</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="User_Reference%253ABCI2000Watchdog.html#Terminating_BCI2000"><span class="tocnumber">2.6</span> <span class="toctext">Terminating BCI2000</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="User_Reference%253ABCI2000Watchdog.html#Recovering_from_an_Error"><span class="tocnumber">2.7</span> <span class="toctext">Recovering from an Error</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-10"><a href="User_Reference%253ABCI2000Watchdog.html#Automating_BCI2000Watchdog_from_the_Command_Line"><span class="tocnumber">3</span> <span class="toctext">Automating BCI2000Watchdog from the Command Line</span></a>
+<ul>
+<li class="toclevel-2 tocsection-11"><a href="User_Reference%253ABCI2000Watchdog.html#--Ini=&lt;IniFile&gt;"><span class="tocnumber">3.1</span> <span class="toctext">--Ini=&lt;IniFile&gt;</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="User_Reference%253ABCI2000Watchdog.html#--UILevel=&lt;n&gt;"><span class="tocnumber">3.2</span> <span class="toctext">--UILevel=&lt;n&gt;</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="User_Reference%253ABCI2000Watchdog.html#--Autostart"><span class="tocnumber">3.3</span> <span class="toctext">--Autostart</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="User_Reference%253ABCI2000Watchdog.html#&lt;BCI2000_Batch_file&gt;"><span class="tocnumber">3.4</span> <span class="toctext">&lt;BCI2000 Batch file&gt;</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Introduction">Introduction</span></h2>
+<p>BCI2000Watchdog is a program that monitors the function of a running BCI2000 instance, and restarts it if malfunction is detected.
+Functioning of BCI2000 is determined by monitoring "Canary expressions" which are evaluated in the context of BCI2000 and are expected to change on a regular basis, e.g. the time stamp of the currently processed data block, and/or the frame number of a video recorded alongside brain signal signal data.
+</p><p>The Watchdog program is located in the BCI2000/prog directory.
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:BCI2000Watchdog.png" class="image"><img alt="BCI2000Watchdog.png" src="../images/c/cb/BCI2000Watchdog.png" decoding="async" width="514" height="824" /></a>
+</p>
+<h2><span class="mw-headline" id="Using_BCI2000Watchdog_Interactively">Using BCI2000Watchdog Interactively</span></h2>
+<h3><span class="mw-headline" id="Selecting_a_BCI2000_Startup_Batch_File">Selecting a BCI2000 Startup Batch File</span></h3>
+<p>The top element of BCI2000Watchdog holds the full path to a BCI2000 startup batch file. This may be any BCI2000 batch file, except that it must contain the SET CONFIG and START commands. If the batch file does not contain these commands, SetConfig and Start must be pressed manually, so the watchdog will be unable to start operation of BCI2000 when it tries to restart it.
+</p><p>Pressing the "..." button at the right side of the edit field will bring up a file selection dialog, so you don't need to enter the full path manually.
+</p><p>Also, dragging a batch file onto the edit field will enter the file's full path.
+</p><p>In addition, a batch file may be given on the command line when starting up BCI2000Watchdog, or by dragging-and-dropping onto the program's icon.
+</p><p>Pressing the "Edit..." button will bring up the batch file in a simple text editor, so you don't have to leave the program in order to modify the batch file.
+</p>
+<h3><span id="Choosing_the_Timeout_for_reaching_the_.22Running.22_State"></span><span class="mw-headline" id="Choosing_the_Timeout_for_reaching_the_&quot;Running&quot;_State">Choosing the Timeout for reaching the "Running" State</span></h3>
+<p>Depending on system components involved (such as webcams, eye trackers, etc.), the BCI2000 startup time can be considerable. If it takes longer than the selected "Running" timeout, the watchdog will think that BCI2000 has failed to start up, and attempt another try. In such cases, setting the timeout to a larger value will fix the issue.
+</p>
+<h3><span class="mw-headline" id="Choosing_the_Timeout_for_Process_Termination">Choosing the Timeout for Process Termination</span></h3>
+<p>Similar to the "Running" state timeout, the process termination timeout applies to the amount of time allowed for BCI2000-related processes to shut down by themselves after the "exit" command has been sent to the BCI2000 Operator module. Again, depending on the number and kind of components involved, the shutdown may take longer than the default timeout of 2 seconds, and processes will be terminated by force, which means that not all data may be saved or written to disk. To avoid this situation, increase the amount of time that is allowed for processes to terminate gracefully.
+</p>
+<h3><span id="Entering_Canary_Expressions_.28Watches.29"></span><span class="mw-headline" id="Entering_Canary_Expressions_(Watches)">Entering Canary Expressions (Watches)</span></h3>
+<p>The watches table allows you to enter expressions in the BCI2000 <a href="User_Reference%253AExpression_Syntax.html" title="User Reference:Expression Syntax">expression syntax</a>. These expressions will be evaluated in the context of the Operator module each time a data block arrives. Expressions are then evaluated for each sample in the data block. Whenever an expression changes, a message will be sent to the Watchdog program, indicating that BCI2000 is "alive". If no message has been received for the duration of the timeout specified for an expression, BCI2000 will be assumed to be "dead", and will be restarted.
+</p><p>In addition, an "initial timeout" may be specified for an expression. If no activity is found during the initial timeout period, the expression is considered initially dead, and is not observed any further. This may be useful to avoid constant restarting in cases where a partial functionality, such as a webcam, is not available. To disable initial timeout functionality, set the "initial timeout" value to 0.
+</p><p>By default, the watchdog observes changes in the <i>SourceTime</i> BCI2000 state and gives alarm when the <i>SourceTime</i> state has not changed for 2 seconds.
+In a live BCI2000 system, the <i>SourceTime</i> state changes with each BCI2000 data block, so if it stays constant for 2 seconds, this is an indication that the BCI2000 system has ceased to function. The default of 2 seconds has been chosen to make sure not to interfere with recordings that have very large sample block duration.
+</p><p>For testing data acquisition functionality in BCI2000, observing the <i>SourceTime</i> state should be sufficient. However, when recording video or other auxiliary data, the respective data stream might be broken without affecting the <i>SourceTime</i> state. In these cases, it will be useful to add an expression that covers the respective partial functionality. E.g., to ensure functionality of recording from the first attached webcam, you would enter an expression of <i>WebcamFrame0</i>.
+</p>
+<h3><span class="mw-headline" id="Starting_BCI20000">Starting BCI20000</span></h3>
+<p>To start up BCI20000 by executing the specified BCI2000 batch file, click the "Start BCI20000" button at the bottom of the window.
+</p>
+<h3><span class="mw-headline" id="Terminating_BCI2000">Terminating BCI2000</span></h3>
+<p>Whenever BCI20000 is running, the "Start BCI2000" button is disabled, and the "Terminate BCI2000" button is enabled.
+Clicking the "Terminate BCI2000" button will terminate BCI2000, and then switch the watchdog to idle mode.
+</p><p>Note that quitting BCI2000 from the Operator GUI will prompt the watchdog to start it again. You will need to use the "Terminate BCI2000" button to stop running it.
+</p>
+<h3><span class="mw-headline" id="Recovering_from_an_Error">Recovering from an Error</span></h3>
+<p>Certain conditions may put the watchdog into an error state. Typically, these represent unexpected behavior of BCI2000.
+If an error condition is met, an error message is appended to the log, and printed in red.
+Also, both the start and the termination button will be disabled, and the watchdog will not perform any actions any more.
+To recover from an error condition, click "Reset" at the bottom left of the watchdog window, and quit BCI2000 manually from the Operator GUI.
+</p>
+<h2><span class="mw-headline" id="Automating_BCI2000Watchdog_from_the_Command_Line">Automating BCI2000Watchdog from the Command Line</span></h2>
+<p>For scenarios in which interactive use is not desired (e.g., in a clinical setting), BCI2000Watchdog's behavior may be determined through command line arguments which may be put into an operating system batch or script file.
+</p><p>The following command line options are supported:
+</p>
+<h3><span id="--Ini.3D.3CIniFile.3E"></span><span class="mw-headline" id="--Ini=&lt;IniFile&gt;">--Ini=&lt;IniFile&gt;</span></h3>
+<p>Specify the path of a .ini file to use instead of the default. The given .ini file will be used both for reading at program startup and writing at program termination.
+</p>
+<h3><span id="--UILevel.3D.3Cn.3E"></span><span class="mw-headline" id="--UILevel=&lt;n&gt;">--UILevel=&lt;n&gt;</span></h3>
+<p>User interface level from 1 to 3:
+</p>
+<dl><dd>1 Only display "Start BCI2000" and "Terminate BCI2000" buttons,</dd>
+<dd>2 Display "Reset", "Start BCI2000", "Terminate BCI2000" buttons and the log,</dd>
+<dd>3 Display full UI.</dd></dl>
+<h3><span class="mw-headline" id="--Autostart">--Autostart</span></h3>
+<p>Start BCI2000 operation as if "Start BCI2000" had been clicked after startup.
+</p>
+<h3><span id=".3CBCI2000_Batch_file.3E"></span><span class="mw-headline" id="&lt;BCI2000_Batch_file&gt;">&lt;BCI2000 Batch file&gt;</span></h3>
+<p>An argument without leading '--' will be treated as the name of a BCI2000 startup batch file.
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20241129160748
+Cache expiry: 86400
+Reduced expiry: false
+Complications: [show‐toc]
+CPU time usage: 0.017 seconds
+Real time usage: 0.019 seconds
+Preprocessor visited node count: 43/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/100
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2697-0!canonical and timestamp 20241129160748 and revision id 11607.
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=User_Reference:BCI2000Watchdog&amp;oldid=11607">http://www.bci2000.org/mediawiki/index.php?title=User_Reference:BCI2000Watchdog&amp;oldid=11607</a>"</div>
+ </div>
+</body>
+</html>

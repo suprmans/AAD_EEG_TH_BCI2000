@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Contributions:BCI2000SimulinkConnector - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:grey; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:black; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul><li class="toc1"><a href="Contributions%253AADCs.html">Data Acquisition</a></li><li class="toc1"><a href="Contributions%253AFileWriters.html">File Formats</a></li><li class="toc1"><a href="Contributions%253ASignalProcessing.html">Signal Processing</a></li><li class="toc1"><a href="Contributions%253AApplications.html">Applications</a></li><li class="toc1"><a href="Contributions%253ATools.html">Tools</a></li></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">BCI2000SimulinkConnector</h1>
+ <p class = "subtitle">Contributions</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><p>The BCI2000 Simulink connector allows data to be sent to Simulink in real-time, allowing data to be processed in your own custom Simulink model.
+</p>
+<div class="thumb tright"><div class="thumbinner" style="width:202px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:Simulink_Library.PNG" class="image"><img alt="" src="../images/5/55/Simulink_Library.PNG" decoding="async" width="200" height="275" class="thumbimage" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://www.bci2000.org/mediawiki/index.php/File:Simulink_Library.PNG" class="internal" title="Enlarge"></a></div>BCI2000 Simulink Component</div></div></div>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Contributions%253ABCI2000SimulinkConnector.html#Video_Overview"><span class="tocnumber">1</span> <span class="toctext">Video Overview</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Contributions%253ABCI2000SimulinkConnector.html#Location"><span class="tocnumber">2</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Contributions%253ABCI2000SimulinkConnector.html#Versioning"><span class="tocnumber">3</span> <span class="toctext">Versioning</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="Contributions%253ABCI2000SimulinkConnector.html#Author"><span class="tocnumber">3.1</span> <span class="toctext">Author</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Contributions%253ABCI2000SimulinkConnector.html#Source_Code_Revisions"><span class="tocnumber">3.2</span> <span class="toctext">Source Code Revisions</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="Contributions%253ABCI2000SimulinkConnector.html#Functional_Description"><span class="tocnumber">4</span> <span class="toctext">Functional Description</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="Contributions%253ABCI2000SimulinkConnector.html#Building_the_Simulink_Connector"><span class="tocnumber">5</span> <span class="toctext">Building the Simulink Connector</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="Contributions%253ABCI2000SimulinkConnector.html#Using_the_Minimal_Example"><span class="tocnumber">6</span> <span class="toctext">Using the Minimal Example</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="Contributions%253ABCI2000SimulinkConnector.html#Adding_BCI2000_your_own_model"><span class="tocnumber">7</span> <span class="toctext">Adding BCI2000 your own model</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="Contributions%253ABCI2000SimulinkConnector.html#Changing_the_IP:Port_setting"><span class="tocnumber">8</span> <span class="toctext">Changing the IP:Port setting</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="Contributions%253ABCI2000SimulinkConnector.html#Transferring_State/Event_information"><span class="tocnumber">9</span> <span class="toctext">Transferring State/Event information</span></a></li>
+<li class="toclevel-1 tocsection-12"><a href="Contributions%253ABCI2000SimulinkConnector.html#See_also"><span class="tocnumber">10</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Video_Overview">Video Overview</span></h2>
+<div class="thumb embedvideo  ev_center autoResize" style="width: 648px;"><div class="embedvideo autoResize" style=" width: 646px;"><div class="embedvideowrap" style="width: 640px;"><iframe title="Play video" src="https://www.youtube.com/embed/qz0CMX1zswU?" width="640" height="360" frameborder="0" allowfullscreen="true"></iframe></div></div></div>
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p><a rel="nofollow" class="external free" href="http://www.bci2000.org/svn/trunk/src/contrib/ExternalLinks/Simulink">http://www.bci2000.org/svn/trunk/src/contrib/ExternalLinks/Simulink</a>
+</p>
+<h2><span class="mw-headline" id="Versioning">Versioning</span></h2>
+<h3><span class="mw-headline" id="Author">Author</span></h3>
+<p>mellinger@neurotechcenter.org
+</p>
+<h3><span class="mw-headline" id="Source_Code_Revisions">Source Code Revisions</span></h3>
+<ul><li>Initial development: 7669</li>
+<li>Tested under: 7669</li></ul>
+<h2><span class="mw-headline" id="Functional_Description">Functional Description</span></h2>
+<p>The BCI2000 Simulink connector is a means to send signal data from BCI2000 into a Simulink model. It consists of a BCI2000 filter that listens for connections on a TCP port, and a Simulink S-function that connects to that port and reads data from it.
+As an optimization in case of a machine-local TCP connection, signal data is transmitted through a shared memory block instead of the TCP connection.
+Still, the TCP connection is necessary to synchronize arrival of new data on the BCI2000 side with consumption on the Simulink side.
+</p>
+<h2><span class="mw-headline" id="Building_the_Simulink_Connector">Building the Simulink Connector</span></h2>
+<p>The BCI2000 Simulink connector consists of two projects: A BCI2000 SignalProcessing module, called SimulinkConnectorSignalProcessing, and a Simullink S-function mex file, called BCI2000OnlineLink.
+</p><p>Building the S-function mex file relies on a Matlab installtion being present, and thus requires
+enabling through a CMake switch.
+</p><p>In your BCI2000 build folder, execute <tt>Configure.sh.bat</tt>. Then, navigate to <tt>BUILD_CONTRIB</tt> and make sure it is checked. Likewise, navigate to <tt>BUILD_SIMULINK_MEX_FILES</tt>, and make sure it is checked.
+Then, click "Generate" in the CMake GUI to re-generate the BCI2000 project files (Makefile or Solution file).
+</p><p>In case you have multiple versions of Matlab installed, CMake will pick a random one. To control which Matlab version is used, set the <tt>Matlab_ROOT</tt> variable to the root directory of the desired version (i.e., the directory that has "Matlab R…" in its name).
+</p><p>Similarly, if you have the Matlab Compiler Runtime (MCR) installed, CMake may pick it but will fail to
+identify the Simulink include directory, which is not present in the MCR installation.
+If this happens, set the <tt>Matlab_ROOT</tt> variable to the root directory of a full Matlab installation, and re-generate project files.
+</p><p>Once built, Simulink related files are located in BCI2000/prog/Simulink, and the BCI2000/batch directory contains a batch file called SimulinkConnector.bat.
+</p>
+<h2><span class="mw-headline" id="Using_the_Minimal_Example">Using the Minimal Example</span></h2>
+<p>BCI2000 comes with a minimal example Simulink model, containing just the BCI2000OnlineLink block, and a terminator that absorbs the incoming signal.
+</p><p>To try the BCI2000 Simulink Connector, navigate to the BCI2000/prog/Simulink directory using the Matlab file explorer. Then, double-click the MinimalExample.slx Simulink model file. The BCI2000 signal has already been selected for viewing, so the test reduces to the following three steps:
+</p>
+<ul><li>Double-click BCI2000/batch/SimulinkConnector.bat in your OSes file explorer. BCI2000 will start and display status information in the system log.</li>
+<li>In the MinimalExample window, click the arrow in the green circle to run the model. By default, it will run for 10 seconds in real time, reading data from BCI2000.</li>
+<li>Once the run has terminated, you may view the data log by clicking the data viewer icon right to the green arrow. You will need to expand the "BCI2000" signal, and select channels for viewing.</li></ul>
+<p><a href="https://www.bci2000.org/mediawiki/index.php/File:Simulink_MinimalExample.PNG" class="image"><img alt="Simulink MinimalExample.PNG" src="../images/6/62/Simulink_MinimalExample.PNG" decoding="async" width="719" height="414" /></a>
+</p>
+<h2><span class="mw-headline" id="Adding_BCI2000_your_own_model">Adding BCI2000 your own model</span></h2>
+<p>To add the BCI2000 block to your own model, open the BCI2000.mdl library in Matlab, and drag-and-drop the BCI2000 block into your model window. Then, connect its output signal as you see fit.
+</p><p><b>NOTE:</b> If the target model is located in another directory than BCI2000/prog/Simulink, you need to add BCI2000/prog/Simulink to the Matlab path in order to use the BCI2000 block.
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:Simulink_Library.PNG" class="image"><img alt="Simulink Library.PNG" src="../images/5/55/Simulink_Library.PNG" decoding="async" width="323" height="444" /></a>
+</p>
+<h2><span class="mw-headline" id="Changing_the_IP:Port_setting">Changing the IP:Port setting</span></h2>
+<p>To change the port or the IP address for connecting to BCI2000, double-click the BCI2000 block in Simulink. Under "S-function parameters", you see a single entry, which
+is by default 'localhost:1905' (take care of the single quotes—without them, Simulink will try to find a variable with name "localhost"). Modify as desired, and close the window.
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:Simulink_BCI2000BlockParameters.PNG" class="image"><img alt="Simulink BCI2000BlockParameters.PNG" src="../images/f/ff/Simulink_BCI2000BlockParameters.PNG" decoding="async" width="424" height="414" /></a>
+</p><p>On the BCI2000 side, the equivalent setting is stored in the "SimulinkConnectorAddress" parameter on the "Connector" tab:
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:Simulink_BCI2000Parameter.PNG" class="image"><img alt="Simulink BCI2000Parameter.PNG" src="../images/2/2d/Simulink_BCI2000Parameter.PNG" decoding="async" width="974" height="551" /></a>
+</p><p>Note that connections between different machines are supported but data transport through TCP will be much less efficient than local transport, which takes place through shared memory.
+</p><p>Addresses will always be identical on both ends. When switching to a non-local connection, “localhost” will have to be replaced with the IP address of the machine running BCI2000 (e.g., <i>192.168.1.15:1905</i>).
+</p>
+<h2><span id="Transferring_State.2FEvent_information"></span><span class="mw-headline" id="Transferring_State/Event_information">Transferring State/Event information</span></h2>
+<p>State/Event information may be transferred by specifying State/Event names in the "SimulinkConnectorStates" parameter (see image above). States listed there will be appended to the signal as additional channels.
+</p><p>Depending on where the <i>SimulinkConnector</i> is located in the filter chain, its input signal may have more or fewer elements (samples) than the State Vector (which has as many samples as the source signal).
+In that case, a warning is issued, and state data is either truncated, or appended with NaN values, as appropriate.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="Contributions%253ABCI2000PresentationLink.html" title="Contributions:BCI2000PresentationLink">Contributions:BCI2000PresentationLink</a>, <a href="Programming_Reference%253ASignalSharingDemo_Signal_Processing.html" class="mw-redirect" title="Programming Reference:SignalSharingDemo Signal Processing">Programming Reference:SignalSharingDemo Signal Processing</a>,
+<a href="Programming_Reference%253AMatlabFilter.html" title="Programming Reference:MatlabFilter">Programming Reference:MatlabFilter</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20241129160206
+Cache expiry: 86400
+Reduced expiry: false
+Complications: [show‐toc]
+CPU time usage: 0.028 seconds
+Real time usage: 0.035 seconds
+Preprocessor visited node count: 49/1000000
+Post‐expand include size: 15/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/100
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 343/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2628-0!canonical and timestamp 20241129160206 and revision id 11555.
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Contributions:BCI2000SimulinkConnector&amp;oldid=11555">http://www.bci2000.org/mediawiki/index.php?title=Contributions:BCI2000SimulinkConnector&amp;oldid=11555</a>"</div>
+ </div>
+</body>
+</html>

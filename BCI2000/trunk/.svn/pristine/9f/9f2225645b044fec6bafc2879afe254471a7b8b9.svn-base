@@ -1,0 +1,306 @@
+////////////////////////////////////////////////////////////////////////////////
+// $Id$
+// Description: A GenericFilter::Chain::FilterHook that implements
+//   signal sharing through shared memory.
+//
+// $BEGIN_BCI2000_LICENSE$
+//
+// This file is part of BCI2000, a platform for real-time bio-signal research.
+// [ Copyright (C) 2000-2023: BCI2000 team and many external contributors ]
+//
+// BCI2000 is free software: you can redistribute it and/or modify it under the
+// terms of the GNU General Public License as published by the Free Software
+// Foundation, either version 3 of the License, or (at your option) any later
+// version.
+//
+// BCI2000 is distributed in the hope that it will be useful, but
+//                         WITHOUT ANY WARRANTY
+// - without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+// A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License along with
+// this program.  If not, see <http://www.gnu.org/licenses/>.
+//
+// $END_BCI2000_LICENSE$
+////////////////////////////////////////////////////////////////////////////////
+#include "SignalSharingHook.h"
+
+#include "Directory.h"
+#include "SignalProperties.h"
+#include "GenericSignal.h"
+#include "SysCommand.h"
+
+namespace {
+    std::string SharingParamName(const GenericFilter* pFilter)
+    {
+        return "Share" + pFilter->Name();
+    }
+    std::string StatesParamName(const GenericFilter* pFilter)
+    {
+        return "Share" + pFilter->Name() + "States";
+    }
+}
+
+// Connection
+SignalSharingHook::Connection::Connection(SignalSharingHook* pParent)
+    : MessageChannel(mBuffer), mpParent(pParent),
+    mIOThreadCall(&Connection::IOThreadFunc, this),
+    mIOThread(&mIOThreadCall, "Signal Sharing Sender"),
+    mSignalAvailable(true), mClientDataAvailable(false)
+{
+    mSocket.SetTCPNodelay(true);
+    mSocket.SetFlushAfterWrite(true);
+    mBuffer.SetInput(&mSocket.Input());
+    mBuffer.SetOutput(&mSocket.Output());
+}
+
+SignalSharingHook::Connection::~Connection()
+{
+    mIOThread.Terminate();
+    mSocket.Close();
+}
+
+void SignalSharingHook::Connection::Initialize(
+    const std::string& address, const SignalProperties& Output, 
+    const std::vector<StateRef>& states, int stateSamples,
+    const ParamList& parameters
+)
+{
+    mIOThread.Terminate();
+    mSocket.Close();
+    mSocket.Input().ClearIOState();
+    mSocket.Output().ClearIOState();
+    if (!address.empty())
+    { // connect to the client side
+        mSocket.Open(address);
+        // copy parameters
+        mParameters = parameters;
+        // initialize shared signal from input signal properties
+        mSharedSignal = GenericSignal(Output);
+        // initialize states from input state accessors
+        SignalProperties statesProperties(states.size(), stateSamples, SignalType::int32);
+        double samplingRate = Output.SamplingRate() * stateSamples / Output.Elements();
+        statesProperties.ElementUnit().SetSymbol("s").SetGain(1.0 / samplingRate);
+        for (int i = 0; i < states.size(); ++i)
+            statesProperties.ChannelLabel(i) = states[i]->Name();
+        statesProperties.SetName(Output.Name() + " States");
+        mSharedStates = GenericSignal(statesProperties);
+        mStates = states;
+
+        ClearInput();
+
+        if (!mSocket.Connected())
+        {
+            bciwarn << "Cannot connect to " << address;
+        }
+        else if (mSocket.Connected() == Socket::local) // only use shared memory when connected locally
+        {
+            mSharedSignal.ShareAcrossModules();
+            mSharedStates.ShareAcrossModules();
+            bciout << "Locally connected to " << address << ", using shared memory";
+        }
+        else // otherwise, full data will be transmitted over network (slower)
+        {
+            bciwarn << "Remotely connected to " << address << ", transmitting data through network";
+        }
+    }
+    mIOThread.Start();
+}
+
+void SignalSharingHook::Connection::Update(GenericSignal& Output)
+{
+    mSharedSignal.AssignValues(Output);
+    for (int i = 0; i < mStates.size(); ++i)
+        for (int j = 0; j < mSharedStates.Elements(); ++j)
+            mSharedStates(i, j) = mStates[i](j);
+    mSignalAvailable.Set();
+
+    std::unique_lock<std::mutex> lock(mClientDataMutex);
+    if (mClientDataAvailable) {
+
+        if (!mClientReceivedSignal.Empty()) {
+            if (Output.Channels() != mClientReceivedSignal.Channels()
+                || Output.Elements() != mClientReceivedSignal.Elements()) {
+                bcierr << "SignalSharing: Received signal with non-matching dimensions from client";
+            }
+            else {
+                Output.AssignValues(mClientReceivedSignal);
+            }
+            mClientReceivedSignal = GenericSignal();
+        }
+
+        while (!mClientReceivedStates.empty()) {
+            const ::State& state = mClientReceivedStates.front();
+            mpParent->State(state.Name()) = state.Value();
+            mClientReceivedStates.pop();
+        }
+        mClientDataAvailable = false;
+    }
+}
+
+void SignalSharingHook::Connection::ClearInput()
+{
+    std::unique_lock<std::mutex> lock(mClientDataMutex);
+    mClientReceivedSignal = GenericSignal();
+    while (!mClientReceivedStates.empty())
+        mClientReceivedStates.pop();
+    mClientDataAvailable = false;
+}
+
+void SignalSharingHook::Connection::IOThreadFunc()
+{
+    const VisID signalID = "Signal", statesID = "States";
+
+    if (mSocket.Connected())
+    {
+        // A message channel wraps up BCI2000 objects into BCI2000 messages.
+        MessageChannel::Send(mParameters); // send parameters first
+        MessageChannel::Send(VisSignalProperties(signalID, mSharedSignal.Properties())); // send signal properties next
+        if (!mSharedStates.Empty()) // states are transported in a signal object as well
+            MessageChannel::Send(VisSignalProperties(statesID, mSharedStates.Properties()));
+
+        Waitables waitables;
+        waitables.Add(mSignalAvailable);
+        waitables.Add(mSocket.Input());
+        const Waitable* pTriggered = nullptr;
+        while ((pTriggered = waitables.Wait()) && !mIOThread.Terminating()) // will return false when Thread::Terminate() has been called from other thread
+        {
+            if (pTriggered == &mSignalAvailable)
+            {
+                if (!MessageChannel::Send(VisSignalConst(signalID, mSharedSignal)))
+                    // will transmit memory reference, or signal data, depending on
+                    // whether ShareAcrossModules() has been called
+                {
+                    bciwarn << "Could not send signal, giving up";
+                    mIOThread.Terminate();
+                }
+                if (!mSharedStates.Empty() && !MessageChannel::Send(VisSignalConst(statesID, mSharedStates)))
+                {
+                    bciwarn << "Could not send states, giving up";
+                    mIOThread.Terminate();
+                }
+                if (!MessageChannel::Send(SysCommand::EndOfData))
+                {
+                    bciwarn << "Could not send end of data, giving up";
+                    mIOThread.Terminate();
+                }
+            }
+            else if (pTriggered == &mSocket.Input())
+            {
+                if (mSocket.Connected())
+                {
+                    if (!MessageChannel::HandleMessage())
+                    {
+                        bciwarn << "Could not handle message, giving up";
+                        mIOThread.Terminate();
+                    }
+                }
+                else
+                {
+                    mIOThread.Terminate();
+                }
+            }
+        }
+        MessageChannel::Send(SysCommand::EndOfTransmission);
+    }
+}
+
+bool SignalSharingHook::Connection::OnVisSignal(std::istream& is)
+{
+    VisSignal visSignal;
+    visSignal.Unserialize(is);
+
+    std::unique_lock<std::mutex> lock(mClientDataMutex);
+    if (mClientDataAvailable) // don't overwrite data waiting to be written to bci2000 side
+        return true;
+    mClientReceivedSignal = visSignal.Signal();
+    return true;
+}
+
+bool SignalSharingHook::Connection::OnState(std::istream& is)
+{
+    ::State state;
+    state.Unserialize(is);
+
+    std::unique_lock<std::mutex> lock(mClientDataMutex);
+    mClientReceivedStates.push(state);
+    return true;
+}
+
+bool SignalSharingHook::Connection::OnSysCommand(std::istream& is)
+{
+    SysCommand sysCommand;
+    sysCommand.Unserialize(is);
+    if (sysCommand == SysCommand::EndOfTransmission) {
+        mIOThread.Terminate();
+        std::unique_lock<std::mutex> lock(mClientDataMutex);
+        if (!mClientReceivedStates.empty() || !mClientReceivedSignal.Empty())
+            mClientDataAvailable = true;
+        return true;
+    }
+    if (sysCommand == SysCommand::EndOfData) {
+        std::unique_lock<std::mutex> lock(mClientDataMutex);
+        if (!mClientReceivedStates.empty() || !mClientReceivedSignal.Empty())
+            mClientDataAvailable = true;
+        return true;
+    }
+    bciwarn << "Ignoring unexpected SysCommand message";
+    return true;
+}
+
+// SignalSharingHook
+void SignalSharingHook::OnPublish(GenericFilter* pFilter)
+{
+    const std::string paramLocation = "SignalSharing:Processing%20Stages";
+    std::string paramDefinition = paramLocation +
+        " string " + SharingParamName(pFilter) + "= % % % % // Share " + pFilter->Name() + " output at address ip:port";
+    pFilter->AddParameters(&paramDefinition, 1);
+    paramDefinition = paramLocation +
+        " stringlist " + StatesParamName(pFilter) + "= 0 % % % // List of " + pFilter->Name() + " state variables to send within a separate signal object";
+    pFilter->AddParameters(&paramDefinition, 1);
+    mConnections[pFilter] = new Connection(this);
+}
+
+void SignalSharingHook::OnDispose(GenericFilter* pFilter)
+{
+    delete mConnections[pFilter];
+    mConnections[pFilter] = nullptr;
+}
+
+void SignalSharingHook::OnPreflight(GenericFilter* pFilter, const SignalProperties& Input, const SignalProperties& Output)
+{
+    // Access the sharing parameter so the system does not complain at Initialize().
+    // Must be done through filter object in case multiple parameters with that name exist.
+    pFilter->OptionalParameter(SharingParamName(pFilter));
+    // Access states so system does not complain at Initialize().
+    // Also note that states to be modified from the client side must be listed in the states parameter.
+    auto statesParam = pFilter->Parameter(StatesParamName(pFilter));
+    for (int i = 0; i < statesParam->NumValues(); ++i) {
+        if (States->Exists(statesParam(i)))
+            State(statesParam(i)); // access state so system does not complain at Initialize()
+        else
+            bcierr << "Parameter \"" << StatesParamName(pFilter) << "\": state \"" << statesParam(i) << "\" not found";
+    }
+}
+
+void SignalSharingHook::OnInitialize(GenericFilter* pFilter, const SignalProperties& Input, const SignalProperties& Output)
+{
+    // Parameters must be accessed through filter object in case multiple parameters with that name exist.
+    std::string address = pFilter->Parameter(SharingParamName(pFilter));
+    auto statesParam = pFilter->Parameter(StatesParamName(pFilter));
+    std::vector<StateRef> states;
+    for (int i = 0; i < statesParam->NumValues(); ++i)
+        states.push_back(State(statesParam(i)));
+    mConnections[pFilter]->Initialize(address, Output, states, Statevector->Samples() - 1, *Parameters);
+}
+
+void SignalSharingHook::OnProcess(GenericFilter* pFilter, const GenericSignal& Input, GenericSignal& Output)
+{
+    mConnections[pFilter]->Update(Output);
+}
+
+void SignalSharingHook::OnStartRun(GenericFilter* pFilter)
+{
+    mConnections[pFilter]->ClearInput();
+}
+

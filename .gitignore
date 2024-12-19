@@ -1,3 +1,24 @@
 **/.DS_Store
 
-BCI2000/
+BCI2000/trunk/batch/
+BCI2000/trunk/build/
+BCI2000/trunk/data/
+BCI2000/trunk/doc/
+BCI2000/trunk/parms/
+BCI2000/trunk/prog/
+BCI2000/trunk/test/
+BCI2000/trunk/tools/
+BCI2000/trunk/BCI2000_Help.html
+BCI2000/trunk/GettingStarted.html
+BCI2000/trunk/install
+BCI2000/trunk/install_dependencies
+
+BCI2000/trunk/src/contrib/
+BCI2000/trunk/src/core/
+BCI2000/trunk/src/doc/
+BCI2000/trunk/src/extlib/
+BCI2000/trunk/src/extlib/
+BCI2000/trunk/src/shared/
+BCI2000/trunk/src/LICENSE-BCI2000.TXT
+BCI2000/trunk/src/LICENSE-GPL.TXT
+BCI2000/trunk/src/README.html

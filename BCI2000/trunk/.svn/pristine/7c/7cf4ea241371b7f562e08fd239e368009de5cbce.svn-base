@@ -1,0 +1,97 @@
+﻿//////////////////////////////////////////////////////////////////////
+// $Id$
+// Author: mellinger@neurotechcenter.org
+// Description: Unit tests for Tiny::StringUtils.
+//
+// $BEGIN_BCI2000_LICENSE$
+//
+// This file is part of BCI2000, a platform for real-time bio-signal research.
+// [ Copyright (C) 2000-2023: BCI2000 team and many external contributors ]
+//
+// BCI2000 is free software: you can redistribute it and/or modify it under the
+// terms of the GNU General Public License as published by the Free Software
+// Foundation, either version 3 of the License, or (at your option) any later
+// version.
+//
+// BCI2000 is distributed in the hope that it will be useful, but
+//                         WITHOUT ANY WARRANTY
+// - without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+// A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License along with
+// this program.  If not, see <http://www.gnu.org/licenses/>.
+//
+// $END_BCI2000_LICENSE$
+///////////////////////////////////////////////////////////////////////
+#include "StringUtils.h"
+
+#include "UnitTest.h"
+#include <ctime>
+
+UnitTest(Base64Test)
+{
+    unsigned int seed = static_cast<unsigned int>(::time(nullptr));
+    ::srand(seed);
+    for (int i = 0; i < 100 * 1000; ++i)
+    {
+        Random<std::string> s(0.99);
+        std::stringstream stream;
+        StringUtils::WriteAsBase64(stream, s);
+        std::string s2;
+        StringUtils::ReadAsBase64(stream, s2);
+        TestFail_if(s != s2, "seed: " << seed << ", iteration: " << i);
+    }
+    ::srand(1);
+}
+
+UnitTest(SplitJoinTest)
+{
+    unsigned int seed = static_cast<unsigned int>(::time(nullptr));
+    ::srand(seed);
+    for (int i = 0; i < 10 * 1000; ++i)
+    {
+        std::string j;
+        while (j.empty())
+            j = Random<std::string>(0.5);
+        std::vector<StringUtils::String> v;
+        int count = ::rand() % 50;
+        for (int k = 0; k < count; ++k)
+            v.push_back(std::string(Random<std::string>(0.98)));
+        StringUtils::String s = StringUtils::String::Join(v, j);
+        v = s.Split(j); // j may be contained in original v, so v is not necessarily unchanged here
+        s = StringUtils::String::Join(v, j); 
+        auto v2 = s.Split(j);
+        TestFail_if(v != v2, "seed: " << seed << ", iteration: " << i);
+    }
+    ::srand(1);
+}
+
+UnitTest(WideNarrowTest)
+{
+    unsigned int seed = static_cast<unsigned int>(::time(nullptr));
+    ::srand(seed);
+    for (int i = 0; i < 10 * 1000; ++i)
+    {
+        std::string s = Random<std::string>(0.98, 0x7f);
+        std::string s2 = StringUtils::ToNarrow(StringUtils::ToWide(s));
+        TestFail_if(s != s2, "seed: " << seed << ", iteration: " << i);
+        std::string s3 = StringUtils::ToLower(s);
+        std::string s4 = StringUtils::ToNarrow(StringUtils::ToLower(StringUtils::ToWide(s)));
+        TestFail_if(s3 != s4, "seed: " << seed << ", iteration: " << i);
+    }
+    ::srand(1);
+}
+
+UnitTest(WideNarrowUtf8Test)
+{
+    std::wstring w = L"ÄÖÜß_ΟΔΥΣΣΕΥΣ";
+    std::wstring w2 = StringUtils::ToWideUtf8(StringUtils::ToNarrowUtf8(w));
+    TestRequire(w == w2);
+    std::wstring w3 = StringUtils::ToLower(w);
+    std::wstring w4 = StringUtils::ToWideUtf8(StringUtils::ToLowerUtf8(StringUtils::ToNarrowUtf8(w)));
+    TestRequire(w3 == w4);
+    std::wstring w5 = L"äöüß_οδυσσευς";
+    std::wstring w6 = StringUtils::ToUpper(w5);
+    std::wstring w7 = StringUtils::ToWideUtf8(StringUtils::ToUpperUtf8(StringUtils::ToNarrowUtf8(w5)));
+    TestRequire(w6 == w7);
+}

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Contributions:PAC - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:grey; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:black; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul><li class="toc1"><a href="Contributions%253AADCs.html">Data Acquisition</a></li><li class="toc1"><a href="Contributions%253AFileWriters.html">File Formats</a></li><li class="toc1"><a href="Contributions%253ASignalProcessing.html">Signal Processing</a></li><li class="toc1"><a href="Contributions%253AApplications.html">Applications</a></li><li class="toc1"><a href="Contributions%253ATools.html">Tools</a></li></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">PAC</h1>
+ <p class = "subtitle">Contributions</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><div class="thumb tright"><div class="thumbinner" style="width:570px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:PAC_Demo.gif" class="image"><img alt="" src="../images/a/ac/PAC_Demo.gif" decoding="async" width="568" height="504" class="thumbimage" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://www.bci2000.org/mediawiki/index.php/File:PAC_Demo.gif" class="internal" title="Enlarge"></a></div>A demo of the Phase-Amplitude Coupling visualization</div></div></div>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Contributions%253APAC.html#Synopsis"><span class="tocnumber">1</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Contributions%253APAC.html#Versioning"><span class="tocnumber">2</span> <span class="toctext">Versioning</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="Contributions%253APAC.html#Authors"><span class="tocnumber">2.1</span> <span class="toctext">Authors</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-4"><a href="Contributions%253APAC.html#Installation"><span class="tocnumber">3</span> <span class="toctext">Installation</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="Contributions%253APAC.html#Signal_Processing_Pipeline"><span class="tocnumber">4</span> <span class="toctext">Signal Processing Pipeline</span></a>
+<ul>
+<li class="toclevel-2 tocsection-6"><a href="Contributions%253APAC.html#BCI2000_Signal_Processing_Pipeline"><span class="tocnumber">4.1</span> <span class="toctext">BCI2000 Signal Processing Pipeline</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="Contributions%253APAC.html#Parameters"><span class="tocnumber">5</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="Contributions%253APAC.html#States"><span class="tocnumber">6</span> <span class="toctext">States</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="Contributions%253APAC.html#Offline_Use"><span class="tocnumber">7</span> <span class="toctext">Offline Use</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="Contributions%253APAC.html#See_also"><span class="tocnumber">8</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>PAC, or phase-amplitude coupling, shows the entrainment of a certain frequency band to the power of another frequency band. In other words, the phase of one type of neural activity correlates with the amplitude of another. The dominant phase and the location of this entrainment can change for varying tasks. With this implementation, you can view the entrainment happening as the task is being completed, which can help you focus on the responsive electrodes for a certain task.
+</p><p>The inspiration for this visualization comes from Dr. Kai Miller's <a rel="nofollow" class="external text" href="https://pubmed.ncbi.nlm.nih.gov/22969416/%7C"><i>Human motor cortical activity is selectively phase-entrained on underlying rhythms</i></a> paper. Specifically, <a rel="nofollow" class="external text" href="https://pubmed.ncbi.nlm.nih.gov/22969416/#&amp;gid=article-figures&amp;pid=figure-5-uid-4%7C">Figure 5</a>, shown below.
+</p>
+<div class="center"><div class="thumb tnone"><div class="thumbinner" style="width:739px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:Miller2012_fig5.jpg" class="image"><img alt="" src="../images/b/b6/Miller2012_fig5.jpg" decoding="async" width="737" height="661" class="thumbimage" /></a>  <div class="thumbcaption">See the official figure caption <a rel="nofollow" class="external text" href="https://pubmed.ncbi.nlm.nih.gov/22969416/#&amp;gid=article-figures&amp;pid=figure-5-uid-4%7C">here</a></div></div></div></div>
+<p>One can see that Section C and D are reproduced with the Phase-Amplitude Coupling (PAC) module in real-time.
+</p>
+<h2><span class="mw-headline" id="Versioning">Versioning</span></h2>
+<h3><span class="mw-headline" id="Authors">Authors</span></h3>
+<p>Will Engelhardt (engelhardt@neurotechcenter.org)
+</p>
+<h2><span class="mw-headline" id="Installation">Installation</span></h2>
+<p>See <a href="Python_Visualizations.html#Installation" title="Python Visualizations">the Installation section on the Python Visualization page</a> to see how to install the necessary packages and how to run demo files! Once that is all set up, you can return to this page to understand the specific parameters for the phase-amplitude coupling.
+</p><p><br />
+</p>
+<h2><span class="mw-headline" id="Signal_Processing_Pipeline">Signal Processing Pipeline</span></h2>
+<p>To allow for maximal flexibility, the pipeline is set up to compute Spectral Estimation in parallel with the phase-amplitude coupling computation. <a href="User_Reference%253ASpectralEstimator.html" title="User Reference:SpectralEstimator">The pipeline for the Spectral Estimation is already described here</a>.
+</p><p>Below is the diagram describing the pipeline for phase-amplitude coupling.
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:PAC_Signal_processing_pipeline.png" class="image"><img alt="PAC Signal processing pipeline.png" src="../images/d/dc/PAC_Signal_processing_pipeline.png" decoding="async" width="1174" height="654" /></a></div></div>
+<h3><span class="mw-headline" id="BCI2000_Signal_Processing_Pipeline">BCI2000 Signal Processing Pipeline</span></h3>
+<p>Within the BCI2000 architecture, the figure depicts the Signal Processing pipeline with the PAC Filter.
+</p>
+<ol><li><b>Decimation filter:</b> Used to reduce the number of samples from the source module. This should be used if the sampling rate is too high to process a sample block size within the necessary time.</li>
+<li><b><a href="User_Reference%253ASpatialFilter.html" title="User Reference:SpatialFilter">Spatial filter</a>:</b> Common Average Reference the data to isolate unique neural activity.</li>
+<li><b><a href="Programming_Reference%253AIIRFilterBase_Class.html" title="Programming Reference:IIRFilterBase Class">IIR Bandpass</a>:</b> Bandpass the desired frequency range for your phase or amplitude signal</li>
+<li><b><a href="Contributions%253AHilbertFilter.html" title="Contributions:HilbertFilter">Hilbert filter</a>:</b> Compute the Hilbert filter on the bandpassed data.</li>
+<li><b>PAC filter:</b> Combines the data from the amplitude and phase and groups the output data by phase bins.
+<ul><li>Output: Z-score of amplitude for each phase, with the range [-π, π).</li></ul></li>
+<li><b><a href="Programming_Reference%253ASignalSharingDemo_Signal_Processing.html" class="mw-redirect" title="Programming Reference:SignalSharingDemo Signal Processing">SignalSharingDemo</a>:</b> Enables an outside connection to the BCI2000 data by using shared memory. This is how we can see the data in Python.</li></ol>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<p>The PAC Module contains many parameters from the various filters in the Signal Processing Pipeline. Refer to those pages' documentation for specific on the individual parameters. There are additionally a couple of parameters specific to the PAC filter itself.
+</p>
+<table>
+<tbody><tr>
+<td><b>AngleDecimation</b>
+</td>
+<td>Number of degrees of resolution. This inversely specifies the number of bins that the phases are grouped into. Must be a denominator of 360 degrees, otherwise it will be rounded to one. For example, a value of 10 will create 36 bins.
+</td></tr>
+<tr>
+<td style="border-bottom: solid 1px grey; border-top: solid 1px grey;"><b>SlidingWindow</b>
+</td>
+<td>Amount of time to hold past data for. Set to 0 to hold for the whole run. Regardless of this parameter, when a New Trial occurs the data resets.
+</td></tr>
+<tr>
+<td><b>IncludeDeviation</b>
+</td>
+<td>Enable to double the size of the output and include the standard deviation of the average amplitude for each phase bin. This will be the 2nd half of the output. If this is enabled, currently the Python script will have to be changed.
+</td></tr></tbody></table>
+<p>Since we have a parallel filter chain with equivalent subchains, we will have two subchains with the same parameter names. These will be included under the tabs <i>Filtering: Amplitude</i> and <i>Filtering: Phase</i>. In these two subchains, a few requirements must be met.
+</p>
+<ul><li>Delay must be the same</li>
+<li>Filtering: Amplitude must have the Hilbert OutputSignal of Hilbert envelope.</li>
+<li>Filtering: Phase must have the OutputSignal of Hilbert phase.</li>
+<li>Downsample must be disabled (since the two subchains will likely have varying frequencies, downsampling will mismatch the number of samples)</li></ul>
+<h2><span class="mw-headline" id="States">States</span></h2>
+<table>
+<tbody><tr>
+<td><b>PAC_TrialNumber</b>
+</td>
+<td>Number that increments every time button New Trial is pressed. Changing this state resets all data.
+</td></tr>
+<tr>
+<td><b>PAC_TrialType</b>
+</td>
+<td>Keeps track of the trial type.
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="Offline_Use">Offline Use</span></h2>
+<p>To run the Phase-Amplitude Coupling pipeline on data that has already been acquired, use the <a href="Contributions%253AFilePlayback.html" title="Contributions:FilePlayback">FilePlayback</a> module. This plays back the BCI2000 data file as if the data is currently being recorded. You can completely replicate the results of the visualization.
+</p><p><br />
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="Contributions%253ASignalProcessing.html" title="Contributions:SignalProcessing">SignalProcessing</a> | <a href="Contributions%253AFilePlayback.html" title="Contributions:FilePlayback">FilePlayback</a> | <a href="Programming_Reference%253ASignalSharing_Python_Demo.html" title="Programming Reference:SignalSharing Python Demo">SignalSharing Python Demo</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20241129160332
+Cache expiry: 86400
+Reduced expiry: false
+Complications: [show‐toc]
+CPU time usage: 0.028 seconds
+Real time usage: 0.033 seconds
+Preprocessor visited node count: 39/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/100
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2671-0!canonical and timestamp 20241129160332 and revision id 11319.
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Contributions:PAC&amp;oldid=11319">http://www.bci2000.org/mediawiki/index.php?title=Contributions:PAC&amp;oldid=11319</a>"</div>
+ </div>
+</body>
+</html>

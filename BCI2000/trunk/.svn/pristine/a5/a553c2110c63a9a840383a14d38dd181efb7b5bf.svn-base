@@ -1,0 +1,301 @@
+//////////////////////////////////////////////////////////////////////
+// $Id$
+// Author: juergen.mellinger@uni-tuebingen.de
+// Description: A class and macros that allow to embed testing code
+//   within source code files.
+//
+//   #include "UnitTest.h"
+//
+//   UnitTest( <name> )
+//   {
+//     // testing code
+//     ...
+//     if( failed )
+//       TestFail << message;
+//     // or
+//     TestFail_if( condition, message << data );
+//   }
+//
+//   In CMake, add a test by calling
+//   UTILS_ADD_UNIT_TEST( source1.cpp source2.cpp ... )
+//
+// $BEGIN_BCI2000_LICENSE$
+//
+// This file is part of BCI2000, a platform for real-time bio-signal research.
+// [ Copyright (C) 2000-2023: BCI2000 team and many external contributors ]
+//
+// BCI2000 is free software: you can redistribute it and/or modify it under the
+// terms of the GNU General Public License as published by the Free Software
+// Foundation, either version 3 of the License, or (at your option) any later
+// version.
+//
+// BCI2000 is distributed in the hope that it will be useful, but
+//                         WITHOUT ANY WARRANTY
+// - without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+// A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License along with
+// this program.  If not, see <http://www.gnu.org/licenses/>.
+//
+// $END_BCI2000_LICENSE$
+///////////////////////////////////////////////////////////////////////
+#ifndef TINY_UNIT_TEST_H
+#define TINY_UNIT_TEST_H
+
+#include "BCIRegistry.h"
+#include "NullStream.h"
+#include <memory>
+#include <sstream>
+#include <vector>
+#include <set>
+
+#if !ENABLE_UNITTEST
+
+#define UnitTest(name)                                                                                                 \
+    static struct name##_                                                                                              \
+    {                                                                                                                  \
+        name##_()                                                                                                      \
+        {                                                                                                              \
+        }                                                                                                              \
+      private:                                                                                                         \
+        void OnRun_();                                                                                                 \
+    } name;                                                                                                            \
+    void name##_::OnRun_()
+
+#define TestFail Tiny::NullStream()
+#define TestFail_if(cond, msg)
+#define TestRequire(cond)
+
+#define TestReport(x)
+
+#else // ENABLE_UNITTEST
+
+#define UnitTest(name) \
+    static struct name##_ : Tiny::Test::Test \
+    {                                        \
+        name##_() : Tiny::Test::Test(#name)  \
+        {                                    \
+        }                                    \
+      private:                               \
+        void OnRun_();                       \
+    } name;                                  \
+    RegisterTest_(name);                     \
+    void name##_::OnRun_()
+
+#define TestFail FailStream_(__FILE__, __LINE__)
+#define TestFail_if(cond, msg)               \
+    if (cond)                                \
+        TestFail << #cond << ", " << msg;
+#define TestRequire(cond)                    \
+    if (!(cond))                             \
+        TestFail << #cond << " should evaluate to true";
+
+#define TestReport(x) auto p_##x##_TestReporter_ = Tiny::Test::MakeReportVariable_(#x, x)
+
+#endif // ENABLE_UNITTEST
+
+namespace Tiny
+{
+
+namespace Test
+{
+
+#ifdef TODO
+# implement floating point and 64 bit types
+#endif
+template <class T> class Random;
+
+template <> class Random<int32_t>
+{
+  public:
+    Random() : mValue(0)
+    {
+        mValue = ::rand();
+        mValue <<= 15;
+        mValue ^= rand();
+        mValue <<= 2;
+        mValue ^= rand();
+    }
+    operator int const()
+    {
+        return mValue;
+    }
+    std::ostream& InsertInto(std::ostream& os) const
+    {
+        return os << mValue;
+    }
+  private:
+    int mValue;
+};
+
+template <> class Random<int64_t>
+{
+public:
+    Random() : mValue(0)
+    {
+        mValue = Random<int32_t>();
+        mValue <<= 32;
+        mValue ^= Random<int32_t>();
+    }
+    operator int64_t const()
+    {
+        return mValue;
+    }
+    std::ostream& InsertInto(std::ostream& os) const
+    {
+        return os << mValue;
+    }
+private:
+    int64_t mValue;
+};
+
+template <> class Random<float>
+{
+  public:
+    Random() : mValue(std::numeric_limits<float>::quiet_NaN())
+    {
+        // A random bit pattern may result in denormalized or NaN values
+        while (std::isnan(mValue)) {
+            union { int32_t i; float f; } value = { Random<int>() };
+            mValue = value.f;
+        }
+    }
+    operator float const()
+    {
+        return mValue;
+    }
+    std::ostream& InsertInto(std::ostream& os) const
+    {
+        return os << mValue;
+    }
+  private:
+    float mValue;
+};
+
+template <> class Random<double>
+{
+public:
+    Random() : mValue(std::numeric_limits<double>::quiet_NaN())
+    {
+        // A random bit pattern may result in denormalized or NaN values
+        while (std::isnan(mValue)) {
+            union { int64_t i; double d; } value = { Random<int64_t>() };
+            mValue = value.d;
+        }
+    }
+    operator double const()
+    {
+        return mValue;
+    }
+    std::ostream& InsertInto(std::ostream& os) const
+    {
+        return os << mValue;
+    }
+private:
+    double mValue;
+};
+
+template <> class Random<std::string>
+{
+public:
+    Random(float p, int mask = 0xff)
+    {
+        while (rand() < RAND_MAX * p) {
+            char c = 0;
+            while (c == 0)
+                c = (rand() % 256) & mask;
+            mValue += c;
+        }
+    }
+    operator const std::string&() const
+    {
+        return mValue;
+    }
+    bool operator==(const std::string& s) const
+    {
+        return mValue == s;
+    }
+    bool operator!=(const std::string& s) const
+    {
+        return mValue != s;
+    }
+    std::ostream& InsertInto(std::ostream& os) const
+    {
+        return os << mValue;
+    }
+private:
+    std::string mValue;
+};
+
+template<class T> std::ostream& operator<<(std::ostream& os, const Random<T>& r)
+{
+    return r.InsertInto(os);
+}
+
+class ReportVariableBase_
+{
+  public:
+    ReportVariableBase_() { sInstances.insert(this); }
+    virtual ~ReportVariableBase_() { sInstances.erase(this); }
+    virtual void OnReport(std::ostream&) = 0;
+    static std::ostream& Report(std::ostream&);
+  private:
+    static std::set<ReportVariableBase_*> sInstances;
+};
+
+template<typename T> class ReportVariable_ : public ReportVariableBase_
+{
+  public:
+    ReportVariable_(const char* name, const T& value) : mName(name), mrValue(value) {}
+    void OnReport(std::ostream& os) override { os << mName << "=" << mrValue; }
+  private:
+    std::string mName;
+    const T& mrValue;
+};
+
+template<typename T> std::shared_ptr<ReportVariableBase_> MakeReportVariable_(const char* name, const T& value)
+{
+    return std::shared_ptr<ReportVariableBase_>(new ReportVariable_<T>(name, value));
+}
+
+class Test
+{
+  public:
+    typedef void (*OutputHandler_)(const std::string &);
+
+    Test(const std::string &name);
+    virtual ~Test() {}
+    bool Run_(OutputHandler_ = nullptr);
+
+    struct RunAll_
+    {
+        RunAll_(OutputHandler_ = 0, bool forceFailure = false);
+        operator int() const
+        {
+            return failures;
+        }
+
+      private:
+        int failures;
+    };
+
+  protected:
+    std::ostream &FailStream_(const char *, int);
+    std::ostream &FailStream_();
+    virtual void OnRun_() = 0;
+
+  private:
+    const std::string mDesc;
+    std::ostringstream mFailStream;
+
+    static std::vector<Test *> sInstances;
+    friend struct RunAll_;
+};
+
+} // namespace Test
+
+} // namespace Tiny
+
+using Tiny::Test::Random;
+
+#endif TINY_UNIT_TEST_H

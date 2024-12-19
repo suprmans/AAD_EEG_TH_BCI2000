@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Contributions:CommunicationTask - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:grey; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:black; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul><li class="toc1"><a href="Contributions%253AADCs.html">Data Acquisition</a></li><li class="toc1"><a href="Contributions%253AFileWriters.html">File Formats</a></li><li class="toc1"><a href="Contributions%253ASignalProcessing.html">Signal Processing</a></li><li class="toc1"><a href="Contributions%253AApplications.html">Applications</a></li><li class="toc1"><a href="Contributions%253ATools.html">Tools</a></li></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">CommunicationTask</h1>
+ <p class = "subtitle">Contributions</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Contributions%253ACommunicationTask.html#Synopsis"><span class="tocnumber">1</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Contributions%253ACommunicationTask.html#Timeline"><span class="tocnumber">2</span> <span class="toctext">Timeline</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Contributions%253ACommunicationTask.html#Visual_Representation"><span class="tocnumber">3</span> <span class="toctext">Visual Representation</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="Contributions%253ACommunicationTask.html#Versioning"><span class="tocnumber">4</span> <span class="toctext">Versioning</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="Contributions%253ACommunicationTask.html#Authors"><span class="tocnumber">4.1</span> <span class="toctext">Authors</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="Contributions%253ACommunicationTask.html#Set_up"><span class="tocnumber">5</span> <span class="toctext">Set up</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="Contributions%253ACommunicationTask.html#Deploy_the_Server"><span class="tocnumber">5.1</span> <span class="toctext">Deploy the Server</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="Contributions%253ACommunicationTask.html#Batch_File"><span class="tocnumber">5.2</span> <span class="toctext">Batch File</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="Contributions%253ACommunicationTask.html#Run_the_experiment_on_the_client_computer"><span class="tocnumber">5.3</span> <span class="toctext">Run the experiment on the client computer</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-10"><a href="Contributions%253ACommunicationTask.html#Troubleshooting"><span class="tocnumber">6</span> <span class="toctext">Troubleshooting</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="Contributions%253ACommunicationTask.html#Parameters"><span class="tocnumber">7</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-12"><a href="Contributions%253ACommunicationTask.html#Shared_Parameters"><span class="tocnumber">7.1</span> <span class="toctext">Shared Parameters</span></a>
+<ul>
+<li class="toclevel-3 tocsection-13"><a href="Contributions%253ACommunicationTask.html#StimuliMatrix"><span class="tocnumber">7.1.1</span> <span class="toctext">StimuliMatrix</span></a></li>
+<li class="toclevel-3 tocsection-14"><a href="Contributions%253ACommunicationTask.html#BreakTrialSequece"><span class="tocnumber">7.1.2</span> <span class="toctext">BreakTrialSequece</span></a></li>
+<li class="toclevel-3 tocsection-15"><a href="Contributions%253ACommunicationTask.html#FeedbackDuration"><span class="tocnumber">7.1.3</span> <span class="toctext">FeedbackDuration</span></a></li>
+<li class="toclevel-3 tocsection-16"><a href="Contributions%253ACommunicationTask.html#InitialTrialNumber"><span class="tocnumber">7.1.4</span> <span class="toctext">InitialTrialNumber</span></a></li>
+<li class="toclevel-3 tocsection-17"><a href="Contributions%253ACommunicationTask.html#StimuliSequence"><span class="tocnumber">7.1.5</span> <span class="toctext">StimuliSequence</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-18"><a href="Contributions%253ACommunicationTask.html#Local_Parameters"><span class="tocnumber">7.2</span> <span class="toctext">Local Parameters</span></a>
+<ul>
+<li class="toclevel-3 tocsection-19"><a href="Contributions%253ACommunicationTask.html#StimuliWidth"><span class="tocnumber">7.2.1</span> <span class="toctext">StimuliWidth</span></a></li>
+<li class="toclevel-3 tocsection-20"><a href="Contributions%253ACommunicationTask.html#InstructionImagesSeque"><span class="tocnumber">7.2.2</span> <span class="toctext">InstructionImagesSeque</span></a></li>
+<li class="toclevel-3 tocsection-21"><a href="Contributions%253ACommunicationTask.html#InstructionWidth"><span class="tocnumber">7.2.3</span> <span class="toctext">InstructionWidth</span></a></li>
+<li class="toclevel-3 tocsection-22"><a href="Contributions%253ACommunicationTask.html#SliderWidth"><span class="tocnumber">7.2.4</span> <span class="toctext">SliderWidth</span></a></li>
+<li class="toclevel-3 tocsection-23"><a href="Contributions%253ACommunicationTask.html#BarColor"><span class="tocnumber">7.2.5</span> <span class="toctext">BarColor</span></a></li>
+<li class="toclevel-3 tocsection-24"><a href="Contributions%253ACommunicationTask.html#AxeActiveColor"><span class="tocnumber">7.2.6</span> <span class="toctext">AxeActiveColor</span></a></li>
+<li class="toclevel-3 tocsection-25"><a href="Contributions%253ACommunicationTask.html#AxeInActiveColor"><span class="tocnumber">7.2.7</span> <span class="toctext">AxeInActiveColor</span></a></li>
+<li class="toclevel-3 tocsection-26"><a href="Contributions%253ACommunicationTask.html#DimensionFontColor"><span class="tocnumber">7.2.8</span> <span class="toctext">DimensionFontColor</span></a></li>
+<li class="toclevel-3 tocsection-27"><a href="Contributions%253ACommunicationTask.html#DimensionHeight"><span class="tocnumber">7.2.9</span> <span class="toctext">DimensionHeight</span></a></li>
+<li class="toclevel-3 tocsection-28"><a href="Contributions%253ACommunicationTask.html#OptionFontActiveColor"><span class="tocnumber">7.2.10</span> <span class="toctext">OptionFontActiveColor</span></a></li>
+<li class="toclevel-3 tocsection-29"><a href="Contributions%253ACommunicationTask.html#OptionFontInActiveColor"><span class="tocnumber">7.2.11</span> <span class="toctext">OptionFontInActiveColor</span></a></li>
+<li class="toclevel-3 tocsection-30"><a href="Contributions%253ACommunicationTask.html#OptionHeight"><span class="tocnumber">7.2.12</span> <span class="toctext">OptionHeight</span></a></li>
+<li class="toclevel-3 tocsection-31"><a href="Contributions%253ACommunicationTask.html#RoleFontColor"><span class="tocnumber">7.2.13</span> <span class="toctext">RoleFontColor</span></a></li>
+<li class="toclevel-3 tocsection-32"><a href="Contributions%253ACommunicationTask.html#RoleHeight"><span class="tocnumber">7.2.14</span> <span class="toctext">RoleHeight</span></a></li>
+<li class="toclevel-3 tocsection-33"><a href="Contributions%253ACommunicationTask.html#FeedbackWidth"><span class="tocnumber">7.2.15</span> <span class="toctext">FeedbackWidth</span></a></li>
+<li class="toclevel-3 tocsection-34"><a href="Contributions%253ACommunicationTask.html#PhotoDiodePatch"><span class="tocnumber">7.2.16</span> <span class="toctext">PhotoDiodePatch</span></a></li>
+<li class="toclevel-3 tocsection-35"><a href="Contributions%253ACommunicationTask.html#PhotoDiodePatchHeight,_PhotoDiodePatchWidth"><span class="tocnumber">7.2.17</span> <span class="toctext">PhotoDiodePatchHeight, PhotoDiodePatchWidth</span></a></li>
+<li class="toclevel-3 tocsection-36"><a href="Contributions%253ACommunicationTask.html#PhotoDiodePatchLeft,_PhotoDiodePatchTop"><span class="tocnumber">7.2.18</span> <span class="toctext">PhotoDiodePatchLeft, PhotoDiodePatchTop</span></a></li>
+<li class="toclevel-3 tocsection-37"><a href="Contributions%253ACommunicationTask.html#PhotoDiodePatchShape"><span class="tocnumber">7.2.19</span> <span class="toctext">PhotoDiodePatchShape</span></a></li>
+<li class="toclevel-3 tocsection-38"><a href="Contributions%253ACommunicationTask.html#PhotoDiodePatchActiveColor"><span class="tocnumber">7.2.20</span> <span class="toctext">PhotoDiodePatchActiveColor</span></a></li>
+<li class="toclevel-3 tocsection-39"><a href="Contributions%253ACommunicationTask.html#PhotoDiodePatchInactiveColor"><span class="tocnumber">7.2.21</span> <span class="toctext">PhotoDiodePatchInactiveColor</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-40"><a href="Contributions%253ACommunicationTask.html#States"><span class="tocnumber">8</span> <span class="toctext">States</span></a>
+<ul>
+<li class="toclevel-2 tocsection-41"><a href="Contributions%253ACommunicationTask.html#PhaseNumber"><span class="tocnumber">8.1</span> <span class="toctext">PhaseNumber</span></a></li>
+<li class="toclevel-2 tocsection-42"><a href="Contributions%253ACommunicationTask.html#TrialNumber"><span class="tocnumber">8.2</span> <span class="toctext">TrialNumber</span></a></li>
+<li class="toclevel-2 tocsection-43"><a href="Contributions%253ACommunicationTask.html#BarOneValue"><span class="tocnumber">8.3</span> <span class="toctext">BarOneValue</span></a></li>
+<li class="toclevel-2 tocsection-44"><a href="Contributions%253ACommunicationTask.html#BarTwoValue"><span class="tocnumber">8.4</span> <span class="toctext">BarTwoValue</span></a></li>
+<li class="toclevel-2 tocsection-45"><a href="Contributions%253ACommunicationTask.html#BarOneActive,_BarTwoActive"><span class="tocnumber">8.5</span> <span class="toctext">BarOneActive, BarTwoActive</span></a></li>
+<li class="toclevel-2 tocsection-46"><a href="Contributions%253ACommunicationTask.html#ResponseValue"><span class="tocnumber">8.6</span> <span class="toctext">ResponseValue</span></a></li>
+<li class="toclevel-2 tocsection-47"><a href="Contributions%253ACommunicationTask.html#SenderLock,_ReceiverLock"><span class="tocnumber">8.7</span> <span class="toctext">SenderLock, ReceiverLock</span></a></li>
+<li class="toclevel-2 tocsection-48"><a href="Contributions%253ACommunicationTask.html#isReadyStart0,_isReadyStart1"><span class="tocnumber">8.8</span> <span class="toctext">isReadyStart0, isReadyStart1</span></a></li>
+<li class="toclevel-2 tocsection-49"><a href="Contributions%253ACommunicationTask.html#ClientNumber"><span class="tocnumber">8.9</span> <span class="toctext">ClientNumber</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-50"><a href="Contributions%253ACommunicationTask.html#Example"><span class="tocnumber">9</span> <span class="toctext">Example</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>The hyperscanning task is a turn-based communication game between two clients. This game aims to guess what the subject is in Sender's computer without talking. For each trial, the two players will alternate between the roles of Sender and Receiver. The Sender will describe traits of the subject presented by adjusting the two axes(Noisy or silent/Big or small). Then, the Receiver will guess if the Sender is describing the animal or object. After the Receiver makes a guess, both players receive feedback on whether the Receiver makes the correct guess. This marks the end of a trial.
+</p><p>The two clients exchange information through the hyperScanning backend, which uses a client-server model to share the states. Each client has a separate state machine. The server only forwards the information between two clients. Shared states are converted to BCI2000 states asynchronously through events using the HyperscanningApplicationBase class, which is the parent class of the application module. For more information, please refer to the hyperScanning framework wiki page: <a rel="nofollow" class="external free" href="BCI2000_Hyperscanning.html">https://www.bci2000.org/mediawiki/index.php/BCI2000_Hyperscanning</a>.
+</p>
+<h2><span class="mw-headline" id="Timeline">Timeline</span></h2>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 738.66666666667px"><div style="width: 738.66666666667px">
+			<div class="thumb" style="width: 736.66666666667px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:Hyperscanning_pipe_line.png" class="image" title="Figure 1: Single Trial Timeline."><img alt="Figure 1: Single Trial Timeline." src="../images/3/38/Hyperscanning_pipe_line.png" decoding="async" width="737" height="500" /></a></div></div>
+			<div class="gallerytext">
+<p>Figure 1: Single Trial Timeline.
+</p>
+			</div>
+		</div></li>
+</ul>
+<h2><span class="mw-headline" id="Visual_Representation">Visual Representation</span></h2>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 752px"><div style="width: 752px">
+			<div class="thumb" style="width: 750px;"><div style="margin:-0.16666666666666px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:Hyperscanning_1.gif" class="image" title="Figure 2: Visual Representation"><img alt="Figure 2: Visual Representation" src="../images/d/dc/Hyperscanning_1.gif" decoding="async" width="750" height="422" /></a></div></div>
+			<div class="gallerytext">
+<p>Figure 2: Visual Representation
+</p>
+			</div>
+		</div></li>
+</ul>
+<h2><span class="mw-headline" id="Versioning">Versioning</span></h2>
+<h3><span class="mw-headline" id="Authors">Authors</span></h3>
+<p>Anais Llorens (anaisllorens@hotmail.com) and  Athina Tzovara (athina.tzovara@unibe.ch) conceived this paradigm. <br />
+Max Marcus (bigmaxmarcus@gmail.com), Huiling Huang (huiling@neurotechcenter.org), and Sigurd Alnes (sigurd.alnes@unibe.ch) implemented the paradigm into BCI2000. <br />
+</p>
+<h2><span class="mw-headline" id="Set_up">Set up</span></h2>
+<h3><span class="mw-headline" id="Deploy_the_Server">Deploy the Server</span></h3>
+<p>You will need a Linux or macOS computer to run the server. Currently, the Windows OS is not supported. The following steps are for deploying the server on the local network. If you want to deploy the server on AWS, please refer to <a rel="nofollow" class="external free" href="BCI2000_Hyperscanning.html#Important_Notes_2">https://www.bci2000.org/mediawiki/index.php/BCI2000_Hyperscanning#Important_Notes_2</a>.<br />
+First, please ensure all the computers are connected to the same local network. Then open the terminal(Mac OS or Linux) and run the command below to clone the server code from GitHub.
+</p>
+<pre>git clone https://github.com/MaxwellMarcus/hyperscanning-backend</pre>
+<p>Go the hyperscanning directory
+</p>
+<pre>cd hyperscanning</pre>
+<p>Compile the project by
+</p>
+<pre>make -B</pre>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 962px"><div style="width: 962px">
+			<div class="thumb" style="width: 960px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:CommunicationTask_server_set_up.png" class="image" title="Figure 3: Download and Compile the Server."><img alt="Figure 3: Download and Compile the Server." src="../images/b/b7/CommunicationTask_server_set_up.png" decoding="async" width="960" height="350" /></a></div></div>
+			<div class="gallerytext">
+<p>Figure 3: Download and Compile the Server.
+</p>
+			</div>
+		</div></li>
+</ul>
+<p>Run the server with
+</p>
+<pre>./application</pre>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 552.66666666667px"><div style="width: 552.66666666667px">
+			<div class="thumb" style="width: 550.66666666667px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:CommunicationTask_server_launched.png" class="image" title="Figure 4: Launch the Server."><img alt="Figure 4: Launch the Server." src="../images/b/be/CommunicationTask_server_launched.png" decoding="async" width="551" height="100" /></a></div></div>
+			<div class="gallerytext">
+<p>Figure 4: Launch the Server.
+</p>
+			</div>
+		</div></li>
+</ul>
+<p>The application will only run as long as the experiment and will have to be restarted.
+</p>
+<h3><span class="mw-headline" id="Batch_File">Batch File</span></h3>
+<p>The batch file is located in ./batch/CommunicationTask.bat. 
+</p>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 1258px"><div style="width: 1258px">
+			<div class="thumb" style="width: 1256px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:CommunicationTask_batch.png" class="image" title="Figure 5: Batch File."><img alt="Figure 5: Batch File." src="../images/5/50/CommunicationTask_batch.png" decoding="async" width="1256" height="200" /></a></div></div>
+			<div class="gallerytext">
+<p>Figure 5: Batch File.
+</p>
+			</div>
+		</div></li>
+</ul>
+<p>Unlike the normal bci2000 task, we define the shared states in the batch file(line 35) by beginning with"--SharedStates=". The form is:
+</p>
+<pre>--SharedStates=&lt;state-1&gt;,&lt;state-1-size&gt;&amp;&lt;state-2&gt;,&lt;state-2-size&gt;&amp;&lt;state-3&gt;,&lt;state-3-size&gt;...</pre>
+<p>IPAddress and Port indicate the server computer.
+</p>
+<h3><span class="mw-headline" id="Run_the_experiment_on_the_client_computer">Run the experiment on the client computer</span></h3>
+<p>Go to the./batch, find the "CommunicationTask.bat", and double click it. After pushing "Set Config," the BCI2000 will try to connect the server. If it successfully connects to the server, the System Log will print "Connected to server." If only one client connects to the server, the "Start" button in the operator will turn gray until another client connects.
+</p>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 714px"><div style="width: 714px">
+			<div class="thumb" style="width: 712px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:Launch_the_experiment.gif" class="image" title="Figure 6: Launch the BCI2000."><img alt="Figure 6: Launch the BCI2000." src="../images/7/7a/Launch_the_experiment.gif" decoding="async" width="712" height="400" /></a></div></div>
+			<div class="gallerytext">
+<p>Figure 6: Launch the BCI2000.
+</p>
+			</div>
+		</div></li>
+</ul>
+<h2><span class="mw-headline" id="Troubleshooting">Troubleshooting</span></h2>
+<p>After you quit the server from the terminal and restart it again, you might see this error message. That means the server is still running. You need to kill the "application" process.
+</p>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 1177.3333333333px"><div style="width: 1177.3333333333px">
+			<div class="thumb" style="width: 1175.3333333333px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:Kill_server.png" class="image" title="Figure 7: Kill the Server."><img alt="Figure 7: Kill the Server." src="../images/3/35/Kill_server.png" decoding="async" width="1176" height="300" /></a></div></div>
+			<div class="gallerytext">
+<p>Figure 7: Kill the Server.
+</p>
+			</div>
+		</div></li>
+</ul>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<p>There are two kinds of parameters: shared and local. The shared parameter is the one you want to synchronize between two clients, like the stimulus sequence, the sequence of break trials you wish to take a break after this trial, etc. It should be saved on the server as a parameter file and passed to the clients through messages as a parameter. The local parameter is that you want to customize the parameter locally, like GUI. The local parameter is the regular BCI2000 parameter file saved under the local BCI2000 project folder.
+</p><p><br />
+</p>
+<h3><span class="mw-headline" id="Shared_Parameters">Shared Parameters</span></h3>
+<p>You must upload the parameters below to the server as a parameter file. When the client connects to the server, it will automatically download the parameter file from the server and save it locally. You can indicate the download path in the Application tab, ParamterPath. Please do not modify the parameter file. Otherwise, the synchronization between two clients can't be guaranteed.
+</p>
+<h4><span class="mw-headline" id="StimuliMatrix">StimuliMatrix</span></h4>
+<p>Shared parameter, matrix of stimulus information, including:<br />
+1. ImageReceiver and ImageSender(the path of images).<br />
+2. Sender(the role of players),1 is the sender), 2 is the receiver.<br />
+3. Jitter(the duration to present the role).<br />
+4. CorrectResponse(1: left, 2:right).<br />
+5. Training(1: training, 0: main task).<br />
+6. Category(1: object, 2: animal).<br />
+7. Difficulty(1: easy, 2: moderate, 3: hard).<br />
+8. Dimension1a and Dimension1b(bar#1 left text and right text).<br />
+9. Dimension2a and Dimension2b(bar#2 left text and right text).<br />
+10. Option1 and Option2(left option text and right option text).
+</p>
+<h4><span class="mw-headline" id="BreakTrialSequece">BreakTrialSequece</span></h4>
+<p>The sequence of break trials, a break will happen after the break trial.
+</p>
+<h4><span class="mw-headline" id="FeedbackDuration">FeedbackDuration</span></h4>
+<p>Duration of feedback(ITI). Indicate the receiver to make a correct or incorrect guess.<br /><br />
+</p><p>The server will generate the InitialTrialNumber and StimuliSequence, and save them into a parameter file named by IP addresses on the server. You don't need to worry about these two parameters. Unlike the parameters described above, they are saved on the server rather than on local computers.
+</p>
+<h4><span class="mw-headline" id="InitialTrialNumber">InitialTrialNumber</span></h4>
+<p>The trial number to begin with. We provide the resume option, allowing clients to pause and resume the game from where they stop. After one of the clients quits the game, the server will discover it and save the current trial number and sequence. When the same clients(same IP address) reconnect the server again, the server will send the previous trial number to them. Otherwise, the InitialTrailNumber will be initialized by 0. Usually, you don't need to touch this parameter.
+</p>
+<h4><span class="mw-headline" id="StimuliSequence">StimuliSequence</span></h4>
+<p>The sequence of stimuli(images). The server will generate a random stimuli sequence for every pair of clients (identified by the IP address).
+</p>
+<h3><span class="mw-headline" id="Local_Parameters">Local Parameters</span></h3>
+<h4><span class="mw-headline" id="StimuliWidth">StimuliWidth</span></h4>
+<p>StimulusWidth in percent of screen width (zero for original pixel size).
+</p>
+<h4><span class="mw-headline" id="InstructionImagesSeque">InstructionImagesSeque</span></h4>
+<p>The sequence of instruction images path.
+</p>
+<h4><span class="mw-headline" id="InstructionWidth">InstructionWidth</span></h4>
+<p>Instruction width in percent of screen width (zero for original pixel size).
+</p>
+<h4><span class="mw-headline" id="SliderWidth">SliderWidth</span></h4>
+<p>SliderWidth in percent of screen width (zero for original pixel size).
+</p>
+<h4><span class="mw-headline" id="BarColor">BarColor</span></h4>
+<p>Color of the slider bar.
+</p>
+<h4><span class="mw-headline" id="AxeActiveColor">AxeActiveColor</span></h4>
+<p>Color of active slider axe.
+</p>
+<h4><span class="mw-headline" id="AxeInActiveColor">AxeInActiveColor</span></h4>
+<p>Color of inactive slider axe.
+</p>
+<h4><span class="mw-headline" id="DimensionFontColor">DimensionFontColor</span></h4>
+<p>Color of the text under the slider.
+</p>
+<h4><span class="mw-headline" id="DimensionHeight">DimensionHeight</span></h4>
+<p>Height of text in percent of the screen height.
+</p>
+<h4><span class="mw-headline" id="OptionFontActiveColor">OptionFontActiveColor</span></h4>
+<p>Color of the active options.
+</p>
+<h4><span class="mw-headline" id="OptionFontInActiveColor">OptionFontInActiveColor</span></h4>
+<p>Color of the inactive options.
+</p>
+<h4><span class="mw-headline" id="OptionHeight">OptionHeight</span></h4>
+<p>Height of text in percent of the screen height.
+</p>
+<h4><span class="mw-headline" id="RoleFontColor">RoleFontColor</span></h4>
+<p>Color of the role text.
+</p>
+<h4><span class="mw-headline" id="RoleHeight">RoleHeight</span></h4>
+<p>Height of text in percent of the screen height.
+</p>
+<h4><span class="mw-headline" id="FeedbackWidth">FeedbackWidth</span></h4>
+<p>Width of feedback in percent of screen width.
+</p>
+<h4><span class="mw-headline" id="PhotoDiodePatch">PhotoDiodePatch</span></h4>
+<p>Display a photodiode patch on the stimulus window. Recording from a photodiode located on that patch will allow triggering on actual stimulus delivery (see User_Reference: P3TemporalFilter#OnsetExpression).
+</p>
+<h4><span id="PhotoDiodePatchHeight.2C_PhotoDiodePatchWidth"></span><span class="mw-headline" id="PhotoDiodePatchHeight,_PhotoDiodePatchWidth">PhotoDiodePatchHeight, PhotoDiodePatchWidth</span></h4>
+<p>Photodiode patch height/width in relative coordinates (between 0 and 1).
+</p>
+<h4><span id="PhotoDiodePatchLeft.2C_PhotoDiodePatchTop"></span><span class="mw-headline" id="PhotoDiodePatchLeft,_PhotoDiodePatchTop">PhotoDiodePatchLeft, PhotoDiodePatchTop</span></h4>
+<p>Photodiode patch left/top position in relative coordinates (between 0 and 1).
+</p>
+<h4><span class="mw-headline" id="PhotoDiodePatchShape">PhotoDiodePatchShape</span></h4>
+<p>Photodiode patch shape: 0 rectangle, 1 ellipse.
+</p>
+<h4><span class="mw-headline" id="PhotoDiodePatchActiveColor">PhotoDiodePatchActiveColor</span></h4>
+<p>Photodiode patch color when active (RGB color in format 0xrrggbb).
+</p>
+<h4><span class="mw-headline" id="PhotoDiodePatchInactiveColor">PhotoDiodePatchInactiveColor</span></h4>
+<p>Photodiode patch color when inactive, (RGB color in format 0xrrggbb, use 0xff000000 for transparent).
+</p>
+<h2><span class="mw-headline" id="States">States</span></h2>
+<p>Shared states are converted to BCI2000 states asynchronously through events using the HyperscanningApplicationBase class. We declared shared states in the batch file as "--SharedStates=state1_name,state1_size&amp;state2_name,state2_size&amp;...", which is appended to the end of the application module.
+</p>
+<h3><span class="mw-headline" id="PhaseNumber">PhaseNumber</span></h3>
+<p>The index of phase in each trial. (8 bits) <br />  
+[0] indicates the instruction at the beginning of the experiment. (When the 10 slides instruction images are present on the screen)<br /> 
+[1] indicates the client is waiting for the other client to push the button to start the game. ( We are waiting for another player; once she/he is ready, we're ready to go!)<br /> 
+[2] When the role text is present on the screen.(Sender or Receiver).<br /> 
+[3] When the sliders and stimulus are present on the screen.<br /> 
+[4] Feedback: After the receiver locks the answer, it comes to phase [4], showing whether the answer is correct.<br /> 
+[5]Break: (Well done! Are you ready for the next block? \n\n Press SPACEBAR)<br /> 
+[6]End: (Well done! You have finished all the trials.)
+</p>
+<h3><span class="mw-headline" id="TrialNumber">TrialNumber</span></h3>
+<p>Index of trials. (8 bits)
+</p>
+<h3><span class="mw-headline" id="BarOneValue">BarOneValue</span></h3>
+<p>Value of slider#1. (32 bits)
+</p>
+<h3><span class="mw-headline" id="BarTwoValue">BarTwoValue</span></h3>
+<p>Value of slider#2. (32 bits)
+</p>
+<h3><span id="BarOneActive.2C_BarTwoActive"></span><span class="mw-headline" id="BarOneActive,_BarTwoActive">BarOneActive, BarTwoActive</span></h3>
+<p>0: slider is not selected.  1: slider is selected. (8 bits)
+</p>
+<h3><span class="mw-headline" id="ResponseValue">ResponseValue</span></h3>
+<p>1: object.    2: animal. (8 bits)
+</p>
+<h3><span id="SenderLock.2C_ReceiverLock"></span><span class="mw-headline" id="SenderLock,_ReceiverLock">SenderLock, ReceiverLock</span></h3>
+<p>0: client is moving the slider/making a guess. 1: client has locked the answer. (8 bits)
+</p>
+<h3><span id="isReadyStart0.2C_isReadyStart1"></span><span class="mw-headline" id="isReadyStart0,_isReadyStart1">isReadyStart0, isReadyStart1</span></h3>
+<p>0: client isn't ready to start/resume/continue the game(not yet pushing the button).  1: client is ready to start/resume/continue the game(push the button). (8 bits)
+</p>
+<h3><span class="mw-headline" id="ClientNumber">ClientNumber</span></h3>
+<p>The client’s ID, is assigned by the server. Either 0 or 1. (8 bits)
+</p>
+<h2><span class="mw-headline" id="Example">Example</span></h2>
+<p>The hyperscanning application module is almost the same as a BCI2000 application module, except that the typical BCI2000 module is inherited from ApplicationBase, and the hyperscanning application module is inherited from HyperscanningApplicationBase. Basically, the HyperscanningApplicationBase class is the same as ApplicationBase class with adding the communication with the server. So instead of using  Publish, Preflight, Process, etc. We are using SharedPublish, SharedPreflight, SharedProcess, etc. These methods behave in the exact same way, except they also call the client loops which interact with the server.
+</p><p><br />
+Communication_task_dualTask.h:
+</p>
+<pre>#include "ApplicationBase.h"
+#include "Slider.h"
+#include &lt;map&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+#include "TextStimulus.h"
+#include "ImageStimulus.h"
+#include "Shapes.h"
+#include "HyperscanningApplicationBase.h"
+
+class Communication_task_dualTask&#160;: public HyperscanningApplicationBase
+{
+ public:
+  Communication_task_dualTask();
+  ~Communication_task_dualTask();
+  void SharedPublish() override;
+  void SharedPreflight( const SignalProperties&amp; Input, SignalProperties&amp; Output ) const override;
+  void SharedInitialize( const SignalProperties&amp; Input, const SignalProperties&amp; Output ) override;
+  void SharedAutoConfig( const SignalProperties&amp; Input ) override;
+  void SharedStartRun() override;
+  void SharedProcess( const GenericSignal&amp; Input, GenericSignal&amp; Output ) override;
+  void SharedStopRun() override;
+  void SharedHalt() override;
+
+ private:
+   //define your own private members here
+   ApplicationWindow&amp; mrDisplay;
+
+   //define your own private methods here
+
+};
+</pre>
+<p><br />
+Manipulate the shared state is the same as the BCI2000 state. "isReadyStart1" is a shared state.
+</p>
+<pre>   State("isReadyStart1") = 1; // assign 1 to "isReadyStart1"
+</pre>
+<p>Get the value of the shared state "isReadyStart1"
+</p>
+<pre>   //Both of the two players are ready, move to the next phase
+   if (State("isReadyStart0") &amp;&amp; State("isReadyStart1")) {
+            m_instruction_container-&gt;Conceal();
+            m_role_txt-&gt;Conceal();
+            my_phase = role_text;
+            m_block_in_phase = 0;
+   }
+</pre>
+<!-- 
+NewPP limit report
+Cached time: 20241129160225
+Cache expiry: 86400
+Reduced expiry: false
+Complications: [show‐toc]
+CPU time usage: 0.053 seconds
+Real time usage: 0.061 seconds
+Preprocessor visited node count: 225/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/100
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 5642/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2550-0!canonical and timestamp 20241129160225 and revision id 11217.
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Contributions:CommunicationTask&amp;oldid=11217">http://www.bci2000.org/mediawiki/index.php?title=Contributions:CommunicationTask&amp;oldid=11217</a>"</div>
+ </div>
+</body>
+</html>

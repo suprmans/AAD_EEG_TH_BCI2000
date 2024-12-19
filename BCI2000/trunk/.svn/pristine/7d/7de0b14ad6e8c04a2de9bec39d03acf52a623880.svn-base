@@ -1,0 +1,305 @@
+////////////////////////////////////////////////////////////////////////////////
+// $Id$
+// Author: mellinger@neurotechcenter.com
+// Description: A class that renders text into an RGB32 image.
+//
+// $BEGIN_BCI2000_LICENSE$
+//
+// This file is part of BCI2000, a platform for real-time bio-signal research.
+// [ Copyright (C) 2000-2023: BCI2000 team and many external contributors ]
+//
+// BCI2000 is free software: you can redistribute it and/or modify it under the
+// terms of the GNU General Public License as published by the Free Software
+// Foundation, either version 3 of the License, or (at your option) any later
+// version.
+//
+// BCI2000 is distributed in the hope that it will be useful, but
+//                         WITHOUT ANY WARRANTY
+// - without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+// A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License along with
+// this program.  If not, see <http://www.gnu.org/licenses/>.
+//
+// $END_BCI2000_LICENSE$
+////////////////////////////////////////////////////////////////////////////////
+#include "TextRenderer.h"
+
+#include <cmath>
+
+#include <schrift.h>
+#include <util/utf8_to_utf32.h>
+
+namespace {
+
+    std::vector<std::string> Split(const std::string& text, char at)
+    {
+        std::vector<std::string> lines;
+        size_t begin = 0, pos = text.find(at);
+        while (pos != std::string::npos) {
+            lines.push_back(text.substr(begin, pos - begin));
+            begin = pos + 1;
+            pos = text.find(at, begin);
+        }
+        lines.push_back(text.substr(begin));
+        return lines;
+    }
+
+} // namespace
+
+
+struct TextRenderer::Private
+{
+    RGBColor mTextColor = RGBColor::Black;
+    int mTextSize = 12;
+    SFT_Font *mpSftFont = nullptr;
+    SFT_LMetrics mLMetrics = {0};
+
+    uint32_t* mpExternalData = nullptr;
+    int mWidth = 0, mHeight = 0;
+
+    void GetLineMetrics();
+    Size ProcessText(int x, int y, const std::string&, bool render);
+    void PutCharacterImage(int x, int y, SFT_Image*);
+};
+
+TextRenderer::TextRenderer()
+: p(new Private)
+{
+}
+
+TextRenderer::~TextRenderer()
+{
+    DetachFromImage();
+    if (p->mpSftFont)
+        ::sft_freefont(p->mpSftFont);
+    delete p;
+}
+
+TextRenderer& TextRenderer::SetTextColor(RGBColor c)
+{
+    p->mTextColor = c;
+    return *this;
+}
+
+RGBColor TextRenderer::TextColor() const
+{
+    return p->mTextColor;
+}
+
+TextRenderer& TextRenderer::SetTextSize(int size)
+{
+    p->mTextSize = size;
+    return *this;
+}
+
+int TextRenderer::TextSize() const
+{
+    return p->mTextSize;
+}
+
+TextRenderer& TextRenderer::LoadFont(const std::string& file)
+{
+    if (p->mpSftFont)
+        ::sft_freefont(p->mpSftFont);
+    p->mpSftFont = ::sft_loadfile(file.c_str());
+    if (p->mpSftFont)
+        p->GetLineMetrics();
+    return *this;
+}
+
+TextRenderer& TextRenderer::LoadFont(const void* pMemory, int byteLength)
+{
+    if (p->mpSftFont)
+        ::sft_freefont(p->mpSftFont);
+    p->mpSftFont = ::sft_loadmem(pMemory, byteLength);
+    if (p->mpSftFont)
+        p->GetLineMetrics();
+    return *this;
+}
+
+void TextRenderer::AttachToImage(int width, int height, uint32_t* pData)
+{
+    p->mWidth = width;
+    p->mHeight = height;
+    p->mpExternalData = pData;
+}
+
+void TextRenderer::DetachFromImage()
+{
+    p->mWidth = 0;
+    p->mHeight = 0;
+    p->mpExternalData = nullptr;
+}
+
+int TextRenderer::LineHeight() const
+{
+    double lineHeight = p->mLMetrics.ascender - p->mLMetrics.descender + p->mLMetrics.lineGap; // descender is negative
+    return std::round(lineHeight);
+}
+
+int TextRenderer::Ascent() const
+{
+    return std::round(p->mLMetrics.ascender);
+}
+
+int TextRenderer::Descent() const
+{
+    return std::round(-p->mLMetrics.descender); // descender is negative
+}
+
+TextRenderer::Size TextRenderer::MeasureText(const std::string& text, int flags)
+{
+    if (flags & MultiLine) {
+        int maxWidth = 0;
+        int innerHeight = 0;
+        auto lines = Split(text, '\n');
+        for (const auto& line : lines) {
+            auto size = p->ProcessText(0, 0, line, false);
+            maxWidth = std::max(size.width, maxWidth);
+            innerHeight = size.height;
+        }
+        int lineHeight = LineHeight();
+        int totalHeight = innerHeight + (lines.size() - 1) * lineHeight;
+        Size totalSize = { maxWidth, totalHeight };
+        return totalSize;
+    }
+    return p->ProcessText(0, 0, text, false);
+}
+
+void TextRenderer::RenderText(int x, int y, const std::string& text)
+{
+    p->ProcessText(x, y, text, true);
+}
+
+void TextRenderer::RenderText(const GUI::Rect& rect, const std::string& text, int flags)
+{
+    if (flags & MultiLine) {
+        flags &= ~MultiLine;
+        float lineHeight = LineHeight();
+        auto lineRect = rect;
+        auto lines = Split(text, '\n');
+        for (const auto& line : lines) {
+            RenderText(rect, line, flags);
+            lineRect.top += lineHeight;
+        }
+    }
+    if (flags == 0 || flags == AlignLeft) {
+        RenderText(rect.left, rect.top, text);
+    }
+    else {
+        auto size = MeasureText(text);
+        int delta = rect.Width() - size.width;
+        int left = rect.left;
+        if (flags & AlignCenter)
+            left += delta / 2;
+        else if (flags & AlignRight)
+            left += delta;
+        RenderText(left, rect.top, text);
+    }
+}
+
+void TextRenderer::Private::GetLineMetrics()
+{
+    SFT sft = { 0 };
+    sft.flags = SFT_DOWNWARD_Y;
+    sft.font = mpSftFont;
+    sft.xOffset = 0;
+    sft.yOffset = 0;
+    sft.xScale = mTextSize;
+    sft.yScale = sft.xScale;
+    ::sft_lmetrics(&sft, &mLMetrics);
+}
+
+TextRenderer::Size TextRenderer::Private::ProcessText(int x, int y, const std::string& text, bool render)
+{
+    if (!mpSftFont) {
+        return Size();
+    }
+
+    std::vector<uint32_t> utf32text(text.length() + 1, 0);
+    union { const char* c; const uint8_t* u; } pText = { text.c_str() };
+    int count = ::utf8_to_utf32(pText.u, utf32text.data(), utf32text.size());
+    utf32text.resize(count);
+
+    SFT sft = { 0 };
+    sft.flags = SFT_DOWNWARD_Y;
+    sft.font = mpSftFont;
+    sft.xOffset = 0;
+    sft.yOffset = 0;
+    sft.xScale = mTextSize;
+    sft.yScale = sft.xScale;
+
+    SFT_Image sftImage = {0};
+    std::vector<uint8_t*> data;
+
+    SFT_LMetrics lmetrics = { 0 };
+    ::sft_lmetrics(&sft, &lmetrics);
+    double lineHeight = lmetrics.ascender - lmetrics.descender; // descender is negative
+
+    double width = 0;
+    uint32_t prevCodepoint = 0;
+    SFT_Glyph prevGlyph = { 0 };
+    for (const auto& codepoint : utf32text) {
+        SFT_Glyph glyph = { 0 };
+        ::sft_lookup(&sft, codepoint, &glyph);
+        SFT_GMetrics gmetrics = { 0 };
+        ::sft_gmetrics(&sft, glyph, &gmetrics);
+        double kerning = 0;
+        if (prevCodepoint) {
+            SFT_Kerning skerning = { 0 };
+            ::sft_kerning(&sft, prevGlyph, glyph, &skerning);
+            kerning = skerning.xShift;
+        }
+        if (render) {
+            sftImage.height = gmetrics.minHeight;
+            sftImage.width = gmetrics.minWidth;
+            data.resize(sftImage.height * sftImage.width);
+            sftImage.pixels = data.data();
+            ::sft_render(&sft, glyph, sftImage);
+            PutCharacterImage(
+                x + std::round(width + kerning + gmetrics.leftSideBearing),
+                y + std::round(lmetrics.ascender + gmetrics.yOffset),
+                &sftImage
+            );
+        }
+        prevCodepoint = codepoint;
+        prevGlyph = glyph;
+        width += gmetrics.advanceWidth + kerning;
+    }
+    Size size = { std::round(width), std::round(lineHeight) };
+    return size;
+}
+
+// Apply the raster mask contained in an SFT_Image at given position to draw a character into
+// the image we are attached to.
+void TextRenderer::Private::PutCharacterImage(int xpos, int ypos, SFT_Image* pImage)
+{
+    uint8_t* mask = static_cast<uint8_t*>(pImage->pixels);
+    for (int x = 0; x < pImage->width; ++x) {
+
+        if (xpos + x < 0)
+            continue;
+        if (xpos + x >= mWidth)
+            continue;
+
+        for (int y = 0; y < pImage->height; ++y) {
+
+            if (ypos + y < 0)
+                continue;
+            if (ypos + y >= mHeight)
+                continue;
+
+            int idx1 = x + y * pImage->width,
+                idx2 = xpos + x + (ypos + y) * mWidth;
+
+                float alpha = mask[idx1] / 255.;
+                RGBColor current = mpExternalData[idx2],
+                         modified = alpha * mTextColor + (1 - alpha) * current;
+                float alpha1 = (mTextColor >> 24) & 0xff, alpha2 = (current >> 24) & 0xff;
+                int modifiedAlpha = std::round(alpha * alpha1 + (1 - alpha) * alpha2);
+                mpExternalData[idx2] = modified | (modifiedAlpha << 24);
+        }
+    }
+}
+

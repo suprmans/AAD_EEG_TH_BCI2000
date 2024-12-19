@@ -1,0 +1,39 @@
+////////////////////////////////////////////////////////////////////////////////
+// Authors: Robbie@DESKTOP-U5JGQCU.wucon.wustl.edu
+// Description: BrainFlowADC header
+////////////////////////////////////////////////////////////////////////////////
+
+#ifndef INCLUDED_BRAINFLOWADC_H  // makes sure this header is not included more than once
+#define INCLUDED_BRAINFLOWADC_H
+
+#include "BufferedADC.h"
+#include "board_shim.h"
+#include <vector>
+#include <queue>
+
+class BrainFlowADC : public BufferedADC
+{
+ public:
+  BrainFlowADC();
+  ~BrainFlowADC();
+  void OnPublish() override;
+  void OnAutoConfig() override;
+  void OnPreflight( SignalProperties& Output ) const override;
+  void OnInitialize( const SignalProperties& Output ) override;
+  void OnStartAcquisition() override;
+  void DoAcquire( GenericSignal& Output ) override;
+  void OnStopAcquisition() override;
+  std::vector<int> ChannelIndices(int, int);
+  std::string BrainFlowADC::ChannelTypeName(int);
+
+ private:
+  BoardShim* mpBoard = nullptr;
+  BoardIds mBoardID = BoardIds::NO_BOARD;
+  int mSampleBlockSize = 16;
+  int mNumberOfSignalChannels = 0;
+  std::vector<int> mChannels;
+
+  std::queue<float> mData;
+};
+
+#endif 

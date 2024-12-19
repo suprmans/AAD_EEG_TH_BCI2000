@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>CortecExperience - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:grey; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:black; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">CortecExperience</h1>
+ <p class = "subtitle"></p>
+ <hr class = "sep" />
+ <div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="CortecExperience.html#Introduction_Video_of_CorTec_Brain_Interchange_with_BCI2000"><span class="tocnumber">1</span> <span class="toctext">Introduction Video of CorTec Brain Interchange with BCI2000</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="CortecExperience.html#Getting_Started_with_Cortec_BIC_in_BCI2000"><span class="tocnumber">2</span> <span class="toctext">Getting Started with Cortec BIC in BCI2000</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="CortecExperience.html#Canine_Surgical_Procedure"><span class="tocnumber">3</span> <span class="toctext">Canine Surgical Procedure</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="CortecExperience.html#Preliminary_experience_with_the_CorTec_BrainInterchange_device_in_a_canine_modele"><span class="tocnumber">4</span> <span class="toctext">Preliminary experience with the CorTec BrainInterchange device in a canine modele</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="CortecExperience.html#Data_Sharing"><span class="tocnumber">5</span> <span class="toctext">Data Sharing</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="CortecExperience.html#Closed-loop_Stimulation"><span class="tocnumber">6</span> <span class="toctext">Closed-loop Stimulation</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="CortecExperience.html#Synchronize_Inertial_Measurement_Units_with_the_CorTec_Brain_Interchange"><span class="tocnumber">7</span> <span class="toctext">Synchronize Inertial Measurement Units with the CorTec Brain Interchange</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction_Video_of_CorTec_Brain_Interchange_with_BCI2000">Introduction Video of CorTec Brain Interchange with BCI2000</span></h1>
+<div class="thumb embedvideo  ev_center autoResize" style="width: 908px;"><div class="embedvideo autoResize" style=" width: 906px;"><div class="embedvideowrap" style="width: 900px;"><iframe title="Play video" src="https://www.youtube.com/embed/TMZPQPhRnn8?" width="900" height="506" frameborder="0" allowfullscreen="true"></iframe></div></div></div>
+<h1><span class="mw-headline" id="Getting_Started_with_Cortec_BIC_in_BCI2000">Getting Started with Cortec BIC in BCI2000</span></h1>
+<ol><li><a href="Programming_Howto%253ABuilding_and_Customizing_BCI2000.html" title="Programming Howto:Building and Customizing BCI2000">Install BCI2000</a>
+<ul><li>Here you will learn how to configure and compile BCI2000 on your own computer.</li></ul></li></ol>
+<ol><li><a href="CortecADC.html" title="CortecADC">CortecADC</a>
+<ul><li>This article steps you through all the available configuration options and information stored with using BCI2000 with the Brain Interchange.</li></ul></li></ol>
+<ol><li><a href="Contributions%253AXsensMTwLogger.html" title="Contributions:XsensMTwLogger">Contributions:XsensMTwLogger</a>
+<ul><li>This article shows how to combine any BCI2000 source module the XsensMTw device to capture motion simultaneously with electrophysiological signals.</li></ul></li></ol>
+<h1><span class="mw-headline" id="Canine_Surgical_Procedure">Canine Surgical Procedure</span></h1>
+<p>This article presents a brief introduction to surgical protocols for the implantation of the CorTec Brain Interchange. The main objective is to introduce the essential surgical considerations for implanting this device in different animal models. 
+</p><p>Download the <a rel="nofollow" class="external text" href="https://bci2000.org/downloads/doc/Canine_Cortec_Surgical_Protocol.pdf">surgical protocol here</a>.
+</p><p><br />
+</p>
+<h1><span class="mw-headline" id="Preliminary_experience_with_the_CorTec_BrainInterchange_device_in_a_canine_modele">Preliminary experience with the CorTec BrainInterchange device in a canine modele</span></h1>
+<p>This article describes initial work toward an ecosystem for adaptive neuromodulation in humans by documenting the experience of implanting CorTec's BrainInterchange (BIC) device in a beagle canine and using the BCI2000 environment to interact with the BIC device. It begins with laying out the substantial opportunity presented by a useful, easy-to-use, and widely available hardware/software ecosystem in the current landscape of the field of adaptive neuromodulation, and then describes experience with implantation, software integration, and post-surgical validation of recording of brain signals and implant parameters. Initial experience suggests that the hardware capabilities of the BIC device are fully supported by BCI2000, and that the BIC/BCI2000 device can record and process brain signals during free behavior. With further development and validation, the BIC/BCI2000 ecosystem could become an important tool for research into new adaptive neuromodulation protocols in humans. 
+</p><p>Schalk G, Worrell S, Mivalt F, Belsten A, Kim I, Morris JM, Hermes D, Klassen BT, Staff NP, Messina S, Kaufmann T, Rickert J, Brunner P, Worrell GA, Miller KJ. Toward a fully implantable ecosystem for adaptive neuromodulation in humans: Preliminary experience with the CorTec BrainInterchange device in a canine model. Front Neurosci. 2022 Dec 19;16:932782. doi: 10.3389/fnins.2022.932782. PMID: 36601593; PMCID: PMC9806357.
+</p><p>Download the <a rel="nofollow" class="external text" href="https://bci2000.org/downloads/doc/Preliminary_experience_with_the_CorTec_BrainInterchange_device_in_a_canine_model.pdf">article here</a>.
+</p><p><br />
+</p>
+<h1><span class="mw-headline" id="Data_Sharing">Data Sharing</span></h1>
+<p>This data recorded is freely available on DANDI and OpenNeuro.
+</p><p>Download the <a rel="nofollow" class="external text" href="https://dandiarchive.org/dandiset/000571?pos=1">canine data from DANDI</a>.
+</p><p>Download the <a rel="nofollow" class="external text" href="https://openneuro.org/datasets/ds004624/versions/1.0.1">canine data from OpenNeuro</a>.
+</p>
+<h1><span class="mw-headline" id="Closed-loop_Stimulation">Closed-loop Stimulation</span></h1>
+<p>With BCI2000, it is possible to stimulate with the Brain Interchange based on processed signals from Brain Interchange recordings! BCI2000's infrastructure was created for closed-loop control, as it processes the recorded activity and can directly use the results to affect the task or stimulation. 
+</p>
+<div class="thumb embedvideo  ev_center autoResize" style="width: 908px;"><div class="embedvideo autoResize" style=" width: 906px;"><div class="embedvideowrap" style="width: 900px;"><iframe title="Play video" src="https://www.youtube.com/embed/YIM_YmoHRR8?" width="900" height="506" frameborder="0" allowfullscreen="true"></iframe></div></div></div>
+<p>To start out, we can review how to conduct a closed-loop brain-computer interface task. This has a very similar pipeline to closed-loop stimulation so it is a good place to start. Review the <a href="User_Tutorial%253AMu_Rhythm_BCI_Tutorial.html" title="User Tutorial:Mu Rhythm BCI Tutorial">Mu Rhythm tutorial</a> for in-depth instructions on how to set it up. 
+</p><p>Now that we have the closed-loop task control reviewed, we can move on to closed-loop stimulation. Since CortecADC is a source module, stimulation is conducted in the source module (review the <a href="User_Reference%253AFilters.html" title="User Reference:Filters">Filters</a> page for BCI2000 overview). This means we have to carry-over the results from the past signal processing pipeline to the next block. This can be done with States, which stream through all the modules of BCI2000 in a closed-loop fashion. Since Cortec stimulation is controlled with Expressions, a State that was changed due to the processed signal will trigger stimulation. For example, you can use EarlyOffsetExpression available in the <a href="User_Tutorial%253AStimulusPresentation.html" title="User Tutorial:StimulusPresentation">StimulusPresentation</a> Application module to change stimuli due to a processed signal. You would set up the stimulation to be triggered once the new stimulus is reached, due to EarlyOffsetExpression becoming true.
+</p>
+<h1><span class="mw-headline" id="Synchronize_Inertial_Measurement_Units_with_the_CorTec_Brain_Interchange">Synchronize Inertial Measurement Units with the CorTec Brain Interchange</span></h1>
+<div class="thumb embedvideo  ev_center autoResize" style="width: 908px;"><div class="embedvideo autoResize" style=" width: 906px;"><div class="embedvideowrap" style="width: 900px;"><iframe title="Play video" src="https://www.youtube.com/embed/-SOUX5J1vJE?" width="900" height="506" frameborder="0" allowfullscreen="true"></iframe></div></div></div>
+<!-- 
+NewPP limit report
+Cached time: 20241129160415
+Cache expiry: 86400
+Reduced expiry: false
+Complications: [show‐toc]
+CPU time usage: 0.017 seconds
+Real time usage: 0.020 seconds
+Preprocessor visited node count: 40/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/100
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 1029/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2587-0!canonical and timestamp 20241129160415 and revision id 11556.
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=CortecExperience&amp;oldid=11556">http://www.bci2000.org/mediawiki/index.php?title=CortecExperience&amp;oldid=11556</a>"</div>
+ </div>
+</body>
+</html>

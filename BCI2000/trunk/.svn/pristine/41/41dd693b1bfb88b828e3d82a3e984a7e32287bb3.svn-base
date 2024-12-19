@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Stimulation - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:grey; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:black; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">Stimulation</h1>
+ <p class = "subtitle"></p>
+ <hr class = "sep" />
+ <div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><p>Stimulation is easier than ever with BCI2000 - including closed-loop stimulation! Because of BCI2000's closed-loop nature, stimulation can be performed based on any trigger, ranging from a simple visual stimulus to the output of a complicated signal processing computation in real time. The stimulation format is standardized in BCI2000, with some differences due to device variations. This page will list all the stimulators implemented with BCI2000, and include basic information that applies to all stimulators. For device-specific information, refer to the device's wiki page.
+</p><p>Contact engelhardt@neurotechcenter.org if you wish to use another stimulator with BCI2000!
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Stimulation.html#Stimulators"><span class="tocnumber">1</span> <span class="toctext">Stimulators</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="Stimulation.html#Amplifier_and_Stimulator"><span class="tocnumber">1.1</span> <span class="toctext">Amplifier and Stimulator</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="Stimulation.html#Stimulator"><span class="tocnumber">1.2</span> <span class="toctext">Stimulator</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-4"><a href="Stimulation.html#Configuring_Stimulation_Parameters"><span class="tocnumber">2</span> <span class="toctext">Configuring Stimulation Parameters</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="Stimulation.html#Real-time_Stimulation_Visualization"><span class="tocnumber">3</span> <span class="toctext">Real-time Stimulation Visualization</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="Stimulation.html#Closed-loop_Stimulation"><span class="tocnumber">4</span> <span class="toctext">Closed-loop Stimulation</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Stimulators">Stimulators</span></h2>
+<p>Some of the stimulators also include data acquisition capabilities. We will group the stimulators by this capability.
+</p>
+<h3><span class="mw-headline" id="Amplifier_and_Stimulator">Amplifier and Stimulator</span></h3>
+<p><i>Standardized</i>
+</p>
+<ul><li><a href="CortecExperience.html" title="CortecExperience">Cortec Brain Interchange</a></li>
+<li><a href="Contributions%253ANeuroOmegaADC.html" title="Contributions:NeuroOmegaADC">AlphaOmega neuromodulation system</a></li></ul>
+<p><i>Non-standardized</i>
+</p>
+<ul><li><a href="Contributions%253AAmpServerProADC.html" title="Contributions:AmpServerProADC">Magstim EGI GTEN neuromodulation system</a></li>
+<li><a href="Contributions%253AMicroLeadsADC.html" title="Contributions:MicroLeadsADC">Contributions:MicroLeadsADC</a></li></ul>
+<h3><span class="mw-headline" id="Stimulator">Stimulator</span></h3>
+<p><i>Standardized</i>
+</p>
+<ul><li><a href="Contributions%253AgEstimFilter.html" title="Contributions:gEstimFilter">g.tec gEstim PRO</a></li>
+<li><a href="Contributions%253ACereStim.html" title="Contributions:CereStim">Blackrock CereStim</a></li></ul>
+<p><i>Non-standardized</i>
+</p>
+<ul><li><a href="Contributions%253AgSTIMbox.html" title="Contributions:gSTIMbox">Contributions:gSTIMbox</a></li>
+<li><a href="Contributions%253ATBSIStimulator.html" title="Contributions:TBSIStimulator">Contributions:TBSIStimulator</a></li></ul>
+<h2><span class="mw-headline" id="Configuring_Stimulation_Parameters"><a href="User_Reference%253AStimulationConfigurationIntegrativeTool_(SCIT).html" title="User Reference:StimulationConfigurationIntegrativeTool (SCIT)">Configuring Stimulation Parameters</a></span></h2>
+<p>To help out with creating the BCI2000 parameters, a GUI has been made which should make it easy to translate your stimulation specifications into BCI2000 parameter files. The GUI also visualizes the stimulation from three different perspectives, making it easy to tell if your parameters are really what you want. There is a <a href="User_Reference%253AStimulationConfigurationIntegrativeTool_(SCIT).html" title="User Reference:StimulationConfigurationIntegrativeTool (SCIT)">Stimulation Configuration tool user reference</a> which will further tell you how to use this tool.
+</p>
+<div class="center"><div class="thumb tnone"><div class="thumbinner" style="width:1170px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:CerestimGUIimg.png" class="image"><img alt="" src="../images/0/0d/CerestimGUIimg.png" decoding="async" width="1168" height="662" class="thumbimage" /></a>  <div class="thumbcaption">An example stimulation configuration for the CereStim</div></div></div></div>
+<h2><span class="mw-headline" id="Real-time_Stimulation_Visualization"><a href="Contributions%253ACCEPFilter.html" title="Contributions:CCEPFilter">Real-time Stimulation Visualization</a></span></h2>
+<div class="center"><div class="thumb tnone"><div class="thumbinner" style="width:618px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:CCEP_gif.gif" class="image"><img alt="" src="../images/e/e2/CCEP_gif.gif" decoding="async" width="616" height="592" class="thumbimage" /></a>  <div class="thumbcaption">An example video showing one channel of the CCEP filter.</div></div></div></div>
+<h2><span class="mw-headline" id="Closed-loop_Stimulation">Closed-loop Stimulation</span></h2>
+<p>An example of how to perform closed-loop stimulation based on the processed neural activity would be the <a href="User_Tutorial%253AMu_Rhythm_BCI_Tutorial.html" title="User Tutorial:Mu Rhythm BCI Tutorial">Mu Rhythm tutorial</a>. This tutorial steps you through the whole pipeline of set-up to post-experiment analysis. The main idea is to make a ball move on the screen due to a difference in the power of a certain frequency band. The goal is to move the ball to a target. Once the ball reaches the target, a BCI2000 State is changed.
+</p><p>All the stimulators use a <a href="User_Reference%253AExpression_Syntax.html" title="User Reference:Expression Syntax">BCI2000 Expression</a> to trigger stimulation, which can include a State. Therefore, it can be easy to set-up stimulation based on when the ball hits the target. You can also cut-out the middle man, and directly use a thresholded signal to trigger stimulation as well.
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20241129160712
+Cache expiry: 86400
+Reduced expiry: false
+Complications: [show‐toc]
+CPU time usage: 0.024 seconds
+Real time usage: 0.029 seconds
+Preprocessor visited node count: 29/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/100
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2691-0!canonical and timestamp 20241129160712 and revision id 11365.
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Stimulation&amp;oldid=11365">http://www.bci2000.org/mediawiki/index.php?title=Stimulation&amp;oldid=11365</a>"</div>
+ </div>
+</body>
+</html>

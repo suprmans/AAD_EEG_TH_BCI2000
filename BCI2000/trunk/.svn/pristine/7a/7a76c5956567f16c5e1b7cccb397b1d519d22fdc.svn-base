@@ -1,0 +1,42 @@
+###########################################################################
+## $Id$
+## Authors: mellinger@neurotechcenter.org
+## Description: Sets up CMAKE variables for including BrainFlow in a project
+
+if(NOT MSVC OR CMAKE_SYSTEM_PROCESSOR STREQUAL "ARM64")
+  utils_warn(
+    "Precompiled BrainFlow libraries are only available for x86 and x64 MSVC on Windows.\n"
+    "For other compilers/platforms, libraries can be added if necessary."
+  )
+  set(EXTLIB_OK false)
+  return()
+endif()
+
+set(INC_EXTLIB "${PROJECT_SRC_DIR}/extlib/brainflow/brainflow_5.15.0/inc")
+if(CMAKE_SIZEOF_VOID_P EQUAL 8)
+  set(bflib_ Brainflow.lib)
+  set(arch_ x64)
+else()
+  set(bflib_ Brainflow32.lib)
+  set(arch_ x86)
+endif()
+set(dlldir_ ${INC_EXTLIB}/../lib_${arch_})
+file(GLOB dlls_ "${dlldir_}/*.dll")
+foreach(dll_ ${dlls_})
+  list(APPEND SRC_EXTLIB COMPANION ${dll_})
+endforeach()
+file(GLOB implibs_ "${dlldir_}/*.lib")
+foreach(implib_ ${implibs_})
+  list(APPEND LIBS_EXTLIB ${implib_})
+endforeach()
+
+string(TOLOWER ${crt_link_type} link_type_)
+set(libdir_ ${INC_EXTLIB}/../lib_msvc_${arch_}_${link_type_}_crt_$<IF:$<CONFIG:Debug>,debug,release>)
+list(APPEND LIBS_EXTLIB
+  ${libdir_}/${bflib_}
+  ${libdir_}/DSPFilters.lib
+  ${libdir_}/kissfft-double.lib
+  ${libdir_}/WaveLib.lib
+)
+set( EXTLIB_OK TRUE )
+

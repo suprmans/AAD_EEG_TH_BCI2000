@@ -1,0 +1,9 @@
+###########################################################################
+## $Id$
+## Authors: mellinger@neurotechcenter.org
+## Description: Sets up CMAKE variables for including the utf8-converter lib
+
+SET( EXTLIB_OK TRUE )
+SET( SRC_EXTLIB ${PROJECT_SRC_DIR}/extlib/ConvertUTF/ConvertUTF.c )
+SET( HDR_EXTLIB ${PROJECT_SRC_DIR}/extlib/ConvertUTF/ConvertUTF.h )
+SET( INC_EXTLIB ${PROJECT_SRC_DIR}/extlib/ConvertUTF )

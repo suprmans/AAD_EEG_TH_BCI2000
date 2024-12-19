@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>User Reference:Parameters - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:grey; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:black; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul><li class="toc1"><a href="User_Reference%253AOperator_Module.html">Operator Module</a></li><li class="toc1"><a href="User_Reference%253AOperator_Module_Scripting.html">Operator Scripting</a></li><li class="toc1"><a href="User_Reference%253AModule_Command_Line_Options.html">Module Command Line Options</a></li><li class="toc1"><a href="User_Reference%253AData_File_Formats.html">Data File Formats</a></li><li class="toc1"><a href="User_Reference%253AFilters.html">Configuration Guide</a></li><li class="toc1"><a href="User_FAQ.html">FAQ</a></li><li class="toc1">Applications</li><ul><li class="toc2"><a href="User_Reference%253ACursorTask.html">Cursor Task</a></li><li class="toc2"><a href="User_Reference%253AP3SpellerTask.html">P3Speller Task</a></li><li class="toc2"><a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:StimulusPresentation">Stimulus Presentation</a></li></ul><li class="toc1">Tools</li><ul><li class="toc2"><a href="User_Reference%253ABCI2000Launcher.html">BCI2000Launcher</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Viewer.html">BCI2000Viewer</a></li><li class="toc2"><a href="User_Reference%253ABCI2000FileInfo.html">BCI2000FileInfo</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Export.html">BCI2000Export</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Analysis.html">BCI2000Analysis</a></li><li class="toc2"><a href="User_Reference%253ABCI2000_Offline_Analysis.html">BCI2000 Offline Analysis</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Certification.html">BCI2000Certification</a></li><li class="toc2"><a href="User_Reference%253AEloc_Helper.html">Eloc Helper</a></li><li class="toc2"><a href="User_Reference%253AEEGLabImport.html">EEGLabImport</a></li><li class="toc2"><a href="User_Reference%253AMatlab_Tools.html">Matlab Tools</a></li><li class="toc2"><a href="User_Reference%253AMatlab_MEX_Files.html">Matlab MEX Files</a></li><li class="toc2"><a href="User_Reference%253ACommand_Line_Processing.html">Command Line Processing</a></li></ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">Parameters</h1>
+ <p class = "subtitle">User Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><p>This page provides an alphabetical list of <a href="BCI2000_Glossary.html#Parameter" title="BCI2000 Glossary">parameters</a>, with links to where they appear.
+</p><p>Rather than using this list to find information about a certain parameter, you may use <b>context help</b> to look up a parameter's reference from the <a href="User_Reference%253AOperator_Module.html" title="User Reference:Operator Module">Operator Module's</a> parameter configuration dialog.
+There, click the window's question button (top right), and then the parameter name you would like to get 
+help for.
+</p>
+<hr />
+<dl><dt>&lt;FilterName&gt;Channels</dt>
+<dd><a href="Programming_Reference%253AParallelCombination.html#&lt;FilterName&gt;Channels" title="Programming Reference:ParallelCombination">Programming Reference:ParallelCombination</a></dd></dl>
+<dl><dt>&lt;name&gt;HideCursor</dt>
+<dd><a href="Programming_Reference%253AApplicationWindow_Class.html#&lt;name&gt;HideCursor" title="Programming Reference:ApplicationWindow Class">Programming Reference:ApplicationWindow Class</a></dd></dl>
+<dl><dt>&lt;name&gt;WindowBackgroundColor</dt>
+<dd><a href="Programming_Reference%253AApplicationWindow_Class.html#&lt;name&gt;WindowBackgroundColor" title="Programming Reference:ApplicationWindow Class">Programming Reference:ApplicationWindow Class</a></dd></dl>
+<dl><dt>&lt;name&gt;WindowFullscreen</dt>
+<dd><a href="Programming_Reference%253AApplicationWindow_Class.html#&lt;name&gt;WindowFullscreen" title="Programming Reference:ApplicationWindow Class">Programming Reference:ApplicationWindow Class</a></dd></dl>
+<dl><dt>&lt;name&gt;WindowInfo</dt>
+<dd><a href="Programming_Reference%253AApplicationWindow_Class.html#&lt;name&gt;WindowInfo" title="Programming Reference:ApplicationWindow Class">Programming Reference:ApplicationWindow Class</a></dd></dl>
+<dl><dt>&lt;name&gt;WindowLeft, &lt;name&gt;WindowTop</dt>
+<dd><a href="Programming_Reference%253AApplicationWindow_Class.html#&lt;name&gt;WindowLeft,_&lt;name&gt;WindowTop" title="Programming Reference:ApplicationWindow Class">Programming Reference:ApplicationWindow Class</a></dd></dl>
+<dl><dt>&lt;name&gt;WindowSpatialDecimation</dt>
+<dd><a href="Programming_Reference%253AApplicationWindow_Class.html#&lt;name&gt;WindowSpatialDecimation" title="Programming Reference:ApplicationWindow Class">Programming Reference:ApplicationWindow Class</a></dd></dl>
+<dl><dt>&lt;name&gt;WindowTemporalDecimation</dt>
+<dd><a href="Programming_Reference%253AApplicationWindow_Class.html#&lt;name&gt;WindowTemporalDecimation" title="Programming Reference:ApplicationWindow Class">Programming Reference:ApplicationWindow Class</a></dd></dl>
+<dl><dt>&lt;name&gt;WindowWidth, &lt;name&gt;WindowHeight</dt>
+<dd><a href="Programming_Reference%253AApplicationWindow_Class.html#&lt;name&gt;WindowWidth,_&lt;name&gt;WindowHeight" title="Programming Reference:ApplicationWindow Class">Programming Reference:ApplicationWindow Class</a></dd></dl>
+<dl><dt>&lt;UserDefinedParameterName&gt;</dt>
+<dd><a href="Programming_Reference%253AChoiceCombination.html#&lt;UserDefinedParameterName&gt;" title="Programming Reference:ChoiceCombination">Programming Reference:ChoiceCombination</a></dd></dl>
+<dl><dt>AbortExpression</dt>
+<dd><a href="Contributions%253AgEstimFilter.html#AbortExpression" title="Contributions:gEstimFilter">Contributions:gEstimFilter</a></dd></dl>
+<dl><dt>AccumulateEvidence</dt>
+<dd><a href="Programming_Reference%253AStimulusTask_Class.html#AccumulateEvidence" title="Programming Reference:StimulusTask Class">Programming Reference:StimulusTask Class</a></dd></dl>
+<dl><dt>AccuracyLow</dt>
+<dd><a href="EglyDriverTask.html#AccuracyLow" title="EglyDriverTask">EglyDriverTask</a></dd></dl>
+<dl><dt>AccuracyUp</dt>
+<dd><a href="EglyDriverTask.html#AccuracyUp" title="EglyDriverTask">EglyDriverTask</a></dd></dl>
+<dl><dt>AcquisitionMode</dt>
+<dd><a href="Contributions%253AvAmpADC.html#AcquisitionMode" title="Contributions:vAmpADC">Contributions:vAmpADC</a></dd>
+<dd><a href="Contributions%253AFlexEEG.html#AcquisitionMode" title="Contributions:FlexEEG">Contributions:FlexEEG</a></dd>
+<dd><a href="Contributions%253ACereStim.html#AcquisitionMode" title="Contributions:CereStim">Contributions:CereStim</a></dd>
+<dd><a href="Contributions%253AactiCHampPlus.html#AcquisitionMode" title="Contributions:actiCHampPlus">Contributions:actiCHampPlus</a></dd>
+<dd><a href="Contributions%253AactiCHamp.html#AcquisitionMode" title="Contributions:actiCHamp">Contributions:actiCHamp</a></dd></dl>
+<dl><dt>actiCHampAmplifierID</dt>
+<dd><a href="Contributions%253AactiCHampPlus.html#actiCHampAmplifierID" title="Contributions:actiCHampPlus">Contributions:actiCHampPlus</a></dd>
+<dd><a href="Contributions%253AactiCHamp.html#actiCHampAmplifierID" title="Contributions:actiCHamp">Contributions:actiCHamp</a></dd></dl>
+<dl><dt>ActivateEstim</dt>
+<dd><a href="Contributions%253AgEstimFilter.html#ActivateEstim" title="Contributions:gEstimFilter">Contributions:gEstimFilter</a></dd></dl>
+<dl><dt>ActivateHandVibration</dt>
+<dd><a href="HandVibrationFilter.html#ActivateHandVibration" title="HandVibrationFilter">HandVibrationFilter</a></dd></dl>
+<dl><dt>ActivateSwitchingUnit</dt>
+<dd><a href="Contributions%253Ag.EstimSwitchingUnit.html#ActivateSwitchingUnit" title="Contributions:g.EstimSwitchingUnit">Contributions:g.EstimSwitchingUnit</a></dd></dl>
+<dl><dt>ActiveShieldGain</dt>
+<dd><a href="Contributions%253AactiCHamp.html#ActiveShieldGain" title="Contributions:actiCHamp">Contributions:actiCHamp</a></dd></dl>
+<dl><dt>AdjustContrastBy</dt>
+<dd><a href="EglyDriverTask.html#AdjustContrastBy" title="EglyDriverTask">EglyDriverTask</a></dd></dl>
+<dl><dt>AdjustContrastTrialNum</dt>
+<dd><a href="EglyDriverTask.html#AdjustContrastTrialNum" title="EglyDriverTask">EglyDriverTask</a></dd></dl>
+<dl><dt>ADRange</dt>
+<dd><a href="Contributions%253ADAS_ADC.html#ADRange" title="Contributions:DAS ADC">Contributions:DAS ADC</a></dd></dl>
+<dl><dt>AIBChList</dt>
+<dd><a href="Contributions%253ABiosemi2ADC.html#AIBChList" title="Contributions:Biosemi2ADC">Contributions:Biosemi2ADC</a></dd></dl>
+<dl><dt>AlignChannels</dt>
+<dd><a href="User_Reference%253AAlignmentFilter.html#AlignChannels" title="User Reference:AlignmentFilter">User Reference:AlignmentFilter</a></dd>
+<dd><a href="Contributions%253AB-Alert.html#AlignChannels" title="Contributions:B-Alert">Contributions:B-Alert</a></dd></dl>
+<dl><dt>AllignChannels</dt>
+<dd><a href="Contributions%253AEnobioADC.html#AllignChannels" title="Contributions:EnobioADC">Contributions:EnobioADC</a></dd></dl>
+<dl><dt>AM</dt>
+<dd><a href="Contributions%253AKeysightGenerator.html#AM" title="Contributions:KeysightGenerator">Contributions:KeysightGenerator</a></dd></dl>
+<dl><dt>AmplifierID</dt>
+<dd><a href="Contributions%253AAmpServerProADC.html#AmplifierID" title="Contributions:AmpServerProADC">Contributions:AmpServerProADC</a></dd></dl>
+<dl><dt>ApplicationDescription</dt>
+<dd><a href="Contributions%253ABCPy2000.html#ApplicationDescription" title="Contributions:BCPy2000">Contributions:BCPy2000</a></dd></dl>
+<dl><dt>AppliedCurrent</dt>
+<dd><a href="Contributions%253ACereStim.html#AppliedCurrent" title="Contributions:CereStim">Contributions:CereStim</a></dd></dl>
+<dl><dt>AppliedFrequency</dt>
+<dd><a href="Contributions%253ACereStim.html#AppliedFrequency" title="Contributions:CereStim">Contributions:CereStim</a></dd></dl>
+<dl><dt>AppliedPhaseCharge</dt>
+<dd><a href="Contributions%253ACereStim.html#AppliedPhaseCharge" title="Contributions:CereStim">Contributions:CereStim</a></dd></dl>
+<dl><dt>AppliedVoltage</dt>
+<dd><a href="Contributions%253ACereStim.html#AppliedVoltage" title="Contributions:CereStim">Contributions:CereStim</a></dd></dl>
+<dl><dt>AppWindowSpatialDecimation</dt>
+<dd><a href="Programming_Reference%253AApplicationWindow_Class.html#AppWindowSpatialDecimation" title="Programming Reference:ApplicationWindow Class">Programming Reference:ApplicationWindow Class</a></dd></dl>
+<dl><dt>AppWindowTemporalDecimation</dt>
+<dd><a href="Programming_Reference%253AApplicationWindow_Class.html#AppWindowTemporalDecimation" title="Programming Reference:ApplicationWindow Class">Programming Reference:ApplicationWindow Class</a></dd></dl>
+<dl><dt>AudioEnvelopeSmoothing</dt>
+<dd><a href="Contributions%253AAudioExtension.html#AudioEnvelopeSmoothing" title="Contributions:AudioExtension">Contributions:AudioExtension</a></dd></dl>
+<dl><dt>AudioInputDevice</dt>
+<dd><a href="Contributions%253AAudioExtension.html#AudioInputDevice" title="Contributions:AudioExtension">Contributions:AudioExtension</a></dd></dl>
+<dl><dt>AudioInputFile</dt>
+<dd><a href="Contributions%253AAudioExtension.html#AudioInputFile" title="Contributions:AudioExtension">Contributions:AudioExtension</a></dd></dl>
+<dl><dt>AudioInputFilterbank, AudioOutputFilterbank</dt>
+<dd><a href="Contributions%253AAudioExtension.html#AudioInputFilterbank,_AudioOutputFilterbank" title="Contributions:AudioExtension">Contributions:AudioExtension</a></dd></dl>
+<dl><dt>AudioMixer</dt>
+<dd><a href="Contributions%253AAudioExtension.html#AudioMixer" title="Contributions:AudioExtension">Contributions:AudioExtension</a></dd></dl>
+<dl><dt>AudioOutputDevice</dt>
+<dd><a href="Contributions%253AAudioExtension.html#AudioOutputDevice" title="Contributions:AudioExtension">Contributions:AudioExtension</a></dd></dl>
+<dl><dt>AudioRecordingFormat</dt>
+<dd><a href="Contributions%253AAudioExtension.html#AudioRecordingFormat" title="Contributions:AudioExtension">Contributions:AudioExtension</a></dd></dl>
+<dl><dt>AudioRecordInput</dt>
+<dd><a href="Contributions%253AAudioExtension.html#AudioRecordInput" title="Contributions:AudioExtension">Contributions:AudioExtension</a></dd></dl>
+<dl><dt>AudioRecordOutput</dt>
+<dd><a href="Contributions%253AAudioExtension.html#AudioRecordOutput" title="Contributions:AudioExtension">Contributions:AudioExtension</a></dd></dl>
+<dl><dt>AuxChList</dt>
+<dd><a href="Contributions%253AactiCHampPlus.html#AUXChList" title="Contributions:actiCHampPlus">Contributions:actiCHampPlus</a></dd>
+<dd><a href="Contributions%253AactiCHamp.html#AuxChList" title="Contributions:actiCHamp">Contributions:actiCHamp</a></dd></dl>
+<dl><dt>AxeActiveColor</dt>
+<dd><a href="Contributions%253AHyperScanningTask.html#AxeActiveColor" class="mw-redirect" title="Contributions:HyperScanningTask">Contributions:HyperScanningTask</a></dd>
+<dd><a href="Contributions%253ACommunicationTask.html#AxeActiveColor" title="Contributions:CommunicationTask">Contributions:CommunicationTask</a></dd></dl>
+<dl><dt>AxeInActiveColor</dt>
+<dd><a href="Contributions%253AHyperScanningTask.html#AxeInActiveColor" class="mw-redirect" title="Contributions:HyperScanningTask">Contributions:HyperScanningTask</a></dd>
+<dd><a href="Contributions%253ACommunicationTask.html#AxeInActiveColor" title="Contributions:CommunicationTask">Contributions:CommunicationTask</a></dd></dl>
+<dl><dt>BackwardsCompatibility</dt>
+<dd><a href="Contributions%253ADelsysTrignoAvanti.html#BackwardsCompatibility" title="Contributions:DelsysTrignoAvanti">Contributions:DelsysTrignoAvanti</a></dd></dl>
+<dl><dt>BarColor</dt>
+<dd><a href="Contributions%253AHyperScanningTask.html#BarColor" class="mw-redirect" title="Contributions:HyperScanningTask">Contributions:HyperScanningTask</a></dd>
+<dd><a href="Contributions%253ACommunicationTask.html#BarColor" title="Contributions:CommunicationTask">Contributions:CommunicationTask</a></dd></dl>
+<dl><dt>BarDurationMin, BarDurationMax</dt>
+<dd><a href="EglyDriverTask.html#BarDurationMin,_BarDurationMax" title="EglyDriverTask">EglyDriverTask</a></dd></dl>
+<dl><dt>BarThick</dt>
+<dd><a href="EglyDriverTask.html#BarThick" title="EglyDriverTask">EglyDriverTask</a></dd></dl>
+<dl><dt>BaselineEpochLength</dt>
+<dd><a href="Contributions%253ABrainFlow.html#BaselineEpochLength" title="Contributions:BrainFlow">Contributions:BrainFlow</a></dd></dl>
+<dl><dt>BinWidth</dt>
+<dd><a href="User_Reference%253AARFilter.html#BinWidth" class="mw-redirect" title="User Reference:ARFilter">User Reference:ARFilter</a></dd></dl>
+<dl><dt>BioPacBlockSize</dt>
+<dd><a href="Contributions%253ABioPacLogger.html#BioPacBlockSize" title="Contributions:BioPacLogger">Contributions:BioPacLogger</a></dd></dl>
+<dl><dt>BioPacCh</dt>
+<dd><a href="Contributions%253ABioPacLogger.html#BioPacCh" title="Contributions:BioPacLogger">Contributions:BioPacLogger</a></dd></dl>
+<dl><dt>BioPacChMatrix</dt>
+<dd><a href="Contributions%253ABioPacLogger.html#BioPacChMatrix" title="Contributions:BioPacLogger">Contributions:BioPacLogger</a></dd></dl>
+<dl><dt>BioPacSamplingRate</dt>
+<dd><a href="Contributions%253ABioPacLogger.html#BioPacSamplingRate" title="Contributions:BioPacLogger">Contributions:BioPacLogger</a></dd></dl>
+<dl><dt>Bit</dt>
+<dd><a href="Contributions%253AParallelPortFilter.html#Bit" title="Contributions:ParallelPortFilter">Contributions:ParallelPortFilter</a></dd></dl>
+<dl><dt>BlankEverySecondTrial</dt>
+<dd><a href="Contributions%253AANTTask.html#BlankEverySecondTrial" title="Contributions:ANTTask">Contributions:ANTTask</a></dd></dl>
+<dl><dt>BlockSequence</dt>
+<dd><a href="Contributions%253AANTTask.html#BlockSequence" title="Contributions:ANTTask">Contributions:ANTTask</a></dd></dl>
+<dl><dt>BlockSize</dt>
+<dd><a href="Contributions%253AAmpServerProADC.html#BlockSize" title="Contributions:AmpServerProADC">Contributions:AmpServerProADC</a></dd></dl>
+<dl><dt>BlocksPerRun</dt>
+<dd><a href="Contributions%253ABCPy2000.html#BlocksPerRun" title="Contributions:BCPy2000">Contributions:BCPy2000</a></dd></dl>
+<dl><dt>BluetoothMac</dt>
+<dd><a href="Contributions%253AEnobioADC.html#BluetoothMac" title="Contributions:EnobioADC">Contributions:EnobioADC</a></dd></dl>
+<dl><dt>BoardID</dt>
+<dd><a href="Contributions%253ABrainFlow.html#BoardID" title="Contributions:BrainFlow">Contributions:BrainFlow</a></dd></dl>
+<dl><dt>BoardName</dt>
+<dd><a href="Contributions%253ADTADC.html#BoardName" title="Contributions:DTADC">Contributions:DTADC</a></dd></dl>
+<dl><dt>BoardName2</dt>
+<dd><a href="Contributions%253ADTADC.html#BoardName2" title="Contributions:DTADC">Contributions:DTADC</a></dd></dl>
+<dl><dt>BoardNumber</dt>
+<dd><a href="Contributions%253ANIDAQ-MX.html#BoardNumber" title="Contributions:NIDAQ-MX">Contributions:NIDAQ-MX</a></dd>
+<dd><a href="Contributions%253ANeuSenW.html#BoardNumber" title="Contributions:NeuSenW">Contributions:NeuSenW</a></dd>
+<dd><a href="Contributions%253ADAS_ADC.html#BoardNumber" title="Contributions:DAS ADC">Contributions:DAS ADC</a></dd></dl>
+<dl><dt>BreakTrialSequece</dt>
+<dd><a href="Contributions%253AHyperScanningTask.html#BreakTrialSequece" class="mw-redirect" title="Contributions:HyperScanningTask">Contributions:HyperScanningTask</a></dd>
+<dd><a href="Contributions%253ACommunicationTask.html#BreakTrialSequece" title="Contributions:CommunicationTask">Contributions:CommunicationTask</a></dd></dl>
+<dl><dt>BufferAhead</dt>
+<dd><a href="Contributions%253ADSISerial.html#BufferAhead" title="Contributions:DSISerial">Contributions:DSISerial</a></dd></dl>
+<dl><dt>Burst</dt>
+<dd><a href="Contributions%253AKeysightGenerator.html#Burst" title="Contributions:KeysightGenerator">Contributions:KeysightGenerator</a></dd></dl>
+<dl><dt>CameraAim</dt>
+<dd><a href="Contributions%253ACenterOutTask.html#CameraAim" title="Contributions:CenterOutTask">Contributions:CenterOutTask</a></dd></dl>
+<dl><dt>CameraNumber</dt>
+<dd><a href="Contributions%253AWebcamLogger.html#CameraNumber" title="Contributions:WebcamLogger">Contributions:WebcamLogger</a></dd></dl>
+<dl><dt>CameraPos</dt>
+<dd><a href="Contributions%253ACenterOutTask.html#CameraPos" title="Contributions:CenterOutTask">Contributions:CenterOutTask</a></dd></dl>
+<dl><dt>CameraProjection</dt>
+<dd><a href="Contributions%253ACenterOutTask.html#CameraProjection" title="Contributions:CenterOutTask">Contributions:CenterOutTask</a></dd></dl>
+<dl><dt>CatchTrialPerctg</dt>
+<dd><a href="EglyDriverTask.html#CatchTrialPerctg" title="EglyDriverTask">EglyDriverTask</a></dd></dl>
+<dl><dt>CCEPEpochLength</dt>
+<dd><a href="Contributions%253ABrainFlow.html#Counting_settings" title="Contributions:BrainFlow">Contributions:BrainFlow</a></dd>
+<dd><a href="Contributions%253ABrainFlow.html#CCEPEpochLength" title="Contributions:BrainFlow">Contributions:BrainFlow</a></dd></dl>
+<dl><dt>Channel</dt>
+<dd><a href="Contributions%253AKeysightGenerator.html#Channel" title="Contributions:KeysightGenerator">Contributions:KeysightGenerator</a></dd></dl>
+<dl><dt>ChannelNames</dt>
+<dd><a href="RipplePyADC.html#ChannelNames" class="mw-redirect" title="RipplePyADC">RipplePyADC</a></dd>
+<dd><a href="MicroLeadsADC.html#ChannelNames" class="mw-redirect" title="MicroLeadsADC">MicroLeadsADC</a></dd>
+<dd><a href="Contributions%253ARipplePyADC.html#ChannelNames" title="Contributions:RipplePyADC">Contributions:RipplePyADC</a></dd>
+<dd><a href="Contributions%253ANatusADC.html#ChannelNames" title="Contributions:NatusADC">Contributions:NatusADC</a></dd>
+<dd><a href="Contributions%253AMicroLeadsADC.html#ChannelNames" title="Contributions:MicroLeadsADC">Contributions:MicroLeadsADC</a></dd>
+<dd><a href="Contributions%253ALabJackADC.html#ChannelNames" title="Contributions:LabJackADC">Contributions:LabJackADC</a></dd>
+<dd><a href="Contributions%253AgNautilusNEEDAccess.html#ChannelNames" title="Contributions:gNautilusNEEDAccess">Contributions:gNautilusNEEDAccess</a></dd>
+<dd><a href="Contributions%253AgNautilus.html#ChannelNames" title="Contributions:gNautilus">Contributions:gNautilus</a></dd>
+<dd><a href="Contributions%253AEnobioADC.html#ChannelNames" title="Contributions:EnobioADC">Contributions:EnobioADC</a></dd>
+<dd><a href="Contributions%253ADSISerial.html#ChannelNames" title="Contributions:DSISerial">Contributions:DSISerial</a></dd>
+<dd><a href="Contributions%253ADelsysTrignoAvanti.html#ChannelNames" title="Contributions:DelsysTrignoAvanti">Contributions:DelsysTrignoAvanti</a></dd>
+<dd><a href="Contributions%253ABlackrock.html#ChannelNames" title="Contributions:Blackrock">Contributions:Blackrock</a></dd>
+<dd><a href="Contributions%253AactiCHampPlus.html#ChannelNames" title="Contributions:actiCHampPlus">Contributions:actiCHampPlus</a></dd></dl>
+<dl><dt>channels</dt>
+<dd><a href="User_Reference%253ABCI2000FileWriter.html#channels" title="User Reference:BCI2000FileWriter">User Reference:BCI2000FileWriter</a></dd></dl>
+<dl><dt>ChannelSets</dt>
+<dd><a href="Contributions%253AStatisticsFilter.html#ChannelSets" title="Contributions:StatisticsFilter">Contributions:StatisticsFilter</a></dd></dl>
+<dl><dt>ChannelThreshold</dt>
+<dd><a href="Contributions%253ABrainFlow.html#ChannelThreshold" title="Contributions:BrainFlow">Contributions:BrainFlow</a></dd></dl>
+<dl><dt>CircleDiameter</dt>
+<dd><a href="Contributions%253AgEstimFilter.html#CircleDiameter" title="Contributions:gEstimFilter">Contributions:gEstimFilter</a></dd></dl>
+<dl><dt>CohBufferLength</dt>
+<dd><a href="Contributions%253ACoherence.html#CohBufferLength" title="Contributions:Coherence">Contributions:Coherence</a></dd></dl>
+<dl><dt>CohFrequencies</dt>
+<dd><a href="Contributions%253ACoherence.html#CohFrequencies" title="Contributions:Coherence">Contributions:Coherence</a></dd></dl>
+<dl><dt>CohWindowLength</dt>
+<dd><a href="Contributions%253ACoherence.html#CohWindowLength" title="Contributions:Coherence">Contributions:Coherence</a></dd></dl>
+<dl><dt>CohWindowOverlap</dt>
+<dd><a href="Contributions%253ACoherence.html#CohWindowOverlap" title="Contributions:Coherence">Contributions:Coherence</a></dd></dl>
+<dl><dt>COM</dt>
+<dd><a href="Contributions%253ABrainFlow.html#COM" title="Contributions:BrainFlow">Contributions:BrainFlow</a></dd></dl>
+<dl><dt>CommandPort</dt>
+<dd><a href="Contributions%253AAmpServerProADC.html#CommandPort" title="Contributions:AmpServerProADC">Contributions:AmpServerProADC</a></dd></dl>
+<dl><dt>CompensationDuration</dt>
+<dd><a href="GuiltTask.html#CompensationDuration" title="GuiltTask">GuiltTask</a></dd></dl>
+<dl><dt>CompensationOne, CompensationTwo, CompensationThree, CompensationFour</dt>
+<dd><a href="GuiltTask.html#CompensationOne,_CompensationTwo,_CompensationThree,_CompensationFour" title="GuiltTask">GuiltTask</a></dd></dl>
+<dl><dt>CompensationQuestion</dt>
+<dd><a href="GuiltTask.html#CompensationQuestion" title="GuiltTask">GuiltTask</a></dd></dl>
+<dl><dt>COMPort</dt>
+<dd><a href="HandVibrationFilter.html#COMPort" title="HandVibrationFilter">HandVibrationFilter</a></dd>
+<dd><a href="Contributions%253APegasusAstro.html#COMPort" title="Contributions:PegasusAstro">Contributions:PegasusAstro</a></dd>
+<dd><a href="Contributions%253AModularEEG.html#ComPort" title="Contributions:ModularEEG">Contributions:ModularEEG</a></dd>
+<dd><a href="Contributions%253ABioRadioADC.html#COMPort" title="Contributions:BioRadioADC">Contributions:BioRadioADC</a></dd></dl>
+<dl><dt>ConfigPath</dt>
+<dd><a href="Contributions%253ABioRadioADC.html#ConfigPath" title="Contributions:BioRadioADC">Contributions:BioRadioADC</a></dd></dl>
+<dl><dt>Configurations</dt>
+<dd><a href="HandVibrationFilter.html#Configurations" title="HandVibrationFilter">HandVibrationFilter</a></dd></dl>
+<dl><dt>Connection</dt>
+<dd><a href="Contributions%253ALabJackADC.html#Connection" title="Contributions:LabJackADC">Contributions:LabJackADC</a></dd></dl>
+<dl><dt>ContactDiameter</dt>
+<dd><a href="Contributions%253AgEstimFilter.html#ContactDiameter" title="Contributions:gEstimFilter">Contributions:gEstimFilter</a></dd></dl>
+<dl><dt>ContactLength</dt>
+<dd><a href="Contributions%253AgEstimFilter.html#ContactLength" title="Contributions:gEstimFilter">Contributions:gEstimFilter</a></dd></dl>
+<dl><dt>CrossToCueDistance</dt>
+<dd><a href="Contributions%253AANTTask.html#CrossToCueDistance" title="Contributions:ANTTask">Contributions:ANTTask</a></dd></dl>
+<dl><dt>CrossToTargetDistance</dt>
+<dd><a href="Contributions%253AANTTask.html#CrossToTargetDistance" title="Contributions:ANTTask">Contributions:ANTTask</a></dd></dl>
+<dl><dt>CrossWidth, CrossHeight</dt>
+<dd><a href="Contributions%253AANTTask.html#CrossWidth,_CrossHeight" title="Contributions:ANTTask">Contributions:ANTTask</a></dd></dl>
+<dl><dt>CueDuration</dt>
+<dd><a href="EglyDriverTask.html#CueDuration" title="EglyDriverTask">EglyDriverTask</a></dd>
+<dd><a href="Contributions%253AANTTask.html#CueDuration" title="Contributions:ANTTask">Contributions:ANTTask</a></dd></dl>
+<dl><dt>CueIconList</dt>
+<dd><a href="Contributions%253AANTTask.html#CueIconList" title="Contributions:ANTTask">Contributions:ANTTask</a></dd></dl>
+<dl><dt>CueTgtDifObjctPerctg</dt>
+<dd><a href="EglyDriverTask.html#CueTgtDifObjctPerctg" title="EglyDriverTask">EglyDriverTask</a></dd></dl>
+<dl><dt>CueTgtMatchPerctg</dt>
+<dd><a href="EglyDriverTask.html#CueTgtMatchPerctg" title="EglyDriverTask">EglyDriverTask</a></dd></dl>
+<dl><dt>CueTgtSmObjctPerctg</dt>
+<dd><a href="EglyDriverTask.html#CueTgtSmObjctPerctg" title="EglyDriverTask">EglyDriverTask</a></dd></dl>
+<dl><dt>CueThick</dt>
+<dd><a href="EglyDriverTask.html#CueThick" title="EglyDriverTask">EglyDriverTask</a></dd></dl>
+<dl><dt>CueToTargetDurationMin, CueToTargetDurationMax</dt>
+<dd><a href="EglyDriverTask.html#CueToTargetDurationMin,_CueToTargetDurationMax" title="EglyDriverTask">EglyDriverTask</a></dd></dl>
+<dl><dt>CueWidth, CueHeight</dt>
+<dd><a href="Contributions%253AANTTask.html#CueWidth,_CueHeight" title="Contributions:ANTTask">Contributions:ANTTask</a></dd></dl>
+<dl><dt>CursorColor</dt>
+<dd><a href="Programming_Reference%253AFeedbackDemo_Application.html#CursorColor" title="Programming Reference:FeedbackDemo Application">Programming Reference:FeedbackDemo Application</a></dd></dl>
+<dl><dt>CursorColorFront, CursorColorBack</dt>
+<dd><a href="Contributions%253ACenterOutTask.html#CursorColorFront,_CursorColorBack" title="Contributions:CenterOutTask">Contributions:CenterOutTask</a></dd></dl>
+<dl><dt>CursorControl</dt>
+<dd><a href="ForagingTask.html#CursorControl" title="ForagingTask">ForagingTask</a></dd></dl>
+<dl><dt>CursorPos</dt>
+<dd><a href="Contributions%253ACenterOutTask.html#CursorPos" title="Contributions:CenterOutTask">Contributions:CenterOutTask</a></dd></dl>
+<dl><dt>CursorTexture</dt>
+<dd><a href="Contributions%253ACenterOutTask.html#CursorTexture" title="Contributions:CenterOutTask">Contributions:CenterOutTask</a></dd></dl>
+<dl><dt>CursorWidth</dt>
+<dd><a href="Programming_Reference%253AFeedbackDemo_Application.html#CursorWidth" title="Programming Reference:FeedbackDemo Application">Programming Reference:FeedbackDemo Application</a></dd>
+<dd><a href="Contributions%253ACenterOutTask.html#CursorWidth" title="Contributions:CenterOutTask">Contributions:CenterOutTask</a></dd></dl>
+<dl><dt>DataDirectory</dt>
+<dd><a href="User_Reference%253ABCI2000FileWriter.html#DataDirectory" title="User Reference:BCI2000FileWriter">User Reference:BCI2000FileWriter</a></dd></dl>
+<dl><dt>DataFile</dt>
+<dd><a href="User_Reference%253ABCI2000FileWriter.html#DataFile" title="User Reference:BCI2000FileWriter">User Reference:BCI2000FileWriter</a></dd></dl>
+<dl><dt>DataGloveDerivative</dt>
+<dd><a href="Contributions%253ADataGloveLogger.html#DataGloveDerivative" title="Contributions:DataGloveLogger">Contributions:DataGloveLogger</a></dd>
+<dd><a href="Contributions%253ACyberGloveLogger.html#DataGloveDerivative" title="Contributions:CyberGloveLogger">Contributions:CyberGloveLogger</a></dd></dl>
+<dl><dt>DataGloveHandedness</dt>
+<dd><a href="Contributions%253ADataGloveLogger.html#DataGloveHandedness" title="Contributions:DataGloveLogger">Contributions:DataGloveLogger</a></dd>
+<dd><a href="Contributions%253ACyberGloveLogger.html#DataGloveHandedness" title="Contributions:CyberGloveLogger">Contributions:CyberGloveLogger</a></dd></dl>
+<dl><dt>DataPrescaler</dt>
+<dd><a href="Contributions%253AXsensMTwLogger.html#DataPrescaler" title="Contributions:XsensMTwLogger">Contributions:XsensMTwLogger</a></dd></dl>
+<dl><dt>DataStream</dt>
+<dd><a href="RipplePyADC.html#DataStream" class="mw-redirect" title="RipplePyADC">RipplePyADC</a></dd>
+<dd><a href="Contributions%253ARipplePyADC.html#DataStream" title="Contributions:RipplePyADC">Contributions:RipplePyADC</a></dd></dl>
+<dl><dt>DataType</dt>
+<dd><a href="Contributions%253AEyetrackerLoggerEyeLink.html#DataType" title="Contributions:EyetrackerLoggerEyeLink">Contributions:EyetrackerLoggerEyeLink</a></dd></dl>
+<dl><dt>DateTimeLocation</dt>
+<dd><a href="Contributions%253AWebcamLogger.html#DateTimeLocation" title="Contributions:WebcamLogger">Contributions:WebcamLogger</a></dd></dl>
+<dl><dt>DCfilter</dt>
+<dd><a href="Contributions%253AFlexEEG.html#DCfilter" title="Contributions:FlexEEG">Contributions:FlexEEG</a></dd></dl>
+<dl><dt>Decimation</dt>
+<dd><a href="User_Reference%253ABCI2000FileWriter.html#decimation" title="User Reference:BCI2000FileWriter">User Reference:BCI2000FileWriter</a></dd>
+<dd><a href="Contributions%253AWebcamLogger.html#Decimation" title="Contributions:WebcamLogger">Contributions:WebcamLogger</a></dd></dl>
+<dl><dt>DecimationFactor</dt>
+<dd><a href="Contributions%253ANatusADC.html#DecimationFactor" title="Contributions:NatusADC">Contributions:NatusADC</a></dd></dl>
+<dl><dt>DecimationOfModulation</dt>
+<dd><a href="HandVibrationFilter.html#DecimationOfModulation" title="HandVibrationFilter">HandVibrationFilter</a></dd></dl>
+<dl><dt>DefaultReference</dt>
+<dd><a href="Contributions%253ADSISerial.html#DefaultReference" title="Contributions:DSISerial">Contributions:DSISerial</a></dd></dl>
+<dl><dt>Delay</dt>
+<dd><a href="Contributions%253AHilbertFilter.html#Delay" title="Contributions:HilbertFilter">Contributions:HilbertFilter</a></dd></dl>
+<dl><dt>DelaysZi</dt>
+<dd><a href="Contributions%253AIIRFilter_ML.html#DelaysZi" title="Contributions:IIRFilter ML">Contributions:IIRFilter ML</a></dd></dl>
+<dl><dt>DenominatorA</dt>
+<dd><a href="Contributions%253AIIRFilter_ML.html#DenominatorA" title="Contributions:IIRFilter ML">Contributions:IIRFilter ML</a></dd></dl>
+<dl><dt>Detrend</dt>
+<dd><a href="User_Reference%253AARFilter.html#Detrend" class="mw-redirect" title="User Reference:ARFilter">User Reference:ARFilter</a></dd></dl>
+<dl><dt>DeviceID</dt>
+<dd><a href="Contributions%253Ag.EstimSwitchingUnit.html#DeviceID" title="Contributions:g.EstimSwitchingUnit">Contributions:g.EstimSwitchingUnit</a></dd></dl>
+<dl><dt>DeviceIDMaster</dt>
+<dd><a href="Contributions%253AgNautilus.html#DeviceIDMaster" title="Contributions:gNautilus">Contributions:gNautilus</a></dd></dl>
+<dl><dt>DeviceIDs</dt>
+<dd><a href="Contributions%253AgNautilus.html#DeviceIDs" title="Contributions:gNautilus">Contributions:gNautilus</a></dd></dl>
+<dl><dt>DeviceInfo</dt>
+<dd><a href="Contributions%253ACereStim.html#DeviceInfo" title="Contributions:CereStim">Contributions:CereStim</a></dd></dl>
+<dl><dt>DeviceType</dt>
+<dd><a href="Contributions%253ATDTADC.html#DeviceType" title="Contributions:TDTADC">Contributions:TDTADC</a></dd></dl>
+<dl><dt>DiffOrder</dt>
+<dd><a href="Contributions%253ADiffFilter.html#DiffOrder" title="Contributions:DiffFilter">Contributions:DiffFilter</a></dd></dl>
+<dl><dt>DigitalGain</dt>
+<dd><a href="Contributions%253ATDTADC.html#DigitalGain" title="Contributions:TDTADC">Contributions:TDTADC</a></dd></dl>
+<dl><dt>DigitalOutput</dt>
+<dd><a href="Contributions%253ABlackrock.html#DigitalOutput" title="Contributions:Blackrock">Contributions:Blackrock</a></dd></dl>
+<dl><dt>DigitalOutputs</dt>
+<dd><a href="Contributions%253AStimBoxFilter.html#DigitalOutputs" title="Contributions:StimBoxFilter">Contributions:StimBoxFilter</a></dd></dl>
+<dl><dt>DimensionFontColor</dt>
+<dd><a href="Contributions%253AHyperScanningTask.html#DimensionFontColor" class="mw-redirect" title="Contributions:HyperScanningTask">Contributions:HyperScanningTask</a></dd>
+<dd><a href="Contributions%253ACommunicationTask.html#DimensionFontColor" title="Contributions:CommunicationTask">Contributions:CommunicationTask</a></dd></dl>
+<dl><dt>DimensionHeight</dt>
+<dd><a href="Contributions%253AHyperScanningTask.html#DimensionHeight" class="mw-redirect" title="Contributions:HyperScanningTask">Contributions:HyperScanningTask</a></dd>
+<dd><a href="Contributions%253ACommunicationTask.html#DimensionHeight" title="Contributions:CommunicationTask">Contributions:CommunicationTask</a></dd></dl>
+<dl><dt>DisplayResults</dt>
+<dd><a href="Programming_Reference%253AStimulusTask_Class.html#DisplayResults" title="Programming Reference:StimulusTask Class">Programming Reference:StimulusTask Class</a></dd></dl>
+<dl><dt>DisplayStream</dt>
+<dd><a href="Contributions%253AWebcamLogger.html#DisplayStream" title="Contributions:WebcamLogger">Contributions:WebcamLogger</a></dd></dl>
+<dl><dt>DivideByDeltaTime</dt>
+<dd><a href="Contributions%253ADiffFilter.html#DivideByDeltaTime" title="Contributions:DiffFilter">Contributions:DiffFilter</a></dd></dl>
+<dl><dt>DoSelfTest</dt>
+<dd><a href="Contributions%253AgEstimFilter.html#DoSelfTest" title="Contributions:gEstimFilter">Contributions:gEstimFilter</a></dd></dl>
+<dl><dt>DotsDuration</dt>
+<dd><a href="GuiltTask.html#DotsDuration" title="GuiltTask">GuiltTask</a></dd></dl>
+<dl><dt>DotsNumber</dt>
+<dd><a href="GuiltTask.html#DotsNumber" title="GuiltTask">GuiltTask</a></dd></dl>
+<dl><dt>DownCounts</dt>
+<dd><a href="EglyDriverTask.html#DownCounts" title="EglyDriverTask">EglyDriverTask</a></dd></dl>
+<dl><dt>Downsample</dt>
+<dd><a href="Contributions%253ACustomIIRFilter.html#Downsample" class="mw-redirect" title="Contributions:CustomIIRFilter">Contributions:CustomIIRFilter</a></dd></dl>
+<dl><dt>Drive</dt>
+<dd><a href="Contributions%253ANeuroOmegaADC.html#Drive" title="Contributions:NeuroOmegaADC">Contributions:NeuroOmegaADC</a></dd></dl>
+<dl><dt>DSIAPI</dt>
+<dd><a href="Contributions%253ADSISerial.html#DSIAPI" title="Contributions:DSISerial">Contributions:DSISerial</a></dd></dl>
+<dl><dt>DSIAPIVersion</dt>
+<dd><a href="Contributions%253ADSISerial.html#DSIAPIVersion" title="Contributions:DSISerial">Contributions:DSISerial</a></dd></dl>
+<dl><dt>DSISerialPort</dt>
+<dd><a href="Contributions%253ADSISerial.html#DSISerialPort" title="Contributions:DSISerial">Contributions:DSISerial</a></dd></dl>
+<dl><dt>DynamicConfiguration</dt>
+<dd><a href="Contributions%253ACereStim.html#DynamicConfiguration" title="Contributions:CereStim">Contributions:CereStim</a></dd></dl>
+<dl><dt>EarlyOffsetExpression</dt>
+<dd><a href="Programming_Reference%253AStimulusTask_Class.html#EarlyOffsetExpression" title="Programming Reference:StimulusTask Class">Programming Reference:StimulusTask Class</a></dd></dl>
+<dl><dt>EditStimPattern</dt>
+<dd><a href="Contributions%253ATBSIStimulator.html#EditStimPattern" title="Contributions:TBSIStimulator">Contributions:TBSIStimulator</a></dd></dl>
+<dl><dt>EegChList</dt>
+<dd><a href="Contributions%253AEnobioADC.html#EEGChList" title="Contributions:EnobioADC">Contributions:EnobioADC</a></dd>
+<dd><a href="Contributions%253ABiosemi2ADC.html#EEGChlist" title="Contributions:Biosemi2ADC">Contributions:Biosemi2ADC</a></dd>
+<dd><a href="Contributions%253AactiCHamp.html#EegChList" title="Contributions:actiCHamp">Contributions:actiCHamp</a></dd></dl>
+<dl><dt>ElectrodeType</dt>
+<dd><a href="Contributions%253AgEstimFilter.html#ElectrodeType" title="Contributions:gEstimFilter">Contributions:gEstimFilter</a></dd></dl>
+<dl><dt>ElseIf</dt>
+<dd><a href="Contributions%253ASerialInterface.html#ElseIf" title="Contributions:SerialInterface">Contributions:SerialInterface</a></dd></dl>
+<dl><dt>EnableAccelerationData</dt>
+<dd><a href="Contributions%253AgNautilus.html#EnableAccelerationData" title="Contributions:gNautilus">Contributions:gNautilus</a></dd></dl>
+<dl><dt>EnableAudioExtension</dt>
+<dd><a href="Contributions%253AAudioExtension.html#EnableAudioExtension" title="Contributions:AudioExtension">Contributions:AudioExtension</a></dd></dl>
+<dl><dt>EnableBatteryLevel</dt>
+<dd><a href="Contributions%253AgNautilus.html#EnableBatteryLevel" title="Contributions:gNautilus">Contributions:gNautilus</a></dd></dl>
+<dl><dt>EnableCounterInput</dt>
+<dd><a href="Contributions%253AgNautilus.html#EnableCounterInput" title="Contributions:gNautilus">Contributions:gNautilus</a></dd></dl>
+<dl><dt>EnableDigitalInputs</dt>
+<dd><a href="Contributions%253AgNautilus.html#EnableDigitalInputs" title="Contributions:gNautilus">Contributions:gNautilus</a></dd></dl>
+<dl><dt>EnableEyeOpenOrClose</dt>
+<dd><a href="Contributions%253AANTTask.html#EnableEyeOpenOrClose" title="Contributions:ANTTask">Contributions:ANTTask</a></dd></dl>
+<dl><dt>EnableFirstDurExternally</dt>
+<dd><a href="Contributions%253AANTTask.html#EnableFirstDurExternally" title="Contributions:ANTTask">Contributions:ANTTask</a></dd></dl>
+<dl><dt>EnableLinkQuality</dt>
+<dd><a href="Contributions%253AgNautilus.html#EnableLinkQuality" title="Contributions:gNautilus">Contributions:gNautilus</a></dd></dl>
+<dl><dt>EnablePractice</dt>
+<dd><a href="GuiltTask.html#EnablePractice" title="GuiltTask">GuiltTask</a></dd></dl>
+<dl><dt>EnableRotate90</dt>
+<dd><a href="Contributions%253AANTTask.html#EnableRotate90" title="Contributions:ANTTask">Contributions:ANTTask</a></dd></dl>
+<dl><dt>EnableStimBoxFilter</dt>
+<dd><a href="Contributions%253AStimBoxFilter.html#EnableStimBoxFilter" title="Contributions:StimBoxFilter">Contributions:StimBoxFilter</a></dd></dl>
+<dl><dt>EnableUSBHub</dt>
+<dd><a href="Contributions%253APegasusAstro.html#EnableUSBHub" title="Contributions:PegasusAstro">Contributions:PegasusAstro</a></dd></dl>
+<dl><dt>EnableValidationIndicator</dt>
+<dd><a href="Contributions%253AgNautilus.html#EnableValidationIndicator" title="Contributions:gNautilus">Contributions:gNautilus</a></dd></dl>
+<dl><dt>EndIndex</dt>
+<dd><a href="Contributions%253AWebcamLogger.html#EndIndex" title="Contributions:WebcamLogger">Contributions:WebcamLogger</a></dd></dl>
+<dl><dt>EnslavePython</dt>
+<dd><a href="Contributions%253ABCPy2000.html#EnslavePython" title="Contributions:BCPy2000">Contributions:BCPy2000</a></dd></dl>
+<dl><dt>EpochsToAverage</dt>
+<dd><a href="Contributions%253ABrainFlow.html#EpochsToAverage" title="Contributions:BrainFlow">Contributions:BrainFlow</a></dd></dl>
+<dl><dt>EvaluationsPerBin</dt>
+<dd><a href="User_Reference%253AARFilter.html#EvaluationsPerBin" class="mw-redirect" title="User Reference:ARFilter">User Reference:ARFilter</a></dd></dl>
+<dl><dt>EventScripts</dt>
+<dd><a href="Contributions%253AStatisticsFilter.html#EventScripts" title="Contributions:StatisticsFilter">Contributions:StatisticsFilter</a></dd></dl>
+<dl><dt>EventStates</dt>
+<dd><a href="Contributions%253AFieldTripBufferSource.html#EventStates" title="Contributions:FieldTripBufferSource">Contributions:FieldTripBufferSource</a></dd></dl>
+<dl><dt>Example</dt>
+<dd><a href="Contributions%253ANIDAQLogger.html#Example" title="Contributions:NIDAQLogger">Contributions:NIDAQLogger</a></dd></dl>
+<dl><dt>ExperimentParams</dt>
+<dd><a href="Contributions%253AEyetrackerLoggerEyeLink.html#ExperimentParams" title="Contributions:EyetrackerLoggerEyeLink">Contributions:EyetrackerLoggerEyeLink</a></dd></dl>
+<dl><dt>ExposedSurfaceArea</dt>
+<dd><a href="Contributions%253AgEstimFilter.html#ExposedSurfaceArea" title="Contributions:gEstimFilter">Contributions:gEstimFilter</a></dd></dl>
+<dl><dt>ExternalHWTrigger</dt>
+<dd><a href="Contributions%253ATBSIStimulator.html#ExternalHWTrigger" title="Contributions:TBSIStimulator">Contributions:TBSIStimulator</a></dd></dl>
+<dl><dt>EyeLinkHostAddress</dt>
+<dd><a href="Contributions%253AEyetrackerLoggerEyeLink.html#EyeLinkHostAddress" title="Contributions:EyetrackerLoggerEyeLink">Contributions:EyetrackerLoggerEyeLink</a></dd></dl>
+<dl><dt>EyeLinkInfo</dt>
+<dd><a href="Contributions%253AEyetrackerLoggerEyeLink.html#EyeLinkInfo" title="Contributions:EyetrackerLoggerEyeLink">Contributions:EyetrackerLoggerEyeLink</a></dd></dl>
+<dl><dt>EyeOpenTextDuration, EyeCloseTextDuration</dt>
+<dd><a href="Contributions%253AANTTask.html#EyeOpenTextDuration,_EyeCloseTextDuration" title="Contributions:ANTTask">Contributions:ANTTask</a></dd></dl>
+<dl><dt>EyeToSreenDistance</dt>
+<dd><a href="EglyDriverTask.html#EyeToSreenDistance" title="EglyDriverTask">EglyDriverTask</a></dd></dl>
+<dl><dt>EyetrackerData</dt>
+<dd><a href="Contributions%253AEyetrackerLoggerTobiiPro.html#EyetrackerData" title="Contributions:EyetrackerLoggerTobiiPro">Contributions:EyetrackerLoggerTobiiPro</a></dd>
+<dd><a href="Contributions%253AEyetrackerLoggerTobii3.html#EyetrackerData" title="Contributions:EyetrackerLoggerTobii3">Contributions:EyetrackerLoggerTobii3</a></dd></dl>
+<dl><dt>EyetrackerExpressions</dt>
+<dd><a href="Contributions%253AEyetrackerLoggerSimulator.html#EyetrackerExpressions" title="Contributions:EyetrackerLoggerSimulator">Contributions:EyetrackerLoggerSimulator</a></dd></dl>
+<dl><dt>EyetrackerInfo</dt>
+<dd><a href="Contributions%253AEyetrackerLoggerTobiiPro.html#EyetrackerInfo" title="Contributions:EyetrackerLoggerTobiiPro">Contributions:EyetrackerLoggerTobiiPro</a></dd>
+<dd><a href="Contributions%253AEyetrackerLoggerTobii3.html#EyetrackerInfo" title="Contributions:EyetrackerLoggerTobii3">Contributions:EyetrackerLoggerTobii3</a></dd></dl>
+<dl><dt>EyetrackerInitialization</dt>
+<dd><a href="Contributions%253AEyetrackerLoggerSimulator.html#EyetrackerInitialization" title="Contributions:EyetrackerLoggerSimulator">Contributions:EyetrackerLoggerSimulator</a></dd></dl>
+<dl><dt>EyetrackerUpdateRate</dt>
+<dd><a href="Contributions%253AEyetrackerLoggerSimulator.html#EyetrackerUpdateRate" title="Contributions:EyetrackerLoggerSimulator">Contributions:EyetrackerLoggerSimulator</a></dd></dl>
+<dl><dt>FeedbackDuration</dt>
+<dd><a href="Programming_Reference%253AFeedbackTask_Class.html#FeedbackDuration" title="Programming Reference:FeedbackTask Class">Programming Reference:FeedbackTask Class</a></dd>
+<dd><a href="EglyDriverTask.html#FeedbackDuration" title="EglyDriverTask">EglyDriverTask</a></dd>
+<dd><a href="Contributions%253AHyperScanningTask.html#FeedbackDuration" class="mw-redirect" title="Contributions:HyperScanningTask">Contributions:HyperScanningTask</a></dd>
+<dd><a href="Contributions%253ACommunicationTask.html#FeedbackDuration" title="Contributions:CommunicationTask">Contributions:CommunicationTask</a></dd></dl>
+<dl><dt>FeedbackPathList</dt>
+<dd><a href="GuiltTask.html#FeedbackPathList" title="GuiltTask">GuiltTask</a></dd></dl>
+<dl><dt>FeedbackTime</dt>
+<dd><a href="Contributions%253ACenterOutTask.html#FeedbackTime" title="Contributions:CenterOutTask">Contributions:CenterOutTask</a></dd></dl>
+<dl><dt>FeedbackWidth</dt>
+<dd><a href="Contributions%253AHyperScanningTask.html#FeedbackWidth" class="mw-redirect" title="Contributions:HyperScanningTask">Contributions:HyperScanningTask</a></dd>
+<dd><a href="Contributions%253ACommunicationTask.html#FeedbackWidth" title="Contributions:CommunicationTask">Contributions:CommunicationTask</a></dd></dl>
+<dl><dt>FileSplittingCondition</dt>
+<dd><a href="User_Reference%253ABCI2000FileWriter.html#FileSplittingCondition" title="User Reference:BCI2000FileWriter">User Reference:BCI2000FileWriter</a></dd></dl>
+<dl><dt>FilterEnabled</dt>
+<dd><a href="Contributions%253AgNautilus.html#FilterEnabled" title="Contributions:gNautilus">Contributions:gNautilus</a></dd></dl>
+<dl><dt>FilterHighPass</dt>
+<dd><a href="Contributions%253AgNautilus.html#FilterHighPass" title="Contributions:gNautilus">Contributions:gNautilus</a></dd></dl>
+<dl><dt>FilterLowPass</dt>
+<dd><a href="Contributions%253AgNautilus.html#FilterLowPass" title="Contributions:gNautilus">Contributions:gNautilus</a></dd></dl>
+<dl><dt>FilterModelOrder</dt>
+<dd><a href="Contributions%253AgNautilus.html#FilterModelOrder" title="Contributions:gNautilus">Contributions:gNautilus</a></dd></dl>
+<dl><dt>FilterType</dt>
+<dd><a href="Contributions%253AgNautilus.html#FilterType" title="Contributions:gNautilus">Contributions:gNautilus</a></dd></dl>
+<dl><dt>FIRCoefficients</dt>
+<dd><a href="Contributions%253AFIRFilter.html#FIRCoefficients" title="Contributions:FIRFilter">Contributions:FIRFilter</a></dd>
+<dd><a href="Contributions%253ACustomFIRFilter.html#FIRCoefficients" title="Contributions:CustomFIRFilter">Contributions:CustomFIRFilter</a></dd></dl>
+<dl><dt>FIRIntegration</dt>
+<dd><a href="Contributions%253AFIRFilter.html#FIRIntegration" title="Contributions:FIRFilter">Contributions:FIRFilter</a></dd></dl>
+<dl><dt>FirstBinCenter</dt>
+<dd><a href="User_Reference%253AARFilter.html#FirstBinCenter" class="mw-redirect" title="User Reference:ARFilter">User Reference:ARFilter</a></dd></dl>
+<dl><dt>FirstFixationDurationMin, FirstFixationDurationMax</dt>
+<dd><a href="Contributions%253AANTTask.html#FirstFixationDurationMin,_FirstFixationDurationMax" title="Contributions:ANTTask">Contributions:ANTTask</a></dd></dl>
+<dl><dt>FixationColor, BarColor, CueColor, TargetColor</dt>
+<dd><a href="EglyDriverTask.html#FixationColor,_BarColor,_CueColor,_TargetColor" title="EglyDriverTask">EglyDriverTask</a></dd></dl>
+<dl><dt>FixationDurationList</dt>
+<dd><a href="GuiltTask.html#FixationDurationList" title="GuiltTask">GuiltTask</a></dd></dl>
+<dl><dt>FixationDurationMin, FixationDurationMax</dt>
+<dd><a href="EglyDriverTask.html#FixationDurationMin,_FixationDurationMax" title="EglyDriverTask">EglyDriverTask</a></dd></dl>
+<dl><dt>FixationWidth</dt>
+<dd><a href="EglyDriverTask.html#FixationWidth" title="EglyDriverTask">EglyDriverTask</a></dd></dl>
+<dl><dt>FM</dt>
+<dd><a href="Contributions%253AKeysightGenerator.html#FM" title="Contributions:KeysightGenerator">Contributions:KeysightGenerator</a></dd></dl>
+<dl><dt>FontActiveColor</dt>
+<dd><a href="GuiltTask.html#FontActiveColor" title="GuiltTask">GuiltTask</a></dd></dl>
+<dl><dt>FontColor, FixationColor</dt>
+<dd><a href="GuiltTask.html#FontColor,_FixationColor" title="GuiltTask">GuiltTask</a></dd></dl>
+<dl><dt>FontSize, FixationSize</dt>
+<dd><a href="GuiltTask.html#FontSize,_FixationSize" title="GuiltTask">GuiltTask</a></dd></dl>
+<dl><dt>Foraging</dt>
+<dd><a href="ForagingTask.html#Foraging" title="ForagingTask">ForagingTask</a></dd></dl>
+<dl><dt>ForgivenessOne, ForgivenessTwo, ForgivenessThree, ForgivenessFour</dt>
+<dd><a href="GuiltTask.html#ForgivenessOne,_ForgivenessTwo,_ForgivenessThree,_ForgivenessFour" title="GuiltTask">GuiltTask</a></dd></dl>
+<dl><dt>ForgivenessQuestion</dt>
+<dd><a href="GuiltTask.html#ForgivenessQuestion" title="GuiltTask">GuiltTask</a></dd></dl>
+<dl><dt>FrequencyOfTrains</dt>
+<dd><a href="Contributions%253AgEstimFilter.html#FrequencyOfTrains" title="Contributions:gEstimFilter">Contributions:gEstimFilter</a></dd></dl>
+<dl><dt>FrontPanelGain</dt>
+<dd><a href="Contributions%253ATDTADC.html#FrontPanelGain" title="Contributions:TDTADC">Contributions:TDTADC</a></dd></dl>
+<dl><dt>FrontPanelList</dt>
+<dd><a href="Contributions%253ATDTADC.html#FrontPanelList" title="Contributions:TDTADC">Contributions:TDTADC</a></dd></dl>
+<dl><dt>FTBufferAddress</dt>
+<dd><a href="Contributions%253AFieldTripBuffer.html#FTBufferAddress" title="Contributions:FieldTripBuffer">Contributions:FieldTripBuffer</a></dd></dl>
+<dl><dt>FTInitialOutput</dt>
+<dd><a href="Contributions%253AFieldTripBuffer.html#FTInitialOutput" title="Contributions:FieldTripBuffer">Contributions:FieldTripBuffer</a></dd></dl>
+<dl><dt>FTOutputEventType</dt>
+<dd><a href="Contributions%253AFieldTripBuffer.html#FTOutputEventType" title="Contributions:FieldTripBuffer">Contributions:FieldTripBuffer</a></dd></dl>
+<dl><dt>FTStatesFromBuffer</dt>
+<dd><a href="Contributions%253AFieldTripBuffer.html#FTStatesFromBuffer" title="Contributions:FieldTripBuffer">Contributions:FieldTripBuffer</a></dd></dl>
+<dl><dt>FTStatesToBuffer</dt>
+<dd><a href="Contributions%253AFieldTripBuffer.html#FTStatesToBuffer" title="Contributions:FieldTripBuffer">Contributions:FieldTripBuffer</a></dd></dl>
+<dl><dt>GazeResolution</dt>
+<dd><a href="Contributions%253AEyetrackerLoggerTobiiPro.html#GazeResolution" title="Contributions:EyetrackerLoggerTobiiPro">Contributions:EyetrackerLoggerTobiiPro</a></dd></dl>
+<dl><dt>GuessDots</dt>
+<dd><a href="GuiltTask.html#GuessDots" title="GuiltTask">GuiltTask</a></dd></dl>
+<dl><dt>GUIScale</dt>
+<dd><a href="GuiltTask.html#GUIScale" title="GuiltTask">GuiltTask</a></dd></dl>
+<dl><dt>HardwareSamplingRate</dt>
+<dd><a href="Contributions%253AactiCHampPlus.html#HardwareSamplingRate" title="Contributions:actiCHampPlus">Contributions:actiCHampPlus</a></dd></dl>
+<dl><dt>HeadsetDescription</dt>
+<dd><a href="Contributions%253ADSISerial.html#HeadsetDescription" title="Contributions:DSISerial">Contributions:DSISerial</a></dd></dl>
+<dl><dt>HideCursor</dt>
+<dd><a href="Programming_Reference%253AApplicationWindow_Class.html#HideCursor" title="Programming Reference:ApplicationWindow Class">Programming Reference:ApplicationWindow Class</a></dd></dl>
+<dl><dt>HighPassCorner</dt>
+<dd><a href="Contributions%253ACustomIIRFilter.html#HighPassCorner" class="mw-redirect" title="Contributions:CustomIIRFilter">Contributions:CustomIIRFilter</a></dd></dl>
+<dl><dt>HighPassFilter</dt>
+<dd><a href="Contributions%253AEnobioADC.html#HighPassFilter" title="Contributions:EnobioADC">Contributions:EnobioADC</a></dd></dl>
+<dl><dt>HighPassFilter, LowPassFilter, NotchFilter</dt>
+<dd><a href="Contributions%253ADSISerial.html#HighPassFilter,_LowPassFilter,_NotchFilter" title="Contributions:DSISerial">Contributions:DSISerial</a></dd></dl>
+<dl><dt>HighPassOrder</dt>
+<dd><a href="Contributions%253ACustomIIRFilter.html#HighPassOrder" class="mw-redirect" title="Contributions:CustomIIRFilter">Contributions:CustomIIRFilter</a></dd></dl>
+<dl><dt>HistoryLength</dt>
+<dd><a href="Contributions%253APeakDetector.html#HistoryLength" title="Contributions:PeakDetector">Contributions:PeakDetector</a></dd></dl>
+<dl><dt>HostIP, HostPort, LocalIP, LocalPort</dt>
+<dd><a href="Contributions%253AgNautilusNEEDAccess.html#HostIP,_HostPort,_LocalIP,_LocalPort" title="Contributions:gNautilusNEEDAccess">Contributions:gNautilusNEEDAccess</a></dd></dl>
+<dl><dt>HostName</dt>
+<dd><a href="Contributions%253ARDAClientADC.html#HostName" title="Contributions:RDAClientADC">Contributions:RDAClientADC</a></dd>
+<dd><a href="Contributions%253AFieldTripBufferSource.html#HostName" title="Contributions:FieldTripBufferSource">Contributions:FieldTripBufferSource</a></dd></dl>
+<dl><dt>HPFfreq</dt>
+<dd><a href="Contributions%253ATDTADC.html#HPFfreq" title="Contributions:TDTADC">Contributions:TDTADC</a></dd></dl>
+<dl><dt>HPFilterCorner</dt>
+<dd><a href="Contributions%253AvAmpADC.html#HPFilterCorner" title="Contributions:vAmpADC">Contributions:vAmpADC</a></dd></dl>
+<dl><dt>ID_System, ID_Amp, ID_Montage</dt>
+<dd><a href="User_Reference%253ABCI2000FileWriter.html#ID_System,_ID_Amp,_ID_Montage" title="User Reference:BCI2000FileWriter">User Reference:BCI2000FileWriter</a></dd></dl>
+<dl><dt>ImpedanceDriverOn</dt>
+<dd><a href="Contributions%253ADSISerial.html#ImpedanceDriverOn" title="Contributions:DSISerial">Contributions:DSISerial</a></dd></dl>
+<dl><dt>ImpedanceMeasurement</dt>
+<dd><a href="Contributions%253ACereStim.html#ImpedanceMeasurement" title="Contributions:CereStim">Contributions:CereStim</a></dd></dl>
+<dl><dt>ImpedancePauseTime</dt>
+<dd><a href="Contributions%253AactiCHampPlus.html#ImpedancePauseTime" title="Contributions:actiCHampPlus">Contributions:actiCHampPlus</a></dd></dl>
+<dl><dt>ImuSamplingRate</dt>
+<dd><a href="Contributions%253ADelsysTrignoAvanti.html#ImuSamplingRate" title="Contributions:DelsysTrignoAvanti">Contributions:DelsysTrignoAvanti</a></dd></dl>
+<dl><dt>InitialTrialNumber</dt>
+<dd><a href="Contributions%253AHyperScanningTask.html#InitialTrialNumber" class="mw-redirect" title="Contributions:HyperScanningTask">Contributions:HyperScanningTask</a></dd>
+<dd><a href="Contributions%253ACommunicationTask.html#InitialTrialNumber" title="Contributions:CommunicationTask">Contributions:CommunicationTask</a></dd></dl>
+<dl><dt>InstructionImagesSeque</dt>
+<dd><a href="Contributions%253AHyperScanningTask.html#InstructionImagesSeque" class="mw-redirect" title="Contributions:HyperScanningTask">Contributions:HyperScanningTask</a></dd>
+<dd><a href="Contributions%253ACommunicationTask.html#InstructionImagesSeque" title="Contributions:CommunicationTask">Contributions:CommunicationTask</a></dd></dl>
+<dl><dt>InstructionImagesSequence</dt>
+<dd><a href="GuiltTask.html#InstructionImagesSequence" title="GuiltTask">GuiltTask</a></dd></dl>
+<dl><dt>InstructionPathTrans</dt>
+<dd><a href="GuiltTask.html#InstructionPathTrans" title="GuiltTask">GuiltTask</a></dd></dl>
+<dl><dt>InstructionPathVicT</dt>
+<dd><a href="GuiltTask.html#InstructionPathVicT" title="GuiltTask">GuiltTask</a></dd></dl>
+<dl><dt>InstructionWidth</dt>
+<dd><a href="Contributions%253AHyperScanningTask.html#InstructionWidth" class="mw-redirect" title="Contributions:HyperScanningTask">Contributions:HyperScanningTask</a></dd>
+<dd><a href="Contributions%253ACommunicationTask.html#InstructionWidth" title="Contributions:CommunicationTask">Contributions:CommunicationTask</a></dd></dl>
+<dl><dt>InterphaseDuration</dt>
+<dd><a href="Contributions%253AgEstimFilter.html#InterphaseDuration" title="Contributions:gEstimFilter">Contributions:gEstimFilter</a></dd></dl>
+<dl><dt>InterpretMode</dt>
+<dd><a href="Programming_Reference%253AStimulusTask_Class.html#InterpretMode" title="Programming Reference:StimulusTask Class">Programming Reference:StimulusTask Class</a></dd></dl>
+<dl><dt>InterTrialInt</dt>
+<dd><a href="Contributions%253ACenterOutTask.html#InterTrialInt" title="Contributions:CenterOutTask">Contributions:CenterOutTask</a></dd></dl>
+<dl><dt>IPPort</dt>
+<dd><a href="Contributions%253ABrainFlow.html#IPPort" title="Contributions:BrainFlow">Contributions:BrainFlow</a></dd></dl>
+<dl><dt>ISIMinDuration, ISIMaxDuration</dt>
+<dd><a href="Programming_Reference%253AStimulusTask_Class.html#ISIMinDuration,_ISIMaxDuration" title="Programming Reference:StimulusTask Class">Programming Reference:StimulusTask Class</a></dd></dl>
+<dl><dt>IsSecondaryBCI2000</dt>
+<dd><a href="Contributions%253ASecondaryBCI2000Controller.html#IsSecondaryBCI2000" title="Contributions:SecondaryBCI2000Controller">Contributions:SecondaryBCI2000Controller</a></dd></dl>
+<dl><dt>IsStairCase</dt>
+<dd><a href="EglyDriverTask.html#IsStairCase" title="EglyDriverTask">EglyDriverTask</a></dd></dl>
+<dl><dt>ITIDuration</dt>
+<dd><a href="Programming_Reference%253AFeedbackTask_Class.html#ITIDuration" title="Programming Reference:FeedbackTask Class">Programming Reference:FeedbackTask Class</a></dd></dl>
+<dl><dt>Jitter</dt>
+<dd><a href="Contributions%253AgEstimFilter.html#Jitter" title="Contributions:gEstimFilter">Contributions:gEstimFilter</a></dd></dl>
+<dl><dt>LastBinCenter</dt>
+<dd><a href="User_Reference%253AARFilter.html#LastBinCenter" class="mw-redirect" title="User Reference:ARFilter">User Reference:ARFilter</a></dd></dl>
+<dl><dt>LegacyCorrectionFactor</dt>
+<dd><a href="Contributions%253AEyetrackerLoggerTobiiPro.html#LegacyCorrectionFactor" title="Contributions:EyetrackerLoggerTobiiPro">Contributions:EyetrackerLoggerTobiiPro</a></dd></dl>
+<dl><dt>LegacyCorrectionOffset</dt>
+<dd><a href="Contributions%253AEyetrackerLoggerTobiiPro.html#LegacyCorrectionOffset" title="Contributions:EyetrackerLoggerTobiiPro">Contributions:EyetrackerLoggerTobiiPro</a></dd></dl>
+<dl><dt>LightSourceColor</dt>
+<dd><a href="Contributions%253ACenterOutTask.html#LightSourceColor" title="Contributions:CenterOutTask">Contributions:CenterOutTask</a></dd></dl>
+<dl><dt>LightSourcePos</dt>
+<dd><a href="Contributions%253ACenterOutTask.html#LightSourcePos" title="Contributions:CenterOutTask">Contributions:CenterOutTask</a></dd></dl>
+<dl><dt>LogCyberGlove</dt>
+<dd><a href="Contributions%253ACyberGloveLogger.html#LogCyberGlove" title="Contributions:CyberGloveLogger">Contributions:CyberGloveLogger</a></dd></dl>
+<dl><dt>LogDataGlove</dt>
+<dd><a href="Contributions%253ADataGloveLogger.html#LogDataGlove" title="Contributions:DataGloveLogger">Contributions:DataGloveLogger</a></dd></dl>
+<dl><dt>LogEyetrackerEyeLink</dt>
+<dd><a href="Contributions%253AEyetrackerLoggerEyeLink.html#LogEyetrackerEyeLink" title="Contributions:EyetrackerLoggerEyeLink">Contributions:EyetrackerLoggerEyeLink</a></dd></dl>
+<dl><dt>LogEyetrackerSimulator</dt>
+<dd><a href="Contributions%253AEyetrackerLoggerSimulator.html#LogEyetrackerSimulator" title="Contributions:EyetrackerLoggerSimulator">Contributions:EyetrackerLoggerSimulator</a></dd></dl>
+<dl><dt>LogEyetrackerTobii3</dt>
+<dd><a href="Contributions%253AEyetrackerLoggerTobii3.html#LogEyetrackerTobii3" title="Contributions:EyetrackerLoggerTobii3">Contributions:EyetrackerLoggerTobii3</a></dd></dl>
+<dl><dt>LogEyetrackerTobiiPro</dt>
+<dd><a href="Contributions%253AEyetrackerLoggerTobiiPro.html#LogEyetrackerTobiiPro" title="Contributions:EyetrackerLoggerTobiiPro">Contributions:EyetrackerLoggerTobiiPro</a></dd></dl>
+<dl><dt>LogWebcam</dt>
+<dd><a href="Contributions%253AWebcamLogger.html#LogWebcam" title="Contributions:WebcamLogger">Contributions:WebcamLogger</a></dd></dl>
+<dl><dt>LogXsensMTw</dt>
+<dd><a href="Contributions%253AXsensMTwLogger.html#LogXsensMTw" title="Contributions:XsensMTwLogger">Contributions:XsensMTwLogger</a></dd></dl>
+<dl><dt>LowPassCorner</dt>
+<dd><a href="Contributions%253ACustomIIRFilter.html#LowPassCorner" class="mw-redirect" title="Contributions:CustomIIRFilter">Contributions:CustomIIRFilter</a></dd></dl>
+<dl><dt>LowPassFilter</dt>
+<dd><a href="Contributions%253AEnobioADC.html#LowPassFilter" title="Contributions:EnobioADC">Contributions:EnobioADC</a></dd></dl>
+<dl><dt>LowPassOrder</dt>
+<dd><a href="Contributions%253ACustomIIRFilter.html#LowPassOrder" class="mw-redirect" title="Contributions:CustomIIRFilter">Contributions:CustomIIRFilter</a></dd></dl>
+<dl><dt>LPFfreq</dt>
+<dd><a href="Contributions%253ATDTADC.html#LPFfreq" title="Contributions:TDTADC">Contributions:TDTADC</a></dd></dl>
+<dl><dt>MAC</dt>
+<dd><a href="Contributions%253ABrainFlow.html#MAC" title="Contributions:BrainFlow">Contributions:BrainFlow</a></dd></dl>
+<dl><dt>Magnitude</dt>
+<dd><a href="Contributions%253AgEstimFilter.html#Magnitude" title="Contributions:gEstimFilter">Contributions:gEstimFilter</a></dd></dl>
+<dl><dt>MasterUpdateRate</dt>
+<dd><a href="Contributions%253AXsensMTwLogger.html#MasterUpdateRate" title="Contributions:XsensMTwLogger">Contributions:XsensMTwLogger</a></dd></dl>
+<dl><dt>maxDelayTime</dt>
+<dd><a href="Contributions%253ACenterOutTask.html#maxDelayTime" title="Contributions:CenterOutTask">Contributions:CenterOutTask</a></dd></dl>
+<dl><dt>MaxFeedbackDuration</dt>
+<dd><a href="Contributions%253ACenterOutTask.html#MaxFeedbackDuration" title="Contributions:CenterOutTask">Contributions:CenterOutTask</a></dd></dl>
+<dl><dt>MaxHoldATime</dt>
+<dd><a href="Contributions%253ACenterOutTask.html#MaxHoldATime" title="Contributions:CenterOutTask">Contributions:CenterOutTask</a></dd></dl>
+<dl><dt>maxHoldBTime</dt>
+<dd><a href="Contributions%253ACenterOutTask.html#maxHoldBTime" title="Contributions:CenterOutTask">Contributions:CenterOutTask</a></dd></dl>
+<dl><dt>maxMovementTime</dt>
+<dd><a href="Contributions%253ACenterOutTask.html#maxMovementTime" title="Contributions:CenterOutTask">Contributions:CenterOutTask</a></dd></dl>
+<dl><dt>maxReactionTime</dt>
+<dd><a href="Contributions%253ACenterOutTask.html#maxReactionTime" title="Contributions:CenterOutTask">Contributions:CenterOutTask</a></dd></dl>
+<dl><dt>MicBitDepth</dt>
+<dd><a href="Contributions%253AMicRecorderFilter.html#MicBitDepth" title="Contributions:MicRecorderFilter">Contributions:MicRecorderFilter</a></dd></dl>
+<dl><dt>MicDebugInfo</dt>
+<dd><a href="Contributions%253AMicRecorderFilter.html#MicDebugInfo" title="Contributions:MicRecorderFilter">Contributions:MicRecorderFilter</a></dd></dl>
+<dl><dt>MicName</dt>
+<dd><a href="Contributions%253AMicRecorderFilter.html#MicName" title="Contributions:MicRecorderFilter">Contributions:MicRecorderFilter</a></dd></dl>
+<dl><dt>MicNumChannels</dt>
+<dd><a href="Contributions%253AMicRecorderFilter.html#MicNumChannels" title="Contributions:MicRecorderFilter">Contributions:MicRecorderFilter</a></dd></dl>
+<dl><dt>MicRecordingFre</dt>
+<dd><a href="Contributions%253AMicRecorderFilter.html#MicRecordingFre" title="Contributions:MicRecorderFilter">Contributions:MicRecorderFilter</a></dd></dl>
+<dl><dt>MiddleFixationDuration</dt>
+<dd><a href="Contributions%253AANTTask.html#MiddleFixationDuration" title="Contributions:ANTTask">Contributions:ANTTask</a></dd></dl>
+<dl><dt>minDelayTime</dt>
+<dd><a href="Contributions%253ACenterOutTask.html#minDelayTime" title="Contributions:CenterOutTask">Contributions:CenterOutTask</a></dd></dl>
+<dl><dt>minHoldATime</dt>
+<dd><a href="Contributions%253ACenterOutTask.html#minHoldATime" title="Contributions:CenterOutTask">Contributions:CenterOutTask</a></dd></dl>
+<dl><dt>minHoldBTime</dt>
+<dd><a href="Contributions%253ACenterOutTask.html#minHoldBTime" title="Contributions:CenterOutTask">Contributions:CenterOutTask</a></dd></dl>
+<dl><dt>MinimumEvidence</dt>
+<dd><a href="Programming_Reference%253AStimulusTask_Class.html#MinimumEvidence" title="Programming Reference:StimulusTask Class">Programming Reference:StimulusTask Class</a></dd></dl>
+<dl><dt>minReactionTime</dt>
+<dd><a href="Contributions%253ACenterOutTask.html#minReactionTime" title="Contributions:CenterOutTask">Contributions:CenterOutTask</a></dd></dl>
+<dl><dt>MinRunLength</dt>
+<dd><a href="Programming_Reference%253AFeedbackTask_Class.html#MinRunLength" title="Programming Reference:FeedbackTask Class">Programming Reference:FeedbackTask Class</a></dd></dl>
+<dl><dt>ModelOrder</dt>
+<dd><a href="User_Reference%253AARFilter.html#ModelOrder" class="mw-redirect" title="User Reference:ARFilter">User Reference:ARFilter</a></dd></dl>
+<dl><dt>Modularity</dt>
+<dd><a href="Contributions%253AgEstimFilter.html#Modularity" title="Contributions:gEstimFilter">Contributions:gEstimFilter</a></dd></dl>
+<dl><dt>ModulationState</dt>
+<dd><a href="HandVibrationFilter.html#ModulationState" title="HandVibrationFilter">HandVibrationFilter</a></dd></dl>
+<dl><dt>Montage</dt>
+<dd><a href="Contributions%253ADSISerial.html#Montage" title="Contributions:DSISerial">Contributions:DSISerial</a></dd></dl>
+<dl><dt>MuscleNames</dt>
+<dd><a href="Contributions%253ADelsysTrignoAvanti.html#MuscleNames" title="Contributions:DelsysTrignoAvanti">Contributions:DelsysTrignoAvanti</a></dd></dl>
+<dl><dt>MyStimuliSequence</dt>
+<dd><a href="GuiltTask.html#MyStimuliSequence" title="GuiltTask">GuiltTask</a></dd></dl>
+<dl><dt>name</dt>
+<dd><a href="User_Reference%253ABCI2000FileWriter.html#name" title="User Reference:BCI2000FileWriter">User Reference:BCI2000FileWriter</a></dd></dl>
+<dl><dt>NautilusSN</dt>
+<dd><a href="Contributions%253AgNautilusNEEDAccess.html#NautilusSN" title="Contributions:gNautilusNEEDAccess">Contributions:gNautilusNEEDAccess</a></dd></dl>
+<dl><dt>NegPeakThreshold</dt>
+<dd><a href="Contributions%253APeakDetector.html#NegPeakThreshold" title="Contributions:PeakDetector">Contributions:PeakDetector</a></dd></dl>
+<dl><dt>NetworkChannel</dt>
+<dd><a href="Contributions%253AgNautilusNEEDAccess.html#NetworkChannel" title="Contributions:gNautilusNEEDAccess">Contributions:gNautilusNEEDAccess</a></dd></dl>
+<dl><dt>NeuralynxNetCom</dt>
+<dd><a href="Contributions%253ANeuralynxADC.html#NeuralynxNetCom" title="Contributions:NeuralynxADC">Contributions:NeuralynxADC</a></dd></dl>
+<dl><dt>NeuralynxUDPStream</dt>
+<dd><a href="Contributions%253ANeuralynxADC.html#NeuralynxUDPStream" title="Contributions:NeuralynxADC">Contributions:NeuralynxADC</a></dd></dl>
+<dl><dt>NeuroOmegaStimulation</dt>
+<dd><a href="Contributions%253ANeuroOmegaADC.html#NeuroOmegaStimulation" title="Contributions:NeuroOmegaADC">Contributions:NeuroOmegaADC</a></dd></dl>
+<dl><dt>notchBW</dt>
+<dd><a href="Contributions%253ATDTADC.html#notchBW" title="Contributions:TDTADC">Contributions:TDTADC</a></dd></dl>
+<dl><dt>NotchCenter</dt>
+<dd><a href="Contributions%253ACustomIIRFilter.html#NotchCenter" class="mw-redirect" title="Contributions:CustomIIRFilter">Contributions:CustomIIRFilter</a></dd></dl>
+<dl><dt>NotchEnabled</dt>
+<dd><a href="Contributions%253AgNautilus.html#NotchEnabled" title="Contributions:gNautilus">Contributions:gNautilus</a></dd></dl>
+<dl><dt>NotchFilter</dt>
+<dd><a href="Contributions%253AMicromedADC.html#NotchFilter" title="Contributions:MicromedADC">Contributions:MicromedADC</a></dd>
+<dd><a href="Contributions%253AEnobioADC.html#NotchFilter" title="Contributions:EnobioADC">Contributions:EnobioADC</a></dd></dl>
+<dl><dt>NotchHighPass</dt>
+<dd><a href="Contributions%253AgNautilus.html#NotchHighPass" title="Contributions:gNautilus">Contributions:gNautilus</a></dd></dl>
+<dl><dt>NotchLowPass</dt>
+<dd><a href="Contributions%253AgNautilus.html#NotchLowPass" title="Contributions:gNautilus">Contributions:gNautilus</a></dd></dl>
+<dl><dt>NotchModelOrder</dt>
+<dd><a href="Contributions%253AgNautilus.html#NotchModelOrder" title="Contributions:gNautilus">Contributions:gNautilus</a></dd></dl>
+<dl><dt>NotchOrder</dt>
+<dd><a href="Contributions%253ACustomIIRFilter.html#NotchOrder" class="mw-redirect" title="Contributions:CustomIIRFilter">Contributions:CustomIIRFilter</a></dd></dl>
+<dl><dt>NotchType</dt>
+<dd><a href="Contributions%253AgNautilus.html#NotchType" title="Contributions:gNautilus">Contributions:gNautilus</a></dd></dl>
+<dl><dt>Notes</dt>
+<dd><a href="Contributions%253AGazeMonitorFilter.html#Notes" title="Contributions:GazeMonitorFilter">Contributions:GazeMonitorFilter</a></dd></dl>
+<dl><dt>NotificationPort</dt>
+<dd><a href="Contributions%253AAmpServerProADC.html#NotificationPort" title="Contributions:AmpServerProADC">Contributions:AmpServerProADC</a></dd></dl>
+<dl><dt>nProcessors</dt>
+<dd><a href="Contributions%253ATDTADC.html#nProcessors" title="Contributions:TDTADC">Contributions:TDTADC</a></dd></dl>
+<dl><dt>NSPInstances</dt>
+<dd><a href="Contributions%253ABlackrock.html#NSPInstances" title="Contributions:Blackrock">Contributions:Blackrock</a></dd></dl>
+<dl><dt>NumberOfMTws</dt>
+<dd><a href="Contributions%253AXsensMTwLogger.html#NumberOfMTws" title="Contributions:XsensMTwLogger">Contributions:XsensMTwLogger</a></dd></dl>
+<dl><dt>NumberOfPulses</dt>
+<dd><a href="Contributions%253AgEstimFilter.html#NumberOfPulses" title="Contributions:gEstimFilter">Contributions:gEstimFilter</a></dd></dl>
+<dl><dt>NumberOfStimTrialTypes</dt>
+<dd><a href="Contributions%253AANTTask.html#NumberOfStimTrialTypes" title="Contributions:ANTTask">Contributions:ANTTask</a></dd></dl>
+<dl><dt>NumberOfTrains</dt>
+<dd><a href="Contributions%253AgEstimFilter.html#NumberOfTrains" title="Contributions:gEstimFilter">Contributions:gEstimFilter</a></dd></dl>
+<dl><dt>NumberOfTrials</dt>
+<dd><a href="Programming_Reference%253AFeedbackTask_Class.html#NumberOfTrials" title="Programming Reference:FeedbackTask Class">Programming Reference:FeedbackTask Class</a></dd></dl>
+<dl><dt>NumberTargets</dt>
+<dd><a href="Programming_Reference%253AFeedbackTask_Class.html#NumberTargets" title="Programming Reference:FeedbackTask Class">Programming Reference:FeedbackTask Class</a></dd></dl>
+<dl><dt>NumEEGchannels</dt>
+<dd><a href="Contributions%253ATDTADC.html#NumEEGchannels" title="Contributions:TDTADC">Contributions:TDTADC</a></dd></dl>
+<dl><dt>NumeratorB</dt>
+<dd><a href="Contributions%253AIIRFilter_ML.html#NumeratorB" title="Contributions:IIRFilter ML">Contributions:IIRFilter ML</a></dd></dl>
+<dl><dt>Observers</dt>
+<dd><a href="Contributions%253AStatisticsFilter.html#Observers" title="Contributions:StatisticsFilter">Contributions:StatisticsFilter</a></dd></dl>
+<dl><dt>OnsetExpression</dt>
+<dd><a href="Contributions%253ABrainFlow.html#OnsetExpression" title="Contributions:BrainFlow">Contributions:BrainFlow</a></dd></dl>
+<dl><dt>OnsetPeriod</dt>
+<dd><a href="Contributions%253ABrainFlow.html#OnsetPeriod" title="Contributions:BrainFlow">Contributions:BrainFlow</a></dd></dl>
+<dl><dt>OptionFontActiveColor</dt>
+<dd><a href="Contributions%253AHyperScanningTask.html#OptionFontActiveColor" class="mw-redirect" title="Contributions:HyperScanningTask">Contributions:HyperScanningTask</a></dd>
+<dd><a href="Contributions%253ACommunicationTask.html#OptionFontActiveColor" title="Contributions:CommunicationTask">Contributions:CommunicationTask</a></dd></dl>
+<dl><dt>OptionFontInActiveColor</dt>
+<dd><a href="Contributions%253AHyperScanningTask.html#OptionFontInActiveColor" class="mw-redirect" title="Contributions:HyperScanningTask">Contributions:HyperScanningTask</a></dd>
+<dd><a href="Contributions%253ACommunicationTask.html#OptionFontInActiveColor" title="Contributions:CommunicationTask">Contributions:CommunicationTask</a></dd></dl>
+<dl><dt>OptionHeight</dt>
+<dd><a href="Contributions%253AHyperScanningTask.html#OptionHeight" class="mw-redirect" title="Contributions:HyperScanningTask">Contributions:HyperScanningTask</a></dd>
+<dd><a href="Contributions%253ACommunicationTask.html#OptionHeight" title="Contributions:CommunicationTask">Contributions:CommunicationTask</a></dd></dl>
+<dl><dt>optionOne, optionTwo</dt>
+<dd><a href="GuiltTask.html#optionOne,_optionTwo" title="GuiltTask">GuiltTask</a></dd></dl>
+<dl><dt>OutcomeDuration</dt>
+<dd><a href="GuiltTask.html#OutcomeDuration" title="GuiltTask">GuiltTask</a></dd></dl>
+<dl><dt>OutputList</dt>
+<dd><a href="Contributions%253AgSTIMbox.html#OutputList" title="Contributions:gSTIMbox">Contributions:gSTIMbox</a></dd></dl>
+<dl><dt>OutputMode</dt>
+<dd><a href="Contributions%253AParallelPortFilter.html#OutputMode" title="Contributions:ParallelPortFilter">Contributions:ParallelPortFilter</a></dd></dl>
+<dl><dt>OutputSignal</dt>
+<dd><a href="Contributions%253AHilbertFilter.html#OutputSignal" title="Contributions:HilbertFilter">Contributions:HilbertFilter</a></dd></dl>
+<dl><dt>OutputTriggerList</dt>
+<dd><a href="Contributions%253AgSTIMbox.html#OutputTriggerList" title="Contributions:gSTIMbox">Contributions:gSTIMbox</a></dd></dl>
+<dl><dt>OutputType</dt>
+<dd><a href="User_Reference%253AARFilter.html#OutputType" class="mw-redirect" title="User Reference:ARFilter">User Reference:ARFilter</a></dd></dl>
+<dl><dt>OutputView</dt>
+<dd><a href="Contributions%253AStatisticsFilter.html#OutputView" title="Contributions:StatisticsFilter">Contributions:StatisticsFilter</a></dd></dl>
+<dl><dt>ParallelPortOutput</dt>
+<dd><a href="Contributions%253AParallelPortFilter.html#ParallelPortOutput" title="Contributions:ParallelPortFilter">Contributions:ParallelPortFilter</a></dd></dl>
+<dl><dt>Parameters</dt>
+<dd><a href="Contributions%253ABrainFlow.html#General_Configuration" title="Contributions:BrainFlow">Contributions:BrainFlow</a></dd></dl>
+<dl><dt>PD1</dt>
+<dd><a href="Contributions%253ATBSIStimulator.html#PD1" title="Contributions:TBSIStimulator">Contributions:TBSIStimulator</a></dd></dl>
+<dl><dt>PhaseDuration</dt>
+<dd><a href="Contributions%253AgEstimFilter.html#PhaseDuration" title="Contributions:gEstimFilter">Contributions:gEstimFilter</a></dd></dl>
+<dl><dt>PhotoDiodePatch</dt>
+<dd><a href="Programming_Reference%253AStimulusTask_Class.html#PhotoDiodePatch" title="Programming Reference:StimulusTask Class">Programming Reference:StimulusTask Class</a></dd>
+<dd><a href="GuiltTask.html#PhotoDiodePatch" title="GuiltTask">GuiltTask</a></dd>
+<dd><a href="ForagingTask.html#PhotoDiodePatch" title="ForagingTask">ForagingTask</a></dd>
+<dd><a href="EglyDriverTask.html#PhotoDiodePatch" title="EglyDriverTask">EglyDriverTask</a></dd>
+<dd><a href="Contributions%253AHyperScanningTask.html#PhotoDiodePatch" class="mw-redirect" title="Contributions:HyperScanningTask">Contributions:HyperScanningTask</a></dd>
+<dd><a href="Contributions%253ACommunicationTask.html#PhotoDiodePatch" title="Contributions:CommunicationTask">Contributions:CommunicationTask</a></dd>
+<dd><a href="Contributions%253AANTTask.html#PhotoDiodePatch" title="Contributions:ANTTask">Contributions:ANTTask</a></dd></dl>
+<dl><dt>PhotoDiodePatchActiveColor</dt>
+<dd><a href="Programming_Reference%253AStimulusTask_Class.html#PhotoDiodePatchActiveColor" title="Programming Reference:StimulusTask Class">Programming Reference:StimulusTask Class</a></dd>
+<dd><a href="GuiltTask.html#PhotoDiodePatchActiveColor" title="GuiltTask">GuiltTask</a></dd>
+<dd><a href="EglyDriverTask.html#PhotoDiodePatchActiveColor" title="EglyDriverTask">EglyDriverTask</a></dd>
+<dd><a href="Contributions%253AHyperScanningTask.html#PhotoDiodePatchActiveColor" class="mw-redirect" title="Contributions:HyperScanningTask">Contributions:HyperScanningTask</a></dd>
+<dd><a href="Contributions%253ACommunicationTask.html#PhotoDiodePatchActiveColor" title="Contributions:CommunicationTask">Contributions:CommunicationTask</a></dd>
+<dd><a href="Contributions%253AANTTask.html#PhotoDiodePatchActiveColor" title="Contributions:ANTTask">Contributions:ANTTask</a></dd></dl>
+<dl><dt>PhotoDiodePatchExpression</dt>
+<dd><a href="Programming_Reference%253AStimulusTask_Class.html#PhotoDiodePatchExpression" title="Programming Reference:StimulusTask Class">Programming Reference:StimulusTask Class</a></dd></dl>
+<dl><dt>PhotoDiodePatchHeight</dt>
+<dd><a href="Programming_Reference%253AStimulusTask_Class.html#PhotoDiodePatchHeight" title="Programming Reference:StimulusTask Class">Programming Reference:StimulusTask Class</a></dd></dl>
+<dl><dt>PhotoDiodePatchHeight, PhotoDiodePatchWidth</dt>
+<dd><a href="GuiltTask.html#PhotoDiodePatchHeight,_PhotoDiodePatchWidth" title="GuiltTask">GuiltTask</a></dd>
+<dd><a href="EglyDriverTask.html#PhotoDiodePatchHeight,_PhotoDiodePatchWidth" title="EglyDriverTask">EglyDriverTask</a></dd>
+<dd><a href="Contributions%253AHyperScanningTask.html#PhotoDiodePatchHeight,_PhotoDiodePatchWidth" class="mw-redirect" title="Contributions:HyperScanningTask">Contributions:HyperScanningTask</a></dd>
+<dd><a href="Contributions%253ACommunicationTask.html#PhotoDiodePatchHeight,_PhotoDiodePatchWidth" title="Contributions:CommunicationTask">Contributions:CommunicationTask</a></dd>
+<dd><a href="Contributions%253AANTTask.html#PhotoDiodePatchHeight,_PhotoDiodePatchWidth" title="Contributions:ANTTask">Contributions:ANTTask</a></dd></dl>
+<dl><dt>PhotoDiodePatchInactiveColor</dt>
+<dd><a href="Programming_Reference%253AStimulusTask_Class.html#PhotoDiodePatchInactiveColor" title="Programming Reference:StimulusTask Class">Programming Reference:StimulusTask Class</a></dd>
+<dd><a href="GuiltTask.html#PhotoDiodePatchInactiveColor" title="GuiltTask">GuiltTask</a></dd>
+<dd><a href="EglyDriverTask.html#PhotoDiodePatchInactiveColor" title="EglyDriverTask">EglyDriverTask</a></dd>
+<dd><a href="Contributions%253AHyperScanningTask.html#PhotoDiodePatchInactiveColor" class="mw-redirect" title="Contributions:HyperScanningTask">Contributions:HyperScanningTask</a></dd>
+<dd><a href="Contributions%253ACommunicationTask.html#PhotoDiodePatchInactiveColor" title="Contributions:CommunicationTask">Contributions:CommunicationTask</a></dd>
+<dd><a href="Contributions%253AANTTask.html#PhotoDiodePatchInactiveColor" title="Contributions:ANTTask">Contributions:ANTTask</a></dd></dl>
+<dl><dt>PhotoDiodePatchLeft</dt>
+<dd><a href="Programming_Reference%253AStimulusTask_Class.html#PhotoDiodePatchLeft" title="Programming Reference:StimulusTask Class">Programming Reference:StimulusTask Class</a></dd></dl>
+<dl><dt>PhotoDiodePatchLeft, PhotoDiodePatchTop</dt>
+<dd><a href="GuiltTask.html#PhotoDiodePatchLeft,_PhotoDiodePatchTop" title="GuiltTask">GuiltTask</a></dd>
+<dd><a href="EglyDriverTask.html#PhotoDiodePatchLeft,_PhotoDiodePatchTop" title="EglyDriverTask">EglyDriverTask</a></dd>
+<dd><a href="Contributions%253AHyperScanningTask.html#PhotoDiodePatchLeft,_PhotoDiodePatchTop" class="mw-redirect" title="Contributions:HyperScanningTask">Contributions:HyperScanningTask</a></dd>
+<dd><a href="Contributions%253ACommunicationTask.html#PhotoDiodePatchLeft,_PhotoDiodePatchTop" title="Contributions:CommunicationTask">Contributions:CommunicationTask</a></dd>
+<dd><a href="Contributions%253AANTTask.html#PhotoDiodePatchLeft,_PhotoDiodePatchTop" title="Contributions:ANTTask">Contributions:ANTTask</a></dd></dl>
+<dl><dt>PhotoDiodePatchShape</dt>
+<dd><a href="Programming_Reference%253AStimulusTask_Class.html#PhotoDiodePatchShape" title="Programming Reference:StimulusTask Class">Programming Reference:StimulusTask Class</a></dd>
+<dd><a href="GuiltTask.html#PhotoDiodePatchShape" title="GuiltTask">GuiltTask</a></dd>
+<dd><a href="EglyDriverTask.html#PhotoDiodePatchShape" title="EglyDriverTask">EglyDriverTask</a></dd>
+<dd><a href="Contributions%253AHyperScanningTask.html#PhotoDiodePatchShape" class="mw-redirect" title="Contributions:HyperScanningTask">Contributions:HyperScanningTask</a></dd>
+<dd><a href="Contributions%253ACommunicationTask.html#PhotoDiodePatchShape" title="Contributions:CommunicationTask">Contributions:CommunicationTask</a></dd>
+<dd><a href="Contributions%253AANTTask.html#PhotoDiodePatchShape" title="Contributions:ANTTask">Contributions:ANTTask</a></dd></dl>
+<dl><dt>PhotoDiodePatchTop</dt>
+<dd><a href="Programming_Reference%253AStimulusTask_Class.html#PhotoDiodePatchTop" title="Programming Reference:StimulusTask Class">Programming Reference:StimulusTask Class</a></dd></dl>
+<dl><dt>PhotoDiodePatchWidth</dt>
+<dd><a href="Programming_Reference%253AStimulusTask_Class.html#PhotoDiodePatchWidth" title="Programming Reference:StimulusTask Class">Programming Reference:StimulusTask Class</a></dd></dl>
+<dl><dt>PhysicalChannels</dt>
+<dd><a href="Contributions%253ATMSiADC.html#PhysicalChannels" title="Contributions:TMSiADC">Contributions:TMSiADC</a></dd></dl>
+<dl><dt>PI1</dt>
+<dd><a href="Contributions%253ATBSIStimulator.html#PI1" title="Contributions:TBSIStimulator">Contributions:TBSIStimulator</a></dd></dl>
+<dl><dt>PlaybackChList</dt>
+<dd><a href="Contributions%253AFilePlayback.html#PlaybackChList" title="Contributions:FilePlayback">Contributions:FilePlayback</a></dd></dl>
+<dl><dt>PlaybackFileName</dt>
+<dd><a href="Contributions%253AFilePlayback.html#PlaybackFileName" title="Contributions:FilePlayback">Contributions:FilePlayback</a></dd></dl>
+<dl><dt>PlaybackLooped</dt>
+<dd><a href="Contributions%253AFilePlayback.html#PlaybackLooped" title="Contributions:FilePlayback">Contributions:FilePlayback</a></dd></dl>
+<dl><dt>PlaybackReverseData</dt>
+<dd><a href="Contributions%253AFilePlayback.html#PlaybackReverseData" title="Contributions:FilePlayback">Contributions:FilePlayback</a></dd></dl>
+<dl><dt>PlaybackSpeed</dt>
+<dd><a href="Contributions%253AFilePlayback.html#PlaybackSpeed" title="Contributions:FilePlayback">Contributions:FilePlayback</a></dd></dl>
+<dl><dt>PlaybackStartTime</dt>
+<dd><a href="Contributions%253AFilePlayback.html#PlaybackStartTime" title="Contributions:FilePlayback">Contributions:FilePlayback</a></dd></dl>
+<dl><dt>PlaybackStates</dt>
+<dd><a href="Contributions%253AFilePlayback.html#PlaybackStates" title="Contributions:FilePlayback">Contributions:FilePlayback</a></dd></dl>
+<dl><dt>PM</dt>
+<dd><a href="Contributions%253AKeysightGenerator.html#PM" title="Contributions:KeysightGenerator">Contributions:KeysightGenerator</a></dd></dl>
+<dl><dt>Polarity</dt>
+<dd><a href="Contributions%253AgEstimFilter.html#Polarity" title="Contributions:gEstimFilter">Contributions:gEstimFilter</a></dd></dl>
+<dl><dt>Port</dt>
+<dd><a href="Contributions%253ANatusADC.html#Port" title="Contributions:NatusADC">Contributions:NatusADC</a></dd>
+<dd><a href="Contributions%253AFieldTripBufferSource.html#Port" title="Contributions:FieldTripBufferSource">Contributions:FieldTripBufferSource</a></dd></dl>
+<dl><dt>PortName</dt>
+<dd><a href="Contributions%253AFlexEEG.html#PortName" title="Contributions:FlexEEG">Contributions:FlexEEG</a></dd></dl>
+<dl><dt>PosPeakThreshold</dt>
+<dd><a href="Contributions%253APeakDetector.html#PosPeakThreshold" title="Contributions:PeakDetector">Contributions:PeakDetector</a></dd></dl>
+<dl><dt>PostFeedbackDuration</dt>
+<dd><a href="Programming_Reference%253AFeedbackTask_Class.html#PostFeedbackDuration" title="Programming Reference:FeedbackTask Class">Programming Reference:FeedbackTask Class</a></dd></dl>
+<dl><dt>PostRunDuration</dt>
+<dd><a href="Programming_Reference%253AStimulusTask_Class.html#PostRunDuration" title="Programming Reference:StimulusTask Class">Programming Reference:StimulusTask Class</a></dd></dl>
+<dl><dt>PostSequenceDuration</dt>
+<dd><a href="Programming_Reference%253AStimulusTask_Class.html#PostSequenceDuration" title="Programming Reference:StimulusTask Class">Programming Reference:StimulusTask Class</a></dd></dl>
+<dl><dt>PostTargetResponseTime</dt>
+<dd><a href="EglyDriverTask.html#PostTargetResponseTime" title="EglyDriverTask">EglyDriverTask</a></dd></dl>
+<dl><dt>PracticeBlockSize</dt>
+<dd><a href="Contributions%253AANTTask.html#PracticeBlockSize" title="Contributions:ANTTask">Contributions:ANTTask</a></dd></dl>
+<dl><dt>PRBS</dt>
+<dd><a href="Contributions%253AKeysightGenerator.html#PRBS" title="Contributions:KeysightGenerator">Contributions:KeysightGenerator</a></dd></dl>
+<dl><dt>PreFeedbackDuration</dt>
+<dd><a href="Programming_Reference%253AFeedbackTask_Class.html#PreFeedbackDuration" title="Programming Reference:FeedbackTask Class">Programming Reference:FeedbackTask Class</a></dd></dl>
+<dl><dt>PreRunDuration</dt>
+<dd><a href="Programming_Reference%253AStimulusTask_Class.html#PreRunDuration" title="Programming Reference:StimulusTask Class">Programming Reference:StimulusTask Class</a></dd>
+<dd><a href="Programming_Reference%253AFeedbackTask_Class.html#PreRunDuration" title="Programming Reference:FeedbackTask Class">Programming Reference:FeedbackTask Class</a></dd></dl>
+<dl><dt>PreSequenceDuration</dt>
+<dd><a href="Programming_Reference%253AStimulusTask_Class.html#PreSequenceDuration" title="Programming Reference:StimulusTask Class">Programming Reference:StimulusTask Class</a></dd></dl>
+<dl><dt>PrimaryOutputChannels</dt>
+<dd><a href="User_Reference%253ABCI2000FileWriter.html#PrimaryOutputChannels" title="User Reference:BCI2000FileWriter">User Reference:BCI2000FileWriter</a></dd></dl>
+<dl><dt>Priority</dt>
+<dd><a href="Contributions%253AMicromedADC.html#Priority" title="Contributions:MicromedADC">Contributions:MicromedADC</a></dd></dl>
+<dl><dt>ProgressBar</dt>
+<dd><a href="GuiltTask.html#ProgressBar" title="GuiltTask">GuiltTask</a></dd>
+<dd><a href="ForagingTask.html#ProgressBar" title="ForagingTask">ForagingTask</a></dd>
+<dd><a href="EglyDriverTask.html#ProgressBar" title="EglyDriverTask">EglyDriverTask</a></dd>
+<dd><a href="Contributions%253AANTTask.html#ProgressBar" title="Contributions:ANTTask">Contributions:ANTTask</a></dd></dl>
+<dl><dt>ProgressBarBackgroundColor, ProgressBarForegroundColor</dt>
+<dd><a href="GuiltTask.html#ProgressBarBackgroundColor,_ProgressBarForegroundColor" title="GuiltTask">GuiltTask</a></dd>
+<dd><a href="EglyDriverTask.html#ProgressBarBackgroundColor,_ProgressBarForegroundColor" title="EglyDriverTask">EglyDriverTask</a></dd>
+<dd><a href="Contributions%253AANTTask.html#ProgressBarBackgroundColor,_ProgressBarForegroundColor" title="Contributions:ANTTask">Contributions:ANTTask</a></dd></dl>
+<dl><dt>ProgressBarHeight, ProgressBarWidth</dt>
+<dd><a href="GuiltTask.html#ProgressBarHeight,_ProgressBarWidth" title="GuiltTask">GuiltTask</a></dd>
+<dd><a href="EglyDriverTask.html#ProgressBarHeight,_ProgressBarWidth" title="EglyDriverTask">EglyDriverTask</a></dd>
+<dd><a href="Contributions%253AANTTask.html#ProgressBarHeight,_ProgressBarWidth" title="Contributions:ANTTask">Contributions:ANTTask</a></dd></dl>
+<dl><dt>Protocol</dt>
+<dd><a href="Contributions%253AModularEEG.html#Protocol" title="Contributions:ModularEEG">Contributions:ModularEEG</a></dd></dl>
+<dl><dt>PublishCommand</dt>
+<dd><a href="Contributions%253ASerialInterface.html#PublishCommand" title="Contributions:SerialInterface">Contributions:SerialInterface</a></dd></dl>
+<dl><dt>Pulse</dt>
+<dd><a href="Contributions%253AKeysightGenerator.html#Pulse" title="Contributions:KeysightGenerator">Contributions:KeysightGenerator</a></dd></dl>
+<dl><dt>PulseFrequency</dt>
+<dd><a href="Contributions%253AgEstimFilter.html#PulseFrequency" title="Contributions:gEstimFilter">Contributions:gEstimFilter</a></dd></dl>
+<dl><dt>PupilResolution</dt>
+<dd><a href="Contributions%253AEyetrackerLoggerTobiiPro.html#PupilResolution" title="Contributions:EyetrackerLoggerTobiiPro">Contributions:EyetrackerLoggerTobiiPro</a></dd></dl>
+<dl><dt>PushButtonType</dt>
+<dd><a href="EglyDriverTask.html#PushButtonType" title="EglyDriverTask">EglyDriverTask</a></dd></dl>
+<dl><dt>PWM</dt>
+<dd><a href="Contributions%253AKeysightGenerator.html#PWM" title="Contributions:KeysightGenerator">Contributions:KeysightGenerator</a></dd></dl>
+<dl><dt>QuietStimulation</dt>
+<dd><a href="Contributions%253AgEstimFilter.html#QuietStimulation" title="Contributions:gEstimFilter">Contributions:gEstimFilter</a></dd></dl>
+<dl><dt>Ramp</dt>
+<dd><a href="Contributions%253AKeysightGenerator.html#Ramp" title="Contributions:KeysightGenerator">Contributions:KeysightGenerator</a></dd></dl>
+<dl><dt>Range</dt>
+<dd><a href="Contributions%253ALabJackADC.html#Range" title="Contributions:LabJackADC">Contributions:LabJackADC</a></dd></dl>
+<dl><dt>ReactionTimeMin, ReactionTimeMax</dt>
+<dd><a href="Contributions%253AANTTask.html#ReactionTimeMin,_ReactionTimeMax" title="Contributions:ANTTask">Contributions:ANTTask</a></dd></dl>
+<dl><dt>RecordAll</dt>
+<dd><a href="Contributions%253AWebcamLogger.html#RecordAll" title="Contributions:WebcamLogger">Contributions:WebcamLogger</a></dd></dl>
+<dl><dt>RecordingChannels</dt>
+<dd><a href="Contributions%253ABrainFlow.html#RecordingChannels" title="Contributions:BrainFlow">Contributions:BrainFlow</a></dd></dl>
+<dl><dt>RecordMic</dt>
+<dd><a href="Contributions%253AMicRecorderFilter.html#RecordMic" title="Contributions:MicRecorderFilter">Contributions:MicRecorderFilter</a></dd></dl>
+<dl><dt>Rectification</dt>
+<dd><a href="Contributions%253ACustomIIRFilter.html#Rectification" class="mw-redirect" title="Contributions:CustomIIRFilter">Contributions:CustomIIRFilter</a></dd></dl>
+<dl><dt>RefChList</dt>
+<dd><a href="Contributions%253AgNautilus.html#RefChList" title="Contributions:gNautilus">Contributions:gNautilus</a></dd></dl>
+<dl><dt>ReferenceCh</dt>
+<dd><a href="RipplePyADC.html#ReferenceCh" class="mw-redirect" title="RipplePyADC">RipplePyADC</a></dd>
+<dd><a href="MicroLeadsADC.html#ReferenceCh" class="mw-redirect" title="MicroLeadsADC">MicroLeadsADC</a></dd>
+<dd><a href="Contributions%253ARipplePyADC.html#ReferenceCh" title="Contributions:RipplePyADC">Contributions:RipplePyADC</a></dd>
+<dd><a href="Contributions%253AMicroLeadsADC.html#ReferenceCh" title="Contributions:MicroLeadsADC">Contributions:MicroLeadsADC</a></dd></dl>
+<dl><dt>ReferenceChannel</dt>
+<dd><a href="Contributions%253AactiCHamp.html#ReferenceChannel" title="Contributions:actiCHamp">Contributions:actiCHamp</a></dd></dl>
+<dl><dt>RenderingQuality</dt>
+<dd><a href="Contributions%253ACenterOutTask.html#RenderingQuality" title="Contributions:CenterOutTask">Contributions:CenterOutTask</a></dd></dl>
+<dl><dt>Resolution</dt>
+<dd><a href="Contributions%253ALabJackADC.html#Resolution" title="Contributions:LabJackADC">Contributions:LabJackADC</a></dd>
+<dd><a href="Contributions%253AFlexEEG.html#Resolution" title="Contributions:FlexEEG">Contributions:FlexEEG</a></dd></dl>
+<dl><dt>ResponseDuration</dt>
+<dd><a href="GuiltTask.html#ResponseDuration" title="GuiltTask">GuiltTask</a></dd></dl>
+<dl><dt>RoleFontColor</dt>
+<dd><a href="Contributions%253AHyperScanningTask.html#RoleFontColor" class="mw-redirect" title="Contributions:HyperScanningTask">Contributions:HyperScanningTask</a></dd>
+<dd><a href="Contributions%253ACommunicationTask.html#RoleFontColor" title="Contributions:CommunicationTask">Contributions:CommunicationTask</a></dd></dl>
+<dl><dt>RoleHeight</dt>
+<dd><a href="Contributions%253AHyperScanningTask.html#RoleHeight" class="mw-redirect" title="Contributions:HyperScanningTask">Contributions:HyperScanningTask</a></dd>
+<dd><a href="Contributions%253ACommunicationTask.html#RoleHeight" title="Contributions:CommunicationTask">Contributions:CommunicationTask</a></dd></dl>
+<dl><dt>SampleBlockSize</dt>
+<dd><a href="RipplePyADC.html#SampleBlockSize" class="mw-redirect" title="RipplePyADC">RipplePyADC</a></dd>
+<dd><a href="MicroLeadsADC.html#SampleBlockSize" class="mw-redirect" title="MicroLeadsADC">MicroLeadsADC</a></dd>
+<dd><a href="Contributions%253AvAmpADC.html#SampleBlockSize" title="Contributions:vAmpADC">Contributions:vAmpADC</a></dd>
+<dd><a href="Contributions%253ARipplePyADC.html#SampleBlockSize" title="Contributions:RipplePyADC">Contributions:RipplePyADC</a></dd>
+<dd><a href="Contributions%253ARDAClientADC.html#SampleBlockSize" title="Contributions:RDAClientADC">Contributions:RDAClientADC</a></dd>
+<dd><a href="Contributions%253ANeuSenW.html#SampleBlockSize" title="Contributions:NeuSenW">Contributions:NeuSenW</a></dd>
+<dd><a href="Contributions%253ANeuroSpark.html#SampleBlockSize" title="Contributions:NeuroSpark">Contributions:NeuroSpark</a></dd>
+<dd><a href="Contributions%253ANatusADC.html#SampleBlockSize" title="Contributions:NatusADC">Contributions:NatusADC</a></dd>
+<dd><a href="Contributions%253AModularEEG.html#SampleBlockSize" title="Contributions:ModularEEG">Contributions:ModularEEG</a></dd>
+<dd><a href="Contributions%253AMicromedADC.html#SampleBlockSize" title="Contributions:MicromedADC">Contributions:MicromedADC</a></dd>
+<dd><a href="Contributions%253AMicroLeadsADC.html#SampleBlockSize" title="Contributions:MicroLeadsADC">Contributions:MicroLeadsADC</a></dd>
+<dd><a href="Contributions%253ALabJackADC.html#SampleBlockSize" title="Contributions:LabJackADC">Contributions:LabJackADC</a></dd>
+<dd><a href="Contributions%253AgNautilusNEEDAccess.html#SampleBlockSize" title="Contributions:gNautilusNEEDAccess">Contributions:gNautilusNEEDAccess</a></dd>
+<dd><a href="Contributions%253AgNautilus.html#SampleBlockSize" title="Contributions:gNautilus">Contributions:gNautilus</a></dd>
+<dd><a href="Contributions%253AFilePlayback.html#SampleBlockSize" title="Contributions:FilePlayback">Contributions:FilePlayback</a></dd>
+<dd><a href="Contributions%253AFieldTripBufferSource.html#SampleBlockSize" title="Contributions:FieldTripBufferSource">Contributions:FieldTripBufferSource</a></dd>
+<dd><a href="Contributions%253AEnobioADC.html#SampleBlockSize" title="Contributions:EnobioADC">Contributions:EnobioADC</a></dd>
+<dd><a href="Contributions%253ADelsysTrignoAvanti.html#SampleBlockSize" title="Contributions:DelsysTrignoAvanti">Contributions:DelsysTrignoAvanti</a></dd>
+<dd><a href="Contributions%253ABlackrock.html#SampleBlockSize" title="Contributions:Blackrock">Contributions:Blackrock</a></dd>
+<dd><a href="Contributions%253ABioPacADC.html#SampleBlockSize" title="Contributions:BioPacADC">Contributions:BioPacADC</a></dd>
+<dd><a href="Contributions%253AB-Alert.html#SampleBlockSize" title="Contributions:B-Alert">Contributions:B-Alert</a></dd>
+<dd><a href="Contributions%253AactiCHampPlus.html#SampleBlockSize" title="Contributions:actiCHampPlus">Contributions:actiCHampPlus</a></dd>
+<dd><a href="Contributions%253AactiCHamp.html#SampleBlockSize" title="Contributions:actiCHamp">Contributions:actiCHamp</a></dd></dl>
+<dl><dt>SampleBlockSize, SamplingRate, SourceCh, SourceChGain, SourceChOffset, TransmitChList</dt>
+<dd><a href="Contributions%253AFlexEEG.html#SampleBlockSize,_SamplingRate,_SourceCh,_SourceChGain,_SourceChOffset,_TransmitChList" title="Contributions:FlexEEG">Contributions:FlexEEG</a></dd>
+<dd><a href="Contributions%253ADSISerial.html#SampleBlockSize,_SamplingRate,_SourceCh,_SourceChGain,_SourceChOffset,_TransmitChList" title="Contributions:DSISerial">Contributions:DSISerial</a></dd></dl>
+<dl><dt>SampleRate</dt>
+<dd><a href="Contributions%253AgNautilus.html#SampleRate" title="Contributions:gNautilus">Contributions:gNautilus</a></dd>
+<dd><a href="Contributions%253AactiCHamp.html#SampleRate" title="Contributions:actiCHamp">Contributions:actiCHamp</a></dd></dl>
+<dl><dt>SamplingRate</dt>
+<dd><a href="RipplePyADC.html#SamplingRate" class="mw-redirect" title="RipplePyADC">RipplePyADC</a></dd>
+<dd><a href="MicroLeadsADC.html#SamplingRate" class="mw-redirect" title="MicroLeadsADC">MicroLeadsADC</a></dd>
+<dd><a href="Contributions%253AvAmpADC.html#SamplingRate" title="Contributions:vAmpADC">Contributions:vAmpADC</a></dd>
+<dd><a href="Contributions%253ATDTADC.html#SamplingRate" title="Contributions:TDTADC">Contributions:TDTADC</a></dd>
+<dd><a href="Contributions%253ARipplePyADC.html#SamplingRate" title="Contributions:RipplePyADC">Contributions:RipplePyADC</a></dd>
+<dd><a href="Contributions%253ARDAClientADC.html#SamplingRate" title="Contributions:RDAClientADC">Contributions:RDAClientADC</a></dd>
+<dd><a href="Contributions%253ANeuSenW.html#SamplingRate" title="Contributions:NeuSenW">Contributions:NeuSenW</a></dd>
+<dd><a href="Contributions%253ANeuroSpark.html#SamplingRate" title="Contributions:NeuroSpark">Contributions:NeuroSpark</a></dd>
+<dd><a href="Contributions%253ANatusADC.html#SamplingRate" title="Contributions:NatusADC">Contributions:NatusADC</a></dd>
+<dd><a href="Contributions%253AModularEEG.html#SamplingRate" title="Contributions:ModularEEG">Contributions:ModularEEG</a></dd>
+<dd><a href="Contributions%253AMicromedADC.html#SamplingRate" title="Contributions:MicromedADC">Contributions:MicromedADC</a></dd>
+<dd><a href="Contributions%253AMicroLeadsADC.html#SamplingRate" title="Contributions:MicroLeadsADC">Contributions:MicroLeadsADC</a></dd>
+<dd><a href="Contributions%253ALabJackADC.html#SamplingRate" title="Contributions:LabJackADC">Contributions:LabJackADC</a></dd>
+<dd><a href="Contributions%253AgNautilusNEEDAccess.html#SamplingRate" title="Contributions:gNautilusNEEDAccess">Contributions:gNautilusNEEDAccess</a></dd>
+<dd><a href="Contributions%253AFilePlayback.html#SamplingRate" title="Contributions:FilePlayback">Contributions:FilePlayback</a></dd>
+<dd><a href="Contributions%253AEnobioADC.html#SamplingRate" title="Contributions:EnobioADC">Contributions:EnobioADC</a></dd>
+<dd><a href="Contributions%253ADelsysTrignoAvanti.html#SamplingRate" title="Contributions:DelsysTrignoAvanti">Contributions:DelsysTrignoAvanti</a></dd>
+<dd><a href="Contributions%253ABlackrock.html#SamplingRate" title="Contributions:Blackrock">Contributions:Blackrock</a></dd>
+<dd><a href="Contributions%253ABioPacADC.html#SamplingRate" title="Contributions:BioPacADC">Contributions:BioPacADC</a></dd>
+<dd><a href="Contributions%253AB-Alert.html#SamplingRate" title="Contributions:B-Alert">Contributions:B-Alert</a></dd>
+<dd><a href="Contributions%253AactiCHampPlus.html#SamplingRate" title="Contributions:actiCHampPlus">Contributions:actiCHampPlus</a></dd></dl>
+<dl><dt>SaveEDF</dt>
+<dd><a href="Contributions%253AEyetrackerLoggerEyeLink.html#SaveEDF" title="Contributions:EyetrackerLoggerEyeLink">Contributions:EyetrackerLoggerEyeLink</a></dd></dl>
+<dl><dt>SavePrmFile</dt>
+<dd><a href="User_Reference%253ABCI2000FileWriter.html#SavePrmFile" title="User Reference:BCI2000FileWriter">User Reference:BCI2000FileWriter</a></dd></dl>
+<dl><dt>ScreenWidth, ScreenHeight</dt>
+<dd><a href="EglyDriverTask.html#ScreenWidth,_ScreenHeight" title="EglyDriverTask">EglyDriverTask</a></dd></dl>
+<dl><dt>SecondaryBCI2000</dt>
+<dd><a href="Contributions%253ASecondaryBCI2000Controller.html#SecondaryBCI2000" title="Contributions:SecondaryBCI2000Controller">Contributions:SecondaryBCI2000Controller</a></dd></dl>
+<dl><dt>SecondaryBCI2000StartupScript</dt>
+<dd><a href="Contributions%253ASecondaryBCI2000Controller.html#SecondaryBCI2000StartupScript" title="Contributions:SecondaryBCI2000Controller">Contributions:SecondaryBCI2000Controller</a></dd></dl>
+<dl><dt>SecondaryBCI2000TelnetPort</dt>
+<dd><a href="Contributions%253ASecondaryBCI2000Controller.html#SecondaryBCI2000TelnetPort" title="Contributions:SecondaryBCI2000Controller">Contributions:SecondaryBCI2000Controller</a></dd></dl>
+<dl><dt>SecondaryOutputFiles</dt>
+<dd><a href="User_Reference%253ABCI2000FileWriter.html#SecondaryOutputFiles" title="User Reference:BCI2000FileWriter">User Reference:BCI2000FileWriter</a></dd></dl>
+<dl><dt>SegmentNames</dt>
+<dd><a href="Contributions%253ADelsysTrignoAvanti.html#SegmentNames" title="Contributions:DelsysTrignoAvanti">Contributions:DelsysTrignoAvanti</a></dd></dl>
+<dl><dt>SensorIsRequired</dt>
+<dd><a href="Contributions%253ADelsysTrignoAvanti.html#SensorIsRequired" title="Contributions:DelsysTrignoAvanti">Contributions:DelsysTrignoAvanti</a></dd></dl>
+<dl><dt>SensorMode</dt>
+<dd><a href="Contributions%253ADelsysTrignoAvanti.html#SensorMode" title="Contributions:DelsysTrignoAvanti">Contributions:DelsysTrignoAvanti</a></dd></dl>
+<dl><dt>Sequencing</dt>
+<dd><a href="Contributions%253ACenterOutTask.html#Sequencing" title="Contributions:CenterOutTask">Contributions:CenterOutTask</a></dd></dl>
+<dl><dt>SerialNumber</dt>
+<dd><a href="Contributions%253ABrainFlow.html#SerialNumber" title="Contributions:BrainFlow">Contributions:BrainFlow</a></dd></dl>
+<dl><dt>SerialOutputs</dt>
+<dd><a href="Contributions%253ASerialInterface.html#SerialOutputs" title="Contributions:SerialInterface">Contributions:SerialInterface</a></dd></dl>
+<dl><dt>SerialPort</dt>
+<dd><a href="Contributions%253ASerialInterface.html#SerialPort" title="Contributions:SerialInterface">Contributions:SerialInterface</a></dd></dl>
+<dl><dt>ServerAddress</dt>
+<dd><a href="Contributions%253ANeuroscanADC.html#ServerAddress" title="Contributions:NeuroscanADC">Contributions:NeuroscanADC</a></dd>
+<dd><a href="Contributions%253AMicromedADC.html#ServerAddress" title="Contributions:MicromedADC">Contributions:MicromedADC</a></dd>
+<dd><a href="Contributions%253ADelsysTrignoAvanti.html#ServerAddress" title="Contributions:DelsysTrignoAvanti">Contributions:DelsysTrignoAvanti</a></dd></dl>
+<dl><dt>ServerBlockSize</dt>
+<dd><a href="Contributions%253ANatusADC.html#ServerBlockSize" title="Contributions:NatusADC">Contributions:NatusADC</a></dd></dl>
+<dl><dt>ServerIP</dt>
+<dd><a href="Contributions%253ANatusADC.html#ServerIP" title="Contributions:NatusADC">Contributions:NatusADC</a></dd>
+<dd><a href="Contributions%253AAmpServerProADC.html#ServerIP" title="Contributions:AmpServerProADC">Contributions:AmpServerProADC</a></dd></dl>
+<dl><dt>ShareTransmissionFilter</dt>
+<dd><a href="Programming_Reference%253ASignalSharingDemo_Signal_Processing.html#ShareTransmissionFilter" class="mw-redirect" title="Programming Reference:SignalSharingDemo Signal Processing">Programming Reference:SignalSharingDemo Signal Processing</a></dd>
+<dd><a href="Programming_Reference%253ASignalSharingDemoClient_C++_App.html#ShareTransmissionFilter" title="Programming Reference:SignalSharingDemoClient C++ App">Programming Reference:SignalSharingDemoClient C++ App</a></dd></dl>
+<dl><dt>ShowSignalTime</dt>
+<dd><a href="Contributions%253ABCPy2000.html#ShowSignalTime" title="Contributions:BCPy2000">Contributions:BCPy2000</a></dd></dl>
+<dl><dt>SignalProcessingDescription</dt>
+<dd><a href="Contributions%253ABCPy2000.html#SignalProcessingDescription" title="Contributions:BCPy2000">Contributions:BCPy2000</a></dd></dl>
+<dl><dt>SignalType</dt>
+<dd><a href="Contributions%253AMicromedADC.html#SignalType" title="Contributions:MicromedADC">Contributions:MicromedADC</a></dd></dl>
+<dl><dt>Simplified</dt>
+<dd><a href="EglyDriverTask.html#Simplified" title="EglyDriverTask">EglyDriverTask</a></dd></dl>
+<dl><dt>SimulateEEG</dt>
+<dd><a href="Contributions%253AModularEEG.html#SimulateEEG" title="Contributions:ModularEEG">Contributions:ModularEEG</a></dd></dl>
+<dl><dt>skipHoldA</dt>
+<dd><a href="Contributions%253ACenterOutTask.html#skipHoldA" title="Contributions:CenterOutTask">Contributions:CenterOutTask</a></dd></dl>
+<dl><dt>skipHoldB</dt>
+<dd><a href="Contributions%253ACenterOutTask.html#skipHoldB" title="Contributions:CenterOutTask">Contributions:CenterOutTask</a></dd></dl>
+<dl><dt>SliderWidth</dt>
+<dd><a href="Contributions%253AHyperScanningTask.html#SliderWidth" class="mw-redirect" title="Contributions:HyperScanningTask">Contributions:HyperScanningTask</a></dd>
+<dd><a href="Contributions%253ACommunicationTask.html#SliderWidth" title="Contributions:CommunicationTask">Contributions:CommunicationTask</a></dd></dl>
+<dl><dt>SoftwareChBoard1</dt>
+<dd><a href="Contributions%253ADTADC.html#SoftwareChBoard1" title="Contributions:DTADC">Contributions:DTADC</a></dd></dl>
+<dl><dt>SoftwareChBoard2</dt>
+<dd><a href="Contributions%253ADTADC.html#SoftwareChBoard2" title="Contributions:DTADC">Contributions:DTADC</a></dd></dl>
+<dl><dt>SourceBufferSize</dt>
+<dd><a href="Programming_Reference%253ABufferedADC_Class.html#SourceBufferSize" title="Programming Reference:BufferedADC Class">Programming Reference:BufferedADC Class</a></dd>
+<dd><a href="Contributions%253AgNautilus.html#SourceBufferSize" title="Contributions:gNautilus">Contributions:gNautilus</a></dd></dl>
+<dl><dt>SourceCh</dt>
+<dd><a href="RipplePyADC.html#SourceCh" class="mw-redirect" title="RipplePyADC">RipplePyADC</a></dd>
+<dd><a href="MicroLeadsADC.html#SourceCh" class="mw-redirect" title="MicroLeadsADC">MicroLeadsADC</a></dd>
+<dd><a href="Contributions%253AvAmpADC.html#SourceCh" title="Contributions:vAmpADC">Contributions:vAmpADC</a></dd>
+<dd><a href="Contributions%253ARipplePyADC.html#SourceCh" title="Contributions:RipplePyADC">Contributions:RipplePyADC</a></dd>
+<dd><a href="Contributions%253ARDAClientADC.html#SourceCh" title="Contributions:RDAClientADC">Contributions:RDAClientADC</a></dd>
+<dd><a href="Contributions%253ANeuSenW.html#SourceCh" title="Contributions:NeuSenW">Contributions:NeuSenW</a></dd>
+<dd><a href="Contributions%253ANeuroSpark.html#SourceCh" title="Contributions:NeuroSpark">Contributions:NeuroSpark</a></dd>
+<dd><a href="Contributions%253ANatusADC.html#SourceCh" title="Contributions:NatusADC">Contributions:NatusADC</a></dd>
+<dd><a href="Contributions%253AModularEEG.html#SourceCh" title="Contributions:ModularEEG">Contributions:ModularEEG</a></dd>
+<dd><a href="Contributions%253AMicromedADC.html#SourceCh" title="Contributions:MicromedADC">Contributions:MicromedADC</a></dd>
+<dd><a href="Contributions%253AMicroLeadsADC.html#SourceCh" title="Contributions:MicroLeadsADC">Contributions:MicroLeadsADC</a></dd>
+<dd><a href="Contributions%253ALabJackADC.html#SourceCh" title="Contributions:LabJackADC">Contributions:LabJackADC</a></dd>
+<dd><a href="Contributions%253AgNautilusNEEDAccess.html#SourceCh" title="Contributions:gNautilusNEEDAccess">Contributions:gNautilusNEEDAccess</a></dd>
+<dd><a href="Contributions%253AgNautilus.html#SourceCh" title="Contributions:gNautilus">Contributions:gNautilus</a></dd>
+<dd><a href="Contributions%253AFilePlayback.html#SourceCh" title="Contributions:FilePlayback">Contributions:FilePlayback</a></dd>
+<dd><a href="Contributions%253AEnobioADC.html#SourceCh" title="Contributions:EnobioADC">Contributions:EnobioADC</a></dd>
+<dd><a href="Contributions%253ADelsysTrignoAvanti.html#SourceCh" title="Contributions:DelsysTrignoAvanti">Contributions:DelsysTrignoAvanti</a></dd>
+<dd><a href="Contributions%253ABioPacADC.html#SourceCh" title="Contributions:BioPacADC">Contributions:BioPacADC</a></dd>
+<dd><a href="Contributions%253AAmpServerProADC.html#SourceCh" title="Contributions:AmpServerProADC">Contributions:AmpServerProADC</a></dd>
+<dd><a href="Contributions%253AactiCHampPlus.html#SourceCh" title="Contributions:actiCHampPlus">Contributions:actiCHampPlus</a></dd>
+<dd><a href="Contributions%253AactiCHamp.html#SourceCh" title="Contributions:actiCHamp">Contributions:actiCHamp</a></dd></dl>
+<dl><dt>SourceCh, ChannelNames</dt>
+<dd><a href="Contributions%253AB-Alert.html#SourceCh,_ChannelNames" title="Contributions:B-Alert">Contributions:B-Alert</a></dd></dl>
+<dl><dt>SourceChGain</dt>
+<dd><a href="RipplePyADC.html#SourceChGain" class="mw-redirect" title="RipplePyADC">RipplePyADC</a></dd>
+<dd><a href="MicroLeadsADC.html#SourceChGain" class="mw-redirect" title="MicroLeadsADC">MicroLeadsADC</a></dd>
+<dd><a href="Contributions%253ARipplePyADC.html#SourceChGain" title="Contributions:RipplePyADC">Contributions:RipplePyADC</a></dd>
+<dd><a href="Contributions%253ANeuSenW.html#SourceChGain" title="Contributions:NeuSenW">Contributions:NeuSenW</a></dd>
+<dd><a href="Contributions%253ANeuroSpark.html#SourceChGain" title="Contributions:NeuroSpark">Contributions:NeuroSpark</a></dd>
+<dd><a href="Contributions%253ANatusADC.html#SourceChGain" title="Contributions:NatusADC">Contributions:NatusADC</a></dd>
+<dd><a href="Contributions%253AMicroLeadsADC.html#SourceChGain" title="Contributions:MicroLeadsADC">Contributions:MicroLeadsADC</a></dd>
+<dd><a href="Contributions%253ALabJackADC.html#SourceChGain" title="Contributions:LabJackADC">Contributions:LabJackADC</a></dd>
+<dd><a href="Contributions%253AgNautilus.html#SourceChGain" title="Contributions:gNautilus">Contributions:gNautilus</a></dd>
+<dd><a href="Contributions%253AB-Alert.html#SourceChGain" title="Contributions:B-Alert">Contributions:B-Alert</a></dd>
+<dd><a href="Contributions%253AactiCHamp.html#SourceChGain" title="Contributions:actiCHamp">Contributions:actiCHamp</a></dd></dl>
+<dl><dt>SourceChList</dt>
+<dd><a href="Contributions%253AvAmpADC.html#SourceChList" title="Contributions:vAmpADC">Contributions:vAmpADC</a></dd>
+<dd><a href="Contributions%253ANatusADC.html#SourceChList" title="Contributions:NatusADC">Contributions:NatusADC</a></dd>
+<dd><a href="Contributions%253AgNautilus.html#SourceChList" title="Contributions:gNautilus">Contributions:gNautilus</a></dd></dl>
+<dl><dt>SourceChMatrix</dt>
+<dd><a href="Contributions%253ABioPacADC.html#SourceChMatrix" title="Contributions:BioPacADC">Contributions:BioPacADC</a></dd></dl>
+<dl><dt>SourceChOffset</dt>
+<dd><a href="RipplePyADC.html#SourceChOffset" class="mw-redirect" title="RipplePyADC">RipplePyADC</a></dd>
+<dd><a href="MicroLeadsADC.html#SourceChOffset" class="mw-redirect" title="MicroLeadsADC">MicroLeadsADC</a></dd>
+<dd><a href="Contributions%253ARipplePyADC.html#SourceChOffset" title="Contributions:RipplePyADC">Contributions:RipplePyADC</a></dd>
+<dd><a href="Contributions%253ANeuSenW.html#SourceChOffset" title="Contributions:NeuSenW">Contributions:NeuSenW</a></dd>
+<dd><a href="Contributions%253ANeuroSpark.html#SourceChOffset" title="Contributions:NeuroSpark">Contributions:NeuroSpark</a></dd>
+<dd><a href="Contributions%253ANatusADC.html#SourceChOffset" title="Contributions:NatusADC">Contributions:NatusADC</a></dd>
+<dd><a href="Contributions%253AMicroLeadsADC.html#SourceChOffset" title="Contributions:MicroLeadsADC">Contributions:MicroLeadsADC</a></dd>
+<dd><a href="Contributions%253ALabJackADC.html#SourceChOffset" title="Contributions:LabJackADC">Contributions:LabJackADC</a></dd>
+<dd><a href="Contributions%253AgNautilus.html#SourceChOffset" title="Contributions:gNautilus">Contributions:gNautilus</a></dd>
+<dd><a href="Contributions%253AB-Alert.html#SourceChOffset" title="Contributions:B-Alert">Contributions:B-Alert</a></dd>
+<dd><a href="Contributions%253AactiCHamp.html#SourceChOffset" title="Contributions:actiCHamp">Contributions:actiCHamp</a></dd></dl>
+<dl><dt>SourceChOffset, SourceChGain</dt>
+<dd><a href="Contributions%253AEnobioADC.html#SourceChOffset,_SourceChGain" title="Contributions:EnobioADC">Contributions:EnobioADC</a></dd></dl>
+<dl><dt>SourceChOffset/SourceChGain</dt>
+<dd><a href="Contributions%253ADelsysTrignoAvanti.html#SourceChOffset/SourceChGain" title="Contributions:DelsysTrignoAvanti">Contributions:DelsysTrignoAvanti</a></dd>
+<dd><a href="Contributions%253ABlackrock.html#SourceChOffset/SourceChGain" title="Contributions:Blackrock">Contributions:Blackrock</a></dd></dl>
+<dl><dt>SourceChPins</dt>
+<dd><a href="Contributions%253ASerialWidgetADC.html#SourceChPins" title="Contributions:SerialWidgetADC">Contributions:SerialWidgetADC</a></dd></dl>
+<dl><dt>SourceChTimeOffset</dt>
+<dd><a href="User_Reference%253AAlignmentFilter.html#SourceChTimeOffset" title="User Reference:AlignmentFilter">User Reference:AlignmentFilter</a></dd>
+<dd><a href="Contributions%253AEnobioADC.html#SourceChTimeOffset" title="Contributions:EnobioADC">Contributions:EnobioADC</a></dd></dl>
+<dl><dt>SourceDescription</dt>
+<dd><a href="Contributions%253ABCPy2000.html#SourceDescription" title="Contributions:BCPy2000">Contributions:BCPy2000</a></dd></dl>
+<dl><dt>SpecificCh</dt>
+<dd><a href="RipplePyADC.html#SpecificCh" class="mw-redirect" title="RipplePyADC">RipplePyADC</a></dd>
+<dd><a href="Contributions%253ARipplePyADC.html#SpecificCh" title="Contributions:RipplePyADC">Contributions:RipplePyADC</a></dd></dl>
+<dl><dt>Square</dt>
+<dd><a href="Contributions%253AKeysightGenerator.html#Square" title="Contributions:KeysightGenerator">Contributions:KeysightGenerator</a></dd></dl>
+<dl><dt>SquareLength</dt>
+<dd><a href="EglyDriverTask.html#SquareLength" title="EglyDriverTask">EglyDriverTask</a></dd></dl>
+<dl><dt>StartCommand</dt>
+<dd><a href="Contributions%253ASerialInterface.html#StartCommand" title="Contributions:SerialInterface">Contributions:SerialInterface</a></dd></dl>
+<dl><dt>StartExpression</dt>
+<dd><a href="Contributions%253ACereStim.html#StartExpression" title="Contributions:CereStim">Contributions:CereStim</a></dd></dl>
+<dl><dt>StartIndex</dt>
+<dd><a href="Contributions%253AWebcamLogger.html#StartIndex" title="Contributions:WebcamLogger">Contributions:WebcamLogger</a></dd></dl>
+<dl><dt>StartPoints</dt>
+<dd><a href="GuiltTask.html#StartPoints" title="GuiltTask">GuiltTask</a></dd></dl>
+<dl><dt>StartTime</dt>
+<dd><a href="Contributions%253ACenterOutTask.html#StartTime" title="Contributions:CenterOutTask">Contributions:CenterOutTask</a></dd></dl>
+<dl><dt>StimConfig</dt>
+<dd><a href="Contributions%253Ag.EstimSwitchingUnit.html#StimConfig" title="Contributions:g.EstimSwitchingUnit">Contributions:g.EstimSwitchingUnit</a></dd></dl>
+<dl><dt>StimInterval</dt>
+<dd><a href="Contributions%253ATBSIStimulator.html#StimInterval" title="Contributions:TBSIStimulator">Contributions:TBSIStimulator</a></dd></dl>
+<dl><dt>StimPattern</dt>
+<dd><a href="Contributions%253ATBSIStimulator.html#StimPattern" title="Contributions:TBSIStimulator">Contributions:TBSIStimulator</a></dd></dl>
+<dl><dt>StimulatingGPIO</dt>
+<dd><a href="Contributions%253ACP2130Filter.html#StimulatingGPIO" title="Contributions:CP2130Filter">Contributions:CP2130Filter</a></dd></dl>
+<dl><dt>StimulationConfigurations</dt>
+<dd><a href="Contributions%253AgEstimFilter.html#StimulationConfigurations" title="Contributions:gEstimFilter">Contributions:gEstimFilter</a></dd>
+<dd><a href="Contributions%253ACereStim.html#StimulationConfigurations" title="Contributions:CereStim">Contributions:CereStim</a></dd></dl>
+<dl><dt>StimulationExpression</dt>
+<dd><a href="Contributions%253AgEstimFilter.html#StimulationExpression" title="Contributions:gEstimFilter">Contributions:gEstimFilter</a></dd>
+<dd><a href="Contributions%253ACP2130Filter.html#StimulationExpression" title="Contributions:CP2130Filter">Contributions:CP2130Filter</a></dd></dl>
+<dl><dt>StimulationTriggers</dt>
+<dd><a href="Contributions%253ACereStim.html#StimulationTriggers" title="Contributions:CereStim">Contributions:CereStim</a></dd></dl>
+<dl><dt>Stimulator</dt>
+<dd><a href="Contributions%253ABrainFlow.html#Duration_settings" title="Contributions:BrainFlow">Contributions:BrainFlow</a></dd>
+<dd><a href="Contributions%253ABrainFlow.html#Stimulator" title="Contributions:BrainFlow">Contributions:BrainFlow</a></dd></dl>
+<dl><dt>Stimuli</dt>
+<dd><a href="GuiltTask.html#Stimuli" title="GuiltTask">GuiltTask</a></dd></dl>
+<dl><dt>StimuliMatrix</dt>
+<dd><a href="Contributions%253AHyperScanningTask.html#StimuliMatrix" class="mw-redirect" title="Contributions:HyperScanningTask">Contributions:HyperScanningTask</a></dd>
+<dd><a href="Contributions%253ACommunicationTask.html#StimuliMatrix" title="Contributions:CommunicationTask">Contributions:CommunicationTask</a></dd></dl>
+<dl><dt>StimuliSequence</dt>
+<dd><a href="Contributions%253AHyperScanningTask.html#StimuliSequence" class="mw-redirect" title="Contributions:HyperScanningTask">Contributions:HyperScanningTask</a></dd>
+<dd><a href="Contributions%253ACommunicationTask.html#StimuliSequence" title="Contributions:CommunicationTask">Contributions:CommunicationTask</a></dd></dl>
+<dl><dt>StimuliSequencePractice</dt>
+<dd><a href="GuiltTask.html#StimuliSequencePractice" title="GuiltTask">GuiltTask</a></dd></dl>
+<dl><dt>StimuliWidth</dt>
+<dd><a href="Contributions%253AHyperScanningTask.html#StimuliWidth" class="mw-redirect" title="Contributions:HyperScanningTask">Contributions:HyperScanningTask</a></dd>
+<dd><a href="Contributions%253ACommunicationTask.html#StimuliWidth" title="Contributions:CommunicationTask">Contributions:CommunicationTask</a></dd></dl>
+<dl><dt>StimulusDuration</dt>
+<dd><a href="Programming_Reference%253AStimulusTask_Class.html#StimulusDuration" title="Programming Reference:StimulusTask Class">Programming Reference:StimulusTask Class</a></dd></dl>
+<dl><dt>StimulusEccentricityInDegrees</dt>
+<dd><a href="Contributions%253AANTTask.html#StimulusEccentricityInDegrees" title="Contributions:ANTTask">Contributions:ANTTask</a></dd></dl>
+<dl><dt>StopCommand</dt>
+<dd><a href="Contributions%253ASerialInterface.html#StopCommand" title="Contributions:SerialInterface">Contributions:SerialInterface</a></dd></dl>
+<dl><dt>StorageTime</dt>
+<dd><a href="User_Reference%253ABCI2000FileWriter.html#StorageTime" title="User Reference:BCI2000FileWriter">User Reference:BCI2000FileWriter</a></dd></dl>
+<dl><dt>StreamChMatrix</dt>
+<dd><a href="Contributions%253ABioPacADC.html#StreamChMatrix" title="Contributions:BioPacADC">Contributions:BioPacADC</a></dd></dl>
+<dl><dt>StreamPort</dt>
+<dd><a href="Contributions%253AAmpServerProADC.html#StreamPort" title="Contributions:AmpServerProADC">Contributions:AmpServerProADC</a></dd></dl>
+<dl><dt>SubjectName</dt>
+<dd><a href="User_Reference%253ABCI2000FileWriter.html#SubjectName" title="User Reference:BCI2000FileWriter">User Reference:BCI2000FileWriter</a></dd></dl>
+<dl><dt>SubjectRun</dt>
+<dd><a href="User_Reference%253ABCI2000FileWriter.html#SubjectRun" title="User Reference:BCI2000FileWriter">User Reference:BCI2000FileWriter</a></dd></dl>
+<dl><dt>SubjectSession</dt>
+<dd><a href="User_Reference%253ABCI2000FileWriter.html#SubjectSession" title="User Reference:BCI2000FileWriter">User Reference:BCI2000FileWriter</a></dd></dl>
+<dl><dt>SubSampleDivisor</dt>
+<dd><a href="Contributions%253AactiCHampPlus.html#SubSampleDivisor" title="Contributions:actiCHampPlus">Contributions:actiCHampPlus</a></dd></dl>
+<dl><dt>Sweep</dt>
+<dd><a href="Contributions%253AKeysightGenerator.html#Sweep" title="Contributions:KeysightGenerator">Contributions:KeysightGenerator</a></dd></dl>
+<dl><dt>Sync</dt>
+<dd><a href="Contributions%253AKeysightGenerator.html#Sync" title="Contributions:KeysightGenerator">Contributions:KeysightGenerator</a></dd></dl>
+<dl><dt>TargetChannelNeg</dt>
+<dd><a href="Contributions%253APeakDetector.html#TargetChannelNeg" title="Contributions:PeakDetector">Contributions:PeakDetector</a></dd></dl>
+<dl><dt>TargetChannelPos</dt>
+<dd><a href="Contributions%253APeakDetector.html#TargetChannelPos" title="Contributions:PeakDetector">Contributions:PeakDetector</a></dd></dl>
+<dl><dt>TargetColor</dt>
+<dd><a href="Contributions%253ACenterOutTask.html#TargetColor" title="Contributions:CenterOutTask">Contributions:CenterOutTask</a></dd></dl>
+<dl><dt>TargetDuration</dt>
+<dd><a href="EglyDriverTask.html#TargetDuration" title="EglyDriverTask">EglyDriverTask</a></dd></dl>
+<dl><dt>TargetMatrix</dt>
+<dd><a href="Contributions%253AANTTask.html#TargetMatrix" title="Contributions:ANTTask">Contributions:ANTTask</a></dd></dl>
+<dl><dt>TargetR90Matrix</dt>
+<dd><a href="Contributions%253AANTTask.html#TargetR90Matrix" title="Contributions:ANTTask">Contributions:ANTTask</a></dd></dl>
+<dl><dt>Targets</dt>
+<dd><a href="Contributions%253ACenterOutTask.html#Targets" title="Contributions:CenterOutTask">Contributions:CenterOutTask</a></dd></dl>
+<dl><dt>TargetSequence</dt>
+<dd><a href="Programming_Reference%253AFeedbackTask_Class.html#TargetSequence" title="Programming Reference:FeedbackTask Class">Programming Reference:FeedbackTask Class</a></dd></dl>
+<dl><dt>TargetTexture</dt>
+<dd><a href="Contributions%253ACenterOutTask.html#TargetTexture" title="Contributions:CenterOutTask">Contributions:CenterOutTask</a></dd></dl>
+<dl><dt>TargetWidth</dt>
+<dd><a href="EglyDriverTask.html#TargetWidth" title="EglyDriverTask">EglyDriverTask</a></dd></dl>
+<dl><dt>TargetWidth, TargetHeight</dt>
+<dd><a href="Contributions%253AANTTask.html#TargetWidth,_TargetHeight" title="Contributions:ANTTask">Contributions:ANTTask</a></dd></dl>
+<dl><dt>TDTgain</dt>
+<dd><a href="Contributions%253ATDTADC.html#TDTgain" title="Contributions:TDTADC">Contributions:TDTADC</a></dd></dl>
+<dl><dt>TestAllTargets</dt>
+<dd><a href="Contributions%253ACenterOutTask.html#TestAllTargets" title="Contributions:CenterOutTask">Contributions:CenterOutTask</a></dd></dl>
+<dl><dt>TimerValueOpen, TimerValueClose</dt>
+<dd><a href="Contributions%253AANTTask.html#TimerValueOpen,_TimerValueClose" title="Contributions:ANTTask">Contributions:ANTTask</a></dd></dl>
+<dl><dt>TMSiAutoReference</dt>
+<dd><a href="Contributions%253ATMSiADC.html#TMSiAutoReference" title="Contributions:TMSiADC">Contributions:TMSiADC</a></dd></dl>
+<dl><dt>TMSiBufferSizeInSampleBlocks</dt>
+<dd><a href="Contributions%253ATMSiADC.html#TMSiBufferSizeInSampleBlocks" title="Contributions:TMSiADC">Contributions:TMSiADC</a></dd></dl>
+<dl><dt>TMSiCheckImpedance</dt>
+<dd><a href="Contributions%253ATMSiADC.html#TMSiCheckImpedance" title="Contributions:TMSiADC">Contributions:TMSiADC</a></dd></dl>
+<dl><dt>TMSiProcessPriority</dt>
+<dd><a href="Contributions%253ATMSiADC.html#TMSiProcessPriority" title="Contributions:TMSiADC">Contributions:TMSiADC</a></dd></dl>
+<dl><dt>TMSiSleepMsec</dt>
+<dd><a href="Contributions%253ATMSiADC.html#TMSiSleepMsec" title="Contributions:TMSiADC">Contributions:TMSiADC</a></dd></dl>
+<dl><dt>ToggleUSBs</dt>
+<dd><a href="Contributions%253APegasusAstro.html#ToggleUSBs" title="Contributions:PegasusAstro">Contributions:PegasusAstro</a></dd></dl>
+<dl><dt>TotalEEGChannels</dt>
+<dd><a href="Contributions%253AactiCHampPlus.html#TotalEEGChannels" title="Contributions:actiCHampPlus">Contributions:actiCHampPlus</a></dd></dl>
+<dl><dt>TotalTrial</dt>
+<dd><a href="EglyDriverTask.html#TotalTrial" title="EglyDriverTask">EglyDriverTask</a></dd></dl>
+<dl><dt>TransmitChList</dt>
+<dd><a href="Contributions%253AEnobioADC.html#TransmitChList" title="Contributions:EnobioADC">Contributions:EnobioADC</a></dd></dl>
+<dl><dt>TrialDuration</dt>
+<dd><a href="Contributions%253AANTTask.html#TrialDuration" title="Contributions:ANTTask">Contributions:ANTTask</a></dd></dl>
+<dl><dt>TrialSequece1, TrialSequece2</dt>
+<dd><a href="GuiltTask.html#TrialSequece1,_TrialSequece2" title="GuiltTask">GuiltTask</a></dd></dl>
+<dl><dt>TrialsPerBlock</dt>
+<dd><a href="Contributions%253ABCPy2000.html#TrialsPerBlock" title="Contributions:BCPy2000">Contributions:BCPy2000</a></dd></dl>
+<dl><dt>TrialTypeSequenceID</dt>
+<dd><a href="GuiltTask.html#TrialTypeSequenceID" title="GuiltTask">GuiltTask</a></dd></dl>
+<dl><dt>Trigger</dt>
+<dd><a href="Contributions%253Ag.EstimSwitchingUnit.html#Trigger" title="Contributions:g.EstimSwitchingUnit">Contributions:g.EstimSwitchingUnit</a></dd></dl>
+<dl><dt>TriggerChList</dt>
+<dd><a href="Contributions%253AEnobioADC.html#TriggerChList" title="Contributions:EnobioADC">Contributions:EnobioADC</a></dd>
+<dd><a href="Contributions%253ABiosemi2ADC.html#TriggerChList" title="Contributions:Biosemi2ADC">Contributions:Biosemi2ADC</a></dd>
+<dd><a href="Contributions%253AactiCHamp.html#TriggerChList" title="Contributions:actiCHamp">Contributions:actiCHamp</a></dd></dl>
+<dl><dt>TriggerLatencyLength</dt>
+<dd><a href="Contributions%253ABrainFlow.html#TriggerLatencyLength" title="Contributions:BrainFlow">Contributions:BrainFlow</a></dd></dl>
+<dl><dt>UnfilteredChannels</dt>
+<dd><a href="Contributions%253ADSISerial.html#UnfilteredChannels" title="Contributions:DSISerial">Contributions:DSISerial</a></dd></dl>
+<dl><dt>UnwrapDiff</dt>
+<dd><a href="Contributions%253ADiffFilter.html#UnwrapDiff" title="Contributions:DiffFilter">Contributions:DiffFilter</a></dd></dl>
+<dl><dt>UpCounts</dt>
+<dd><a href="EglyDriverTask.html#UpCounts" title="EglyDriverTask">EglyDriverTask</a></dd></dl>
+<dl><dt>Upsampling</dt>
+<dd><a href="Contributions%253ADelsysTrignoAvanti.html#Upsampling" title="Contributions:DelsysTrignoAvanti">Contributions:DelsysTrignoAvanti</a></dd></dl>
+<dl><dt>UseMultipleConfigurations</dt>
+<dd><a href="Contributions%253AgEstimFilter.html#UseMultipleConfigurations" title="Contributions:gEstimFilter">Contributions:gEstimFilter</a></dd></dl>
+<dl><dt>UserFunction</dt>
+<dd><a href="Contributions%253AKeysightGenerator.html#UserFunction" title="Contributions:KeysightGenerator">Contributions:KeysightGenerator</a></dd></dl>
+<dl><dt>UseStateModulation</dt>
+<dd><a href="HandVibrationFilter.html#UseStateModulation" title="HandVibrationFilter">HandVibrationFilter</a></dd></dl>
+<dl><dt>UseStimulusPresentation</dt>
+<dd><a href="Contributions%253AgEstimFilter.html#UseStimulusPresentation" title="Contributions:gEstimFilter">Contributions:gEstimFilter</a></dd></dl>
+<dl><dt>ViewingDistanceInCm</dt>
+<dd><a href="Contributions%253AANTTask.html#ViewingDistanceInCm" title="Contributions:ANTTask">Contributions:ANTTask</a></dd></dl>
+<dl><dt>Views</dt>
+<dd><a href="Contributions%253AStatisticsFilter.html#Views_2" title="Contributions:StatisticsFilter">Contributions:StatisticsFilter</a></dd></dl>
+<dl><dt>VisImageBackground</dt>
+<dd><a href="Programming_Reference%253AVisualizationDemo_Signal_Processing.html#VisImageBackground" title="Programming Reference:VisualizationDemo Signal Processing">Programming Reference:VisualizationDemo Signal Processing</a></dd>
+<dd><a href="Programming_Reference%253AComplexVisualizationDemo_Signal_Processing.html#VisImageBackground" title="Programming Reference:ComplexVisualizationDemo Signal Processing">Programming Reference:ComplexVisualizationDemo Signal Processing</a></dd></dl>
+<dl><dt>VisImageDecimation</dt>
+<dd><a href="Programming_Reference%253AVisualizationDemo_Signal_Processing.html#VisImageDecimation" title="Programming Reference:VisualizationDemo Signal Processing">Programming Reference:VisualizationDemo Signal Processing</a></dd>
+<dd><a href="Programming_Reference%253AComplexVisualizationDemo_Signal_Processing.html#VisImageDecimation" title="Programming Reference:ComplexVisualizationDemo Signal Processing">Programming Reference:ComplexVisualizationDemo Signal Processing</a></dd></dl>
+<dl><dt>VisImageHeight</dt>
+<dd><a href="Programming_Reference%253AVisualizationDemo_Signal_Processing.html#VisImageHeight" title="Programming Reference:VisualizationDemo Signal Processing">Programming Reference:VisualizationDemo Signal Processing</a></dd>
+<dd><a href="Programming_Reference%253AComplexVisualizationDemo_Signal_Processing.html#VisImageHeight" title="Programming Reference:ComplexVisualizationDemo Signal Processing">Programming Reference:ComplexVisualizationDemo Signal Processing</a></dd></dl>
+<dl><dt>VisImageWidth</dt>
+<dd><a href="Programming_Reference%253AVisualizationDemo_Signal_Processing.html#VisImageWidth" title="Programming Reference:VisualizationDemo Signal Processing">Programming Reference:VisualizationDemo Signal Processing</a></dd>
+<dd><a href="Programming_Reference%253AComplexVisualizationDemo_Signal_Processing.html#VisImageWidth" title="Programming Reference:ComplexVisualizationDemo Signal Processing">Programming Reference:ComplexVisualizationDemo Signal Processing</a></dd></dl>
+<dl><dt>VisMaxWindows</dt>
+<dd><a href="Programming_Reference%253AComplexVisualizationDemo_Signal_Processing.html#VisMaxWindows" title="Programming Reference:ComplexVisualizationDemo Signal Processing">Programming Reference:ComplexVisualizationDemo Signal Processing</a></dd></dl>
+<dl><dt>VisualAngle</dt>
+<dd><a href="EglyDriverTask.html#VisualAngle" title="EglyDriverTask">EglyDriverTask</a></dd></dl>
+<dl><dt>Visualize&lt;name&gt;Window</dt>
+<dd><a href="Programming_Reference%253AApplicationWindow_Class.html#Visualize&lt;name&gt;Window" title="Programming Reference:ApplicationWindow Class">Programming Reference:ApplicationWindow Class</a></dd></dl>
+<dl><dt>VisualizeApplicationWindow</dt>
+<dd><a href="Programming_Reference%253AApplicationWindow_Class.html#VisualizeApplicationWindow" title="Programming Reference:ApplicationWindow Class">Programming Reference:ApplicationWindow Class</a></dd></dl>
+<dl><dt>VisualizeImpedances</dt>
+<dd><a href="Contributions%253ADSISerial.html#VisualizeImpedances" title="Contributions:DSISerial">Contributions:DSISerial</a></dd></dl>
+<dl><dt>VisualizePeakDetector</dt>
+<dd><a href="Contributions%253APeakDetector.html#VisualizePeakDetector" title="Contributions:PeakDetector">Contributions:PeakDetector</a></dd></dl>
+<dl><dt>VisualizeViews</dt>
+<dd><a href="Contributions%253AStatisticsFilter.html#VisualizeViews" title="Contributions:StatisticsFilter">Contributions:StatisticsFilter</a></dd></dl>
+<dl><dt>VoltageRange</dt>
+<dd><a href="Contributions%253ABioRadioADC.html#VoltageRange" title="Contributions:BioRadioADC">Contributions:BioRadioADC</a></dd></dl>
+<dl><dt>WarpFactor</dt>
+<dd><a href="Contributions%253ABCPy2000.html#WarpFactor" title="Contributions:BCPy2000">Contributions:BCPy2000</a></dd></dl>
+<dl><dt>WebcamFormat</dt>
+<dd><a href="Contributions%253AWebcamLogger.html#WebcamFormat" title="Contributions:WebcamLogger">Contributions:WebcamLogger</a></dd></dl>
+<dl><dt>WebcamURL</dt>
+<dd><a href="Contributions%253AWebcamLogger.html#WebcamURL" title="Contributions:WebcamLogger">Contributions:WebcamLogger</a></dd></dl>
+<dl><dt>WindowBackgroundColor</dt>
+<dd><a href="Programming_Reference%253AStimulusTask_Class.html#WindowBackgroundColor" title="Programming Reference:StimulusTask Class">Programming Reference:StimulusTask Class</a></dd>
+<dd><a href="Programming_Reference%253AApplicationWindow_Class.html#WindowBackgroundColor" title="Programming Reference:ApplicationWindow Class">Programming Reference:ApplicationWindow Class</a></dd></dl>
+<dl><dt>WindowDiagonalInCm</dt>
+<dd><a href="Contributions%253AANTTask.html#WindowDiagonalInCm" title="Contributions:ANTTask">Contributions:ANTTask</a></dd></dl>
+<dl><dt>WindowFullscreen</dt>
+<dd><a href="Programming_Reference%253AApplicationWindow_Class.html#WindowFullscreen" title="Programming Reference:ApplicationWindow Class">Programming Reference:ApplicationWindow Class</a></dd></dl>
+<dl><dt>WindowInfo</dt>
+<dd><a href="Programming_Reference%253AApplicationWindow_Class.html#WindowInfo" title="Programming Reference:ApplicationWindow Class">Programming Reference:ApplicationWindow Class</a></dd></dl>
+<dl><dt>WindowLeft, WindowTop</dt>
+<dd><a href="Programming_Reference%253AApplicationWindow_Class.html#WindowLeft,_WindowTop" title="Programming Reference:ApplicationWindow Class">Programming Reference:ApplicationWindow Class</a></dd>
+<dd><a href="Contributions%253ACenterOutTask.html#WindowLeft,_WindowTop" title="Contributions:CenterOutTask">Contributions:CenterOutTask</a></dd></dl>
+<dl><dt>WindowLength</dt>
+<dd><a href="User_Reference%253AARFilter.html#WindowLength" class="mw-redirect" title="User Reference:ARFilter">User Reference:ARFilter</a></dd></dl>
+<dl><dt>WindowWidth, WindowHeight</dt>
+<dd><a href="Programming_Reference%253AApplicationWindow_Class.html#WindowWidth,_WindowHeight" title="Programming Reference:ApplicationWindow Class">Programming Reference:ApplicationWindow Class</a></dd>
+<dd><a href="Contributions%253ACenterOutTask.html#WindowWidth,_WindowHeight" title="Contributions:CenterOutTask">Contributions:CenterOutTask</a></dd></dl>
+<dl><dt>Word</dt>
+<dd><a href="Contributions%253AParallelPortFilter.html#Word" title="Contributions:ParallelPortFilter">Contributions:ParallelPortFilter</a></dd></dl>
+<dl><dt>WorkspaceBoundaryColor</dt>
+<dd><a href="Contributions%253ACenterOutTask.html#WorkspaceBoundaryColor" title="Contributions:CenterOutTask">Contributions:CenterOutTask</a></dd></dl>
+<dl><dt>WorkspaceBoundaryTexture</dt>
+<dd><a href="Contributions%253ACenterOutTask.html#WorkspaceBoundaryTexture" title="Contributions:CenterOutTask">Contributions:CenterOutTask</a></dd></dl>
+<p><br />
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="User_Reference%253AStates.html" title="User Reference:States">User Reference:States</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20241129160844
+Cache expiry: 86400
+Reduced expiry: false
+Complications: []
+CPU time usage: 0.505 seconds
+Real time usage: 0.591 seconds
+Preprocessor visited node count: 771/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/100
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1597-0!canonical and timestamp 20241129160844 and revision id 11674.
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=User_Reference:Parameters&amp;oldid=11674">http://www.bci2000.org/mediawiki/index.php?title=User_Reference:Parameters&amp;oldid=11674</a>"</div>
+ </div>
+</body>
+</html>

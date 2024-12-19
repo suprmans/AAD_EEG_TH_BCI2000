@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Technical Reference:Visualization Properties - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:grey; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:black; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul><li class="toc1">System Design and Communication Protocols</li><ul><li class="toc2"><a href="Technical_Reference%253ASystem_Design.html">System Design</a></li><li class="toc2"><a href="Technical_Reference%253ACore_Modules.html">Core Modules</a></li><li class="toc2"><a href="Technical_Reference%253AStates_of_Operation.html">States of Operation</a></li></ul><li class="toc1">Transmission Protocol Specification</li><ul><li class="toc2"><a href="Technical_Reference%253ABCI2000_Messages.html">BCI2000 Messages</a></li><li class="toc2"><a href="Technical_Reference%253AParameter_Definition.html">Parameter Definition</a></li><li class="toc2"><a href="Technical_Reference%253AState_Definition.html">State Definition</a></li><li class="toc2">Visualization Properties</li></ul><li class="toc1">File Formats</li><ul><li class="toc2"><a href="Technical_Reference%253ABCI2000_File_Format.html">Data File Format</a></li><li class="toc2"><a href="Technical_Reference%253AParameter_File.html">Parameter File Format</a></li></ul><li class="toc1">External Interfaces</li><ul><li class="toc2"><a href="Technical_Reference%253AApp_Connector.html">App Connector</a></li><li class="toc2"><a href="Technical_Reference%253AOperator_Library.html">Operator Library</a></li><li class="toc2"><a href="Technical_Reference%253ABCI2000Remote_Library.html">BCI2000Remote</a></li></ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">Visualization Properties</h1>
+ <p class = "subtitle">Technical Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><p>Visualization properties are properties bound to visualization windows. 
+</p><p>They may be set using the SET VISPROPERTY or SET VISPROPERTIES <a href="User_Reference%253AOperator_Module_Scripting.html#Commands_operating_on_VisProperties" title="User Reference:Operator Module Scripting">scripting commands</a>.
+</p><p>When in doubt about the data format expected by a certain property, you may look it up in the Operator program's
+human-readable <tt>Operator.ini</tt> file in the <tt>prog</tt> directory.
+</p><p>Currently, the following visualization properties are defined:
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Technical_Reference%253AVisualization_Properties.html#Window_Properties"><span class="tocnumber">1</span> <span class="toctext">Window Properties</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="Technical_Reference%253AVisualization_Properties.html#Top,_Left,_Width,_Height_(number)"><span class="tocnumber">1.1</span> <span class="toctext">Top, Left, Width, Height (number)</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="Technical_Reference%253AVisualization_Properties.html#WindowTitle_(string)"><span class="tocnumber">1.2</span> <span class="toctext">WindowTitle (string)</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="Technical_Reference%253AVisualization_Properties.html#WindowFrame_(boolean)"><span class="tocnumber">1.3</span> <span class="toctext">WindowFrame (boolean)</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Technical_Reference%253AVisualization_Properties.html#FontSize_(number)"><span class="tocnumber">1.4</span> <span class="toctext">FontSize (number)</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Technical_Reference%253AVisualization_Properties.html#Visible_(boolean)"><span class="tocnumber">1.5</span> <span class="toctext">Visible (boolean)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="Technical_Reference%253AVisualization_Properties.html#Memo_Options"><span class="tocnumber">2</span> <span class="toctext">Memo Options</span></a>
+<ul>
+<li class="toclevel-2 tocsection-8"><a href="Technical_Reference%253AVisualization_Properties.html#NumLines_(number)"><span class="tocnumber">2.1</span> <span class="toctext">NumLines (number)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-9"><a href="Technical_Reference%253AVisualization_Properties.html#Inserting_visualizations_into_a_container_window"><span class="tocnumber">3</span> <span class="toctext">Inserting visualizations into a container window</span></a>
+<ul>
+<li class="toclevel-2 tocsection-10"><a href="Technical_Reference%253AVisualization_Properties.html#PlacementVis_(string)"><span class="tocnumber">3.1</span> <span class="toctext">PlacementVis (string)</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="Technical_Reference%253AVisualization_Properties.html#PlacementRow,_PlacementCol_(number)"><span class="tocnumber">3.2</span> <span class="toctext">PlacementRow, PlacementCol (number)</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="Technical_Reference%253AVisualization_Properties.html#PlacementHeight,_PlacementWidth_(number)"><span class="tocnumber">3.3</span> <span class="toctext">PlacementHeight, PlacementWidth (number)</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="Technical_Reference%253AVisualization_Properties.html#PlacementMargin_(number)"><span class="tocnumber">3.4</span> <span class="toctext">PlacementMargin (number)</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="Technical_Reference%253AVisualization_Properties.html#PlacementColor_(string)"><span class="tocnumber">3.5</span> <span class="toctext">PlacementColor (string)</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="Technical_Reference%253AVisualization_Properties.html#WindowFrame_(boolean)_2"><span class="tocnumber">3.6</span> <span class="toctext">WindowFrame (boolean)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-16"><a href="Technical_Reference%253AVisualization_Properties.html#Graph_Options"><span class="tocnumber">4</span> <span class="toctext">Graph Options</span></a>
+<ul>
+<li class="toclevel-2 tocsection-17"><a href="Technical_Reference%253AVisualization_Properties.html#MinValue,_MaxValue_(number)"><span class="tocnumber">4.1</span> <span class="toctext">MinValue, MaxValue (number)</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="Technical_Reference%253AVisualization_Properties.html#MinValues,_MaxValues_(list_of_numbers)"><span class="tocnumber">4.2</span> <span class="toctext">MinValues, MaxValues (list of numbers)</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="Technical_Reference%253AVisualization_Properties.html#UserScaling"><span class="tocnumber">4.3</span> <span class="toctext">UserScaling</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="Technical_Reference%253AVisualization_Properties.html#UserSampleZoom"><span class="tocnumber">4.4</span> <span class="toctext">UserSampleZoom</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="Technical_Reference%253AVisualization_Properties.html#NumSamples_(number)"><span class="tocnumber">4.5</span> <span class="toctext">NumSamples (number)</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="Technical_Reference%253AVisualization_Properties.html#ChannelGroupSize_(number)"><span class="tocnumber">4.6</span> <span class="toctext">ChannelGroupSize (number)</span></a></li>
+<li class="toclevel-2 tocsection-23"><a href="Technical_Reference%253AVisualization_Properties.html#GraphType_(number)"><span class="tocnumber">4.7</span> <span class="toctext">GraphType (number)</span></a></li>
+<li class="toclevel-2 tocsection-24"><a href="Technical_Reference%253AVisualization_Properties.html#ShowBaselines_(boolean)"><span class="tocnumber">4.8</span> <span class="toctext">ShowBaselines (boolean)</span></a></li>
+<li class="toclevel-2 tocsection-25"><a href="Technical_Reference%253AVisualization_Properties.html#ShowNumericValues_(boolean)"><span class="tocnumber">4.9</span> <span class="toctext">ShowNumericValues (boolean)</span></a></li>
+<li class="toclevel-2 tocsection-26"><a href="Technical_Reference%253AVisualization_Properties.html#ShowStatusBar_(boolean)"><span class="tocnumber">4.10</span> <span class="toctext">ShowStatusBar (boolean)</span></a></li>
+<li class="toclevel-2 tocsection-27"><a href="Technical_Reference%253AVisualization_Properties.html#ChannelColors_(list_of_hex_values)"><span class="tocnumber">4.11</span> <span class="toctext">ChannelColors (list of hex values)</span></a></li>
+<li class="toclevel-2 tocsection-28"><a href="Technical_Reference%253AVisualization_Properties.html#ChannelStyles_(string)"><span class="tocnumber">4.12</span> <span class="toctext">ChannelStyles (string)</span></a></li>
+<li class="toclevel-2 tocsection-29"><a href="Technical_Reference%253AVisualization_Properties.html#ValueColors_(list_of_{number,_string}_pairs)"><span class="tocnumber">4.13</span> <span class="toctext">ValueColors (list of {number, string} pairs)</span></a></li>
+<li class="toclevel-2 tocsection-30"><a href="Technical_Reference%253AVisualization_Properties.html#AutoScale_(boolean)"><span class="tocnumber">4.14</span> <span class="toctext">AutoScale (boolean)</span></a></li>
+<li class="toclevel-2 tocsection-31"><a href="Technical_Reference%253AVisualization_Properties.html#FixedScale_(boolean)"><span class="tocnumber">4.15</span> <span class="toctext">FixedScale (boolean)</span></a></li>
+<li class="toclevel-2 tocsection-32"><a href="Technical_Reference%253AVisualization_Properties.html#HPFilter,_LPFilter,_NotchFilter_(string)"><span class="tocnumber">4.16</span> <span class="toctext">HPFilter, LPFilter, NotchFilter (string)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-33"><a href="Technical_Reference%253AVisualization_Properties.html#Units"><span class="tocnumber">5</span> <span class="toctext">Units</span></a>
+<ul>
+<li class="toclevel-2 tocsection-34"><a href="Technical_Reference%253AVisualization_Properties.html#SampleUnit_(string)"><span class="tocnumber">5.1</span> <span class="toctext">SampleUnit (string)</span></a></li>
+<li class="toclevel-2 tocsection-35"><a href="Technical_Reference%253AVisualization_Properties.html#ChannelUnit_(string)"><span class="tocnumber">5.2</span> <span class="toctext">ChannelUnit (string)</span></a></li>
+<li class="toclevel-2 tocsection-36"><a href="Technical_Reference%253AVisualization_Properties.html#ValueUnit_(string)"><span class="tocnumber">5.3</span> <span class="toctext">ValueUnit (string)</span></a></li>
+<li class="toclevel-2 tocsection-37"><a href="Technical_Reference%253AVisualization_Properties.html#ValueUnits_(list_of_strings)"><span class="tocnumber">5.4</span> <span class="toctext">ValueUnits (list of strings)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-38"><a href="Technical_Reference%253AVisualization_Properties.html#Label_Lists"><span class="tocnumber">6</span> <span class="toctext">Label Lists</span></a>
+<ul>
+<li class="toclevel-2 tocsection-39"><a href="Technical_Reference%253AVisualization_Properties.html#ChannelLabels_(list_of_strings)"><span class="tocnumber">6.1</span> <span class="toctext">ChannelLabels (list of strings)</span></a></li>
+<li class="toclevel-2 tocsection-40"><a href="Technical_Reference%253AVisualization_Properties.html#GroupLabels_(list_of_strings)"><span class="tocnumber">6.2</span> <span class="toctext">GroupLabels (list of strings)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-41"><a href="Technical_Reference%253AVisualization_Properties.html#Marker_Lists"><span class="tocnumber">7</span> <span class="toctext">Marker Lists</span></a>
+<ul>
+<li class="toclevel-2 tocsection-42"><a href="Technical_Reference%253AVisualization_Properties.html#XAxisMarkers_(list_of_{number,string}_pairs)"><span class="tocnumber">7.1</span> <span class="toctext">XAxisMarkers (list of {number,string} pairs)</span></a></li>
+<li class="toclevel-2 tocsection-43"><a href="Technical_Reference%253AVisualization_Properties.html#YAxisMarkers_(list_of_{number,string}_pairs)"><span class="tocnumber">7.2</span> <span class="toctext">YAxisMarkers (list of {number,string} pairs)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-44"><a href="Technical_Reference%253AVisualization_Properties.html#Channel_list_and_per-Channel_Settings"><span class="tocnumber">8</span> <span class="toctext">Channel list and per-Channel Settings</span></a>
+<ul>
+<li class="toclevel-2 tocsection-45"><a href="Technical_Reference%253AVisualization_Properties.html#ShowChannelList_(boolean)"><span class="tocnumber">8.1</span> <span class="toctext">ShowChannelList (boolean)</span></a></li>
+<li class="toclevel-2 tocsection-46"><a href="Technical_Reference%253AVisualization_Properties.html#ChannelsVisible_(list_of_{string,_number}_pairs)"><span class="tocnumber">8.2</span> <span class="toctext">ChannelsVisible (list of {string, number} pairs)</span></a></li>
+<li class="toclevel-2 tocsection-47"><a href="Technical_Reference%253AVisualization_Properties.html#ValueUnitsVisible_(list_of_{string,_number}_pairs)"><span class="tocnumber">8.3</span> <span class="toctext">ValueUnitsVisible (list of {string, number} pairs)</span></a></li>
+<li class="toclevel-2 tocsection-48"><a href="Technical_Reference%253AVisualization_Properties.html#ChannelUserScaling_(list_of_{string,_number}_pairs)"><span class="tocnumber">8.4</span> <span class="toctext">ChannelUserScaling (list of {string, number} pairs)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-49"><a href="Technical_Reference%253AVisualization_Properties.html#Miscellaneous"><span class="tocnumber">9</span> <span class="toctext">Miscellaneous</span></a>
+<ul>
+<li class="toclevel-2 tocsection-50"><a href="Technical_Reference%253AVisualization_Properties.html#ShowXTicks_(boolean)"><span class="tocnumber">9.1</span> <span class="toctext">ShowXTicks (boolean)</span></a></li>
+<li class="toclevel-2 tocsection-51"><a href="Technical_Reference%253AVisualization_Properties.html#ShowYTicks_(boolean)"><span class="tocnumber">9.2</span> <span class="toctext">ShowYTicks (boolean)</span></a></li>
+<li class="toclevel-2 tocsection-52"><a href="Technical_Reference%253AVisualization_Properties.html#ShowSampleUnit_(boolean)"><span class="tocnumber">9.3</span> <span class="toctext">ShowSampleUnit (boolean)</span></a></li>
+<li class="toclevel-2 tocsection-53"><a href="Technical_Reference%253AVisualization_Properties.html#ShowChannelUnit_(boolean)"><span class="tocnumber">9.4</span> <span class="toctext">ShowChannelUnit (boolean)</span></a></li>
+<li class="toclevel-2 tocsection-54"><a href="Technical_Reference%253AVisualization_Properties.html#ShowValueUnit_(boolean)"><span class="tocnumber">9.5</span> <span class="toctext">ShowValueUnit (boolean)</span></a></li>
+<li class="toclevel-2 tocsection-55"><a href="Technical_Reference%253AVisualization_Properties.html#SampleOffset_(number)"><span class="tocnumber">9.6</span> <span class="toctext">SampleOffset (number)</span></a></li>
+<li class="toclevel-2 tocsection-56"><a href="Technical_Reference%253AVisualization_Properties.html#InvertedDisplay_(boolean)"><span class="tocnumber">9.7</span> <span class="toctext">InvertedDisplay (boolean)</span></a></li>
+<li class="toclevel-2 tocsection-57"><a href="Technical_Reference%253AVisualization_Properties.html#CustomColors_(list_of_hex_values)"><span class="tocnumber">9.8</span> <span class="toctext">CustomColors (list of hex values)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-58"><a href="Technical_Reference%253AVisualization_Properties.html#See_also"><span class="tocnumber">10</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Window_Properties">Window Properties</span></h2>
+<h3><span id="Top.2C_Left.2C_Width.2C_Height_.28number.29"></span><span class="mw-headline" id="Top,_Left,_Width,_Height_(number)">Top, Left, Width, Height (number)</span></h3>
+<p>Position and size of the visualization window on the virtual desktop.
+</p>
+<h3><span id="WindowTitle_.28string.29"></span><span class="mw-headline" id="WindowTitle_(string)">WindowTitle (string)</span></h3>
+<p>The visualization window's title.
+</p>
+<h3><span id="WindowFrame_.28boolean.29"></span><span class="mw-headline" id="WindowFrame_(boolean)">WindowFrame (boolean)</span></h3>
+<p>Whether to display the visualization window with a title bar, and a resizable window frame.
+If the window is embedded in a parent window (see <i>PlacementVis</i>), 
+this property defines whether the window title is displayed above the window's content inside the container window.
+</p>
+<h3><span id="FontSize_.28number.29"></span><span class="mw-headline" id="FontSize_(number)">FontSize (number)</span></h3>
+<p>The font size used within the visualization window.
+</p>
+<h3><span id="Visible_.28boolean.29"></span><span class="mw-headline" id="Visible_(boolean)">Visible (boolean)</span></h3>
+<p>Whether the window is visible or not.
+</p>
+<h2><span class="mw-headline" id="Memo_Options">Memo Options</span></h2>
+<h3><span id="NumLines_.28number.29"></span><span class="mw-headline" id="NumLines_(number)">NumLines (number)</span></h3>
+<p>The number of lines in a visualization window of type "memo".
+</p>
+<h2><span class="mw-headline" id="Inserting_visualizations_into_a_container_window">Inserting visualizations into a container window</span></h2>
+<h3><span id="PlacementVis_.28string.29"></span><span class="mw-headline" id="PlacementVis_(string)">PlacementVis (string)</span></h3>
+<p>Put visualization into a container window with given visualization ID of the desired container window.
+This is a property of the visualization to be placed.
+</p><p>To display a visualization again as an independent window after it has been placed into a container, send <i>PlacementVis</i> with an empty string.
+</p>
+<h3><span id="PlacementRow.2C_PlacementCol_.28number.29"></span><span class="mw-headline" id="PlacementRow,_PlacementCol_(number)">PlacementRow, PlacementCol (number)</span></h3>
+<p>1-based indices of row and column within the container window.
+</p>
+<h3><span id="PlacementHeight.2C_PlacementWidth_.28number.29"></span><span class="mw-headline" id="PlacementHeight,_PlacementWidth_(number)">PlacementHeight, PlacementWidth (number)</span></h3>
+<p>Number of rows/columns to extend within the container window.
+</p>
+<h3><span id="PlacementMargin_.28number.29"></span><span class="mw-headline" id="PlacementMargin_(number)">PlacementMargin (number)</span></h3>
+<p>In the container window, the margin between matrix entries.
+<b>NOTE:</b> This is a property of the container window, not the visualization to be placed.
+</p>
+<h3><span id="PlacementColor_.28string.29"></span><span class="mw-headline" id="PlacementColor_(string)">PlacementColor (string)</span></h3>
+<p>Color of the visible margin between matrix entries in the container window, in the form <code>0xRRGGBB</code>.
+<b>NOTE:</b> This is a property of the container window, not the visualization to be placed.
+</p>
+<h3><span id="WindowFrame_.28boolean.29_2"></span><span class="mw-headline" id="WindowFrame_(boolean)_2">WindowFrame (boolean)</span></h3>
+<p>For a visualization placed into a container window, this property determines whether the subwindow's title is displayed above its contents.
+</p>
+<h2><span class="mw-headline" id="Graph_Options">Graph Options</span></h2>
+<h3><span id="MinValue.2C_MaxValue_.28number.29"></span><span class="mw-headline" id="MinValue,_MaxValue_(number)">MinValue, MaxValue (number)</span></h3>
+<p>The minimum and maximum expected signal value in raw units (microvolts for signal windows). This value is used to determine the signal's default scaling.
+</p>
+<h3><span id="MinValues.2C_MaxValues_.28list_of_numbers.29"></span><span class="mw-headline" id="MinValues,_MaxValues_(list_of_numbers)">MinValues, MaxValues (list of numbers)</span></h3>
+<p>May be used to specify <i>MinValue</i> and <i>MaxValue</i> settings individually for channels. The list is separated by white space, and enclosed in curly braces.
+</p>
+<h3><span class="mw-headline" id="UserScaling">UserScaling</span></h3>
+<p>The binary logarithm of a scaling factor that is applied <i>after</i> min and max values. E.g., specify 1 to double the size of the displayed signal, and -1 to halve it. Defaults to 0.
+</p><p>The <i>UserScaling</i> value corresponds to the number of times the "Enlarge signal" menu entry is selected from the visualization's context menu. Reducing it by 1 corresponds to selecting the "Reduce signal" menu entry once.
+</p><p>If the <i>ChannelUserScaling</i> setting is used, <i>UserScaling</i> and <i>ChannelUserScaling</i> values will add up, e.g. if both are set to 1, final signal size will be 4 times as large as if both are set to 0.
+</p>
+<h3><span class="mw-headline" id="UserSampleZoom">UserSampleZoom</span></h3>
+<p>The binary logarithm of a scaling factor that is applied <i>after</i> the NumSamples property. E.g., specify 1 to halve the number of displayed samples, and -1 to double it. Defaults to 0.
+</p><p>The <i>UserSampleZoom</i> value corresponds to the number of times the "Fewer Samples" menu entry is selected from the visualization's context menu. Reducing it by 1 corresponds to selecting the "More Samples" menu entry once.
+</p>
+<h3><span id="NumSamples_.28number.29"></span><span class="mw-headline" id="NumSamples_(number)">NumSamples (number)</span></h3>
+<p>The number of samples displayed in the visualization window.
+</p>
+<h3><span id="ChannelGroupSize_.28number.29"></span><span class="mw-headline" id="ChannelGroupSize_(number)">ChannelGroupSize (number)</span></h3>
+<p>The number of subsequent channels that share a common signal baseline.
+</p>
+<h3><span id="GraphType_.28number.29"></span><span class="mw-headline" id="GraphType_(number)">GraphType (number)</span></h3>
+<p><i>Polyline</i> (9) or <i>Field2d</i> (12). <i>Polyline</i> stands for the standard multi-channel signal view, while <i>Field2d</i> defines a two-dimensional field with color-encoded values.
+</p>
+<h3><span id="ShowBaselines_.28boolean.29"></span><span class="mw-headline" id="ShowBaselines_(boolean)">ShowBaselines (boolean)</span></h3>
+<p>For a <i>Polyline</i> display, switches baselines on or off.
+</p>
+<h3><span id="ShowNumericValues_.28boolean.29"></span><span class="mw-headline" id="ShowNumericValues_(boolean)">ShowNumericValues (boolean)</span></h3>
+<p>Whether to display the current value as a number in front of the graphic representation.
+</p>
+<h3><span id="ShowStatusBar_.28boolean.29"></span><span class="mw-headline" id="ShowStatusBar_(boolean)">ShowStatusBar (boolean)</span></h3>
+<p>For a <i>Polyline</i> graph, whether to show a status bar at the bottom of the window. The status bar displays information about filtering (high pass, low pass, and notch filters).
+</p>
+<h3><span id="ChannelColors_.28list_of_hex_values.29"></span><span class="mw-headline" id="ChannelColors_(list_of_hex_values)">ChannelColors (list of hex values)</span></h3>
+<p>For a <i>Polyline</i> display, defines the list of colors to be used for drawing signals. The list is enclosed in curly braces as in <code>{ 0xff0000, 0x00ff00, 0x0000ff }</code>.
+</p>
+<h3><span id="ChannelStyles_.28string.29"></span><span class="mw-headline" id="ChannelStyles_(string)">ChannelStyles (string)</span></h3>
+<p>For a <i>Polyline</i> display, a string containing characters to plot at sample points, '-' for line, '°' for empty dot, '*' for asterisk, etc. If the string contains fewer characters than there are channels to display, '-' is assumed for the remaining channels.
+</p>
+<h3><span id="ValueColors_.28list_of_.7Bnumber.2C_string.7D_pairs.29"></span><span class="mw-headline" id="ValueColors_(list_of_{number,_string}_pairs)">ValueColors (list of {number, string} pairs)</span></h3>
+<p>For a <i>Field2d</i> display, defines the colors used to plot signal values. The string has the form <code>{ [ &lt;val1&gt; 0xRRGGBB ] [ &lt;val2&gt; 0xRRGGBB ] ... }</code> with rgb values ranging from 00 to FF.
+</p>
+<h3><span id="AutoScale_.28boolean.29"></span><span class="mw-headline" id="AutoScale_(boolean)">AutoScale (boolean)</span></h3>
+<p>Select/deselect auto scale option.
+</p>
+<h3><span id="FixedScale_.28boolean.29"></span><span class="mw-headline" id="FixedScale_(boolean)">FixedScale (boolean)</span></h3>
+<p>If true, user cannot adjust value scaling.
+</p>
+<h3><span id="HPFilter.2C_LPFilter.2C_NotchFilter_.28string.29"></span><span class="mw-headline" id="HPFilter,_LPFilter,_NotchFilter_(string)">HPFilter, LPFilter, NotchFilter (string)</span></h3>
+<p>Apply a high pass, low pass, or notch filter to the displayed signal. This does not affect signal processing within the pipeline.
+To disable a filter, specify "off", to set the filter corner to a certain value, specify the the frequency with unit, e.g. "30Hz".
+</p>
+<h2><span class="mw-headline" id="Units">Units</span></h2>
+<h3><span id="SampleUnit_.28string.29"></span><span class="mw-headline" id="SampleUnit_(string)">SampleUnit (string)</span></h3>
+<p>The difference between two subsequent sample positions, given as a number followed by a unit, such as <code>1.4ms</code>. This is used to display units on the x axis of the visualization window.
+</p>
+<h3><span id="ChannelUnit_.28string.29"></span><span class="mw-headline" id="ChannelUnit_(string)">ChannelUnit (string)</span></h3>
+<p>If the channel dimension is a continuous variable, then this property gives the difference between two subsequent channels, as a number followed by unit, such as <code>2Hz</code>. This is used to display units on the y axis of the visualization window, and currently only used with <i>Field2d</i> type graphs.
+</p>
+<h3><span id="ValueUnit_.28string.29"></span><span class="mw-headline" id="ValueUnit_(string)">ValueUnit (string)</span></h3>
+<p>The value of one unit for the values displayed in a visualization window, such as <code>2muV</code>. This property is used to display value units in <i>Polyline</i> type graphs.
+</p>
+<h3><span id="ValueUnits_.28list_of_strings.29"></span><span class="mw-headline" id="ValueUnits_(list_of_strings)">ValueUnits (list of strings)</span></h3>
+<p>This property may be used to set different value units for channels. The list is of the form <code>{ 1muV 2mA 10mV }</code>.
+</p>
+<h2><span class="mw-headline" id="Label_Lists">Label Lists</span></h2>
+<h3><span id="ChannelLabels_.28list_of_strings.29"></span><span class="mw-headline" id="ChannelLabels_(list_of_strings)">ChannelLabels (list of strings)</span></h3>
+<p>A list of strings specifying channel labels. Channel labels are displayed to the left of channel traces in <i>Polyline</i> graphs.
+</p>
+<h3><span id="GroupLabels_.28list_of_strings.29"></span><span class="mw-headline" id="GroupLabels_(list_of_strings)">GroupLabels (list of strings)</span></h3>
+<p>A list of strings specifying a label for each channel group. Channel groups consist of a number of channels displayed on a single baseline.
+</p>
+<h2><span class="mw-headline" id="Marker_Lists">Marker Lists</span></h2>
+<h3><span id="XAxisMarkers_.28list_of_.7Bnumber.2Cstring.7D_pairs.29"></span><span class="mw-headline" id="XAxisMarkers_(list_of_{number,string}_pairs)">XAxisMarkers (list of {number,string} pairs)</span></h3>
+<p>A list of {position, label} pairs that define markers on the X axis.
+</p><p>The number specifies the marker's location in raw units; use the
+associated signal's <i>ElementUnit</i> property in order to convert from physical units to raw units.
+</p><p>The string may specify up to 4 marker properties, separated by a pipe character (|):
+</p>
+<ul><li>A textual label displayed at the marker's position below its axis,</li>
+<li>a color name, or an RGB value in hexadecimal format, preceded with a hash character (#),</li>
+<li>a line style specification in ASCII format, consisting of dot and minus characters,</li>
+<li>a line width factor relative to the marker's tick width at the axis.</li></ul>
+<p>The following table lists some examples of valid marker definition strings:
+</p>
+<table class="wikitable" style="margin:auto">
+
+<tbody><tr>
+<td><pre>""</pre></td>
+<td>A white marker which will consist of a mark at the marker's axis.
+</td></tr>
+<tr>
+<td><pre>"Caption"</pre></td>
+<td>A white marker which will consist of a mark at the marker's axis, and a caption.
+</td></tr>
+<tr>
+<td><pre>"|green"</pre></td>
+<td>A green marker which will consist of a mark at the marker's axis.
+</td></tr>
+<tr>
+<td><pre>"|#00ff00"</pre></td>
+<td>A green marker which will consist of a mark at the marker's axis.
+</td></tr>
+<tr>
+<td><pre>"|red|-"</pre></td>
+<td>A red marker which will consist of a mark at the marker's axis, and a vertical red line.
+</td></tr>
+<tr>
+<td><pre>"Caption|yellow|-.|0.5"</pre></td>
+<td>A yellow marker which will consist of a mark at the marker's axis, a caption, and a vertical dash-dotted yellow line which is 0.5 units wide.
+</td></tr></tbody></table>
+<h3><span id="YAxisMarkers_.28list_of_.7Bnumber.2Cstring.7D_pairs.29"></span><span class="mw-headline" id="YAxisMarkers_(list_of_{number,string}_pairs)">YAxisMarkers (list of {number,string} pairs)</span></h3>
+<p>A list of {position, label} pairs that define markers on the Y axis.
+</p><p>The number specifies the marker's location in raw units; use the
+associated signal's <i>ValueUnit</i> property in order to convert from physical units to raw units.
+</p><p>As for <i>XAxisMarkers</i>, the label string may be used to specify an extended format for a marker (see above).
+</p>
+<h2><span class="mw-headline" id="Channel_list_and_per-Channel_Settings">Channel list and per-Channel Settings</span></h2>
+<h3><span id="ShowChannelList_.28boolean.29"></span><span class="mw-headline" id="ShowChannelList_(boolean)">ShowChannelList (boolean)</span></h3>
+<p>Shows/hides a graph visualization's channel list. The channel list may be used to apply user settings for individual channels.
+</p>
+<h3><span id="ChannelsVisible_.28list_of_.7Bstring.2C_number.7D_pairs.29"></span><span class="mw-headline" id="ChannelsVisible_(list_of_{string,_number}_pairs)">ChannelsVisible (list of {string, number} pairs)</span></h3>
+<p>A list of {channel name, visible} pairs that define which channels are visible. The "visible" property is given as a number, with 0 for invisible, and 1 for visible.
+</p><p>Example: <code>SET VISPROPERTY SRCD%3A.ChannelsVisible {Ch1 0 Ch2 1 Ch3 0}</code>
+</p>
+<h3><span id="ValueUnitsVisible_.28list_of_.7Bstring.2C_number.7D_pairs.29"></span><span class="mw-headline" id="ValueUnitsVisible_(list_of_{string,_number}_pairs)">ValueUnitsVisible (list of {string, number} pairs)</span></h3>
+<p>A list of {channel name, visible} pairs that define which channels have visible value units. The "visible" property is given as a number, with 0 for invisible, and 1 for visible.
+</p>
+<h3><span id="ChannelUserScaling_.28list_of_.7Bstring.2C_number.7D_pairs.29"></span><span class="mw-headline" id="ChannelUserScaling_(list_of_{string,_number}_pairs)">ChannelUserScaling (list of {string, number} pairs)</span></h3>
+<p>A list of {channel name, scaling} pairs that define a channel's scaling as it may be adjusted by the user through the channel list's context menu. Scaling ranges from -4 to 4 and multiplies by a factor of 2 at each step, i.e. a scaling of 2 corresponds to a scaling factor of 4, and 0 corresponds to the default.
+</p><p>Each step in a <i>ChannelUserScaling</i> value corresponds to selecting the "Enlarge signal" or "Reduce signal" menu item from the channel's context menu once.
+</p><p><i>ChannelUserScaling</i> and <i>UserScaling</i> values are additive, i.e. if both are set to 1, the final resize factor will be 4.
+</p>
+<h2><span class="mw-headline" id="Miscellaneous">Miscellaneous</span></h2>
+<h3><span id="ShowXTicks_.28boolean.29"></span><span class="mw-headline" id="ShowXTicks_(boolean)">ShowXTicks (boolean)</span></h3>
+<p>Whether to display ticks on the x axis, and associated labels.
+</p>
+<h3><span id="ShowYTicks_.28boolean.29"></span><span class="mw-headline" id="ShowYTicks_(boolean)">ShowYTicks (boolean)</span></h3>
+<p>Whether to display ticks on the y axis, and associated labels.
+</p>
+<h3><span id="ShowSampleUnit_.28boolean.29"></span><span class="mw-headline" id="ShowSampleUnit_(boolean)">ShowSampleUnit (boolean)</span></h3>
+<p>Switches sample unit display on or off for graphs.
+</p>
+<h3><span id="ShowChannelUnit_.28boolean.29"></span><span class="mw-headline" id="ShowChannelUnit_(boolean)">ShowChannelUnit (boolean)</span></h3>
+<p>Switches channel unit display on or off for <i>Field2d</i> graphs.
+</p>
+<h3><span id="ShowValueUnit_.28boolean.29"></span><span class="mw-headline" id="ShowValueUnit_(boolean)">ShowValueUnit (boolean)</span></h3>
+<p>Switches value unit display on or off for <i>Polyline</i> graphs. If <i>MinValue</i> coincides with the baseline, the unit display is a labelled mark relative to the baseline, with the label describing the the distance to the baseline. If not, the unit display consists of a top an a bottom line, with a label in between that describes the distance between the two lines.
+</p>
+<h3><span id="SampleOffset_.28number.29"></span><span class="mw-headline" id="SampleOffset_(number)">SampleOffset (number)</span></h3>
+<p>An offset, in raw units (i.e., samples), which to add to the displayed values on the X axis.
+</p>
+<h3><span id="InvertedDisplay_.28boolean.29"></span><span class="mw-headline" id="InvertedDisplay_(boolean)">InvertedDisplay (boolean)</span></h3>
+<p>Switches between white-on-black and black-on-white display for <i>Polyline</i> graphs.
+</p>
+<h3><span id="CustomColors_.28list_of_hex_values.29"></span><span class="mw-headline" id="CustomColors_(list_of_hex_values)">CustomColors (list of hex values)</span></h3>
+<p>The so-called "custom colors" (predefined or user-selected) colors in the 
+color selector dialog that appears when selecting a channel's color.
+The list is enclosed in curly braces as in <code>{ 0xff0000, 0x00ff00, 0x0000ff }</code>.
+Note that this setting has no effect on the display of channels, it merely exists to allow the user to have easy access to preferred colors in the color selector dialog.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="User_Reference%253AOperator_Module_Scripting.html" title="User Reference:Operator Module Scripting">User Reference:Operator Module Scripting</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20241129160728
+Cache expiry: 86400
+Reduced expiry: false
+Complications: [show‐toc]
+CPU time usage: 0.041 seconds
+Real time usage: 0.043 seconds
+Preprocessor visited node count: 205/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/100
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 126/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1996-0!canonical and timestamp 20241129160728 and revision id 11321.
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Technical_Reference:Visualization_Properties&amp;oldid=11321">http://www.bci2000.org/mediawiki/index.php?title=Technical_Reference:Visualization_Properties&amp;oldid=11321</a>"</div>
+ </div>
+</body>
+</html>

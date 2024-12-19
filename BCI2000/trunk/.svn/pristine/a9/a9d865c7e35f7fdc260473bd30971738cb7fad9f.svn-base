@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>User Tutorial:BCI2000Unity OUTDATED - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:grey; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:black; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul><li class="toc1"><a href="User_Tutorial%253ABCI2000_Tour.html">Tour</a></li><li class="toc1"><a href="User_Tutorial%253AMu_Rhythm_BCI_Tutorial.html">Mu Tutorial</a></li><li class="toc1"><a href="User_Tutorial%253AP300_BCI_Tutorial.html">P300 Tutorial</a></li></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">BCI2000Unity OUTDATED</h1>
+ <p class = "subtitle">User Tutorial</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="User_Tutorial%253ABCI2000Unity_OUTDATED.html#Synopsis"><span class="tocnumber">1</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="User_Tutorial%253ABCI2000Unity_OUTDATED.html#Video"><span class="tocnumber">2</span> <span class="toctext">Video</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="User_Tutorial%253ABCI2000Unity_OUTDATED.html#Tutorial"><span class="tocnumber">3</span> <span class="toctext">Tutorial</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="User_Tutorial%253ABCI2000Unity_OUTDATED.html#Connect_to_an_Instance_of_BCI2000"><span class="tocnumber">3.1</span> <span class="toctext">Connect to an Instance of BCI2000</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="User_Tutorial%253ABCI2000Unity_OUTDATED.html#Save_Unity_Events_in_BCI2000"><span class="tocnumber">3.2</span> <span class="toctext">Save Unity Events in BCI2000</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="User_Tutorial%253ABCI2000Unity_OUTDATED.html#Access_BCI2000_Events_for_Control"><span class="tocnumber">3.3</span> <span class="toctext">Access BCI2000 Events for Control</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="User_Tutorial%253ABCI2000Unity_OUTDATED.html#Compile"><span class="tocnumber">3.4</span> <span class="toctext">Compile</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="User_Tutorial%253ABCI2000Unity_OUTDATED.html#Using_BCI2000_Control_Signal"><span class="tocnumber">4</span> <span class="toctext">Using BCI2000 Control Signal</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="User_Tutorial%253ABCI2000Unity_OUTDATED.html#See_also"><span class="tocnumber">5</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>Unity is a cross-platform game engine with support for desktop, mobile, console, and virtual reality platforms. It is both easy for beginners to use and is popular for low-cost game development. This is a Unity package which integrates BCI2000. This tutorial assumes that you have already compiled BCI2000. 
+</p>
+<h2><span class="mw-headline" id="Video">Video</span></h2>
+<p>This video is currently out of date. An updated video is coming soon!
+</p>
+<div class="thumb embedvideo  ev_center autoResize" style="width: 648px;"><div class="embedvideo autoResize" style=" width: 646px;"><div class="embedvideowrap" style="width: 640px;"><iframe title="Play video" src="https://www.youtube.com/embed/nZG70HSR8v8?" width="640" height="360" frameborder="0" allowfullscreen="true"></iframe></div></div></div>
+<h2><span class="mw-headline" id="Tutorial">Tutorial</span></h2>
+<p>For information on how to use Unity itself, see the Unity <a rel="nofollow" class="external text" href="https://docs.unity3d.com/Manual/index.html">manual</a>. This tutorial assumes knowledge of how to use Unity. It is recommended to know how GameObjects and Components work.
+More in-depth detail on how UnityBCI2000 works is provided in the README.md file, and on this <a rel="nofollow" class="external text" href="https://bci2000.org/BCI2000Unity/classUnityBCI2000.html">page</a>.
+</p><p><br />
+</p><p>This tutorial will walk through an example cursor control task, making use of the mouse position recorded from BCI2000 to control the cursor position in Unity. First, download UnityBCI2000 from this <a rel="nofollow" class="external text" href="https://github.com/neurotechcenter/UnityBCI2000">GitHub</a> page and download the MWE_UnityBCI2000CursorDemo tutorial project from this <a rel="nofollow" class="external text" href="https://github.com/neurotechcenter/ExperimentalDesignDemos">GitHub</a> page. Copy the UnityBCI2000.cs and BCI2000RemoteNET.dll files into the Assets folder of your Unity project.
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:UnityMoveAssets.png" class="image" title="Unity Move Assets"><img alt="&quot;Unity Move Assets&quot;" src="../images/4/49/UnityMoveAssets.png" decoding="async" width="500" height="381" /></a>
+</p>
+<h3><span class="mw-headline" id="Connect_to_an_Instance_of_BCI2000">Connect to an Instance of BCI2000</span></h3>
+<p>To connect to an instance of BCI2000 in Unity, you will need to create an empty GameObject and add the script UnityBCI2000 as a Component. This will serve as the central connection to the BCI2000 Operator. As of now, it is not possible to use multiple scenes with one BCI2000 connection.
+</p><p>1. Create a BCI2000 GameObject.
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:UnityBCI2000GameObject.png" class="image" title="Unity BCI2000 Game Object"><img alt="&quot;Unity BCI2000 Game Object&quot;" src="../images/2/2a/UnityBCI2000GameObject.png" decoding="async" width="600" height="396" /></a>
+</p><p>2. Add UnityBCI2000.cs to the GameObject as a Script Component. 
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:UnityBCI2000ScriptComponent.png" class="image" title="Unity BCI2000 Script Component"><img alt="&quot;Unity BCI2000 Script Component&quot;" src="../images/3/3f/UnityBCI2000ScriptComponent.png" decoding="async" width="600" height="393" /></a>
+</p><p>3. Use the Operator Path field to specify the path to the BCI2000 Operator.exe (usually in the C:/bci2000/prog/ directory). If you already have an instance of the operator running, use the Telnet IP and Telnet Port fields to specify the IP and port it is listening on instead.
+</p><p>4. Specify the names of the modules to start up alongside it. Extensions can be added by expanding the Module Args field and adding an element with the appropriate extension flag. For the example that will follow, we will log the mouse extension with 
+</p><p><tt>
+--LogMouse=1
+</tt>
+</p><p>5. Specify the name of the log file to store the BCI2000 system log. <b>NOTE: There is a known issue with writing to the log file; this is remedied by changing the name of the file to which to write. This is an issue with BCI2000RemoteNET and will be fixed in upcoming updates.</b>
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:UnityBCI2000Modules.png" class="image" title="Unity BCI2000 Modules"><img alt="&quot;Unity BCI2000 Modules&quot;" src="../images/c/c6/UnityBCI2000Modules.png" decoding="async" width="400" height="757" /></a>
+</p>
+<h3><span class="mw-headline" id="Save_Unity_Events_in_BCI2000">Save Unity Events in BCI2000</span></h3>
+<p>Next, we will modify a script to create new BCI2000 events and send event change information to BCI2000.
+</p><p>1. Open the TargetControl script (or any script from which you would like to send information to BCI2000).
+</p><p>2. In the class definition, instantiate BCI2000 with 
+</p><p><tt>
+UnityBCI2000 bci;
+</tt>
+</p><p>3. In the Awake() function, set the BCI2000 reference with 
+</p><p><tt>
+bci = GameObject.Find("BCI2000").GetComponent&lt;UnityBCI2000&gt;();
+</tt>
+</p><p>4. In the Awake() function, create new BCI2000 events with the bci.AddEvent() function. The second input specifies the number of bits assigned to the new event.
+</p><p><tt>
+bci.AddEvent("t1hit", 32);
+</tt>
+</p><p>5. It can be helpful to add watches for the events you have created so you can see their behavior in real time during the experiment. In the Awake() function, use the generic bci.ExecuteCommand() function (this function can be used to execute any BCI2000 operator scripting commands)
+</p><p><tt>
+bci.ExecuteCommand("visualize watch t1hit");
+</tt>
+</p><p>6. It can be useful to reduce the verbosity of event logging, as event logs are written to the log file with every frame
+</p><p><tt>
+bci.ExecuteCommand("Set variable LogLevel 0");
+</tt>
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:UnityTargetControlScript.png" class="image" title="Unity Target Control Script"><img alt="&quot;Unity Target Control Script&quot;" src="../images/c/ca/UnityTargetControlScript.png" decoding="async" width="500" height="637" /></a>
+</p><p>7. Update the event value according to some change in the experiment using the bci.SetEvent() function in the Update() function. For example, change a target hit event "t1hit" to 1 every time a target is hit by a cursor. Note that events must be set as unsigned integers.
+</p><p><tt>
+bci.SetEvent("t1hit",(int)(1));
+</tt>
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:UnitySetEvent.png" class="image" title="Unity Set Event"><img alt="&quot;Unity Set Event&quot;" src="../images/2/21/UnitySetEvent.png" decoding="async" width="400" height="628" /></a>
+</p>
+<h3><span class="mw-headline" id="Access_BCI2000_Events_for_Control">Access BCI2000 Events for Control</span></h3>
+<p>We can also get event information from BCI2000 for Unity use. For example, you may want to control the Unity cursor position with a BCI2000 event, such as the mouse position. This example makes use of a BallMouseControl.cs script.
+</p><p>First you will need to instantiate BCI2000 and set the BCI2000 reference as in the TargetControl.cs script
+</p><p>1. Open the BallMouseControl.cs script.
+</p><p>2. In the class definition, instantiate BCI2000 with 
+</p><p><tt>
+UnityBCI2000 bci;
+</tt>
+</p><p>3. In the Awake() function, set the BCI2000 reference with 
+</p><p><tt>
+bci = GameObject.Find("BCI2000").GetComponent&lt;UnityBCI2000&gt;();
+</tt>
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:UnityBallMouseControlScript.png" class="image" title="Unity Ball Mouse Control Script"><img alt="&quot;Unity Ball Mouse Control Script&quot;" src="../images/5/53/UnityBallMouseControlScript.png" decoding="async" width="400" height="482" /></a>
+</p><p>4. Get the value of the BCI2000 event using the bci.GetEvent() function and store the result in some variable
+</p><p><tt>
+Mpx = bci.GetEvent("MousePosX");
+Mpy = bci.GetEvent("MousePosY");
+</tt>
+</p><p>This value can then be used in Unity to influence the game activity.
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:UnityGetEvent.png" class="image" title="Unity Get Event"><img alt="&quot;Unity Get Event&quot;" src="../images/b/ba/UnityGetEvent.png" decoding="async" width="400" height="484" /></a>
+</p>
+<h3><span class="mw-headline" id="Compile">Compile</span></h3>
+<p>Compile the project by navigating to file &gt; Build and Run. This should launch the experiment and start up BCI2000!
+</p>
+<h2><span class="mw-headline" id="Using_BCI2000_Control_Signal">Using BCI2000 Control Signal</span></h2>
+<p>The above example makes use of the BCI2000 Mouse Position events to control the Unity cursor position. However, the BCI2000 control signal can also be used in Unity. This is particularly useful for online experiments (for example, a neurofeedback task to move a cursor on the screen based on the decoded alpha power). In the demo script, navigate to the CursorTaskSignal Scene to see how the BCI2000 control signal can be utilized in Unity. Note that this only seems to work when the scene has been compiled!
+</p><p>Access the control signal using the function
+</p><p><tt>
+bci.GetSignal("ChannelNumber",1);
+</tt>
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:UnityGetSignal.png" class="image" title="Unity Get Signal"><img alt="&quot;Unity Get Signal&quot;" src="../images/1/13/UnityGetSignal.png" decoding="async" width="500" height="629" /></a>
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<!-- 
+NewPP limit report
+Cached time: 20241129160911
+Cache expiry: 86400
+Reduced expiry: false
+Complications: [show‐toc]
+CPU time usage: 0.029 seconds
+Real time usage: 0.032 seconds
+Preprocessor visited node count: 40/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/100
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 343/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2369-0!canonical and timestamp 20241129160911 and revision id 11369.
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=User_Tutorial:BCI2000Unity_OUTDATED&amp;oldid=11369">http://www.bci2000.org/mediawiki/index.php?title=User_Tutorial:BCI2000Unity_OUTDATED&amp;oldid=11369</a>"</div>
+ </div>
+</body>
+</html>
