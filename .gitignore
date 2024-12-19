@@ -1,5 +1,7 @@
 **/.DS_Store
 
+BCI2000/trunk/.*
+
 BCI2000/trunk/batch/
 BCI2000/trunk/build/
 BCI2000/trunk/data/
